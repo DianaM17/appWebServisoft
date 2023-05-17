@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class Registrar
+    public partial class Principal
     {
     }
 }
