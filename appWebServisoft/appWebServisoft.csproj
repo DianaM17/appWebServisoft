@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\Categoria.aspx" />
+    <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal.css" />
@@ -74,6 +76,42 @@
     <Content Include="Vista\Imagenes\aviso1-1.png" />
     <Content Include="Vista\Imagenes\AVISO2-1.png" />
     <Content Include="Vista\Imagenes\aviso3.png" />
+    <Content Include="Vista\Imagenes\Categoria\Abogado.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Admin.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Agronomo.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Arquitecto.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Autos.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Belleza.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Bienestar.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Carpintero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Cerrajero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Constructor.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\ControlPlagas.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Cuidado.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Decorador.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Economista.png" />
+    <Content Include="Vista\Imagenes\Categoria\Electricista.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Eventos.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Fotografo.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Gas.png" />
+    <Content Include="Vista\Imagenes\Categoria\Herrero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Informatica.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Ingeniero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Instalacion.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Jardinero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Limpieza.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Mascotas.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Mudanza.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Musico.png" />
+    <Content Include="Vista\Imagenes\Categoria\Periodista.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Pintor.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Piscina.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Plomero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Salud.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Secretaria.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Seguridad.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Tapicero.jpg" />
+    <Content Include="Vista\Imagenes\Categoria\Tecnico.jpg" />
     <Content Include="Vista\Imagenes\foto1.jpg" />
     <Content Include="Vista\Imagenes\foto2.jpg" />
     <Content Include="Vista\Imagenes\foto3.jpg" />
@@ -90,10 +128,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\ClCategoriaD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
+    <Compile Include="Entidades\ClCategoriaE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
+    <Compile Include="Logica\ClCategoriaL.cs" />
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClProfesionalL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -103,6 +144,13 @@
     </Compile>
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Categoria.aspx.cs">
+      <DependentUpon>Categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Categoria.aspx.designer.cs">
+      <DependentUpon>Categoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
