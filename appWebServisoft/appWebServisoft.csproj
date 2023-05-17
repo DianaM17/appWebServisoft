@@ -82,6 +82,7 @@
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\profesional.png" />
+    <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Principal.aspx" />
