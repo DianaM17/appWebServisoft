@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal.css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
@@ -81,6 +82,7 @@
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\profesional.png" />
+    <Content Include="Vista\Js\JavaScript_Registrar.js" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\Registrar.aspx" />
@@ -133,9 +135,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vista\Js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

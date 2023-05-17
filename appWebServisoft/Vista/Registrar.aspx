@@ -9,9 +9,7 @@
     <link href="Css/Estilos_Registro.css" rel="stylesheet" />
 </head>
 <body>
-
     <main>
-
         <div class="contenedor__todo">
             <div class="caja__trasera">
                 <div class="caja__trasera-login">
@@ -97,5 +95,6 @@
         </div>
 
     </main>
+    <script src="Js/JavaScript_Registrar.js"></script>
 </body>
 </html>
