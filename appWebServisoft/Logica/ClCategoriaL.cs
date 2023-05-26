@@ -15,5 +15,12 @@ namespace appWebServisoft.Logica
             List<ClCategoriaE> list = objProD.mtdListarCate();
             return list;
         }
+
+        public int mtdRegistrar(ClCategoriaE objDatos)
+        {
+            ClCategoriaD objCategoria = new ClCategoriaD();
+            int regis = objCategoria.mtdRegistraCategoria(objDatos);
+            return regis;
+        }
     }
 }

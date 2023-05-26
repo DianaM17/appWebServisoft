@@ -67,12 +67,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\sweetalert-dev.js" />
+    <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
+    <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Categoria.aspx" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal.css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
+    <Content Include="Vista\Home2.aspx" />
+    <Content Include="Vista\HomeProfesional.aspx" />
+    <Content Include="Vista\Imagenes\2968304.jpg" />
+    <Content Include="Vista\Imagenes\2978479.jpg" />
+    <Content Include="Vista\Imagenes\3099609.jpg" />
+    <Content Include="Vista\Imagenes\3872851.jpg" />
+    <Content Include="Vista\Imagenes\3918929.jpg" />
+    <Content Include="Vista\Imagenes\5995357.jpg" />
+    <Content Include="Vista\Imagenes\6325230.jpg" />
     <Content Include="Vista\Imagenes\aviso1-1.png" />
     <Content Include="Vista\Imagenes\AVISO2-1.png" />
     <Content Include="Vista\Imagenes\aviso3.png" />
@@ -117,26 +130,46 @@
     <Content Include="Vista\Imagenes\foto3.jpg" />
     <Content Include="Vista\Imagenes\foto4.jpg" />
     <Content Include="Vista\Imagenes\foto5.jpg" />
+    <Content Include="Vista\Imagenes\img-1.jpg" />
+    <Content Include="Vista\Imagenes\img-2.jpg" />
+    <Content Include="Vista\Imagenes\img-3.jpg" />
+    <Content Include="Vista\Imagenes\img-4.jpg" />
+    <Content Include="Vista\Imagenes\img-5.jpg" />
+    <Content Include="Vista\Imagenes\img-6.jpg" />
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
+    <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
     <Content Include="Vista\Imagenes\profesional.png" />
+    <Content Include="Vista\Js\JavaScript_Contacto.js" />
+    <Content Include="Vista\Js\JavaScript_Master.js" />
+    <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
-    <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Loginn.aspx" />
     <Content Include="Vista\Principal.aspx" />
+    <Content Include="Vista\RecuperaciónContraseña.aspx" />
     <Content Include="Vista\Registrar.aspx" />
+    <Content Include="Vista\RegistrarUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\ClCategoriaD.cs" />
+    <Compile Include="Datos\ClCiudadD.cs" />
+    <Compile Include="Datos\ClClienteD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
+    <Compile Include="Datos\ClProfesionalD.cs" />
+    <Compile Include="Datos\ClServicioD.cs" />
     <Compile Include="Entidades\ClCategoriaE.cs" />
+    <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
+    <Compile Include="Entidades\ClServicioE.cs" />
     <Compile Include="Logica\ClCategoriaL.cs" />
+    <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClProfesionalL.cs" />
+    <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -152,12 +185,26 @@
     <Compile Include="Vista\Categoria.aspx.designer.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Vista\Home2.aspx.cs">
+      <DependentUpon>Home2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
+    <Compile Include="Vista\Home2.aspx.designer.cs">
+      <DependentUpon>Home2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\HomeProfesional.aspx.cs">
+      <DependentUpon>HomeProfesional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\HomeProfesional.aspx.designer.cs">
+      <DependentUpon>HomeProfesional.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Loginn.aspx.cs">
+      <DependentUpon>Loginn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Loginn.aspx.designer.cs">
+      <DependentUpon>Loginn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
@@ -166,6 +213,13 @@
     <Compile Include="Vista\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RecuperaciónContraseña.aspx.cs">
+      <DependentUpon>RecuperaciónContraseña.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RecuperaciónContraseña.aspx.designer.cs">
+      <DependentUpon>RecuperaciónContraseña.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Registrar.aspx.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,10 +227,25 @@
     <Compile Include="Vista\Registrar.aspx.designer.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\RegistrarUsuarios.aspx.cs">
+      <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarUsuarios.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <Content Include="Vista\Site2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

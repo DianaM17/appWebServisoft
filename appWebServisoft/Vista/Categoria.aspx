@@ -3,15 +3,15 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Categoria.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
             <asp:Repeater ID="reptCateg" runat="server">
                 <ItemTemplate>
-                    <div class="card-container col-6 col-md-3 col-lg-2 col-xl-2 col-sm-4">
+                    <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
                         <div class="custom-card">
                             <div class="card-img-box">
-                                <asp:Image runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
+                                <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
                             </div>
                             <div class="card-content">
                                 <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
@@ -20,8 +20,16 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
+            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
+                <div class="custom-card">
+                    <div class="card-img-box">
+                       <img src="..." />
+                    </div>
+                    <div class="card-content">
+                       <a>Registrar Categoria</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>

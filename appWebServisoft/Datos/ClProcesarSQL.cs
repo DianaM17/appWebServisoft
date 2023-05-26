@@ -29,7 +29,17 @@ namespace appWebServisoft.Datos
             objConexion.mtdConexion().Close();
             return registro;
         }
-        //Lista con Procesos Almacenados
+        
+        public int mtdVerificarExistenciaCorreo(string consul)
+        {
+            ClConexion obConexion = new ClConexion();
+            SqlCommand comando = new SqlCommand(consul, obConexion.mtdConexion());
+            int verificar = (int)comando.ExecuteScalar();
+            obConexion.mtdConexion().Close();
+            return verificar;
+        } 
+
+        //Lista con Procesos Almacenados|
         public SqlDataReader mtdListar(string ProceAlmacenado)
         {
 

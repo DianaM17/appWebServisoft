@@ -2,8 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Principal.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
         <div>
             <div class="splitview skewed">
@@ -34,9 +35,9 @@
     <section>
         <div class="container">
             <div class="row justify-content-evenly">
-                <div class="card col-4">
+                <div class="card col-3">
                     <div class="face front">
-                        <img src="Imagenes/AVISO2-1.png" alt="">
+                        <img src="Imagenes/3918929.jpg" alt="">
                         <h3>BUSCAS SERVICIOS</h3>
                     </div>
                     <div class="face back">
@@ -48,9 +49,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card col-3">
                     <div class="face front">
-                        <img src="Imagenes/aviso1-1.png" alt="">
+                        <img src="Imagenes/2978479.jpg" alt="">
                         <h3>TRABAJOS REALIZADOS</h3>
                     </div>
                     <div class="face back">
@@ -61,9 +62,9 @@
                         </p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card col-3">
                     <div class="face front">
-                        <img src="Imagenes/aviso3.png" alt="">
+                        <img src="Imagenes/6325230.jpg" alt="">
                         <h3>REALIZAR REGISTROS</h3>
                     </div>
                     <div class="face back">
@@ -74,10 +75,80 @@
                         </p>
                     </div>
                 </div>
+<%--                <div class="card col-3">
+                    <div class="face front">
+                        <img src="Imagenes/6325230.jpg" alt="">
+                        <h3>REALIZAR REGISTROS</h3>
+                    </div>
+                    <div class="face back">
+                        <h3>REALIZAR REGISTROS</h3>
+                        <p>
+                            Como cliente, debes realizar el registro corresondiente para que puedas comunicarte con un profesional 
+                   y así resolver dudas o inquietudes que tengas al respecto.
+                        </p>
+                    </div>
+                </div>--%>
             </div>
         </div>
     </section>
+    <section class="principal">
+        <%-- Inicio Perfiles Profesionales --%>
+        <link href="Css/Estilos_Principal.css" rel="stylesheet" />
+        <div class="principal" style="display: flex">
+            <div class="wrapper">
+                <i id="left" class="fa-solid fa-angle-left"></i>
+                <ul class="carousel">
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-1.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>Blanche Pearson</h2>
+                        <span>Sales Manager</span>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-2.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>Joenas Brauers</h2>
+                        <span>Web Developer</span>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-3.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>Lariach French</h2>
+                        <span>Online Teacher</span>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-4.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>James Khosravi</h2>
+                        <span>Freelancer</span>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-5.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>Kristina Zasiadko</h2>
+                        <span>Bank Manager</span>
+                    </li>
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-6.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>Donald Horton</h2>
+                        <span>App Designer</span>
+                    </li>
+                </ul>
+                <i id="right" class="fa-solid fa-angle-right"></i>
+            </div>
+        </div>
+
+        <script src="Js/JavaScript_Perfiles.js"></script>
+    </section>
     <%-- Inicio Testimonios --%>
+
     <section class="testimonios">
         <div class="testimonios_header">
             <h1>COMENTARIOS</h1>
@@ -201,46 +272,123 @@
             </div>
         </div>
     </section>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-</asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <footer class="footer-99382">
+    <br />
+    <br />
+    <%-- Fin testimonios --%>
+    <section>
+        <link href="Css/Estilos_Principal.css" rel="stylesheet" />
+        <%--Inicia Formulario de contacto--%>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 pr-md-5">
-                    <a href="#" class="footer-site-logo d-block mb-4">SERVISOFT</a>
-                    <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
-                </div>
-                <div class="col-md-3">
-                    <h3>About</h3>
-                    <ul class="list-unstyled nav-links">
-                        <li><a href="#">Clients</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Journal</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3">
-                    <h3>Follow Us</h3>
-                    <ul class="social list-unstyled">
-                        <li><a href="#" class="pl-0"><span class="icon-instagram"></span></a></li>
-                        <li><a href="#"><span class="icon-twitter"></span></a></li>
-                        <li><a href="#"><span class="icon-facebook"></span></a></li>
-                        <li><a href="#"><span class="icon-pinterest"></span></a></li>
-                        <li><a href="#"><span class="icon-dribbble"></span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-12 text-center">
-                    <div class="copyright mt-5 pt-5">
-                        <p><small>&copy; 2019&mdash;2020 All Rights Reserved.</small></p>
+            <span class="big-circle"></span>
+            <img src="Imagenes/images/shape.png" class="square" alt="" />
+            <div class="form">
+                <div class="contact-info">
+                    <h3 class="title">Let's get in touch</h3>
+                    <p class="text">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+                    </p>
+
+                    <div class="info">
+                        <div class="information">
+                            <img src="Imagenes/images/location.png" class="icon" alt="" />
+                            <p>92 Cherry Drive Uniondale, NY 11553</p>
+                        </div>
+                        <div class="information">
+                            <img src=".." class="icon" alt="" />
+                            <p>lorem@ipsum.com</p>
+                        </div>
+                        <div class="information">
+                            <img src="Imagenes/images/phone.png" class="icon" alt="" />
+                            <p>123-456-789</p>
+                        </div>
                     </div>
+
+                    <div class="social-media">
+                        <p>Connect with us :</p>
+                        <div class="social-icons">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <span class="circle one"></span>
+                    <span class="circle two"></span>
+
+                    <form action="index.html" autocomplete="off">
+                        <h3 class="title">Contact us</h3>
+                        <div class="input-container">
+                            <input type="text" name="name" class="input" />
+                            <label for="">Username</label>
+                            <span>Username</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="email" name="email" class="input" />
+                            <label for="">Email</label>
+                            <span>Email</span>
+                        </div>
+                        <div class="input-container">
+                            <input type="tel" name="phone" class="input" />
+                            <label for="">Phone</label>
+                            <span>Phone</span>
+                        </div>
+                        <div class="input-container textarea">
+                            <textarea name="message" class="input"></textarea>
+                            <label for="">Message</label>
+                            <span>Message</span>
+                        </div>
+                        <input type="submit" value="Send" class="btn" />
+                    </form>
                 </div>
             </div>
         </div>
+        <script src="Js/JavaScript_Contacto.js"></script>
+    </section>
+    <footer>
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="Imagenes/logo_preview_rev_3.png" alt="">
+                </div>
+                <div class="terms">
+                    <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+                </div>
+            </div>
+            <div class="box__footer">
+                <h2>Compañia</h2>
+                <a href="#">Acerca de</a>
+                <a href="#">Categoria</a>
+                <a href="#">Cliente</a>
+                <a href="#">Profesional</a>
+            </div>
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="#"><i class="fab fa-facebook-square"></i>Facebook</a>
+                <a href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i>Linkedin</a>
+                <a href="#"><i class="fab fa-instagram-square"></i>Instagram</a>
+            </div>
+        </div>
+        <div class="box__copyright">
+            <hr>
+            <p style="font-size: 15px">
+                SERVISOFT ® 2022
+                 <a href="#" style="text-decoration: none;">
+                     <strong class="text-info">Consulta nuestras politicas de privacidad</strong>
+                 </a>
+            </p>
+        </div>
     </footer>
-    <%-- Fin testimonios --%>
 </asp:Content>

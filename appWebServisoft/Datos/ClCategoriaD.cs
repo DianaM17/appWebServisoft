@@ -26,5 +26,13 @@ namespace appWebServisoft.Datos
             }
             return listaCategorias;
         }
+
+        public int mtdRegistraCategoria(ClCategoriaE objDatos)
+        {
+            string registro = "Insert into Categoria(categoria,imagen) values('"+objDatos.categoria+"','"+objDatos.imagen+"')";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int regis = SQL.mtdIUDConec(registro);
+            return regis;
+        }
     }
 }
