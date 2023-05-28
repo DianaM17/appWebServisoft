@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Categoria.aspx.cs" Inherits="appWebServisoft.Vista.Categoria" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Categorias.aspx.cs" Inherits="appWebServisoft.Vista.Categorias" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Categoria.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row">
             <asp:Repeater ID="reptCateg" runat="server">
@@ -23,10 +23,10 @@
             <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
                 <div class="custom-card">
                     <div class="card-img-box">
-                       <img src="..." />
+                        <img src="..." />
                     </div>
                     <div class="card-content">
-                       <a>Registrar Categoria</a>
+                        <a>Registrar Categoria</a>
                     </div>
                 </div>
             </div>

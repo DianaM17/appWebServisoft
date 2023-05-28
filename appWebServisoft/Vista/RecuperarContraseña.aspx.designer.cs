@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class RecuperaciónContraseña
+    public partial class RecuperarContraseña
     {
 
         /// <summary>

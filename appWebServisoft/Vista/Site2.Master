@@ -17,11 +17,11 @@
         <div class="container">
             <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
             <nav>
-                <a href="/Vista/Principal.aspx">Home</a>
+                <a href="Principall.aspx">Home</a>
                 <a href="#">Contact</a>
-                <a href="/Vista/Categoria.aspx">Categorias</a>
-                <a href="/Vista/Registrar.aspx">Registrar</a>
-                <a href="/Vista/Login.aspx">Iniciar Sesión</a>
+                <a href="Categorias.aspx">Categorias</a>
+                <a href="RegistrarUsuario.aspx">Registrar</a>
+                <a href="Login.aspx">Iniciar Sesión</a>
                 <div class="animation start-home"></div>
             </nav>
         </div>

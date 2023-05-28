@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace appWebServisoft.Vista
 {
-    public partial class RegistrarUsuarios : System.Web.UI.Page
+    public partial class RegistrarUsuario : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,10 +43,33 @@ namespace appWebServisoft.Vista
                 ddlCiudadd.DataValueField = "idCiudad";
                 ddlCiudadd.DataBind();
                 ddlCiudadd.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
-
-
             }
+        }
 
+        protected void btnRegistrarCliente_ServerClick(object sender, EventArgs e)
+        {
+            ClClienteE objCliente = new ClClienteE();
+
+            objCliente.nombres = txtNombres.Value;
+            objCliente.apellidos = txtApellidos.Value;
+            objCliente.direccion = txtDireccion.Value;
+            objCliente.telefono = txtTelefono.Value;
+            objCliente.email = txtEmail.Value;
+            objCliente.clave = txtContraseña.Value;
+            objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+
+            ClClienteL objClient = new ClClienteL();
+            int registro = objClient.mtdRegistroCliente(objCliente);
+
+            string script = @"<script> swal({ title: '¡Registro Exitoso!',
+                              text: 'Instructor Registrado Exitosamente', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+            if (registro == 1)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+            }
         }
 
         protected void BtnRegistrarProfesional_ServerClick(object sender, EventArgs e)
@@ -74,32 +97,6 @@ namespace appWebServisoft.Vista
                     </script>";
 
             if (regisProf == 1)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
-            }
-        }
-
-        protected void btnRegistrarCliente_ServerClick(object sender, EventArgs e)
-        {
-            ClClienteE objCliente = new ClClienteE();
-
-            objCliente.nombres = txtNombres.Value;
-            objCliente.apellidos = txtApellidos.Value;
-            objCliente.direccion = txtDireccion.Value;
-            objCliente.telefono = txtTelefono.Value;
-            objCliente.email = txtEmail.Value;
-            objCliente.clave = txtContraseña.Value;
-            objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
-
-            ClClienteL objClient = new ClClienteL();
-            int registro = objClient.mtdRegistroCliente(objCliente);
-
-            string script = @"<script> swal({ title: '¡Registro Exitoso!',
-                              text: 'Instructor Registrado Exitosamente', type: 'success',
-                            confirmButtonText: 'Aceptar'
-                });
-                    </script>";
-            if (registro == 1)
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Net;
-using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text;
 
 namespace appWebServisoft.Vista
 {
-    public partial class RecuperaciónContraseña : System.Web.UI.Page
+    public partial class RecuperarContraseña : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,7 +54,6 @@ namespace appWebServisoft.Vista
                     </script>";
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
-
         }
         private string GenerateRandomPassword(int length)
         {
@@ -69,6 +68,7 @@ namespace appWebServisoft.Vista
             }
 
             return sb.ToString();
+
         }
     }
 }

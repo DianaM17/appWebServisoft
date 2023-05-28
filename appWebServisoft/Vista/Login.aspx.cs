@@ -2,14 +2,14 @@
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text;
 
 namespace appWebServisoft.Vista
 {
-    public partial class Loginn : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +18,6 @@ namespace appWebServisoft.Vista
 
         protected void btnIngresar_ServerClick(object sender, EventArgs e)
         {
-
             string usuario = txtEmail.Value;
             string clave = txtClave.Value;
             ClProfesionalL objProfesional = new ClProfesionalL();
@@ -46,6 +45,7 @@ namespace appWebServisoft.Vista
                         </script>";
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
+
         }
     }
 }

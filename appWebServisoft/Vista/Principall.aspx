@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="appWebServisoft.Vista.Principal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Principall.aspx.cs" Inherits="appWebServisoft.Vista.Principall" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Principal.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
         <div>
             <div class="splitview skewed">
@@ -75,19 +75,6 @@
                         </p>
                     </div>
                 </div>
-<%--                <div class="card col-3">
-                    <div class="face front">
-                        <img src="Imagenes/6325230.jpg" alt="">
-                        <h3>REALIZAR REGISTROS</h3>
-                    </div>
-                    <div class="face back">
-                        <h3>REALIZAR REGISTROS</h3>
-                        <p>
-                            Como cliente, debes realizar el registro corresondiente para que puedas comunicarte con un profesional 
-                   y así resolver dudas o inquietudes que tengas al respecto.
-                        </p>
-                    </div>
-                </div>--%>
             </div>
         </div>
     </section>

@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class RegistrarUsuarios
+    public partial class RegistrarUsuario
     {
 
         /// <summary>
