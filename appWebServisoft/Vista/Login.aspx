@@ -1,11 +1,14 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="appWebServisoft.Vista.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Loginn.aspx.cs" Inherits="appWebServisoft.Vista.Loginn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Login.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
-        <div class=" container">
+        <div class="container">
             <div class="row principal middle-xs between-xs first">
                 <div class="col-xs-4 col-md-5">
                     <div class="screen">
@@ -24,7 +27,7 @@
                                     <i class="button__icon fas fa-chevron-right"></i>
                                 </button>
                                 <br />
-                                <a href="RecuperarContraseña.aspx" style="text-decoration: none; color: #000000">¿Olvidaste tu contraseña?</a>
+                                <a href="RecuperaciónContraseña.aspx" style="text-decoration: none; color: #000000">¿Olvidaste tu contraseña?</a>
                             </div>
                             <div class="social-login">
                                 <h3>log in via</h3>
@@ -50,3 +53,4 @@
         </div>
     </section>
 </asp:Content>
+

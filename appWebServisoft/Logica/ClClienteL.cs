@@ -34,5 +34,6 @@ namespace appWebServisoft.Logica
             int Actualizar = objCliente.mtdActualizarContaseña(email, clave);
             return Actualizar;
         }
+
     }
 }

@@ -25,7 +25,7 @@ namespace appWebServisoft.Datos
             DataTable tblDatos = SQL.mtdSelectDesc(consulta);
 
             ClClienteE objCliente = null;
-            if (tblDatos.Rows.Count == 1)
+            if (tblDatos.Rows.Count > 0)
             {
                 objCliente = new ClClienteE();
                 objCliente.idCliente = int.Parse(tblDatos.Rows[0]["idCliente"].ToString());

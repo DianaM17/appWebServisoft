@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="RecuperarContraseña.aspx.cs" Inherits="appWebServisoft.Vista.RecuperarContraseña" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="Site2.Master" AutoEventWireup="true" CodeBehind="RecuperarContraseña.aspx.cs" Inherits="appWebServisoft.Vista.RecuperarContraseña" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_RecuperarContraseña.css" rel="stylesheet" />

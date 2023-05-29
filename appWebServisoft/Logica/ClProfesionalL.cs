@@ -19,6 +19,7 @@ namespace appWebServisoft.Logica
         public ClProfesionalE mtdLoginProfesional(string usuario, string clave)
         {
             ClProfesionalD objProf = new ClProfesionalD();
+
             ClProfesionalE datos = objProf.mtdLoginProfesional(usuario, clave);
             return datos;
         }
@@ -36,6 +37,7 @@ namespace appWebServisoft.Logica
             int Actualizar = objProf.mtdActualizarContaseña(email, clave);
             return Actualizar;
         }
-        
+
+
     }
 }
