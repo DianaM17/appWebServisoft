@@ -36,13 +36,13 @@ namespace appWebServisoft.Vista
             if (objProfesionalE != null)
             {
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
-                Response.Redirect("~/Vista/HomeProfesional.aspx");
+                Response.Redirect("HomeProfesional.aspx");
 
             }
             else if (objClienteE != null)
             {
                 Session["usuario"] = objClienteE.nombres + " " + objClienteE.apellidos;
-                Response.Redirect("~/Vista/HomeCliente.aspx");
+                Response.Redirect("HomeCliente.aspx");
             }
             else
             {

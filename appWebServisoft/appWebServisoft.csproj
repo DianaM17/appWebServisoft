@@ -75,7 +75,7 @@
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal.css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
-    <Content Include="Vista\Home2.aspx" />
+    <Content Include="Vista\HomeCliente.aspx" />
     <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -144,6 +144,7 @@
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
     <Content Include="Vista\RegistrarUsuario.aspx" />
     <Content Include="Web.config" />
@@ -177,12 +178,12 @@
     <Compile Include="Vista\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Home2.aspx.cs">
-      <DependentUpon>Home2.aspx</DependentUpon>
+    <Compile Include="Vista\HomeCliente.aspx.cs">
+      <DependentUpon>HomeCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Home2.aspx.designer.cs">
-      <DependentUpon>Home2.aspx</DependentUpon>
+    <Compile Include="Vista\HomeCliente.aspx.designer.cs">
+      <DependentUpon>HomeCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\HomeProfesional.aspx.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>
@@ -197,6 +198,13 @@
     </Compile>
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Principal.aspx.designer.cs">
+      <DependentUpon>Principal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\RecuperarContraseña.aspx.cs">
       <DependentUpon>RecuperarContraseña.aspx</DependentUpon>

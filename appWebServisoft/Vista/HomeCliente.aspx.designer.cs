@@ -11,25 +11,16 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class HomeProfesional
+    public partial class HomeCliente
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control lblCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
-        /// <summary>
-        /// Control lblProfecional.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProfecional;
+        protected global::System.Web.UI.WebControls.Label lblCliente;
     }
 }

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace appWebServisoft.Vista
 {
-    public partial class Home2 : System.Web.UI.Page
+    public partial class HomeCliente : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblCliente.Text = Session["usuario"].ToString();
         }
     }
 }
