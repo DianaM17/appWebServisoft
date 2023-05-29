@@ -11,16 +11,16 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class Home2
+    public partial class Cliente
     {
 
         /// <summary>
-        /// Control form1.
+        /// Control lblNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Label lblNombre;
     }
 }

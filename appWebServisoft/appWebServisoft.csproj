@@ -1,5 +1,4 @@
 ﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -43,6 +42,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -62,13 +64,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="Global.asax" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Vista\HomeCliente.aspx" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Categoria.aspx" />
@@ -77,7 +76,6 @@
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal.css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
-    <Content Include="Vista\Home2.aspx" />
     <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -148,7 +146,6 @@
     <Content Include="Vista\Loginn.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\RecuperaciónContraseña.aspx" />
-    <Content Include="Vista\Registrar.aspx" />
     <Content Include="Vista\RegistrarUsuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -165,19 +162,15 @@
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Logica\ClCategoriaL.cs" />
     <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClProfesionalL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
     <Compile Include="Vista\Categoria.aspx.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,12 +178,12 @@
     <Compile Include="Vista\Categoria.aspx.designer.cs">
       <DependentUpon>Categoria.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Home2.aspx.cs">
-      <DependentUpon>Home2.aspx</DependentUpon>
+    <Compile Include="Vista\HomeCliente.aspx.cs">
+      <DependentUpon>HomeCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\Home2.aspx.designer.cs">
-      <DependentUpon>Home2.aspx</DependentUpon>
+    <Compile Include="Vista\HomeCliente.aspx.designer.cs">
+      <DependentUpon>HomeCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\HomeProfesional.aspx.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>
@@ -220,13 +213,6 @@
     <Compile Include="Vista\RecuperaciónContraseña.aspx.designer.cs">
       <DependentUpon>RecuperaciónContraseña.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\Registrar.aspx.cs">
-      <DependentUpon>Registrar.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Registrar.aspx.designer.cs">
-      <DependentUpon>Registrar.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vista\RegistrarUsuarios.aspx.cs">
       <DependentUpon>RegistrarUsuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -244,7 +230,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Site1.Master" />
     <Content Include="Vista\Site2.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -279,11 +264,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

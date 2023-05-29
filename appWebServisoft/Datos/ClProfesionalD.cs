@@ -26,8 +26,8 @@ namespace appWebServisoft.Datos
             DataTable tblDatos = SQL.mtdSelectDesc(consulta);
 
             ClProfesionalE objProfesional = null;
-            if (tblDatos.Rows.Count == 1)
-            {
+            if (tblDatos.Rows.Count > 0)        
+            {               
                 objProfesional = new ClProfesionalE();
                 objProfesional.idProfesional = int.Parse(tblDatos.Rows[0]["IdProfesional"].ToString());
                 objProfesional.nombres = tblDatos.Rows[0]["nombres"].ToString();

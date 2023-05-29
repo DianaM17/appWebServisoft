@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblProfecional.Text = Session["usuario"].ToString();
         }
     }
 }

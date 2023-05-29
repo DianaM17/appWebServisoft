@@ -13,39 +13,47 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.Cache.SetExpires(DateTime.Now.AddSeconds(-1));
+                Response.Cache.SetNoStore();
 
+                txtEmail.Value = string.Empty;
+                txtClave.Value = string.Empty;
+            }
         }
 
         protected void btnIngresar_ServerClick(object sender, EventArgs e)
         {
-
             string usuario = txtEmail.Value;
             string clave = txtClave.Value;
             ClProfesionalL objProfesional = new ClProfesionalL();
             ClProfesionalE objProfesionalE = objProfesional.mtdLoginProfesional(usuario, clave);
             ClClienteL objCliente = new ClClienteL();
             ClClienteE objClienteE = objCliente.mtdLoginCliente(usuario, clave);
+
             if (objProfesionalE != null)
             {
+                Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
                 Response.Redirect("~/Vista/HomeProfesional.aspx");
 
             }
             else if (objClienteE != null)
             {
-                Response.Redirect("~/Vista/Home2.aspx");
+                Session["usuario"] = objClienteE.nombres + " " + objClienteE.apellidos;
+                Response.Redirect("~/Vista/HomeCliente.aspx");
             }
             else
             {
-                string script = @"<script>
-                            swal({
-                                title: '¡Error!',
-                                text: 'Usuario o contraseña incorrecta!!.',
-                                type: 'error',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
-                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Swal.fire({ title: 'Oops...', text: 'Usuario o Contraseña incorrectos!', icon: 'error', confirmButtonText: 'Aceptar', customClass: { confirmButton: 'swal-button swal-button--error-color' } });", true);
+               
+
+
             }
+           
+
         }
+
     }
 }
