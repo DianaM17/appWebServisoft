@@ -28,5 +28,21 @@ namespace appWebServisoft.Datos
             }
             return listaServicio;
         }
+
+        public int mtdVerificarServ(string servicio)
+        {
+            string consulta = "Select Count(*) from Servicio where Servicio='" + servicio + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int consul = SQL.mtdSelectConec(consulta);
+            return consul;
+        }
+        
+        public int mtdRegistrarServicio(ClServicioE objDatos)
+        {
+            string registro = "Insert into Servicio(servicio, idCategoria) values ('"+objDatos.servicio+"',"+objDatos.idCategoria+")";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int regis = SQL.mtdIUDConec(registro);
+            return regis;
+        }
     }
 }

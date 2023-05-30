@@ -66,9 +66,7 @@ namespace appWebServisoft.Vista
                 int index = random.Next(validChars.Length);
                 sb.Append(validChars[index]);
             }
-
             return sb.ToString();
-
         }
     }
 }

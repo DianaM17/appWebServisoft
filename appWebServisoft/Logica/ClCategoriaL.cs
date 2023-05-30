@@ -22,5 +22,12 @@ namespace appWebServisoft.Logica
             int regis = objCategoria.mtdRegistraCategoria(objDatos);
             return regis;
         }
+
+        public int mtdVerificar(string categoria)
+        {
+            ClCategoriaD objCateg = new ClCategoriaD();
+            int Verificar = objCateg.mtdVerificar(categoria);
+            return Verificar;
+        }
     }
 }

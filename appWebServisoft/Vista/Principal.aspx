@@ -330,26 +330,27 @@
                     <form action="index.html" autocomplete="off">
                         <h3 class="title">Contact us</h3>
                         <div class="input-container">
-                            <input type="text" name="name" class="input" />
+                            <input id="txtNombre" type="text" name="txtNombre" class="input" runat="server"/>
                             <label for="">Username</label>
                             <span>Username</span>
                         </div>
                         <div class="input-container">
-                            <input type="email" name="email" class="input" />
+                            <input id="txtEmail" type="email" name="txtEmail" class="input" runat="server"/>
                             <label for="">Email</label>
                             <span>Email</span>
                         </div>
                         <div class="input-container">
-                            <input type="tel" name="phone" class="input" />
+                            <input id="txtTelefono" type="tel" name="txtTelefono" class="input" runat="server" />
                             <label for="">Phone</label>
                             <span>Phone</span>
                         </div>
                         <div class="input-container textarea">
-                            <textarea name="message" class="input"></textarea>
+                            <textarea id="txtMessage" name="txtMessage" class="input" runat="server"></textarea>
                             <label for="">Message</label>
                             <span>Message</span>
                         </div>
-                        <input type="submit" value="Send" class="btn" />
+                        <asp:Button ID="btnEnviar" runat="server" Text="Contactar" CssClass="btn" OnClick="btnEnviar_Click" />
+                       <%-- <input id="btnEnviarr" type="submit" value="Send" class="btn" />--%>
                     </form>
                 </div>
             </div>

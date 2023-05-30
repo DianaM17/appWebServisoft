@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.DynamicData;
 
 namespace appWebServisoft.Datos
 {
@@ -18,6 +19,17 @@ namespace appWebServisoft.Datos
             adap.Fill(tblDatos);
             obConexion.mtdConexion().Close();
             return tblDatos;
+        }
+
+        //Ejecuta consulta Select de forma Conectada y retorna DataReader 
+        public int mtdSelectConec(string consul)
+        {
+            ClConexion obConexion = new ClConexion();
+            //obConexion.mtdConexion().Open();
+            SqlCommand comando = new SqlCommand(consul, obConexion.mtdConexion());
+            int verificar = (int)comando.ExecuteScalar();
+            obConexion.mtdConexion().Close();
+            return verificar;
         }
 
         // Ejecuta Consulta en Forma Conectada

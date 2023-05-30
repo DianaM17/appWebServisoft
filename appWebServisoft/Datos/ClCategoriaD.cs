@@ -29,10 +29,18 @@ namespace appWebServisoft.Datos
 
         public int mtdRegistraCategoria(ClCategoriaE objDatos)
         {
-            string registro = "Insert into Categoria(categoria,imagen) values('"+objDatos.categoria+"','"+objDatos.imagen+"')";
+            string registro = "Insert into Categoria(categoria,imagen) values('" + objDatos.categoria + "','" + objDatos.imagen + "')";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int regis = SQL.mtdIUDConec(registro);
             return regis;
+        }
+
+        public int mtdVerificar(string categoria)
+        {
+            string consulta = "Select Count(*) from Categoria where categoria='" + categoria + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Verificar = SQL.mtdSelectConec(consulta);
+            return Verificar;
         }
     }
 }
