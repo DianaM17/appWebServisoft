@@ -36,8 +36,8 @@ namespace appWebServisoft.Vista
             if (objProfesionalE != null)
             {
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
-                Response.Redirect("HomeProfesional.aspx");
-
+                Session["idProfesional"] = objProfesionalE.idProfesional;
+                Response.Redirect("PerfilProfesional.aspx");
             }
             else if (objClienteE != null)
             {
@@ -47,14 +47,8 @@ namespace appWebServisoft.Vista
             else
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Swal.fire({ title: 'Oops...', text: 'Usuario o Contraseña incorrectos!', icon: 'error', confirmButtonText: 'Aceptar', customClass: { confirmButton: 'swal-button swal-button--error-color' } });", true);
-
-
-
             }
-
-
         }
-
     }
 }
 
