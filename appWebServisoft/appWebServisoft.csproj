@@ -67,8 +67,14 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Vista\assets\1.jpg" />
+    <Content Include="Vista\assets\2.jpg" />
+    <Content Include="Vista\assets\3.jpg" />
+    <Content Include="Vista\assets\home1.png" />
     <Content Include="Vista\Categorias.aspx" />
+    <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
+    <Content Include="Vista\Css\style.css" />
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
@@ -138,15 +144,21 @@
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
     <Content Include="Vista\Imagenes\profesional.png" />
+    <Content Include="Vista\Js\app.js" />
+    <Content Include="Vista\Js\jquery-3.3.1.min.js" />
+    <Content Include="Vista\Js\jquery.steps.js" />
     <Content Include="Vista\Js\JavaScript_Contacto.js" />
     <Content Include="Vista\Js\JavaScript_Master.js" />
     <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Js\main.js" />
+    <Content Include="Vista\PerfilProfesional.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
     <Content Include="Vista\RegistrarUsuario.aspx" />
+    <Content Include="Vista\Js\theme-map.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -199,6 +211,13 @@
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\PerfilProfesional.aspx.cs">
+      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\PerfilProfesional.aspx.designer.cs">
+      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -231,6 +250,13 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Vista\Site2.Master" />
+    <Content Include="Vista\Css\Perfil\app.scss" />
+    <Content Include="Vista\Css\Perfil\_keyframes.scss" />
+    <Content Include="Vista\Css\Perfil\_mixins.scss" />
+    <Content Include="Vista\Css\Perfil\_reset.scss" />
+    <Content Include="Vista\Css\Perfil\_variables.scss" />
+    <Content Include="Vista\Css\style.css.map" />
+    <Content Include="Vista\Css\Perfil\style.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
