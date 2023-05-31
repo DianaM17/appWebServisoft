@@ -26,7 +26,7 @@
                         <img src="..." />
                     </div>
                     <div class="card-content">
-                        <a>Registrar Categoria</a>
+                        <a href="RegistrarCategoria.aspx">Registrar Categoria</a>
                     </div>
                 </div>
             </div>

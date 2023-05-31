@@ -35,7 +35,11 @@ namespace appWebServisoft.Vista
 
             if (objProfesionalE != null)
             {
+                Session["idProfesional"] = objProfesionalE.idProfesional;
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
+
+                Response.Redirect("HomeProfesional.aspx");
+
 
                 Response.Redirect("PerfilProfesional.aspx");
 

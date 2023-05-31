@@ -15,5 +15,19 @@ namespace appWebServisoft.Logica
             List<ClServicioE> listaServicio = objServicio.mtdListarServicio(idCateg);
             return listaServicio;
         }
+
+        public int mtdVerificarSer(string Servicio)
+        {
+            ClServicioD objServ = new ClServicioD();
+            int verif = objServ.mtdVerificarServ(Servicio);
+            return verif;
+        }
+
+        public int mtdRegistrarServ(ClServicioE objDatos)
+        {
+            ClServicioD objServ = new ClServicioD();
+            int regis = objServ.mtdRegistrarServicio(objDatos);
+            return regis;
+        }
     }
 }

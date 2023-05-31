@@ -19,7 +19,6 @@ namespace appWebServisoft.Logica
         public ClProfesionalE mtdLoginProfesional(string usuario, string clave)
         {
             ClProfesionalD objProf = new ClProfesionalD();
-
             ClProfesionalE datos = objProf.mtdLoginProfesional(usuario, clave);
             return datos;
         }
@@ -38,6 +37,19 @@ namespace appWebServisoft.Logica
             return Actualizar;
         }
 
+        public ClProfesionalE mtdBuscarProf(int idProfesional)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            ClProfesionalE objDatos = objProf.mtdSeleccionarProf(idProfesional);
+            return objDatos;
+        }
+
+
+        public int mtdActualizarDatos(ClProfesionalE objDatos)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            int Actualizar = objProf.mtdActualizarDatos(objDatos);
+            return Actualizar;
 
         public List<ClProfesionalE> mtdListarProfesional()
         {
@@ -53,6 +65,7 @@ namespace appWebServisoft.Logica
 
 
             return verProfesional;
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Web;
@@ -29,17 +30,19 @@ namespace appWebServisoft.Datos
             if (tblDatos.Rows.Count > 0)
             {
                 objProfesional = new ClProfesionalE();
-                objProfesional.idProfesional = int.Parse(tblDatos.Rows[0]["IdProfesional"].ToString());
+                objProfesional.idProfesional = int.Parse(tblDatos.Rows[0]["idProfesional"].ToString());
                 objProfesional.nombres = tblDatos.Rows[0]["nombres"].ToString();
                 objProfesional.apellidos = tblDatos.Rows[0]["apellidos"].ToString();
                 objProfesional.telefono = tblDatos.Rows[0]["telefono"].ToString();
                 objProfesional.email = tblDatos.Rows[0]["email"].ToString();
+                objProfesional.clave = tblDatos.Rows[0]["clave"].ToString();
                 objProfesional.direccion = tblDatos.Rows[0]["direccion"].ToString();
                 objProfesional.perfil = tblDatos.Rows[0]["perfil"].ToString();
                 objProfesional.fotos = tblDatos.Rows[0]["fotos"].ToString();
                 objProfesional.estado = tblDatos.Rows[0]["estado"].ToString();
+                objProfesional.idCategoria = int.Parse(tblDatos.Rows[0]["idCategoria"].ToString());
                 objProfesional.idServicio = int.Parse(tblDatos.Rows[0]["idServicio"].ToString());
-                objProfesional.idCiudad = int.Parse(tblDatos.Rows[0]["IdCiudad"].ToString());
+                objProfesional.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());
             }
             return objProfesional;
         }
@@ -59,7 +62,7 @@ namespace appWebServisoft.Datos
             return actualizar;
         }
 
-      RamaSteven
+
 
         public List<ClProfesionalE> mtdListarProfecional()
         {
@@ -91,6 +94,7 @@ namespace appWebServisoft.Datos
 
             return VerProfesional;
 
+
         public ClProfesionalE mtdSeleccionarProf(int idProfesional)
         {
             string consulta = "Select * from Profesional where idProfesional='" + idProfesional + "'";
@@ -98,7 +102,11 @@ namespace appWebServisoft.Datos
             DataTable tblDatos = SQL.mtdSelectDesc(consulta);
 
             ClProfesionalE objProf = null;
+
+            if (tblDatos.Rows.Count>0)
+
             if (tblDatos.Rows.Count > 0)
+
             {
                 objProf = new ClProfesionalE();
                 objProf.idProfesional = int.Parse(tblDatos.Rows[0]["idProfesional"].ToString());
@@ -116,7 +124,18 @@ namespace appWebServisoft.Datos
                 objProf.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());
             }
             return objProf;
-          
+
+        }
+
+        public int mtdActualizarDatos(ClProfesionalE objDatos)
+        {
+            string actualizar = "Update Profesional set nombres = '" + objDatos.nombres + "', apellidos = '" + objDatos.apellidos + "', telefono='" + objDatos.telefono + "'," +
+                "email='" + objDatos.email + "',clave='" + objDatos.clave + "',direccion='" + objDatos.direccion + "', perfil = '" + objDatos.perfil + "', fotos = '" + objDatos.fotos + "', " +
+                "estado = '" + objDatos.estado + "', idCategoria = " + objDatos.idCategoria + ", idServicio = " + objDatos.idServicio + ", idCiudad = " + objDatos.idCiudad + " where idProfesional = " + objDatos.idProfesional + ";";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Actualizar = SQL.mtdIUDConec(actualizar);
+            return Actualizar;
+
         }
     }
 }

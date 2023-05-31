@@ -97,8 +97,12 @@
     <Content Include="Vista\Categorias.aspx" />
     <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
+
+    <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
+
     <Content Include="Vista\Css\interfazMasterCliente.css" />
     <Content Include="Vista\Css\style.css" />
+
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
@@ -183,6 +187,7 @@
     <Content Include="Vista\PerfilProfesional.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
+    <Content Include="Vista\RegistrarCategoria.aspx" />
     <Content Include="Vista\RegistrarUsuario.aspx" />
     <Content Include="Vista\Js\theme-map.js" />
     <Content Include="Vista\CategoriasCliente.aspx" />
@@ -279,6 +284,13 @@
     </Compile>
     <Compile Include="Vista\RecuperarContraseña.aspx.designer.cs">
       <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\RegistrarCategoria.aspx.cs">
+      <DependentUpon>RegistrarCategoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarCategoria.aspx.designer.cs">
+      <DependentUpon>RegistrarCategoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\RegistrarUsuario.aspx.cs">
       <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
