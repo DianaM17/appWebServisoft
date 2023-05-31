@@ -95,47 +95,45 @@ namespace appWebServisoft.Datos
             return VerProfesional;
         }
 
-            public ClProfesionalE mtdSeleccionarProf(int idProfesional)
+        public ClProfesionalE mtdSeleccionarProf(int idProfesional)
+        {
+            string consulta = "Select * from Profesional [prof] Inner join Categoria [cat] ON prof.idCategoria = cat.idCategoria " +
+           "Inner Join Servicio [Serv] ON prof.idServicio = Serv.idServicio INNER JOIN Ciudad [ciu] ON prof.idCiudad = ciu.idCiudad " +
+           "where idProfesional= " + idProfesional + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblDatos = SQL.mtdSelectDesc(consulta);
+
+            ClProfesionalE objProf = null;
+            if (tblDatos.Rows.Count > 0)
             {
-                string consulta = "Select * from Profesional where idProfesional='" + idProfesional + "'";
-                ClProcesarSQL SQL = new ClProcesarSQL();
-                DataTable tblDatos = SQL.mtdSelectDesc(consulta);
-
-                ClProfesionalE objProf = null;
-
-                if (tblDatos.Rows.Count > 0)
-
-                    if (tblDatos.Rows.Count > 0)
-
-                    {
-                        objProf = new ClProfesionalE();
-                        objProf.idProfesional = int.Parse(tblDatos.Rows[0]["idProfesional"].ToString());
-                        objProf.nombres = tblDatos.Rows[0]["nombres"].ToString();
-                        objProf.apellidos = tblDatos.Rows[0]["apellidos"].ToString();
-                        objProf.telefono = tblDatos.Rows[0]["telefono"].ToString();
-                        objProf.email = tblDatos.Rows[0]["email"].ToString();
-                        objProf.clave = tblDatos.Rows[0]["clave"].ToString();
-                        objProf.direccion = tblDatos.Rows[0]["direccion"].ToString();
-                        objProf.perfil = tblDatos.Rows[0]["perfil"].ToString();
-                        objProf.fotos = tblDatos.Rows[0]["fotos"].ToString();
-                        objProf.estado = tblDatos.Rows[0]["estado"].ToString();
-                        objProf.idCategoria = int.Parse(tblDatos.Rows[0]["idCategoria"].ToString());
-                        objProf.idServicio = int.Parse(tblDatos.Rows[0]["idServicio"].ToString());
-                        objProf.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());
-                    }
-                return objProf;
-
+                objProf = new ClProfesionalE();
+                objProf.idProfesional = int.Parse(tblDatos.Rows[0]["idProfesional"].ToString());
+                objProf.nombres = tblDatos.Rows[0]["nombres"].ToString();
+                objProf.apellidos = tblDatos.Rows[0]["apellidos"].ToString();
+                objProf.telefono = tblDatos.Rows[0]["telefono"].ToString();
+                objProf.email = tblDatos.Rows[0]["email"].ToString();
+                objProf.clave = tblDatos.Rows[0]["clave"].ToString();
+                objProf.direccion = tblDatos.Rows[0]["direccion"].ToString();
+                objProf.perfil = tblDatos.Rows[0]["perfil"].ToString();
+                objProf.fotos = tblDatos.Rows[0]["fotos"].ToString();
+                objProf.estado = tblDatos.Rows[0]["estado"].ToString();
+                objProf.idCategoria = int.Parse(tblDatos.Rows[0]["idCategoria"].ToString());
+                objProf.idServicio = int.Parse(tblDatos.Rows[0]["idServicio"].ToString());
+                objProf.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());
             }
+            return objProf;
 
-            public int mtdActualizarDatos(ClProfesionalE objDatos)
-            {
-                string actualizar = "Update Profesional set nombres = '" + objDatos.nombres + "', apellidos = '" + objDatos.apellidos + "', telefono='" + objDatos.telefono + "'," +
-                    "email='" + objDatos.email + "',clave='" + objDatos.clave + "',direccion='" + objDatos.direccion + "', perfil = '" + objDatos.perfil + "', fotos = '" + objDatos.fotos + "', " +
-                    "estado = '" + objDatos.estado + "', idCategoria = " + objDatos.idCategoria + ", idServicio = " + objDatos.idServicio + ", idCiudad = " + objDatos.idCiudad + " where idProfesional = " + objDatos.idProfesional + ";";
-                ClProcesarSQL SQL = new ClProcesarSQL();
-                int Actualizar = SQL.mtdIUDConec(actualizar);
-                return Actualizar;
+        }
 
-            }
+        public int mtdActualizarDatos(ClProfesionalE objDatos, int idProfesional)
+        {
+            string actualizar = "Update Profesional set nombres = '" + objDatos.nombres + "', apellidos = '" + objDatos.apellidos + "', telefono='" + objDatos.telefono + "'," +
+                "email='" + objDatos.email + "',clave='" + objDatos.clave + "',direccion='" + objDatos.direccion + "', perfil = '" + objDatos.perfil + "', fotos = '" + objDatos.fotos + "', " +
+                "estado = '" + objDatos.estado + "', idCategoria = " + objDatos.idCategoria + ", idServicio = " + objDatos.idServicio + ", idCiudad = " + objDatos.idCiudad + " where idProfesional = " + idProfesional + ";";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Actualizar = SQL.mtdIUDConec(actualizar);
+            return Actualizar;
+
         }
     }
+}
