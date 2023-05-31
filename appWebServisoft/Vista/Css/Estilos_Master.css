@@ -37,15 +37,15 @@ nav {
     }
 
 a:nth-child(1) {
-    width: 100px;
+    width: 120px;
 }
 
 a:nth-child(2) {
-    width: 110px;
+    width: 185px;
 }
 
 a:nth-child(3) {
-    width: 100px;
+    width: 130px;
 }
 
 a:nth-child(4) {
@@ -53,36 +53,36 @@ a:nth-child(4) {
 }
 
 a:nth-child(5) {
-    width: 120px;
+    width: 150px;
 }
 
 nav .start-home, a:nth-child(1):hover ~ .animation {
-    width: 100px;
-    left: 0;
+    width: 92px;
+    left: 4px;
     background-color: #1abc9c;
 }
 
 nav .start-about, a:nth-child(2):hover ~ .animation {
-    width: 110px;
-    left: 100px;
+    width: 140px;
+    left: 97px;
     background-color: #e74c3c;
 }
 
 nav .start-blog, a:nth-child(3):hover ~ .animation {
-    width: 100px;
-    left: 210px;
+    width: 113px;
+    left: 235px;
     background-color: #3498db;
 }
 
 nav .start-portefolio, a:nth-child(4):hover ~ .animation {
-    width: 160px;
-    left: 310px;
+    width: 110px;
+    left: 350px;
     background-color: #9b59b6;
 }
 
 nav .start-contact, a:nth-child(5):hover ~ .animation {
-    width: 120px;
-    left: 470px;
+    width: 140px;
+    left: 460px;
     background-color: #e67e22;
 }
 

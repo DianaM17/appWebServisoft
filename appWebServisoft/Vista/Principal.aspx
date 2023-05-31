@@ -221,7 +221,7 @@
                     </div>
                 </div>
                 <div class="comentarios-cliente">
-                    <p>Es una ágina que cuenta con diversos profesionales quienes estan especializados en diferentes campos y siepmre están prestos a brindar su ayuda.</p>
+                    <p>Es una página que cuenta con diversos profesionales quienes estan especializados en diferentes campos y siepmre están prestos a brindar su ayuda.</p>
                 </div>
             </div>
             <div class="testimonios_caja">
@@ -283,29 +283,29 @@
             <img src="Imagenes/images/shape.png" class="square" alt="" />
             <div class="form">
                 <div class="contact-info">
-                    <h3 class="title">Let's get in touch</h3>
+                    <h3 class="title">Puedes Contáctarte con nosotros!!</h3>
                     <p class="text">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-            dolorum adipisci recusandae praesentium dicta!
+                        Si necesitás contactarnos para hacer alguna consulta o sumplemente para dejar tu comentario,
+                        puedes tener la libertad de hacerlo. Repondemos en horario laboral.
                     </p>
 
                     <div class="info">
                         <div class="information">
                             <img src="Imagenes/images/location.png" class="icon" alt="" />
-                            <p>92 Cherry Drive Uniondale, NY 11553</p>
+                            <p>Sogamoso - Boyacá</p>
                         </div>
                         <div class="information">
                             <img src=".." class="icon" alt="" />
-                            <p>lorem@ipsum.com</p>
+                            <p>servisoft1710@gmail.com</p>
                         </div>
                         <div class="information">
                             <img src="Imagenes/images/phone.png" class="icon" alt="" />
-                            <p>123-456-789</p>
+                            <p>310-241-2563</p>
                         </div>
                     </div>
 
                     <div class="social-media">
-                        <p>Connect with us :</p>
+                        <p>Conectate con nosotros :</p>
                         <div class="social-icons">
                             <a href="#">
                                 <i class="fab fa-facebook-f"></i>
@@ -328,25 +328,25 @@
                     <span class="circle two"></span>
 
                     <form action="index.html" autocomplete="off">
-                        <h3 class="title">Contact us</h3>
+                        <h3 class="title">Contáctanos</h3>
                         <div class="input-container">
                             <input id="txtNombre" type="text" name="txtNombre" class="input" runat="server"/>
-                            <label for="">Username</label>
+                            <label for="">Usuario</label>
                             <span>Username</span>
                         </div>
                         <div class="input-container">
                             <input id="txtEmail" type="email" name="txtEmail" class="input" runat="server"/>
-                            <label for="">Email</label>
+                            <label for="">Correo</label>
                             <span>Email</span>
                         </div>
                         <div class="input-container">
                             <input id="txtTelefono" type="tel" name="txtTelefono" class="input" runat="server" />
-                            <label for="">Phone</label>
+                            <label for="">Telefono</label>
                             <span>Phone</span>
                         </div>
                         <div class="input-container textarea">
                             <textarea id="txtMessage" name="txtMessage" class="input" runat="server"></textarea>
-                            <label for="">Message</label>
+                            <label for="">Mensaje</label>
                             <span>Message</span>
                         </div>
                         <asp:Button ID="btnEnviar" runat="server" Text="Contactar" CssClass="btn" OnClick="btnEnviar_Click" />
