@@ -45,10 +45,10 @@ namespace appWebServisoft.Logica
         }
 
 
-        public int mtdActualizarDatos(ClProfesionalE objDatos)
+        public int mtdActualizarDatos(ClProfesionalE objDatos, int idProfesional)
         {
             ClProfesionalD objProf = new ClProfesionalD();
-            int Actualizar = objProf.mtdActualizarDatos(objDatos);
+            int Actualizar = objProf.mtdActualizarDatos(objDatos, idProfesional);
             return Actualizar;
         }
         public List<ClProfesionalE> mtdListarProfesional()
@@ -58,16 +58,6 @@ namespace appWebServisoft.Logica
             return verProfesional;
         }
 
-        //public ClProfesionalE mtdBuscarProf(int idProfesional)
-        //{
-        //    ClProfesionalD objProf = new ClProfesionalD();
-        //    ClProfesionalE objDatos = objProf.mtdSeleccionarProf(idProfesional);
-        //    return objDatos;
-        //}
-
-
-
-
     }
-    }
+}
 
