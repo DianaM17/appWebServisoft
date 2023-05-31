@@ -75,19 +75,6 @@
                         </p>
                     </div>
                 </div>
-<%--                <div class="card col-3">
-                    <div class="face front">
-                        <img src="Imagenes/6325230.jpg" alt="">
-                        <h3>REALIZAR REGISTROS</h3>
-                    </div>
-                    <div class="face back">
-                        <h3>REALIZAR REGISTROS</h3>
-                        <p>
-                            Como cliente, debes realizar el registro corresondiente para que puedas comunicarte con un profesional 
-                   y así resolver dudas o inquietudes que tengas al respecto.
-                        </p>
-                    </div>
-                </div>--%>
             </div>
         </div>
     </section>

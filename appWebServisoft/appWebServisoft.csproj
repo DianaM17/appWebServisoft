@@ -167,6 +167,7 @@
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
+    <Content Include="Vista\Imagenes\NuevaCategoria.jpg" />
     <Content Include="Vista\Imagenes\profesional.png" />
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\Js\app.js" />

@@ -251,7 +251,7 @@
                 <div class="perfil-usuario-header">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
-                            <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
+                            <img src="Imagenes/foto1.jpg" alt="img-avatar">
                             <button type="button" class="boton-avatar">
                                 <i class="far fa-image"></i>
                             </button>
@@ -345,7 +345,7 @@
                                     <!-- SECTION 1 -->
                                     <h4></h4>
                                     <section>
-                                        <asp:Label ID="lblIdProfesional" runat="server" Text="Label"></asp:Label>
+                                        <asp:Label ID="lblIdProfesional" runat="server" Text="Label" Visible="false"></asp:Label>
                                         <div class="form-header">
                                             <div class="avartar">
                                                 <a href="#">

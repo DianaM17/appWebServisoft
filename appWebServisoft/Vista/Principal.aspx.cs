@@ -48,7 +48,6 @@ namespace appWebServisoft.Vista
 
             // Enviar el correo electrónico
             clienteSmtp.Send(mensaje);
-
         }
 
     }
