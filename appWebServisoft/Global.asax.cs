@@ -18,6 +18,7 @@ namespace appWebServisoft
         protected void Session_Start(object sender, EventArgs e)
         {
             Session["usuario"] = "";
+            Session["idProfesional"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace appWebServisoft
         protected void Session_End(object sender, EventArgs e)
         {
             Session["usuario"] = "";
-
+            Session["idProfesional"] = "";
         }
 
         protected void Application_End(object sender, EventArgs e)

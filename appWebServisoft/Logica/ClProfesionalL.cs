@@ -38,10 +38,19 @@ namespace appWebServisoft.Logica
             return Actualizar;
         }
 
+
         public List<ClProfesionalE> mtdListarProfesional()
         {
             ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
             List<ClProfesionalE> verProfesional = ObjProfecionalProfecional.mtdListarProfecional();
+
+        public ClProfesionalE mtdBuscarProf(int idProfesional)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            ClProfesionalE objDatos = objProf.mtdSeleccionarProf(idProfesional);
+            return objDatos;
+        }
+
 
             return verProfesional;
         }
