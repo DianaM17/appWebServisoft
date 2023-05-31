@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Loginn.aspx.cs" Inherits="appWebServisoft.Vista.Loginn" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="appWebServisoft.Vista.Loginn" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Login.css" rel="stylesheet" />
