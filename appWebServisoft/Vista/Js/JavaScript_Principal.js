@@ -21,3 +21,45 @@
         topPanel.style.width = event.clientX + skewHack + delta + 'px';
     });
 });
+
+
+/*cards profesional*/
+
+$(document).ready(function () {
+    var owl = $('.owl-carousel');
+
+    owl.owlCarousel({
+        loop: true,
+        nav: true,
+        navText: [
+            '<button class="owl-prev" data-action="prev">&#8249; Anterior</button>',
+            '<button class="owl-next" data-action="next">Siguiente &#8250;</button>'
+        ],
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 2
+            },
+            900: {
+                items: 4
+            }
+        }
+    });
+
+    // Manejar el evento click en el botón de flecha previa
+    $('.owl-prev').click(function () {
+        owl.trigger('prev.owl.carousel');
+    });
+
+    // Manejar el evento click en el botón de flecha siguiente
+    $('.owl-next').click(function () {
+        owl.trigger('next.owl.carousel');
+    });
+
+    // Evitar que se recargue la página al hacer clic en los botones
+    $('.owl-prev, .owl-next').click(function (e) {
+        e.preventDefault();
+    });
+});

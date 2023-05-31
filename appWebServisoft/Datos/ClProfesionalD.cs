@@ -59,5 +59,37 @@ namespace appWebServisoft.Datos
             return actualizar;
         }
 
+
+        public List<ClProfesionalE> mtdListarProfecional()
+        {
+            string Consulta = "Select * from Profesional";
+
+            ClProcesarSQL ObjSQL = new ClProcesarSQL();
+            DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
+
+
+
+            List<ClProfesionalE> VerProfesional = new List<ClProfesionalE>();
+
+            for (int i = 0; i < TablaProfesional.Rows.Count; i++)
+            {
+                ClProfesionalE ObjProfesional = new ClProfesionalE();
+                ObjProfesional.idProfesional = int.Parse(TablaProfesional.Rows[i]["idProfesional"].ToString());
+                ObjProfesional.nombres = TablaProfesional.Rows[i]["nombres"].ToString();
+                ObjProfesional.apellidos = TablaProfesional.Rows[i]["apellidos"].ToString();
+                ObjProfesional.telefono = TablaProfesional.Rows[i]["telefono"].ToString();
+                ObjProfesional.email = TablaProfesional.Rows[i]["email"].ToString();
+                ObjProfesional.clave = TablaProfesional.Rows[i]["clave"].ToString();
+                ObjProfesional.direccion = TablaProfesional.Rows[i]["direccion"].ToString();
+                ObjProfesional.perfil = TablaProfesional.Rows[i]["perfil"].ToString();
+                ObjProfesional.fotos = TablaProfesional.Rows[i]["fotos"].ToString();
+                ObjProfesional.estado = TablaProfesional.Rows[i]["estado"].ToString();
+                VerProfesional.Add(ObjProfesional);
+
+            }
+
+            return VerProfesional;
+
+        }
     }
 }
