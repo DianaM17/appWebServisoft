@@ -392,15 +392,25 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
+                                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                                <ContentTemplate>
+                                                    <div class="form-holder">
+                                                        <asp:DropDownList ID="ddlCategoria" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
+                                                        <%--<input type="text" placeholder="City" class="form-control">--%>
+                                                    </div>
+                                                    <div class="form-holder">
+                                                        <asp:DropDownList ID="ddlServicio" runat="server" class="form-control"></asp:DropDownList>
+                                                        <%--<input type="text" placeholder="Country" class="form-control">--%>
+                                                    </div>
+                                                </ContentTemplate>
+                                            </asp:UpdatePanel>
                                             <div class="form-holder">
-                                                <asp:DropDownList ID="ddlCategoria" runat="server" class="form-control"></asp:DropDownList>
-                                                <%--<input type="text" placeholder="City" class="form-control">--%>
-                                            </div>
-                                            <div class="form-holder">
-                                                <asp:DropDownList ID="ddlServicio" runat="server" class="form-control"></asp:DropDownList>
+                                                <asp:DropDownList ID="ddlCiudad" runat="server" class="form-control"></asp:DropDownList>
                                                 <%--<input type="text" placeholder="Country" class="form-control">--%>
                                             </div>
                                         </div>
+                                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
                                     </section>
                                 </div>
                             </div>

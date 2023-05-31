@@ -1,4 +1,5 @@
-﻿using appWebServisoft.Entidades;
+﻿using appWebServisoft.Datos;
+using appWebServisoft.Entidades;
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
@@ -27,13 +28,97 @@ namespace appWebServisoft.Vista
                     txtPassword.Value = Buscar.clave;
                     txtDireccion.Value = Buscar.direccion;
                     txtPerfil.Value = Buscar.perfil;
-                    //txtFotos.Text = Buscar.fotos;
-                    //txtEstado.Text = Buscar.estado;
-                    //ddlCategoria.SelectedIndex = Buscar.idCategoria;
-                    //ddlServicios.SelectedIndex = Buscar.idServicio;
+
+                    //Combo ddlCategoria
+                    ClCategoriaL objCategoria = new ClCategoriaL();
+                    List<ClCategoriaE> listaCategoria = new List<ClCategoriaE>();
+                    listaCategoria = objCategoria.mtdListar();
+
+                    ddlCategoria.DataSource = listaCategoria;
+                    ddlCategoria.DataTextField = "categoria";
+                    ddlCategoria.DataValueField = "idCategoria";
+                    ddlCategoria.DataBind();
+                    ddlCategoria.SelectedValue = Buscar.idCategoria.ToString();
+
+                    //Combo ddlCiudad
+                    ClCiudadD objCiudad = new ClCiudadD();
+                    List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
+                    listaCiudad = objCiudad.mtdListarCiudad();
+                    ddlCiudad.DataSource = listaCiudad;
+                    ddlCiudad.DataTextField = "nombre";
+                    ddlCiudad.DataValueField = "idCiudad";
+                    ddlCiudad.DataBind();
+                    ddlCiudad.SelectedValue = Buscar.idCiudad.ToString();
+
+                    //Combo ddlServicio
+                    string idCateg = ddlCategoria.SelectedValue;
+                    ClServicioL objServicio = new ClServicioL();
+                    List<ClServicioE> listaServicio = objServicio.mtdListarServicio(idCateg);
+
+                    // Limpiar los elementos existentes en el ComboBox
+                    ddlServicio.Items.Clear();
+
+                    ddlServicio.DataSource = listaServicio;
+                    ddlServicio.DataTextField = "servicio";
+                    ddlServicio.DataValueField = "idServicio";
+                    ddlServicio.DataBind();
+                    ddlServicio.SelectedValue = Buscar.idServicio.ToString();
                 }
             }
 
         }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            ClProfesionalE objProf = new ClProfesionalE();
+
+            objProf.nombres = txtNombres.Value;
+            objProf.apellidos = txtApellidos.Value;
+            objProf.telefono = txtTelefono.Value;
+            objProf.email = txtEmail.Value;
+            objProf.clave = txtPassword.Value;
+            objProf.direccion = txtDireccion.Value;
+            objProf.perfil = txtPerfil.Value;
+            objProf.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
+            objProf.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
+            objProf.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+
+            ClProfesionalL objProfesional = new ClProfesionalL();
+            int regisProf = objProfesional.mtdActualizarDatos(objProf, idProf);
+
+            string script = @"<script> swal({ title: '¡Actualización Exitosa!',
+                              text: 'Datos Registrados Exitosamente', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+
+            if (regisProf == 1)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+            }
+        }
+
+        protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            ClProfesionalL obj = new ClProfesionalL();
+            ClProfesionalE Buscar = obj.mtdBuscarProf(idProf);
+            //Combo ddlServicio
+            string idCateg = ddlCategoria.SelectedValue;
+            ClServicioL objServicio = new ClServicioL();
+            List<ClServicioE> listaServicio = objServicio.mtdListarServicio(idCateg);
+
+            // Limpiar los elementos existentes en el ComboBox
+            ddlServicio.Items.Clear();
+
+            ddlServicio.DataSource = listaServicio;
+            ddlServicio.DataTextField = "servicio";
+            ddlServicio.DataValueField = "idServicio";
+            ddlServicio.DataBind();
+            ddlServicio.SelectedValue = Buscar.idServicio.ToString();
+        }
     }
+
 }
+
