@@ -1,4 +1,6 @@
-﻿using System;
+﻿using appWebServisoft.Entidades;
+using appWebServisoft.Logica;
+using System;
 using System.Collections.Generic;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)

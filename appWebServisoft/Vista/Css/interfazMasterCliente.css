@@ -1,0 +1,27 @@
+﻿body {
+    margin: 0px;
+}
+
+
+.navbar1 {
+    height: 50px;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+    .navbar1 .navbar-text,
+    .navbar1 label {
+        margin-right: 50px;
+    }
+
+.navbar-nav {
+    display: flex;
+    background-color: white;
+  
+}
+
+

@@ -67,16 +67,48 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Vista\assets\1.jpg" />
+    <Content Include="Vista\assets\2.jpg" />
+    <Content Include="Vista\assets\3.jpg" />
+    <Content Include="Vista\assets\home1.png" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.rtl.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap.min.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap.rtl.css" />
+    <Content Include="Vista\Boostrap\css\bootstrap.rtl.min.css" />
+    <Content Include="Vista\Boostrap\js\bootstrap.bundle.js" />
+    <Content Include="Vista\Boostrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Vista\Boostrap\js\bootstrap.esm.js" />
+    <Content Include="Vista\Boostrap\js\bootstrap.esm.min.js" />
+    <Content Include="Vista\Boostrap\js\bootstrap.js" />
+    <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
+    <Content Include="Vista\busquedaCliente.aspx" />
     <Content Include="Vista\Categorias.aspx" />
+    <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
+
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
+
+    <Content Include="Vista\Css\interfazMasterCliente.css" />
+    <Content Include="Vista\Css\style.css" />
+
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal.css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
-    <Content Include="Vista\HomeCliente.aspx" />
     <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -139,16 +171,26 @@
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
     <Content Include="Vista\Imagenes\profesional.png" />
+    <Content Include="Vista\interfazCliente.aspx" />
+    <Content Include="Vista\Js\app.js" />
+    <Content Include="Vista\Js\jquery-3.3.1.min.js" />
+    <Content Include="Vista\Js\jquery.steps.js" />
     <Content Include="Vista\Js\JavaScript_Contacto.js" />
     <Content Include="Vista\Js\JavaScript_Master.js" />
     <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
+    <Content Include="Vista\Js\SweetCerrarSecion.js" />
     <Content Include="Vista\Login.aspx" />
+    <Content Include="Vista\Js\main.js" />
+    <Content Include="Vista\perfilCliente.aspx" />
+    <Content Include="Vista\PerfilProfesional.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
     <Content Include="Vista\RegistrarCategoria.aspx" />
     <Content Include="Vista\RegistrarUsuario.aspx" />
+    <Content Include="Vista\Js\theme-map.js" />
+    <Content Include="Vista\CategoriasCliente.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -173,19 +215,19 @@
     <Compile Include="Logica\ClProfesionalL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Vista\busquedaCliente.aspx.cs">
+      <DependentUpon>busquedaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\busquedaCliente.aspx.designer.cs">
+      <DependentUpon>busquedaCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vista\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\HomeCliente.aspx.cs">
-      <DependentUpon>HomeCliente.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\HomeCliente.aspx.designer.cs">
-      <DependentUpon>HomeCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\HomeProfesional.aspx.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>
@@ -194,12 +236,40 @@
     <Compile Include="Vista\HomeProfesional.aspx.designer.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\interfazCliente.aspx.cs">
+      <DependentUpon>interfazCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\interfazCliente.aspx.designer.cs">
+      <DependentUpon>interfazCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vista\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\MasterCliente.Master.cs">
+      <DependentUpon>MasterCliente.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\MasterCliente.Master.designer.cs">
+      <DependentUpon>MasterCliente.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\perfilCliente.aspx.cs">
+      <DependentUpon>perfilCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\perfilCliente.aspx.designer.cs">
+      <DependentUpon>perfilCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\PerfilProfesional.aspx.cs">
+      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\PerfilProfesional.aspx.designer.cs">
+      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
@@ -236,10 +306,47 @@
     <Compile Include="Vista\Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vista\CategoriasCliente.aspx.cs">
+      <DependentUpon>CategoriasCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\CategoriasCliente.aspx.designer.cs">
+      <DependentUpon>CategoriasCliente.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Vista\Site2.Master" />
+    <Content Include="Vista\Css\Perfil\app.scss" />
+    <Content Include="Vista\Css\Perfil\_keyframes.scss" />
+    <Content Include="Vista\Css\Perfil\_mixins.scss" />
+    <Content Include="Vista\Css\Perfil\_reset.scss" />
+    <Content Include="Vista\Css\Perfil\_variables.scss" />
+    <Content Include="Vista\Css\style.css.map" />
+    <Content Include="Vista\Css\Perfil\style.scss" />
+    <Content Include="Vista\MasterCliente.Master" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap.min.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap.rtl.css.map" />
+    <Content Include="Vista\Boostrap\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Vista\Boostrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Vista\Boostrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Vista\Boostrap\js\bootstrap.esm.js.map" />
+    <Content Include="Vista\Boostrap\js\bootstrap.esm.min.js.map" />
+    <Content Include="Vista\Boostrap\js\bootstrap.js.map" />
+    <Content Include="Vista\Boostrap\js\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

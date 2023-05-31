@@ -37,21 +37,28 @@ namespace appWebServisoft.Vista
             {
                 Session["idProfesional"] = objProfesionalE.idProfesional;
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
+
                 Response.Redirect("HomeProfesional.aspx");
+
+
+                Response.Redirect("PerfilProfesional.aspx");
+
+
+                Session["idProfesional"] = objProfesionalE.idProfesional;
+                Response.Redirect("PerfilProfesional.aspx");
+
             }
             else if (objClienteE != null)
             {
                 Session["usuario"] = objClienteE.nombres + " " + objClienteE.apellidos;
-                Response.Redirect("HomeCliente.aspx");
+                Response.Redirect("interfazCliente.aspx");
             }
             else
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Swal.fire({ title: 'Oops...', text: 'Usuario o Contraseña incorrectos!', icon: 'error', confirmButtonText: 'Aceptar', customClass: { confirmButton: 'swal-button swal-button--error-color' } });", true);
+
             }
-
-
         }
-
     }
 }
 
