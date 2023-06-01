@@ -51,6 +51,12 @@ namespace appWebServisoft.Logica
             int Actualizar = objProf.mtdActualizarDatos(objDatos, idProfesional);
             return Actualizar;
         }
+        public int mtdCambiarEstado(ClProfesionalE objDatos, int idProfesional)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            int Actualizar = objProf.mtdCambiarEstado(objDatos, idProfesional);
+            return Actualizar;
+        }
         public List<ClProfesionalE> mtdListarProfesional()
         {
             ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace appWebServisoft.Entidades
 {
-    public class ClProfesionalE
+    public class ClProfesionalE : ClServicioE
     {
         public int idProfesional { get; set; }
         public string nombres { get; set; }
@@ -17,8 +17,8 @@ namespace appWebServisoft.Entidades
         public string perfil { get; set; }
         public string fotos { get; set; }
         public string estado { get; set; }
-        public int idCategoria { get; set; }
-        public int idServicio { get; set; }
+        //public int idCategoria { get; set; }
+        //public int idServicio { get; set; }
         public int idCiudad { get; set; }
     }
 }

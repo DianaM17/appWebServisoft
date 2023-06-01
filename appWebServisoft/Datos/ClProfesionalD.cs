@@ -118,22 +118,32 @@ namespace appWebServisoft.Datos
                 objProf.fotos = tblDatos.Rows[0]["fotos"].ToString();
                 objProf.estado = tblDatos.Rows[0]["estado"].ToString();
                 objProf.idCategoria = int.Parse(tblDatos.Rows[0]["idCategoria"].ToString());
+                objProf.categoria = tblDatos.Rows[0]["categoria"].ToString();
                 objProf.idServicio = int.Parse(tblDatos.Rows[0]["idServicio"].ToString());
+                objProf.servicio = tblDatos.Rows[0]["servicio"].ToString();
                 objProf.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());
+                objProf.nombre = tblDatos.Rows[0]["nombre"].ToString();
             }
             return objProf;
-
         }
 
         public int mtdActualizarDatos(ClProfesionalE objDatos, int idProfesional)
         {
             string actualizar = "Update Profesional set nombres = '" + objDatos.nombres + "', apellidos = '" + objDatos.apellidos + "', telefono='" + objDatos.telefono + "'," +
                 "email='" + objDatos.email + "',clave='" + objDatos.clave + "',direccion='" + objDatos.direccion + "', perfil = '" + objDatos.perfil + "', fotos = '" + objDatos.fotos + "', " +
-                "estado = '" + objDatos.estado + "', idCategoria = " + objDatos.idCategoria + ", idServicio = " + objDatos.idServicio + ", idCiudad = " + objDatos.idCiudad + " where idProfesional = " + idProfesional + ";";
+                "idCategoria = " + objDatos.idCategoria + ", idServicio = " + objDatos.idServicio + ", idCiudad = " + objDatos.idCiudad + " where idProfesional = " + idProfesional + ";";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int Actualizar = SQL.mtdIUDConec(actualizar);
             return Actualizar;
 
+        }
+
+        public int mtdCambiarEstado(ClProfesionalE objDatos, int idProfesional)
+        {
+            string actualizar = "Update Profesional set estado = '" + objDatos.estado + "' where idProfesional = " + idProfesional + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Actualizar = SQL.mtdIUDConec(actualizar);
+            return Actualizar;
         }
     }
 }

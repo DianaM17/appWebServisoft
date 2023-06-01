@@ -100,6 +100,7 @@
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
     <Content Include="Vista\Css\interfazCliente.css" />
     <Content Include="Vista\Css\interfazMasterCliente.css" />
+    <Content Include="Vista\Css\Estilos_PerfilProfesional.css" />
     <Content Include="Vista\Css\style.css" />
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
@@ -168,7 +169,11 @@
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
+
+    <Content Include="Vista\Imagenes\PerfilProfesional\JuanCarlosPerez.jpg" />
+
     <Content Include="Vista\Imagenes\NuevaCategoria.jpg" />
+
     <Content Include="Vista\Imagenes\profesional.png" />
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\Js\app.js" />
