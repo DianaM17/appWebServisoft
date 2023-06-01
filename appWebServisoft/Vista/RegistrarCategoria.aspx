@@ -12,7 +12,7 @@
             <input placeholder="Nombre Categoria" id="txtCategoria" name="txtCategoria" runat="server" type="text" />
         </div>
         <div class="">
-            <label for="Password">Password</label>
+            <label for="Password">Imagen</label>
             <asp:FileUpload ID="FuImagen" runat="server" />
             <%--<input id="Password" type="password">--%>
         </div>

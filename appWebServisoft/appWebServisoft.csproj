@@ -42,8 +42,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\lib\net462\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -98,6 +98,7 @@
     <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
+    <Content Include="Vista\Css\interfazCliente.css" />
     <Content Include="Vista\Css\interfazMasterCliente.css" />
     <Content Include="Vista\Css\Estilos_PerfilProfesional.css" />
     <Content Include="Vista\Css\style.css" />
@@ -105,7 +106,7 @@
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
-    <Content Include="Vista\Css\Estilos_Principal.css" />
+    <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
     <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
@@ -168,7 +169,11 @@
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
+
     <Content Include="Vista\Imagenes\PerfilProfesional\JuanCarlosPerez.jpg" />
+
+    <Content Include="Vista\Imagenes\NuevaCategoria.jpg" />
+
     <Content Include="Vista\Imagenes\profesional.png" />
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\Js\app.js" />
@@ -179,6 +184,7 @@
     <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
+    <Content Include="Vista\Js\SiteMaster2.js" />
     <Content Include="Vista\Js\SweetCerrarSecion.js" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Js\main.js" />
@@ -379,12 +385,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -29,8 +29,12 @@
                 <div class="perfil-usuario-header">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
+
                             <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" ImageUrl='<%# Eval("fotos") %>' />
                             <%--<img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">--%>
+
+                            <img src="Imagenes/foto1.jpg" alt="img-avatar">
+
                             <button type="button" class="boton-avatar">
                                 <i class="far fa-image"></i>
                             </button>

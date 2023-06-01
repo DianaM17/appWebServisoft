@@ -23,10 +23,10 @@
             <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
                 <div class="custom-card">
                     <div class="card-img-box">
-                        <img src="..." />
+                        <img src="Imagenes/NuevaCategoria.jpg" />
                     </div>
                     <div class="card-content">
-                        <a href="RegistrarCategoria.aspx">Registrar Categoria</a>
+                        <a href="RegistrarCategoria.aspx" style="text-decoration: none; color:#000000">Registrar Categoria</a>
                     </div>
                 </div>
             </div>
