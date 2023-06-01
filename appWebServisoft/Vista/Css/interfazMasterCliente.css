@@ -2,7 +2,7 @@
     margin: 0px;
 }
 
-
+/*navBar Usuario*/
 .navbar1 {
     height: 50px;
     background-color: black;
@@ -21,7 +21,99 @@
 .navbar-nav {
     display: flex;
     background-color: white;
-  
 }
 
+/*navBar Menu*/
+nav {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #f0f0f0;
+}
+
+.imgs {
+    margin-left: 40px;
+    width: 100px;
+    height: auto;
+}
+
+nav a {
+    margin-left: 120px;
+    line-height: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+}
+
+nav .animation {
+    position: absolute;
+    height: 50px;
+    top: 30px;
+    z-index: -1;
+    transition: all .5s ease 0s;
+    border-radius: 8px;
+}
+
+#cardElements {
+    display: flex;
+    align-items: center;
+}
+
+    #cardElements a {
+        margin-right: 10px;
+    }
+
+.menu-button {
+    display: none;
+    margin-left: auto;  Agregado para mover el botón a la derecha 
+}
+
+@media (max-width: 700px) {
+    #cardElements {
+        display: none;
+    }
+
+        #cardElements.show-links {
+            display: flex;
+            flex-direction: column;
+        }
+
+    .menu-button {
+        display: block;
+    }
+}
+
+@media (min-width: 701px) {
+    .menu-button {
+        display: none;
+    }
+}
+
+.menu-links a:hover:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.menu-links a:hover {
+    z-index: 1;
+}
+
+.menu-links a:nth-child(1):hover:before {
+    background-color: #1abc9c;
+}
+
+.menu-links a:nth-child(2):hover:before {
+    background-color: #e74c3c;
+}
 

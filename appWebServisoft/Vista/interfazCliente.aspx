@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/MasterCliente.Master" AutoEventWireup="true" CodeBehind="interfazCliente.aspx.cs" Inherits="appWebServisoft.Vista.interfazCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Css/Estilos_Principal.css" rel="stylesheet" />
+    <link href="Css/interfazCliente.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
@@ -43,12 +43,6 @@
         <asp:Label ID="Label2" CssClass="texto" runat="server" Text="Profesionales"></asp:Label>
     </div>
     <br />
-
-<style>
-    .custom-card {
-        margin-right: 10px;
-    }
-</style>
 
 <div class="owl-carousel owl-theme text-center">
     <asp:Repeater ID="Repeater1" runat="server">
