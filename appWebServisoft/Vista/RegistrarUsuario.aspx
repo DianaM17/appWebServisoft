@@ -44,6 +44,10 @@
                     </div>
                     <div class="emailIcono">
                         <i class="fa-solid fa-envelope" style="color: #ec4670;"></i>
+                        <asp:FileUpload ID="FuImagen" runat="server" />
+                    </div>
+                    <div class="emailIcono">
+                        <i class="fa-solid fa-envelope" style="color: #ec4670;"></i>
                         <input id="txtEmail" name="txtEmail" runat="server" type="text" placeholder="Correo Electronico" required />
                     </div>
                     <div class="clavelIcono">
@@ -86,6 +90,10 @@
                     <div class="perfilpIcono">
                         <i class="fa-solid fa-address-card" style="color: #ec4670;"></i>
                         <input id="txtPerfilP" name="txtPerfilP" runat="server" type="text" placeholder="Perfil Profesional" required />
+                    </div>
+                    <div class="perfilpIcono">
+                        <i class="fa-solid fa-address-card" style="color: #ec4670;"></i>
+                        <asp:FileUpload ID="FlImagen" runat="server" />
                     </div>
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">

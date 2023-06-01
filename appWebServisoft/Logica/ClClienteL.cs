@@ -35,5 +35,11 @@ namespace appWebServisoft.Logica
             return Actualizar;
         }
 
+        public int mtdVerificarTelefono(string telefono)
+        {
+            ClClienteD objCliente = new ClClienteD();
+            int Actualizar = objCliente.mtdVerificarTelefono(telefono);
+            return Actualizar;
+        }
     }
 }
