@@ -98,13 +98,14 @@
     <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
+    <Content Include="Vista\Css\interfazCliente.css" />
     <Content Include="Vista\Css\interfazMasterCliente.css" />
     <Content Include="Vista\Css\style.css" />
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
-    <Content Include="Vista\Css\Estilos_Principal.css" />
+    <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
     <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
@@ -177,6 +178,7 @@
     <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
+    <Content Include="Vista\Js\SiteMaster2.js" />
     <Content Include="Vista\Js\SweetCerrarSecion.js" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Js\main.js" />
