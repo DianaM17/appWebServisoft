@@ -53,5 +53,13 @@ namespace appWebServisoft.Datos
             int actualizar = SQL.mtdIUDConec(consulta);
             return actualizar;
         }
+
+        public int mtdVerificarTelefono(string telefono)
+        {
+            string verificar = "Select count(*) from cliente where telefono = '" + telefono + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Verificar = SQL.mtdSelectConec(verificar);
+            return Verificar;
+        }
     }
 }

@@ -13,10 +13,20 @@ namespace appWebServisoft.Datos
     {
         public int mtdRegistroProfesional(ClProfesionalE objProfesional)
         {
-            string Registro = "Insert Into Profesional(nombres,apellidos,telefono,email,clave,direccion,perfil,idCategoria,idServicio,idCiudad) Values('" + objProfesional.nombres + "','" + objProfesional.apellidos + "'," +
-                "'" + objProfesional.telefono + "','" + objProfesional.email + "','" + objProfesional.clave + "','" + objProfesional.direccion + "','" + objProfesional.perfil + "'," + objProfesional.idCategoria + "," + objProfesional.idServicio + "," + objProfesional.idCiudad + ")";
+            int Registros = 1;
+            string Registro = "Insert Into Profesional(nombres,apellidos,telefono,email,clave,direccion,perfil,fotos,idCategoria,idServicio,idCiudad) " +
+                "Values('" + objProfesional.nombres + "','" + objProfesional.apellidos + "','" + objProfesional.telefono + "','" + objProfesional.email + "'," +
+                "'" + objProfesional.clave + "','" + objProfesional.direccion + "','" + objProfesional.perfil + "','"+objProfesional.fotos+"',"
+                + objProfesional.idCategoria + "," + objProfesional.idServicio + "," + objProfesional.idCiudad + ") SELECT SCOPE_IDENTITY() AS [UltimoId]";
+            
             ClProcesarSQL SQL = new ClProcesarSQL();
-            int Registros = SQL.mtdIUDConec(Registro);
+            //int Registros = SQL.mtdIUDConec(Registro);
+            DataTable tblId = SQL.mtdSelectDesc(Registro);
+
+            int idReg = int.Parse(tblId.Rows[0]["UltimoId"].ToString());
+            //REGISTRO A LA TABLA DE ROMPIMIENTO
+            int isServicio = objProfesional.idServicio;
+            //string sql = "insert....";
             return Registros;
         }
 
@@ -62,16 +72,12 @@ namespace appWebServisoft.Datos
             return actualizar;
         }
 
-
-
         public List<ClProfesionalE> mtdListarProfecional()
         {
             string Consulta = "Select * from Profesional";
 
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
-
-
 
             List<ClProfesionalE> VerProfesional = new List<ClProfesionalE>();
 
@@ -144,6 +150,15 @@ namespace appWebServisoft.Datos
             ClProcesarSQL SQL = new ClProcesarSQL();
             int Actualizar = SQL.mtdIUDConec(actualizar);
             return Actualizar;
+        }
+
+        public int mtdVerificarTelefono(string telefono)
+        {
+            string consulta = "Select Count(*) from Profesional where telefono='" + telefono + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Verificar = SQL.mtdSelectConec(consulta);
+            return Verificar;
+
         }
     }
 }

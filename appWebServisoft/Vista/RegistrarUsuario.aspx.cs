@@ -48,57 +48,118 @@ namespace appWebServisoft.Vista
 
         protected void btnRegistrarCliente_ServerClick(object sender, EventArgs e)
         {
-            ClClienteE objCliente = new ClClienteE();
-
-            objCliente.nombres = txtNombres.Value;
-            objCliente.apellidos = txtApellidos.Value;
-            objCliente.direccion = txtDireccion.Value;
-            objCliente.telefono = txtTelefono.Value;
-            objCliente.email = txtEmail.Value;
-            objCliente.clave = txtContraseña.Value;
-            objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
-
             ClClienteL objClient = new ClClienteL();
-            int registro = objClient.mtdRegistroCliente(objCliente);
+            string telefono = txtTelefonoP.Value;
+            int veriTelefono = objClient.mtdVerificarTelefono(telefono);
+            if (veriTelefono > 0)
+            {
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'El número de telefono que ingresaste ya esta registrado!!.',type: 'error',
+                            confirmButtonText: 'Aceptar'});
+                    </script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
 
-            string script = @"<script> swal({ title: '¡Registro Exitoso!',
-                              text: 'Instructor Registrado Exitosamente', type: 'success',
+            }else
+            {
+                if (FuImagen.HasFile)
+                {
+                    string nombreImgC = txtTelefono.Value;
+                    string rutaImgC = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImgC);
+                    string rutaSQL = ("~/Vista/Imagenes/PerfilCliente/" + nombreImgC);
+                    FuImagen.SaveAs(rutaImgC);
+
+                    ClClienteE objCliente = new ClClienteE();
+
+                    objCliente.nombres = txtNombres.Value;
+                    objCliente.apellidos = txtApellidos.Value;
+                    objCliente.direccion = txtDireccion.Value;
+                    objCliente.telefono = txtTelefono.Value;
+                    objCliente.email = txtEmail.Value;
+                    objCliente.clave = txtContraseña.Value;
+                    objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+
+                    txtNombres.Value = "";
+                    txtApellidos.Value = "";
+                    txtDireccion.Value = "";
+                    txtTelefono.Value = "";
+                    txtEmail.Value = "";
+                    txtContraseña.Value = "";
+                    ddlCiudad.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
+
+
+                    int registro = objClient.mtdRegistroCliente(objCliente);
+
+                    string script = @"<script> swal({ title: '¡Registro Exitoso!',
+                              text: 'Cliente Registrado Exitosamente', type: 'success',
                             confirmButtonText: 'Aceptar'
                 });
                     </script>";
-            if (registro == 1)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                    if (registro == 1)
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                    }
+                }
             }
         }
 
         protected void BtnRegistrarProfesional_ServerClick(object sender, EventArgs e)
         {
-            ClProfesionalE objProf = new ClProfesionalE();
-
-            objProf.nombres = txtNombresP.Value;
-            objProf.apellidos = txtApellidosP.Value;
-            objProf.telefono = txtTelefonoP.Value;
-            objProf.email = txtEmailP.Value;
-            objProf.clave = txtClaveP.Value;
-            objProf.direccion = txtDireccionP.Value;
-            objProf.perfil = txtPerfilP.Value;
-            objProf.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
-            objProf.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
-            objProf.idCiudad = int.Parse(ddlCiudadd.SelectedValue.ToString());
-
             ClProfesionalL objProfesional = new ClProfesionalL();
-            int regisProf = objProfesional.mtdRegistroProfesionales(objProf);
+            string telefono = txtTelefonoP.Value;
+            int VeriTelefono = objProfesional.mtdVerificarTelefono(telefono);
+            if (VeriTelefono > 0)
+            {
+                string script = @"<script> swal({ title: '¡Error!', text: 'El número de telefono que ingresaste ya esta registrado!!.',type: 'error',
+                            confirmButtonText: 'Aceptar'});
+                    </script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+            }
+            else
+            {
+                if (FlImagen.HasFile)
+                {
+                    string nombreImg = txtTelefonoP.Value + ".png";
+                    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                    string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                    FlImagen.SaveAs(rutaImg);
 
-            string script = @"<script> swal({ title: '¡Registro Exitoso!',
-                              text: 'Instructor Registrado Exitosamente', type: 'success',
+                    ClProfesionalE objProf = new ClProfesionalE();
+                    objProf.nombres = txtNombresP.Value;
+                    objProf.apellidos = txtApellidosP.Value;
+                    objProf.telefono = txtTelefonoP.Value;
+                    objProf.email = txtEmailP.Value;
+                    objProf.clave = txtClaveP.Value;
+                    objProf.direccion = txtDireccionP.Value;
+                    objProf.perfil = txtPerfilP.Value;
+                    objProf.fotos = rutaSQL;
+                    objProf.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
+                    objProf.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
+                    objProf.idCiudad = int.Parse(ddlCiudadd.SelectedValue.ToString());
+
+                    txtNombresP.Value = "";
+                    txtApellidosP.Value = "";
+                    txtTelefonoP.Value = "";
+                    txtEmailP.Value = "";
+                    txtDireccionP.Value = "";
+                    txtPerfilP.Value = "";
+
+                    ClProfesionalL objProfe = new ClProfesionalL();
+                    //Recibo el entero de la ejecucion de la consulta
+                    int regisProf = objProfe.mtdRegistroProfesionales(objProf);
+                    //Recibir el id que se acabo de registrar
+                    //int idRegistrado = objProfesional.mtdRegistroProfesionales(objProf);
+                    int idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
+
+                    string script = @"<script> swal({ title: '¡Registro Exitoso!',
+                              text: 'Profesional Registrado Exitosamente', type: 'success',
                             confirmButtonText: 'Aceptar'
                 });
                     </script>";
 
-            if (regisProf == 1)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                    if (regisProf == 1)
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                    }
+                }
             }
         }
 
