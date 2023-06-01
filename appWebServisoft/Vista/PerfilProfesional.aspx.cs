@@ -4,6 +4,7 @@ using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,6 +22,15 @@ namespace appWebServisoft.Vista
                 ClProfesionalE Buscar = obj.mtdBuscarProf(idProf);
                 if (Buscar != null)
                 {
+                    lblNombre.Text = Session["usuario"].ToString();
+                    lblPerfil.Text = Buscar.perfil;
+                    lblEmail.Text = Buscar.email;
+                    lblDireccion.Text = Buscar.direccion;
+                    lblTelefono.Text = Buscar.telefono;
+                    lblServicio.Text = Buscar.servicio;
+                    lblCategoria.Text = Buscar.categoria;
+                    lblCiudad.Text = Buscar.nombre;
+                   
                     txtNombres.Value = Buscar.nombres;
                     txtApellidos.Value = Buscar.apellidos;
                     txtTelefono.Value = Buscar.telefono;
@@ -117,6 +127,35 @@ namespace appWebServisoft.Vista
             ddlServicio.DataValueField = "idServicio";
             ddlServicio.DataBind();
             ddlServicio.SelectedValue = Buscar.idServicio.ToString();
+        }
+
+        protected void chkEstado_CheckedChanged(object sender, EventArgs e)
+        {
+            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            ClProfesionalE objProf = new ClProfesionalE();
+
+            string activo = "activo";
+            string inactivo = "inactivo";
+            if (chkEstado.Checked)
+            {
+                objProf.estado = activo;
+            }
+            else
+            {
+                objProf.estado = inactivo;
+            }
+            ClProfesionalL objProfesional = new ClProfesionalL();
+            int regisProf = objProfesional.mtdCambiarEstado(objProf, idProf);
+            string script = @"<script> swal({ title: '¡Cambio Exitoso!',
+                              text: 'Su estado se ha cambiado Exitosamente', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+
+            if (regisProf == 1)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+            }
         }
     }
 
