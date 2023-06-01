@@ -15,3 +15,16 @@
         }
     });
 }
+
+// Manejador de eventos onchange para el DropDownList
+function ddlOpciones_SelectedIndexChanged() {
+    var selectedValue = document.getElementById("<%= ddlOpciones.ClientID %>").value;
+
+    switch (selectedValue) {
+        case "salir":
+            confirmarCerrarSesion();
+            break;
+        default:
+            break;
+    }
+}

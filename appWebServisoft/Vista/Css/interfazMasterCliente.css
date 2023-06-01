@@ -22,7 +22,14 @@
     display: flex;
     background-color: white;
 }
+.textbox-button-container {
+    display: inline-block;
+    margin-right: 10px; /* Espacio entre el cuadro de texto y el botón */
+}
 
+#ddlOpciones{
+    margin-left: 200px;
+}
 /*navBar Menu*/
 nav {
     display: flex;

@@ -52,6 +52,7 @@
                     <img class="card-img-top align-items-center" src="/Vista/Imagenes/imagenesProfesional/<%# Eval("fotos") %>" alt="Card image cap" />
                     <h5 class="card-title"><%# Eval("nombres") %> </h5>
                     <p class="card-text"><%# Eval("apellidos") %> </p>
+                    <p class="card-text"><%# Eval("idCategoria") %> </p>
                 </div>
             </div>
         </ItemTemplate>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using appWebServisoft.Entidades;
+using appWebServisoft.Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,11 @@ namespace appWebServisoft.Vista.VistaCategorias
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            ClCategoriaL objCate = new ClCategoriaL();
+            List<ClCategoriaE> list = objCate.mtdListar();
 
+            reptCateg.DataSource = list;
+            reptCateg.DataBind();
         }
     }
 }

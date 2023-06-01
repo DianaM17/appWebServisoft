@@ -160,6 +160,7 @@
     <Content Include="Vista\Imagenes\foto3.jpg" />
     <Content Include="Vista\Imagenes\foto4.jpg" />
     <Content Include="Vista\Imagenes\foto5.jpg" />
+    <Content Include="Vista\Imagenes\imagenesProfesional\abogado.jpg" />
     <Content Include="Vista\Imagenes\img-1.jpg" />
     <Content Include="Vista\Imagenes\img-2.jpg" />
     <Content Include="Vista\Imagenes\img-3.jpg" />
@@ -357,7 +358,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+
+    <Folder Include="Vista\Imagenes\imagenesTrabajosRealizados\" />
+
     <Folder Include="Vista\Imagenes\PerfilCliente\" />
+
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
