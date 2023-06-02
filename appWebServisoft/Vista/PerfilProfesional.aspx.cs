@@ -23,6 +23,7 @@ namespace appWebServisoft.Vista
                 if (Buscar != null)
                 {
                     lblNombre.Text = Session["usuario"].ToString();
+                    ImgPerfil.ImageUrl = Buscar.fotos;
                     lblPerfil.Text = Buscar.perfil;
                     lblEmail.Text = Buscar.email;
                     lblDireccion.Text = Buscar.direccion;
@@ -30,7 +31,10 @@ namespace appWebServisoft.Vista
                     lblServicio.Text = Buscar.servicio;
                     lblCategoria.Text = Buscar.categoria;
                     lblCiudad.Text = Buscar.nombre;
-                   
+                    lblEstado.Text = Buscar.estado;
+
+
+                    ImgPerfil1.ImageUrl = Buscar.fotos;
                     txtNombres.Value = Buscar.nombres;
                     txtApellidos.Value = Buscar.apellidos;
                     txtTelefono.Value = Buscar.telefono;
