@@ -29,11 +29,11 @@
                 <div class="perfil-usuario-header">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
-
-                            <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" ImageUrl='<%# Eval("fotos") %>' />
-                            <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
-                            <img src="Imagenes/foto1.jpg" alt="img-avatar">
-                            <button type="button" class="boton-avatar">
+                            <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" />
+                            <%--                            <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
+                            <img src="Imagenes/foto1.jpg" alt="img-avatar">--%>
+                            <input type="file" id="imagenPerfil" accept="image/*" runat="server" />
+                            <button type="button" class="boton-avatar" onclick="cargarImagen()">
                                 <i class="far fa-image"></i>
                             </button>
                         </div>
@@ -41,7 +41,7 @@
                             <i class="bi bi-pencil-square"></i>Editar Perfil
                         </button>
                         <label class="switch">
-                            <asp:CheckBox ID="chkEstado" runat="server" AutoPostBack="True" OnCheckedChanged="chkEstado_CheckedChanged"/>
+                            <asp:CheckBox ID="chkEstado" runat="server" AutoPostBack="True" OnCheckedChanged="chkEstado_CheckedChanged" />
                             <%--<input type="checkbox">--%>
                             <span class="slider"></span>
                         </label>
@@ -69,7 +69,8 @@
                                 <asp:Label ID="lblCategoria" runat="server"></asp:Label></li>
                             <li><i class="icono fas fa-map-marker-alt"></i>Ciudad:
                                 <asp:Label ID="lblCiudad" runat="server"></asp:Label></li>
-                            <li><i class="icono fas fa-user-check"></i>Registro.</li>
+                            <li><i class="icono fas fa-user-check"></i>Estado:
+                                <asp:Label ID="lblEstado" runat="server"></asp:Label></li>
                             <li><i class="icono fas fa-share-alt"></i>Redes sociales.</li>
                         </ul>
                     </div>
@@ -126,13 +127,13 @@
                                         <div class="form-header">
                                             <div class="avartar">
                                                 <a href="#">
-                                                    <img src="images/avartar.png" alt="">
+                                                    <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil1" />
                                                 </a>
                                                 <div class="avartar-picker">
                                                     <input type="file" name="file-1[]" id="file-1" class="inputfile" data-multiple-caption="{count} files selected" multiple />
                                                     <label for="file-1">
                                                         <i class="zmdi zmdi-camera"></i>
-                                                        <span>Choose Picture</span>
+                                                        <%--<span>Choose Picture</span>--%>
                                                     </label>
                                                 </div>
                                             </div>
