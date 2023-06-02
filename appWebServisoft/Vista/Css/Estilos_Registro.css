@@ -19,7 +19,7 @@ main {
     width: 100%;
     padding: 20px;
     margin: auto;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .contenedor__todo {
@@ -179,7 +179,7 @@ main {
     transition: 3s;
 }
 
-.emailIcono i {
+.imagenIcono i {
     position: absolute;
     left: 25px;
     top: 417px;
@@ -188,10 +188,28 @@ main {
     transition: 3s;
 }
 
-.clavelIcono i {
+.emailIcono i {
     position: absolute;
     left: 25px;
     top: 480px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 3s;
+}
+
+.claveIcono i {
+    position: absolute;
+    left: 25px;
+    top: 550px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 3s;
+}
+
+.ciudadIcono i {
+    position: absolute;
+    left: 25px;
+    top: 610px;
     padding: 9px 8px;
     color: #aaa;
     transition: 3s;
@@ -260,6 +278,14 @@ main {
     transition: 3s;
 }
 
+.imagenpIcono i {
+    position: absolute;
+    left: 25px;
+    top: 680px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 3s;
+}
 .contenedor__login-register button {
     padding: 15px 40px;
     margin-top: 40px;
