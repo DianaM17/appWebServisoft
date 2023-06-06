@@ -96,6 +96,7 @@
     <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
     <Content Include="Vista\busquedaCliente.aspx" />
     <Content Include="Vista\Categorias.aspx" />
+    <Content Include="Vista\Clientes-Categoria.aspx" />
     <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
@@ -203,7 +204,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Datos\ClBusquedaD.cs" />
     <Compile Include="Datos\ClCategoriaD.cs" />
     <Compile Include="Datos\ClCiudadD.cs" />
     <Compile Include="Datos\ClClienteD.cs" />
@@ -243,6 +243,13 @@
     </Compile>
     <Compile Include="Vista\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes-Categoria.aspx.cs">
+      <DependentUpon>Clientes-Categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes-Categoria.aspx.designer.cs">
+      <DependentUpon>Clientes-Categoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\HomeProfesional.aspx.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>

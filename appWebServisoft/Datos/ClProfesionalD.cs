@@ -163,5 +163,16 @@ namespace appWebServisoft.Datos
             return Verificar;
 
         }
+
+        //public List<ClProfesionalE> mtdBusarProfesionales(string busqueda="")
+        //{
+        //    string consulta = "SELECT * FROM Profesional WHERE estado='Activo'";
+        //    ClProcesarSQL ObjSQL = new ClProcesarSQL();
+        //    DataTable TablaProfesionales = ObjSQL.mtdSelectDesc(consulta);
+
+        //    List<ClProfesionalE> buscarProfesional = new List<ClProfesionalE>();
+
+
+        //}
     }
 }
