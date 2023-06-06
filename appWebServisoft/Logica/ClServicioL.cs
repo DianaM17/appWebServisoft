@@ -29,5 +29,12 @@ namespace appWebServisoft.Logica
             int regis = objServ.mtdRegistrarServicio(objDatos);
             return regis;
         }
+
+        public List<ClImagenesServicioE> mtdlistarImagenServicio()
+        { 
+            ClServicioD objServicio = new ClServicioD();
+            List<ClImagenesServicioE> listaServicio = objServicio.mtdlistarImagenServicio();    
+            return listaServicio;
+        }
     }
 }

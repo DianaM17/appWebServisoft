@@ -23,8 +23,7 @@
 });
 
 
-/*cards profesional*/
-
+//Carrucel Cards
 $(document).ready(function () {
     var owl = $('.owl-carousel');
 
@@ -42,8 +41,8 @@ $(document).ready(function () {
             600: {
                 items: 2
             },
-            900: {
-                items: 4
+            1000: {
+                items: 5
             }
         }
     });
@@ -63,3 +62,42 @@ $(document).ready(function () {
         e.preventDefault();
     });
 });
+
+
+/*Carrucel Comentarios*/
+
+var currentIndex = 0; // Variable para almacenar el índice actual
+var carouselItems = document.querySelectorAll('.carousel-item'); // Obtener todos los elementos del carrusel
+
+function updateCarousel() {
+    for (var i = 0; i < carouselItems.length; i++) {
+        carouselItems[i].classList.remove('active');
+    }
+
+    carouselItems[currentIndex].classList.add('active');
+}
+
+function goToPrevious() {
+    currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+    updateCarousel();
+}
+
+function goToNext() {
+    currentIndex = (currentIndex + 1) % carouselItems.length;
+    updateCarousel();
+}
+
+// Asignar los manejadores de eventos a las flechas de desplazamiento si existen
+var prevArrow = document.querySelector('.carousel-control-prev');
+if (prevArrow) {
+    prevArrow.addEventListener('click', goToPrevious);
+}
+
+var nextArrow = document.querySelector('.carousel-control-next');
+if (nextArrow) {
+    nextArrow.addEventListener('click', goToNext);
+}
+
+setInterval(goToNext, 8000); // Avanzar automáticamente cada 5 segundos</script>
+
+

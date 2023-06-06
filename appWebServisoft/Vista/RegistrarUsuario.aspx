@@ -2,7 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+
     <script src="https://kit.fontawesome.com/e5246dcec8.js" crossorigin="anonymous"></script>
+
     <link href="Css/sweetalert.css" rel="stylesheet" />
     <script src="../Scripts/sweetalert.min.js"></script>
     <link href="Css/Estilos_Registro.css" rel="stylesheet" />

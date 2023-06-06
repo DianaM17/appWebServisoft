@@ -20,27 +20,38 @@ namespace appWebServisoft.Vista
         }
 
 
-        protected void ddlOpciones_SelectedIndexChanged(object sender, EventArgs e)
+      
+        protected void Button1_Click(object sender, ImageClickEventArgs e)
         {
-            
+         
+        }
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            string input = TextBox2.Text;
+            string url = "busquedaCliente.aspx?parametro=" + Server.UrlEncode(input);
+            Response.Redirect(url);
+        }
+
+        protected void mostrarValor()
+        {
             string selectedValue = ddlOpciones.SelectedValue;
 
-            switch (selectedValue)
+            if (selectedValue == "1")
             {
-                case "perfil":
-                    // Redireccionar a la página de perfil
-                    Response.Redirect("PerfilCliente.aspx");
-                    break;
-                case "salir":
-                    //// Ejecutar la función para confirmar el cierre de sesión
-                    ScriptManager.RegisterStartupScript(this, GetType(), "cerrarSecion", "confirmarCerrarSesion();", true);
-                    break;
-                default:
-                    break;
+                // Redireccionar a la página de perfil
+                Response.Redirect("perfil.aspx");
+            }
+            else if (selectedValue == "2")
+            {
+                
+                ScriptManager.RegisterStartupScript(this, GetType(), "cerrarSesion", "confirmarCerrarSesion();", true);
             }
         }
 
-    
+
+
+
+
 
 
 

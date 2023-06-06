@@ -27,9 +27,14 @@
     margin-right: 10px; /* Espacio entre el cuadro de texto y el botón */
 }
 
-#ddlOpciones{
+#ddlOpciones {
+  
     margin-left: 200px;
 }
+
+
+
+
 /*navBar Menu*/
 nav {
     display: flex;
@@ -76,7 +81,7 @@ nav .animation {
 
 .menu-button {
     display: none;
-    margin-left: auto;  Agregado para mover el botón a la derecha 
+    margin-left: auto;  
 }
 
 @media (max-width: 700px) {
@@ -124,3 +129,21 @@ nav .animation {
     background-color: #e74c3c;
 }
 
+
+
+    /*barra busqueda*/
+.search-icon {
+    height: 30px;
+    position: absolute;
+    right: 8px; /* Ajusta la posición a tu gusto */
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+}
+
+#TextBox2 {
+    background-color: #cb0b72;
+    border-radius: 20px;
+    width: 500px;
+    height: 40px;
+}

@@ -200,6 +200,11 @@ body {
 }
 
 /*card*/
+.card {
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+}
+
 .card-body {
     background-color: darkgray;
     font-family: 'Bernard MT';
