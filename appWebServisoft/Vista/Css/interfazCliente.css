@@ -182,57 +182,7 @@ body {
 
 /*Cards*/
 
-.label-container {
-    max-width: 300px;
-    margin: 0 auto;
-}
 
-.texto {
-    background-color: #8a4a4a;
-    display: flex;
-    height: 50px;
-    align-items: center;
-    justify-content: center;
-    transform: skewX(-20deg);
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/*card*/
-.card {
-    display: flex;
-    justify-content: center; /* Centrar horizontalmente */
-}
-
-.card-body {
-    background-color: darkgray;
-    font-family: 'Bernard MT';
-    transition: box-shadow 0.3s ease;
-}
-
-    .card-body:hover {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
-    }
-
-.card-text {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-
-
-.owl-carousel .owl-nav button.owl-prev:hover,
-.owl-carousel .owl-nav button.owl-next:hover {
-    color: #b92323;
-}
-
-.owl-carousel .owl-nav button.owl-prev {
-    margin-right: 10px;
-}
-
-.owl-carousel .owl-nav button.owl-next {
-    margin-left: 10px;
-}
 
 
 /*Footer*/
