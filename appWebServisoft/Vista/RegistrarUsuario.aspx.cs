@@ -2,6 +2,7 @@
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -60,12 +61,15 @@ namespace appWebServisoft.Vista
 
             }else
             {
-                if (FuImagen.HasFile)
+                if (FlImagen.HasFile)
                 {
-                    string nombreImgC = txtTelefono.Value;
-                    string rutaImgC = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImgC);
-                    string rutaSQL = ("~/Vista/Imagenes/PerfilCliente/" + nombreImgC);
-                    FuImagen.SaveAs(rutaImgC);
+                    string nombreImg = txtTelefonoP.Value + ".png";
+                    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/"+ nombreImg);
+                    string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg); ;
+                    FlImagen.SaveAs(rutaImg);
+
+                    // Quitar el atributo oculto del archivo guardado
+                    File.SetAttributes(rutaImg, File.GetAttributes(rutaImg) & ~FileAttributes.Hidden);
 
                     ClClienteE objCliente = new ClClienteE();
 
@@ -117,10 +121,14 @@ namespace appWebServisoft.Vista
             {
                 if (FlImagen.HasFile)
                 {
-                    string nombreImg = txtTelefonoP.Value + ".png";
-                    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-                    string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                    string extension = Path.GetExtension(FlImagen.FileName);
+                    string nombreImg = txtTelefonoP.Value + extension;
+                    string rutaImg = Path.Combine(Server.MapPath("~/Vista/Imagenes/PerfilProfesional/"), nombreImg);
+                    string rutaSQL = nombreImg;
                     FlImagen.SaveAs(rutaImg);
+
+
+
 
                     ClProfesionalE objProf = new ClProfesionalE();
                     objProf.nombres = txtNombresP.Value;

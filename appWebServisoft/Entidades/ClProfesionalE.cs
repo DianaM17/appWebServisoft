@@ -17,6 +17,8 @@ namespace appWebServisoft.Entidades
         public string perfil { get; set; }
         public string fotos { get; set; }
         public string estado { get; set; }
+
+        public string categorias { get; set; }
         //public int idCategoria { get; set; }
         //public int idServicio { get; set; }
         public int idCiudad { get; set; }

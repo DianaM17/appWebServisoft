@@ -44,5 +44,25 @@ namespace appWebServisoft.Datos
             int regis = SQL.mtdIUDConec(registro);
             return regis;
         }
+
+
+        public List<ClImagenesServicioE> mtdlistarImagenServicio()
+        {
+            string consulta = "select * from Imagenes";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblServicios = SQL.mtdSelectDesc(consulta);
+
+            List<ClImagenesServicioE> listaServicio = new List<ClImagenesServicioE>();
+            ClImagenesServicioE objServ = null;
+            for (int i = 0; i < tblServicios.Rows.Count; i++)
+            {
+                objServ = new ClImagenesServicioE();
+                objServ.idServicio = int.Parse(tblServicios.Rows[i]["idServicio"].ToString());
+                objServ.imagen = tblServicios.Rows[i]["imagen"].ToString();
+                listaServicio.Add(objServ);
+            }
+            return listaServicio;
+
+        }
     }
 }
