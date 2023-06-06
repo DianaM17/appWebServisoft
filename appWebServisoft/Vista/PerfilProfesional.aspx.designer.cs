@@ -24,6 +24,15 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Image ImgPerfil;
 
         /// <summary>
+        /// Control imagenPerfil.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imagenPerfil;
+
+        /// <summary>
         /// Control chkEstado.
         /// </summary>
         /// <remarks>
@@ -105,6 +114,15 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblCiudad;
 
         /// <summary>
+        /// Control lblEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
+
+        /// <summary>
         /// Control lblIdProfesional.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,15 @@ namespace appWebServisoft.Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdProfesional;
+
+        /// <summary>
+        /// Control ImgPerfil1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgPerfil1;
 
         /// <summary>
         /// Control txtNombres.

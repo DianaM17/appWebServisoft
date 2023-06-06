@@ -13,7 +13,7 @@ namespace appWebServisoft.Datos
         {
 
 
-            conexion = new SqlConnection("Data Source=acernitro5\\sqlexpress;Initial Catalog=bdProyecto;Integrated Security=True");
+            conexion = new SqlConnection("Data Source=.;Initial Catalog=bdProyecto;Integrated Security=True");
 
             //conexion = new SqlConnection("Data Source=acernitro5\\sqlexpress;Initial Catalog=bdProyecto;Integrated Security=True");
             //conexion = new SqlConnection("Data Source=LAPTOP-NGR8K750;Initial Catalog=bdProyecto;Integrated Security=True");
