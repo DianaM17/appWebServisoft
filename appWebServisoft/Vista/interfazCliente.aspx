@@ -13,6 +13,7 @@
      <section>
         <div>
             <div class="splitview skewed">
+
                 <div class="panel bottom">
                     <div class="content">
                         <div class="description">
@@ -39,47 +40,102 @@
   <%--  Cards Profesionales--%>
     <br />
     <br />
-        <div class="label-container">
-        <asp:Label ID="Label2" CssClass="texto" runat="server" Text="Profesionales"></asp:Label>
-    </div>
-    <br />
-
-<div class="owl-carousel owl-theme text-center">
-    <asp:Repeater ID="Repeater1" runat="server"  >
-        <ItemTemplate>
-            <div class="card mx-2 mb-2 custom-card" style="width: 230px; height: 270px;" >
-                <div class="card-body">
-                    <img class="card-img-top align-items-center circular-image" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="height: 150px" />
-
-                    <p class="card-text"><%# Eval("nombres")%> <%# Eval("apellidos") %>  </p>
-                    <p class="card-text"><%# Eval("categorias") %> </p>
-                </div>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-    <br />
-    <br />
-    <br />
+      <div class="label-container">
+    <asp:Label ID="Label2" CssClass="texto" runat="server" Text="Profesionales"></asp:Label>
 </div>
-    <style>.circular-image {
-    border-radius: 50%;
-    object-fit: cover;
-}
+<br />
 
-.card {
-    display: flex;
-    justify-content: center;
-}
+<div class="container">
+    <div class="owl-carousel owl-theme text-center">
+        <asp:Repeater ID="Repeater1" runat="server">
+            <ItemTemplate>
+                <div class="card mx-2 mb-2 custom-card" style="width: 260px; height: 270px;">
+                    <div class="card-body">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; margin: 0 auto;">
+                            <img class="card-img-top" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+                        </div>
+                        <p class="card-text"><%# Eval("nombres")%> <%# Eval("apellidos") %>  </p>
+                        <p class="card-text"><%# Eval("categorias") %> </p>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+</div>
 
+<style>
+    .label-container {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .texto {
+        background-color: #8a4a4a;
+        display: flex;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        transform: skewX(-20deg);
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Resto del estilo de las tarjetas y el carrusel */
+    .card {
+        display: flex;
+        justify-content: center; /* Centrar horizontalmente */
+    }
+
+    .custom-card {
+        margin: 0 10px; /* Margen entre tarjetas */
+    }
+
+    .card-body {
+        background-color: white;
+        font-family: 'Bernard MT';
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card-body:hover {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .card-text {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+
+    .owl-carousel .owl-nav button.owl-prev:hover,
+    .owl-carousel .owl-nav button.owl-next:hover {
+        color: #b92323;
+    }
+
+    .owl-carousel .owl-nav button.owl-prev {
+        margin-top: 50px;
+        margin-right: 10px;
+    }
+
+    .owl-carousel .owl-nav button.owl-next {
+        margin-top: 50px;
+        margin-left: 10px;
+    }
 </style>
 
-<%--Carrucel Trabajos realizados--%>
 
+
+<%--Carrucel Trabajos realizados--%>
     <br />
     <br />
-        <div class="label-container">
+    <br />
+        <%--<div class="label-container">
         <asp:Label ID="Label1" CssClass="texto" runat="server" Text="Trabajos Realizados"></asp:Label>
-    </div>
+    </div--%>
+    <br />
     <br />
 
 <div class="vertical-carousel owl-carousel owl-theme">
