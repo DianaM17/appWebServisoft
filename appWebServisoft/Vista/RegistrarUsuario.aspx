@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="RegistrarUsuario.aspx.cs" Inherits="appWebServisoft.Vista.RegistrarUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+
+    <script src="https://kit.fontawesome.com/e5246dcec8.js" crossorigin="anonymous"></script>
+
     <link href="Css/sweetalert.css" rel="stylesheet" />
     <script src="../Scripts/sweetalert.min.js"></script>
     <link href="Css/Estilos_Registro.css" rel="stylesheet" />
@@ -42,20 +48,21 @@
                         <i class="fa-solid fa-phone-volume" style="color: #ec4670;"></i>
                         <input id="txtTelefono" name="txtTelefono" runat="server" type="text" placeholder="Telefono" required />
                     </div>
-                    <div class="emailIcono">
-                        <i class="fa-solid fa-envelope" style="color: #ec4670;"></i>
+                    <div class="imagenIcono">
+                        <i class="fa-regular fa-image" style="color: #ec4670;"></i>
                         <asp:FileUpload ID="FuImagen" runat="server" />
                     </div>
+                    
                     <div class="emailIcono">
                         <i class="fa-solid fa-envelope" style="color: #ec4670;"></i>
                         <input id="txtEmail" name="txtEmail" runat="server" type="text" placeholder="Correo Electronico" required />
                     </div>
-                    <div class="clavelIcono">
+                    <div class="claveIcono">
                         <i class="fa-solid fa-key" style="color: #ec4670;"></i>
                         <input id="txtContraseña" name="txtContraseña" runat="server" type="password" placeholder="Contraseña" required />
                     </div>
-                    <div class="clavelIcono">
-                        <i class="fa-solid fa-key" style="color: #ec4670;"></i>
+                    <div class="ciudadIcono">
+                        <i class="fa-solid fa-city" style="color: #ec4670;"></i>
                         <asp:DropDownList ID="ddlCiudad" runat="server" CssClass="combo" required></asp:DropDownList>
                     </div>
                     <button id="btnRegistrarCliente" type="submit" runat="server" onserverclick="btnRegistrarCliente_ServerClick">Regístrarse</button>
@@ -91,8 +98,11 @@
                         <i class="fa-solid fa-address-card" style="color: #ec4670;"></i>
                         <input id="txtPerfilP" name="txtPerfilP" runat="server" type="text" placeholder="Perfil Profesional" required />
                     </div>
-                    <div class="perfilpIcono">
-                        <i class="fa-solid fa-address-card" style="color: #ec4670;"></i>
+                    <div class="imagenpIcono">
+                        <i class="fa-solid fa-image"></i>
+                    </div>
+                    <div >
+                        <i class="fa-regular fa-imag" style="color: #ec4670;"></i>
                         <asp:FileUpload ID="FlImagen" runat="server" />
                     </div>
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>

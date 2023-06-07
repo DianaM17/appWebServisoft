@@ -42,8 +42,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\lib\net462\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
@@ -67,6 +67,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
+    <Content Include="Styles\sweetalert.css" />
     <Content Include="Vista\assets\1.jpg" />
     <Content Include="Vista\assets\2.jpg" />
     <Content Include="Vista\assets\3.jpg" />
@@ -95,6 +96,7 @@
     <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
     <Content Include="Vista\busquedaCliente.aspx" />
     <Content Include="Vista\Categorias.aspx" />
+    <Content Include="Vista\Clientes-Categoria.aspx" />
     <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
@@ -112,13 +114,16 @@
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
     <Content Include="Vista\Imagenes\3099609.jpg" />
+    <Content Include="Vista\Imagenes\3592841-cog-gear-general-machine-office-setting-settings_107765.png" />
     <Content Include="Vista\Imagenes\3872851.jpg" />
     <Content Include="Vista\Imagenes\3918929.jpg" />
+    <Content Include="Vista\Imagenes\5.png" />
     <Content Include="Vista\Imagenes\5995357.jpg" />
     <Content Include="Vista\Imagenes\6325230.jpg" />
     <Content Include="Vista\Imagenes\aviso1-1.png" />
     <Content Include="Vista\Imagenes\AVISO2-1.png" />
     <Content Include="Vista\Imagenes\aviso3.png" />
+    <Content Include="Vista\Imagenes\buscar.png" />
     <Content Include="Vista\Imagenes\Categoria\Abogado.jpg" />
     <Content Include="Vista\Imagenes\Categoria\Admin.jpg" />
     <Content Include="Vista\Imagenes\Categoria\Agronomo.jpg" />
@@ -160,6 +165,9 @@
     <Content Include="Vista\Imagenes\foto3.jpg" />
     <Content Include="Vista\Imagenes\foto4.jpg" />
     <Content Include="Vista\Imagenes\foto5.jpg" />
+    <Content Include="Vista\Imagenes\imagenesProfesional\abogado.jpg" />
+    <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\abogado.jpg" />
+    <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\abogado2.jpg" />
     <Content Include="Vista\Imagenes\img-1.jpg" />
     <Content Include="Vista\Imagenes\img-2.jpg" />
     <Content Include="Vista\Imagenes\img-3.jpg" />
@@ -199,6 +207,7 @@
     <Compile Include="Datos\ClCategoriaD.cs" />
     <Compile Include="Datos\ClCiudadD.cs" />
     <Compile Include="Datos\ClClienteD.cs" />
+    <Compile Include="Datos\ClComentarioD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProfesionalD.cs" />
@@ -206,15 +215,22 @@
     <Compile Include="Entidades\ClCategoriaE.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
+
     <Compile Include="Entidades\ClImagenesTrabajosE.cs" />
+
+    <Compile Include="Entidades\ClComentarioE.cs" />
+    <Compile Include="Entidades\ClImagenesServicioE.cs" />
+
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logica\ClBusquedaL.cs" />
     <Compile Include="Logica\ClCategoriaL.cs" />
     <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Logica\ClClienteL.cs" />
+    <Compile Include="Logica\ClComentarioL.cs" />
     <Compile Include="Logica\ClProfesionalL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -231,6 +247,13 @@
     </Compile>
     <Compile Include="Vista\Categorias.aspx.designer.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Clientes-Categoria.aspx.cs">
+      <DependentUpon>Clientes-Categoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Clientes-Categoria.aspx.designer.cs">
+      <DependentUpon>Clientes-Categoria.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\HomeProfesional.aspx.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>
@@ -318,7 +341,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <Content Include="Vista\Site2.Master" />
     <Content Include="Vista\Css\Perfil\app.scss" />
     <Content Include="Vista\Css\Perfil\_keyframes.scss" />
@@ -350,6 +372,7 @@
     <Content Include="Vista\Boostrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Vista\Boostrap\js\bootstrap.js.map" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js.map" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -386,12 +409,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

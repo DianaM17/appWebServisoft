@@ -4,22 +4,22 @@
 
 <html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <link href="Boostrap/css/bootstrap.min.css" rel="stylesheet" />
     <script src="Boostrap/js/bootstrap.min.js"></script>
     <link href="Css/interfazMasterCliente.css" rel="stylesheet" />
-     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
 
-        <nav class="navbar1">  
-            <span class="navbar-text">Bienvenido</span>
-                <asp:Label ID="lblUsuario" runat="server" Text="Label"></asp:Label>
+        <nav class="navbar1">
+            <asp:Label ID="lblUsuario" runat="server" Text="Label"></asp:Label>
         </nav>
+
                 <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
        <nav>
   <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
@@ -43,17 +43,100 @@
   </div>
 </nav>
 
+        <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
+        <nav>
+            <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+            <button id="toggleButton" class="menu-button">Menú</button>
+            <div id="cardElements" class="menu-links">
+                <a href="interfazCliente.aspx">Inicio</a>
+                <a href="CategoriasCliente.aspx">Categorías</a>
+                <div style="display: inline-block; margin-left: 30px">
+                    <div style="display: inline-block; margin-left: 30px">
+                        <div style="display: inline-block; position: relative;">
+                            <asp:TextBox ID="TextBox2" runat="server" CssClass="search-textbox"></asp:TextBox>
+                            <asp:ImageButton ID="Button1" runat="server" ImageUrl="Imagenes/buscar.png" CssClass="search-icon" OnClick="btnSubmit_Click" />
+                        </div>
+                    </div>
 
+
+                </div>
+
+            </div>
+
+            <asp:DropDownList ID="ddlOpciones" runat="server" CssClass="custom-dropdown" onchange="mostrarValor()">
+                <asp:ListItem Text="" Value=""></asp:ListItem>
+                <asp:ListItem Text="Perfil" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Salir" Value="2"></asp:ListItem>
+            </asp:DropDownList>
+
+            <script>function mostrarValor() {
+                    var ddl = document.getElementById('<%= ddlOpciones.ClientID %>');
+                    var selectedValue = ddl.options[ddl.selectedIndex].value;
+                    var selectedText = ddl.options[ddl.selectedIndex].text;
+
+                    if (selectedValue === "1" || selectedValue === "2") {
+                        ddl.style.backgroundImage = "none";
+                        ddl.style.paddingRight = "8px";
+                    }
+                    else {
+                        ddl.style.backgroundImage = "url('Imagenes/5.png')";
+                        ddl.style.paddingRight = "32px";
+                    }
+                }
+
+                function mostrarValor() {
+                    var selectedValue = document.getElementById('<%= ddlOpciones.ClientID %>').value;
+
+    if (selectedValue === "1") {
+        // Redireccionar a la página de perfil
+        window.location.href = "perfilCliente.aspx";
+    } else if (selectedValue === "2") {
+        // Redireccionar a la página de salida
+        confirmarCerrarSesion();
+    }
+}</script>
+
+            <style>
+
+
+                .custom-dropdown {
+                    height: 80px;
+                    appearance: none;
+                    -moz-appearance: none;
+                    -webkit-appearance: none;
+                    background-image: url('Imagenes/5.png');
+                    background-position: center top;
+                    background-size: 50px;
+                    background-position: right center;
+                    background-repeat: no-repeat;
+                    padding: 8px 32px 8px 8px;
+                    border: none; /* Removemos el borde */
+                    border-radius: 0; /* Removemos el redondeo del borde */
+                    font-size: 14px;
+                    background-color: transparent; /* Establecemos el fondo transparente */
+                    box-shadow: none; /* Removemos cualquier sombra */
+                }
+
+                    .custom-dropdown:hover {
+                        border: none; /* Removemos el borde en el hover */
+                    }
+            </style>
+
+            <div class="animation start-home"></div>
+
+        </nav>
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-         <script src="Js/SweetCerrarSecion.js"></script>
-         <script src="Js/SiteMaster2.js"></script>
+
+
+        <script src="Js/SweetCerrarSecion.js"></script>
+        <script src="Js/SiteMaster2.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 
     </form>
-
 </body>
 </html>
+
