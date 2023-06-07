@@ -31,7 +31,7 @@
                         <div class="perfil-usuario-avatar">
                             <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" />
                             <%--<asp:FileUpload ID="cambiarImg" runat="server" onchange="imagen(this)" />--%>
-                            <input type="file" id="imagenInput" accept="image/*" style="display: none;">
+                            <input type="file" id="imagenInput" runat="server" accept="image/**" style="display: none;">
                             <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                                 <i class="far fa-image"></i>
                             </button>
@@ -60,6 +60,20 @@
                                         reader.readAsDataURL(imagen);
                                     }
                                 });
+                                //function procesarArchivo() {
+                                //    // Obtener el elemento de entrada de archivos
+                                //    var input = document.getElementById('imagenInput');
+
+                                //    // Verificar si se seleccionó un archivo
+                                //    if (input.files.length > 0) {
+                                //        var archivo = fileInput.files[0];
+
+                                //        console.log('Se seleccionó el archivo: ' + archivo.name);
+
+                                //        // Aquí puedes llamar a una función adicional para procesar el archivo, si es necesario
+                                //        // procesarArchivoAdicional(archivo);
+                                //    }
+                                //}
 
                                <%-- function imagen(imput) {
                                     console.log('cargo');
