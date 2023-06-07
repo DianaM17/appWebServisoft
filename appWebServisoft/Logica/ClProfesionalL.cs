@@ -69,6 +69,14 @@ namespace appWebServisoft.Logica
             int Verificar = objProf.mtdVerificarTelefono(telefono);
             return Verificar;
         }
+
+
+        public List<ClProfesionalSimple> mtdListarProfesional1()
+        {
+            ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
+            List<ClProfesionalSimple> verProfesional = ObjProfecionalProfecional. mtdListarProfecional1();
+            return verProfesional;
+        }
     }
 }
 

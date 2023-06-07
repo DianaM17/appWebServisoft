@@ -174,5 +174,30 @@ namespace appWebServisoft.Datos
 
 
         //}
+
+        public List<ClProfesionalSimple> mtdListarProfecional1()
+        {
+            string Consulta = "SELECT * FROM Profesional WHERE estado = 'Activo'";
+
+            ClProcesarSQL ObjSQL = new ClProcesarSQL();
+            DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
+            List<ClProfesionalSimple> VerProfesional = new List<ClProfesionalSimple>();
+
+            for (int i = 0; i < TablaProfesional.Rows.Count; i++)
+            {
+                ClProfesionalSimple ObjProfesional = new ClProfesionalSimple();
+
+                ObjProfesional.nombres = TablaProfesional.Rows[i]["nombres"].ToString();
+                ObjProfesional.apellidos = TablaProfesional.Rows[i]["apellidos"].ToString();
+                ObjProfesional.fotos = TablaProfesional.Rows[i]["fotos"].ToString();
+                ObjProfesional.estado = TablaProfesional.Rows[i]["estado"].ToString();
+
+                VerProfesional.Add(ObjProfesional);
+            }
+
+            return VerProfesional;
+        }
+
+
     }
 }
