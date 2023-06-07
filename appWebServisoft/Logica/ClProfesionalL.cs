@@ -71,7 +71,6 @@ namespace appWebServisoft.Logica
         }
 
 
-
         public List<ClProfesionalSimple> mtdListarProfesional1()
         {
             ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
@@ -94,4 +93,5 @@ namespace appWebServisoft.Logica
         }
     }
 }
+
 

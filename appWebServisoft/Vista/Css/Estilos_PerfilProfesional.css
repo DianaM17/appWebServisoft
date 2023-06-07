@@ -326,15 +326,15 @@ body {
 }
 
 /*Estilos Ventana Modal Trabajos Realizados*/
-.containerS {
+/*.containerS {
     max-width: 300px;
     margin: 0 auto;
     padding: 20px;
     background-color: #13121269;
     border-radius: 5px;
-}
+}*/
 
-label {
+/*label {
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
@@ -361,4 +361,4 @@ label {
 
     .inpdddut[type="submit"]:hover {
         background-color: #006F8F;
-    }
+    }*/
