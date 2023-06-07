@@ -123,12 +123,9 @@ namespace appWebServisoft.Vista
                 {
                     string extension = Path.GetExtension(FlImagen.FileName);
                     string nombreImg = txtTelefonoP.Value + extension;
-                    string rutaImg = Path.Combine(Server.MapPath("~/Vista/Imagenes/PerfilProfesional/"), nombreImg);
-                    string rutaSQL = nombreImg;
+                    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                    string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
                     FlImagen.SaveAs(rutaImg);
-
-
-
 
                     ClProfesionalE objProf = new ClProfesionalE();
                     objProf.nombres = txtNombresP.Value;
