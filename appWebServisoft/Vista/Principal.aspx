@@ -79,20 +79,25 @@
         </div>
     </section>
     <section class="principal">
+
         <%-- Inicio Perfiles Profesionales --%>
-        <link href="Css/Estilos_Principal.css" rel="stylesheet" />
         <div class="principal" style="display: flex">
             <div class="wrapper">
                 <i id="left" class="fa-solid fa-angle-left"></i>
                 <ul class="carousel">
-                    <li class="card">
-                        <div class="img">
-                            <img src="Imagenes/img-1.jpg" alt="img" draggable="false">
-                        </div>
-                        <h2>Blanche Pearson</h2>
-                        <span>Sales Manager</span>
-                    </li>
-                    <li class="card">
+                    <asp:Repeater ID="ReptPerfil" runat="server">
+                        <ItemTemplate>
+                            <li class="card">
+                                <div class="img">
+                                    <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("Fotos") %>' />
+                                </div>
+                                <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
+                                <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>
+                                <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <%--<li class="card">
                         <div class="img">
                             <img src="Imagenes/img-2.jpg" alt="img" draggable="false">
                         </div>
@@ -126,12 +131,11 @@
                         </div>
                         <h2>Donald Horton</h2>
                         <span>App Designer</span>
-                    </li>
+                    </li>--%>
                 </ul>
                 <i id="right" class="fa-solid fa-angle-right"></i>
             </div>
         </div>
-
         <script src="Js/JavaScript_Perfiles.js"></script>
     </section>
     <%-- Inicio Testimonios --%>
@@ -317,12 +321,12 @@
                     <form action="index.html" autocomplete="off">
                         <h3 class="title">Contáctanos</h3>
                         <div class="input-container">
-                            <input id="txtNombre" type="text" name="txtNombre" class="input" runat="server"/>
+                            <input id="txtNombre" type="text" name="txtNombre" class="input" runat="server" />
                             <label for="">Usuario</label>
                             <span>Username</span>
                         </div>
                         <div class="input-container">
-                            <input id="txtEmail" type="email" name="txtEmail" class="input" runat="server"/>
+                            <input id="txtEmail" type="email" name="txtEmail" class="input" runat="server" />
                             <label for="">Correo</label>
                             <span>Email</span>
                         </div>
@@ -337,7 +341,7 @@
                             <span>Message</span>
                         </div>
                         <asp:Button ID="btnEnviar" runat="server" Text="Contactar" CssClass="btn" OnClick="btnEnviar_Click" />
-                       <%-- <input id="btnEnviarr" type="submit" value="Send" class="btn" />--%>
+                        <%-- <input id="btnEnviarr" type="submit" value="Send" class="btn" />--%>
                     </form>
                 </div>
             </div>

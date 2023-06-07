@@ -19,23 +19,69 @@
 
     <!-- STYLE CSS -->
     <link href="Css/style.css" rel="stylesheet" />
-
 </head>
 
 <body>
     <form runat="server">
         <div style="display: block">
             <section class="seccion-perfil-usuario container">
+                <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
                 <div class="perfil-usuario-header">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
                             <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" />
-                            <%--                            <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
-                            <img src="Imagenes/foto1.jpg" alt="img-avatar">--%>
-                            <input type="file" id="imagenPerfil" accept="image/*" runat="server" />
-                            <button type="button" class="boton-avatar" onclick="cargarImagen()">
+                            <%--<asp:FileUpload ID="cambiarImg" runat="server" onchange="imagen(this)" />--%>
+                            <input type="file" id="imagenInput" accept="image/*" style="display: none;">
+                            <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                                 <i class="far fa-image"></i>
                             </button>
+                            <script>
+                                function seleccionarImagen() {
+                                    var input = document.getElementById('imagenInput');
+                                    input.click();
+                                }
+
+                                // Manejar el cambio de imagen seleccionada
+                                var input = document.getElementById('imagenInput');
+                                input.addEventListener('change', function () {
+                                    var imagen = input.files[0];
+
+                                    if (imagen) {
+                                        var reader = new FileReader();
+
+                                        reader.onload = function (e) {
+                                            var imagenSeleccionada = e.target.result;
+
+                                            // Asignar la URL de la imagen seleccionada al control ImgPerfil
+                                            var imgPerfil = document.getElementById('<%= ImgPerfil.ClientID %>');
+                                            imgPerfil.src = imagenSeleccionada;
+                                        }
+
+                                        reader.readAsDataURL(imagen);
+                                    }
+                                });
+
+                               <%-- function imagen(imput) {
+                                    console.log('cargo');
+                                    if (imput.files && imput.files[0]) {
+                                        console.log('tiene');
+                                        var img = new FileReader();
+                                        img.onload = function (e) {
+                                            console.log('Entro');
+                                            document.getElementById("<%=ImgPerfil.ClientID%>").src = e.target.result;
+
+                                        }
+                                        img.readAsDataURL = imput.files[0];
+                                    }
+                                }
+
+
+                                function SeleccionarImagen() {
+                                    document.getElementById("<%=cambiarImg.ClientID%>").click();
+                                    return false;
+                                }--%>
+
+                            </script>
                         </div>
                         <button type="button" class="btn btn-primary boton-portada" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="bi bi-pencil-square"></i>Editar Perfil
@@ -85,13 +131,17 @@
                 <br />
                 <br />
                 <%--inicio galeria--%>
-                <ul class="ul">
-                    <li class="li">
-                        <a href="#" class="a" title="Imagen 1">
-                            <img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">
-                        </a>
-                    </li>
-                    <li class="li">
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <ul class="ul">
+                            <li class="li">
+                                <a href="#" class="a" title="Imagen 1">
+
+                                    <asp:Image CssClass="img" runat="server" ID="ImgTrabajos" />
+                                    <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
+                                </a>
+                            </li>
+                            <%--                    <li class="li">
                         <a href="#" class="a" title="Imagen 2">
                             <img src="assets/2.jpg" alt="Imagen 2" class="img" loading="lazy">
                         </a>
@@ -100,9 +150,10 @@
                         <a href="#" class="a" title="Imagen 3">
                             <img src="assets/3.jpg" alt="Imagen 3" class="img" loading="lazy">
                         </a>
-                    </li>
-                </ul>
-
+                    </li>--%>
+                        </ul>
+                    </ItemTemplate>
+                </asp:Repeater>
                 <div class="lightbox">
                     <button class="cerrar">Cerrar</button>
                     <img src="Carrusel/assets/1.jpg" alt="Imagen 1" class="grande" loading="lazy">
@@ -110,7 +161,36 @@
             </section>
             <!--====  End of html  ====-->
 
+            <input type="file" id="imgTrabajo" accept="image/**" style="display: none;" />
+            <button class="button" data-bs-toggle="modal" data-bs-target="#myModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" class="svg-icon">
+                    <g stroke-width="1.5" stroke-linecap="round" stroke="#de8a2a">
+                        <circle r="7.5" cy="10" cx="10"></circle>
+                        <path d="m9.99998 7.5v5"></path>
+                        <path d="m7.5 9.99998h5"></path>
+                    </g></svg>
+                <span class="lable">Add</span>
+            </button>
+
             <!--====  End of tarjeta  ====-->
+
+            <%--Ventana modal Agregar Imagenes de trabajos--%>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="containerS">
+                            <div>
+                                <label for="arquivo">Choose a file:</label>
+                                <asp:FileUpload ID="FluImagen" runat="server" class="inpdddut" />
+                                <asp:Button ID="btnAgregarImagen" runat="server" Text="Agregar" OnClick="btnAgregarImagen_Click" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -197,6 +277,7 @@
                 </div>
             </div>
         </div>
+
         <script src="js/jquery-3.3.1.min.js"></script>
 
         <!-- JQUERY STEP -->
