@@ -71,13 +71,12 @@ namespace appWebServisoft.Logica
         }
 
 
-
         public List<ClProfesionalSimple> mtdListarProfesional1()
         {
             ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
-            List<ClProfesionalSimple> verProfesional = ObjProfecionalProfecional. mtdListarProfecional1();
+            List<ClProfesionalSimple> verProfesional = ObjProfecionalProfecional.mtdListarProfecional1();
             return verProfesional;
-
+        }
         public int mtdActualizarImagen(ClProfesionalE objProf, int idProfesional)
         {
             ClProfesionalD objProfD = new ClProfesionalD();
@@ -94,4 +93,5 @@ namespace appWebServisoft.Logica
         }
     }
 }
+
 
