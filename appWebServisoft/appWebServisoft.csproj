@@ -169,8 +169,8 @@
     <Content Include="Vista\Imagenes\international Workers day %28Poster%29 %282%29 %281%29.png" />
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
-    <Content Include="Vista\Imagenes\PerfilProfesional\JuanCarlosPerez.jpg" />
     <Content Include="Vista\Imagenes\NuevaCategoria.jpg" />
+    <Content Include="Vista\Imagenes\PerfilProfesional\3144277312.png" />
     <Content Include="Vista\Imagenes\profesional.png" />
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\Js\app.js" />
@@ -206,6 +206,7 @@
     <Compile Include="Entidades\ClCategoriaE.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
+    <Compile Include="Entidades\ClImagenesTrabajosE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
     <Compile Include="Global.asax.cs">
@@ -357,6 +358,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Vista\Imagenes\ImagenesTrabajos\" />
     <Folder Include="Vista\Imagenes\PerfilCliente\" />
   </ItemGroup>
   <PropertyGroup>

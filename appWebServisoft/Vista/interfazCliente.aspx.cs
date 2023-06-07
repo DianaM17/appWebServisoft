@@ -17,6 +17,8 @@ namespace appWebServisoft.Vista
             List<ClProfesionalE> verifica = objProfesional.mtdListarProfesional();
             Repeater1.DataSource = verifica;
             Repeater1.DataBind();
+
+            
         }
     }
 }

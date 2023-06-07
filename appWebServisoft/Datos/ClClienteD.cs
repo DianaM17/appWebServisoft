@@ -61,5 +61,38 @@ namespace appWebServisoft.Datos
             int Verificar = SQL.mtdSelectConec(verificar);
             return Verificar;
         }
+
+        public ClClienteE mtdSeleccionarCliente(int idCliente)
+        {
+            string Consulta = "Select * from Cliente Inner join Ciudad ON Cliente.idCiudad = Ciudad.idCiudad where idCliente ='"+idCliente+"'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblCliente = SQL.mtdSelectDesc(Consulta);
+
+            ClClienteE objCliente = null;
+            if (tblCliente.Rows.Count>0)
+            {
+                objCliente = new ClClienteE();
+                objCliente.idCliente = int.Parse(tblCliente.Rows[0]["idCliente"].ToString());
+                objCliente.nombres = tblCliente.Rows[0]["nombres"].ToString();
+                objCliente.apellidos = tblCliente.Rows[0]["apellidos"].ToString();
+                objCliente.direccion = tblCliente.Rows[0]["direccion"].ToString();
+                objCliente.telefono = tblCliente.Rows[0]["telefono"].ToString();
+                objCliente.email = tblCliente.Rows[0]["email"].ToString();
+                objCliente.clave = tblCliente.Rows[0]["clave"].ToString();
+                objCliente.idCiudad = int.Parse(tblCliente.Rows[0]["idCiudad"].ToString());
+                objCliente.nombre = tblCliente.Rows[0]["nombre"].ToString();
+            }
+            return objCliente;
+        }
+
+        public int mtdActualizarDatos(ClClienteE objCliente ,int idCliente)
+        {
+            string Actualizar = "UPDATE Cliente Set nombres ='" + objCliente.nombres + "', apellidos='" + objCliente.apellidos + "',direccion=" +
+                "'" + objCliente.direccion + "',telefono='" + objCliente.telefono + "',email='" + objCliente.email + "',clave='" + objCliente.clave + "'," +
+                "idCiudad=" + objCliente.idCiudad + " where idCliente=" + idCliente + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int actualizar = SQL.mtdIUDConec(Actualizar);
+            return actualizar;
+        }
     }
 }

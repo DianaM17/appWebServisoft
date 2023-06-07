@@ -7,7 +7,7 @@ using System.Web;
 
 namespace appWebServisoft.Logica
 {
-    public class ClClienteL
+    public class ClClienteL : ClCiudadE
     {
         public int mtdRegistroCliente(ClClienteE objDatos)
         {
@@ -39,6 +39,20 @@ namespace appWebServisoft.Logica
         {
             ClClienteD objCliente = new ClClienteD();
             int Actualizar = objCliente.mtdVerificarTelefono(telefono);
+            return Actualizar;
+        }
+
+        public ClClienteE mtdSeleccionarCliente(int idCliente)
+        {
+            ClClienteD objCliente = new ClClienteD();
+            ClClienteE Seleccionar = objCliente.mtdSeleccionarCliente(idCliente);
+            return Seleccionar;
+        }
+
+        public int mtdActualizarDatos(ClClienteE objClient, int idCliente)
+        {
+            ClClienteD objCliente = new ClClienteD();
+            int Actualizar = objCliente.mtdActualizarDatos(objClient, idCliente);
             return Actualizar;
         }
     }

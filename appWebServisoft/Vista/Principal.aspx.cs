@@ -16,7 +16,11 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            ClProfesionalL objProf = new ClProfesionalL();
+            List<ClProfesionalE> list = objProf.mtdListarProfesional();
+
+            ReptPerfil.DataSource = list;
+            ReptPerfil.DataBind();
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)

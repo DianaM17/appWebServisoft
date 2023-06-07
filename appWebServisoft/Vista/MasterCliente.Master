@@ -32,9 +32,10 @@
     
       <asp:DropDownList ID="ddlOpciones" runat="server">
     <asp:ListItem Text="Configuracion"  />
-          <asp:ListItem Text="Perfil" Value="perfil" href="PerfilCliente.aspx"/>
+          <asp:ListItem Text="Perfil" Value="perfil" href="perfilCliente.aspx"/>
     <asp:ListItem Text="Salir" Value="salir" onclick="confirmarCerrarSesion()" />
 </asp:DropDownList>
+      <a href="perfilCliente.aspx">Perfil</a>
 
    
 

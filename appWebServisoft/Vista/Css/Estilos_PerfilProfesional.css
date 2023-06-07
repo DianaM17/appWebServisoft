@@ -271,3 +271,94 @@ body {
 .switch input[type="checkbox"] {
     display: none;
 }
+
+/*Estilos boton Add*/
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 12px;
+    gap: 4px;
+    height: 32px;
+    width: 81px;
+    border: none;
+    background: #1b1b1cd0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.lable {
+    line-height: 22px;
+    font-size: 17px;
+    color: #DE8A2A;
+    font-family: sans-serif;
+    letter-spacing: 1px;
+}
+
+.button:hover {
+    background: #1b1b1cea;
+}
+
+    .button:hover .svg-icon {
+        animation: rotate 1.3s linear infinite;
+    }
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(10deg);
+    }
+
+    50% {
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/*Estilos Ventana Modal Trabajos Realizados*/
+.containerS {
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #13121269;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.inpdddut[type="file"] {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #1aa3bb;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.inpdddut[type="submit"] {
+    padding: 10px 20px;
+    background-color: #008CBA;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+    .inpdddut[type="submit"]:hover {
+        background-color: #006F8F;
+    }
