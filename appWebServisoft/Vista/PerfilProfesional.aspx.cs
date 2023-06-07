@@ -80,7 +80,6 @@ namespace appWebServisoft.Vista
                     ddlServicio.SelectedValue = Buscar.idServicio.ToString();
                 }
             }
-
             //Guarda la imagen de perfil
             //if (Request.Files.Count > 0)
             //{
@@ -115,7 +114,27 @@ namespace appWebServisoft.Vista
         {
             int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
             ClProfesionalE objProf = new ClProfesionalE();
+            string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
+            string nombreImg = Telefonoo + ".png";
+            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+            string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
+            var file = Request.Files[0];
+            if (imagenInput.PostedFile != null && imagenInput.PostedFile.ContentLength > 0)
+            {
+                file.SaveAs(rutaImg);
+                objProf.fotos = rutaSql;
+                ClProfesionalL clProf = new ClProfesionalL();
+                int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
+            }
+            //var file = Request.Files[0];
+            //if (file != null && file.ContentLength > 0)
+            //{
 
+            //    file.SaveAs(rutaImg);
+            //    objProf.fotos = rutaSql;
+            //    ClProfesionalL clProf = new ClProfesionalL();
+            //    int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
+            //}
             objProf.nombres = txtNombres.Value;
             objProf.apellidos = txtApellidos.Value;
             objProf.telefono = txtTelefono.Value;

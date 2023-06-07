@@ -80,7 +80,9 @@ namespace appWebServisoft.Datos
 
             string Consulta = "Select * from Profesional [prof] inner join Categoria [cat] ON prof.idCategoria = cat.idCategoria";
 
+
             //string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria";
+
 
 
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
@@ -114,8 +116,6 @@ namespace appWebServisoft.Datos
 
             return VerProfesional;
         }
-
-
 
         public ClProfesionalE mtdSeleccionarProf(int idProfesional)
         {
