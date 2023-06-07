@@ -80,34 +80,11 @@ namespace appWebServisoft.Vista
                     ddlServicio.SelectedValue = Buscar.idServicio.ToString();
                 }
             }
-            //Guarda la imagen de perfil
-            //if (Request.Files.Count > 0)
-            //{
-            //    int idProfesionall = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
-            //    var file = Request.Files[0];
-            //    if (file != null && file.ContentLength > 0)
-            //    {
-            //        string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
-            //        string nombreImg = Telefonoo + ".png";
-            //        string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-            //        string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
-            //        file.SaveAs(rutaImg);
-            //        ClProfesionalE objProfesional = new ClProfesionalE();
-            //        objProfesional.fotos = rutaSql;
-            //        ClProfesionalL clProf = new ClProfesionalL();
-            //        int actualizar = clProf.mtdActualizarImagen(objProfesional, idProfesionall);
-            //        Response.StatusCode = 200;
-            //        Response.Write("Imagen guardada correctamente.");
+            ClProfesionalL objProfesionalD = new ClProfesionalL();
+            List<ClImagenesServicioE> list = objProfesionalD.mtdListarTrabajos(idProf);
 
-            //    }
-            //}
-            //else
-            //{
-            //    Response.StatusCode = 400;
-            //    Response.Write("Error al guardar la imagen.");
-
-            //}
-            //Response.End();
+            RptImagenes.DataSource = list;
+            RptImagenes.DataBind();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -126,15 +103,7 @@ namespace appWebServisoft.Vista
                 ClProfesionalL clProf = new ClProfesionalL();
                 int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
             }
-            //var file = Request.Files[0];
-            //if (file != null && file.ContentLength > 0)
-            //{
-
-            //    file.SaveAs(rutaImg);
-            //    objProf.fotos = rutaSql;
-            //    ClProfesionalL clProf = new ClProfesionalL();
-            //    int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
-            //}
+           
             objProf.nombres = txtNombres.Value;
             objProf.apellidos = txtApellidos.Value;
             objProf.telefono = txtTelefono.Value;
@@ -215,19 +184,19 @@ namespace appWebServisoft.Vista
             }
         }
 
-        protected void btnAgregarImagen_Click(object sender, EventArgs e)
+        protected void btnAgregarImagen_ServerClick(object sender, EventArgs e)
         {
             int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
-            ClImagenesTrabajosE objTrab = new ClImagenesTrabajosE();
+            ClImagenesServicioE objTrab = new ClImagenesServicioE();
             ClProfesionalD objProf = new ClProfesionalD();
-            if (FluImagen.HasFile)
+            if (FluImagenTrab.HasFile)
             {
-                string nombre = "123.png";
-                string ruta = Server.MapPath("~/Vista/Imagenes/ImagenesTrabajos/" + nombre);
-                string rutaSql = ("~/Vista/Imagenes/ImagenesTrabajos/" + nombre);
-                FluImagen.SaveAs(ruta);
+                string nombre = FluImagenTrab.PostedFile.FileName;
+                string ruta = Server.MapPath("~/Vista/Imagenes/imagenesTrabajosRealizados/" + nombre);
+                string rutaSql = ("~/Vista/Imagenes/imagenesTrabajosRealizados/" + nombre);
+                FluImagenTrab.SaveAs(ruta);
 
-                objTrab.imagenTrabajo = rutaSql;
+                objTrab.imagen = rutaSql;
                 objTrab.idProfesional = idProf;
                 int Agregar = objProf.mtdRegistrarTrabajo(objTrab);
 
@@ -245,33 +214,6 @@ namespace appWebServisoft.Vista
             }
 
         }
-
-        //protected void ImgPerfil_PreRender(object sender, EventArgs e)
-        //{
-        //    int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
-        //    if (ImgPerfil.ImageUrl != "")
-        //    {
-        //        string nombre = Session["TeleProfesional"].ToString();
-        //        string nombreImg = nombre + ".png";
-        //        string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-        //        string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
-
-        //        ClProfesionalE objPro = new ClProfesionalE();
-        //        objPro.fotos = rutaImg;
-
-        //        ClProfesionalL objProfesional = new ClProfesionalL();
-        //        int regis = objProfesional.mtdActualizarImagen(objPro, idProf);
-        //        GuardarImagenEnCarpetaProyecto(rutaImg);
-        //    }
-        //}
-        //private void GuardarImagenEnCarpetaProyecto(string rutaImg)
-        //{
-        //    // Obtener el control FileUpload desde el formulario
-        //    FileUpload fileUpload = (FileUpload)FindControl("FileUploadControl");
-
-        //    // Guardar la imagen en la ruta personalizada dentro de la carpeta del proyecto
-        //    fileUpload.SaveAs(rutaImg);
-        //}
     }
 }
 

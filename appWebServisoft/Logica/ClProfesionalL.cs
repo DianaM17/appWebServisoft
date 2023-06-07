@@ -44,7 +44,6 @@ namespace appWebServisoft.Logica
             return objDatos;
         }
 
-
         public int mtdActualizarDatos(ClProfesionalE objDatos, int idProfesional)
         {
             ClProfesionalD objProf = new ClProfesionalD();
@@ -77,11 +76,18 @@ namespace appWebServisoft.Logica
             return Actualizar;
         }
 
-        public int mtdRegistraImagenTrabajo(ClImagenesTrabajosE objTrab)
+        public int mtdRegistraImagenTrabajo(ClImagenesServicioE objTrab)
         {
             ClProfesionalD objProf = new ClProfesionalD();
             int Agregar = objProf.mtdRegistrarTrabajo(objTrab);
             return Agregar;
+        }
+
+        public List<ClImagenesServicioE> mtdListarTrabajos(int idProfesional)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            List<ClImagenesServicioE> lista = objProf.mtdListarImgTrab(idProfesional);
+            return lista;
         }
     }
 }

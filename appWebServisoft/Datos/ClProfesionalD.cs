@@ -78,9 +78,6 @@ namespace appWebServisoft.Datos
 
             string Consulta = "Select * from Profesional [prof] inner join Categoria [cat] ON prof.idCategoria = cat.idCategoria";
 
-            string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria;";
-
-
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
 
@@ -184,26 +181,26 @@ namespace appWebServisoft.Datos
             return Actualizar;
         }
 
-        public int mtdRegistrarTrabajo(ClImagenesTrabajosE objTrab)
+        public int mtdRegistrarTrabajo(ClImagenesServicioE objTrab)
         {
-            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values(imagen='" + objTrab.imagenTrabajo + "', idProfesional='"+objTrab.idProfesional+"')";
+            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values('"+objTrab.imagen + "','"+objTrab.idProfesional+"')";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int Regis = SQL.mtdIUDConec(Consulta);
             return Regis;
         }
 
-        public List<ClImagenesTrabajosE> mtdListarImgTrab(int idProfesional)
+        public List<ClImagenesServicioE> mtdListarImgTrab(int idProfesional)
         {
             string consulta = "Select imagen, idProfesional from Imagenes Where idProfesional = '" + idProfesional + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblImgTrabajos = SQL.mtdSelectDesc(consulta);
 
-            List<ClImagenesTrabajosE> listaTrabajos = new List<ClImagenesTrabajosE>();
-            ClImagenesTrabajosE objTrabajos = null;
+            List<ClImagenesServicioE> listaTrabajos = new List<ClImagenesServicioE>();
+            ClImagenesServicioE objTrabajos = null;
             for (int i = 0; i < tblImgTrabajos.Rows.Count; i++)
             {
-                objTrabajos = new ClImagenesTrabajosE();
-                objTrabajos.imagenTrabajo = tblImgTrabajos.Rows[i]["imagen"].ToString();
+                objTrabajos = new ClImagenesServicioE();
+                objTrabajos.imagen = tblImgTrabajos.Rows[i]["imagen"].ToString();
                 objTrabajos.idProfesional = int.Parse(tblImgTrabajos.Rows[i]["idProfesional"].ToString());
                 listaTrabajos.Add(objTrabajos);
             }
