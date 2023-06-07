@@ -69,6 +69,13 @@ namespace appWebServisoft.Logica
             return Verificar;
         }
 
+
+        public List<ClProfesionalSimple> mtdListarProfesional1()
+        {
+            ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
+            List<ClProfesionalSimple> verProfesional = ObjProfecionalProfecional.mtdListarProfecional1();
+            return verProfesional;
+        }
         public int mtdActualizarImagen(ClProfesionalE objProf, int idProfesional)
         {
             ClProfesionalD objProfD = new ClProfesionalD();
@@ -81,6 +88,7 @@ namespace appWebServisoft.Logica
             ClProfesionalD objProf = new ClProfesionalD();
             int Agregar = objProf.mtdRegistrarTrabajo(objTrab);
             return Agregar;
+
         }
 
         public List<ClImagenesServicioE> mtdListarTrabajos(int idProfesional)
@@ -91,4 +99,5 @@ namespace appWebServisoft.Logica
         }
     }
 }
+
 
