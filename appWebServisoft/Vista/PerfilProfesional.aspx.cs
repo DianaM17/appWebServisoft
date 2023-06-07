@@ -3,6 +3,7 @@ using appWebServisoft.Entidades;
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting;
 using System.Web;
@@ -16,6 +17,7 @@ namespace appWebServisoft.Vista
         protected void Page_Load(object sender, EventArgs e)
         {
             int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            string Telefono = lblTeleProf.Text = Session["TeleProfesional"].ToString();
             if (!IsPostBack)
             {
                 ClProfesionalL obj = new ClProfesionalL();
@@ -33,8 +35,7 @@ namespace appWebServisoft.Vista
                     lblCiudad.Text = Buscar.nombre;
                     lblEstado.Text = Buscar.estado;
 
-
-                    ImgPerfil1.ImageUrl = Buscar.fotos;
+                    //ImgPerfil1.ImageUrl = Buscar.fotos;
                     txtNombres.Value = Buscar.nombres;
                     txtApellidos.Value = Buscar.apellidos;
                     txtTelefono.Value = Buscar.telefono;
@@ -80,6 +81,34 @@ namespace appWebServisoft.Vista
                 }
             }
 
+            //Guarda la imagen de perfil
+            //if (Request.Files.Count > 0)
+            //{
+            //    int idProfesionall = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            //    var file = Request.Files[0];
+            //    if (file != null && file.ContentLength > 0)
+            //    {
+            //        string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
+            //        string nombreImg = Telefonoo + ".png";
+            //        string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+            //        string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
+            //        file.SaveAs(rutaImg);
+            //        ClProfesionalE objProfesional = new ClProfesionalE();
+            //        objProfesional.fotos = rutaSql;
+            //        ClProfesionalL clProf = new ClProfesionalL();
+            //        int actualizar = clProf.mtdActualizarImagen(objProfesional, idProfesionall);
+            //        Response.StatusCode = 200;
+            //        Response.Write("Imagen guardada correctamente.");
+
+            //    }
+            //}
+            //else
+            //{
+            //    Response.StatusCode = 400;
+            //    Response.Write("Error al guardar la imagen.");
+
+            //}
+            //Response.End();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -111,6 +140,11 @@ namespace appWebServisoft.Vista
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
+            else
+            {
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "text", "Swal.fire({ title: 'Oops...', text: 'No hay datos en las cajas de texto!'," +
+                    " icon: 'error', confirmButtonText: 'Aceptar', customClass: { confirmButton: 'swal-button swal-button--error-color' } });", true);
+            }
         }
 
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,8 +172,8 @@ namespace appWebServisoft.Vista
             int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
             ClProfesionalE objProf = new ClProfesionalE();
 
-            string activo = "activo";
-            string inactivo = "inactivo";
+            string activo = "Activo";
+            string inactivo = "Inactivo";
             if (chkEstado.Checked)
             {
                 objProf.estado = activo;
@@ -161,7 +195,64 @@ namespace appWebServisoft.Vista
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
         }
-    }
 
+        protected void btnAgregarImagen_Click(object sender, EventArgs e)
+        {
+            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            ClImagenesTrabajosE objTrab = new ClImagenesTrabajosE();
+            ClProfesionalD objProf = new ClProfesionalD();
+            if (FluImagen.HasFile)
+            {
+                string nombre = "123.png";
+                string ruta = Server.MapPath("~/Vista/Imagenes/ImagenesTrabajos/" + nombre);
+                string rutaSql = ("~/Vista/Imagenes/ImagenesTrabajos/" + nombre);
+                FluImagen.SaveAs(ruta);
+
+                objTrab.imagenTrabajo = rutaSql;
+                objTrab.idProfesional = idProf;
+                int Agregar = objProf.mtdRegistrarTrabajo(objTrab);
+
+                string script = @"<script> swal({ title: '¡Registro Exitoso!',
+                              text: 'La imagen se agrego con exito', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+
+                if (Agregar == 1)
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                }
+
+            }
+
+        }
+
+        //protected void ImgPerfil_PreRender(object sender, EventArgs e)
+        //{
+        //    int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+        //    if (ImgPerfil.ImageUrl != "")
+        //    {
+        //        string nombre = Session["TeleProfesional"].ToString();
+        //        string nombreImg = nombre + ".png";
+        //        string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+        //        string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
+
+        //        ClProfesionalE objPro = new ClProfesionalE();
+        //        objPro.fotos = rutaImg;
+
+        //        ClProfesionalL objProfesional = new ClProfesionalL();
+        //        int regis = objProfesional.mtdActualizarImagen(objPro, idProf);
+        //        GuardarImagenEnCarpetaProyecto(rutaImg);
+        //    }
+        //}
+        //private void GuardarImagenEnCarpetaProyecto(string rutaImg)
+        //{
+        //    // Obtener el control FileUpload desde el formulario
+        //    FileUpload fileUpload = (FileUpload)FindControl("FileUploadControl");
+
+        //    // Guardar la imagen en la ruta personalizada dentro de la carpeta del proyecto
+        //    fileUpload.SaveAs(rutaImg);
+        //}
+    }
 }
 

@@ -19,6 +19,30 @@
         <nav class="navbar1">
             <asp:Label ID="lblUsuario" runat="server" Text="Label"></asp:Label>
         </nav>
+
+                <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
+       <nav>
+  <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+  <button id="toggleButton" class="menu-button">Menú</button>
+  <div id="cardElements" class="menu-links">
+    <a href="interfazCliente.aspx">Inicio</a>
+    <a href="CategoriasCliente.aspx">Categorías</a>
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:Button ID="Button2" runat="server" Text="Buscar" />
+    
+      <asp:DropDownList ID="ddlOpciones" runat="server">
+    <asp:ListItem Text="Configuracion"  />
+          <asp:ListItem Text="Perfil" Value="perfil" href="perfilCliente.aspx"/>
+    <asp:ListItem Text="Salir" Value="salir" onclick="confirmarCerrarSesion()" />
+</asp:DropDownList>
+      <a href="perfilCliente.aspx">Perfil</a>
+
+   
+
+    <div class="animation start-home"></div>
+  </div>
+</nav>
+
         <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
         <nav>
             <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
@@ -33,6 +57,7 @@
                             <asp:ImageButton ID="Button1" runat="server" ImageUrl="Imagenes/buscar.png" CssClass="search-icon" OnClick="btnSubmit_Click" />
                         </div>
                     </div>
+
 
                 </div>
 

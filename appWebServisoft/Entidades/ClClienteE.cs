@@ -5,7 +5,7 @@ using System.Web;
 
 namespace appWebServisoft.Entidades
 {
-    public class ClClienteE
+    public class ClClienteE : ClCiudadE
     {
         public int idCliente { get; set; }
         public string nombres { get; set; }

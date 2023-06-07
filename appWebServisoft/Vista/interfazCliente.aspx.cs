@@ -21,6 +21,7 @@ namespace appWebServisoft.Vista
             Repeater1.DataBind();
 
 
+
             ClServicioL objServicio = new ClServicioL();
             List<ClImagenesServicioE> imagenes = objServicio.mtdlistarImagenServicio();
 
@@ -57,6 +58,7 @@ namespace appWebServisoft.Vista
         protected string GetCarouselItemClass(int itemIndex)
         {
             return itemIndex == 0 ? "carousel-item active" : "carousel-item";
+
         }
     }
 }

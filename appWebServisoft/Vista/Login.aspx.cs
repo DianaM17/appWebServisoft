@@ -36,6 +36,7 @@ namespace appWebServisoft.Vista
             if (objProfesionalE != null)
             {
                 Session["idProfesional"] = objProfesionalE.idProfesional;
+                Session["TeleProfesional"] = objProfesionalE.telefono;
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
 
                 Session["idProfesional"] = objProfesionalE.idProfesional;
@@ -44,6 +45,7 @@ namespace appWebServisoft.Vista
             }
             else if (objClienteE != null)
             {
+                Session["idCliente"] = objClienteE.idCliente;
                 Session["usuario"] = objClienteE.nombres + " " + objClienteE.apellidos;
                 Response.Redirect("interfazCliente.aspx");
             }

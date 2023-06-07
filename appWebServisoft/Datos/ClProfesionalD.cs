@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Cryptography;
 using System.Web;
 
 namespace appWebServisoft.Datos
@@ -16,9 +17,9 @@ namespace appWebServisoft.Datos
             int Registros = 1;
             string Registro = "Insert Into Profesional(nombres,apellidos,telefono,email,clave,direccion,perfil,fotos,idCategoria,idServicio,idCiudad) " +
                 "Values('" + objProfesional.nombres + "','" + objProfesional.apellidos + "','" + objProfesional.telefono + "','" + objProfesional.email + "'," +
-                "'" + objProfesional.clave + "','" + objProfesional.direccion + "','" + objProfesional.perfil + "','"+objProfesional.fotos+"',"
+                "'" + objProfesional.clave + "','" + objProfesional.direccion + "','" + objProfesional.perfil + "','" + objProfesional.fotos + "',"
                 + objProfesional.idCategoria + "," + objProfesional.idServicio + "," + objProfesional.idCiudad + ") SELECT SCOPE_IDENTITY() AS [UltimoId]";
-            
+
             ClProcesarSQL SQL = new ClProcesarSQL();
             //int Registros = SQL.mtdIUDConec(Registro);
             DataTable tblId = SQL.mtdSelectDesc(Registro);
@@ -74,7 +75,11 @@ namespace appWebServisoft.Datos
 
         public List<ClProfesionalE> mtdListarProfecional()
         {
+
+            string Consulta = "Select * from Profesional [prof] inner join Categoria [cat] ON prof.idCategoria = cat.idCategoria";
+
             string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria;";
+
 
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
@@ -93,8 +98,14 @@ namespace appWebServisoft.Datos
                 //ObjProfesional.direccion = TablaProfesional.Rows[i]["direccion"].ToString();
                 //ObjProfesional.perfil = TablaProfesional.Rows[i]["perfil"].ToString();
                 ObjProfesional.fotos = TablaProfesional.Rows[i]["fotos"].ToString();
+
+                ObjProfesional.estado = TablaProfesional.Rows[i]["estado"].ToString();
+                ObjProfesional.idCategoria = int.Parse(TablaProfesional.Rows[i]["idCategoria"].ToString());
+                ObjProfesional.categoria = TablaProfesional.Rows[i]["categoria"].ToString();
+
                 //ObjProfesional.estado = TablaProfesional.Rows[i]["estado"].ToString();
                 ObjProfesional.categorias = TablaProfesional.Rows[i]["categoria"].ToString();
+
                 VerProfesional.Add(ObjProfesional);
 
             }
@@ -164,6 +175,41 @@ namespace appWebServisoft.Datos
 
         }
 
+
+        public int mtdActualizarImagen(ClProfesionalE objProf, int idProfesional)
+        {
+            string Consulta = "Update Profesional Set fotos = '" + objProf.fotos + "' where idProfesional=" + idProfesional + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Actualizar = SQL.mtdIUDConec(Consulta);
+            return Actualizar;
+        }
+
+        public int mtdRegistrarTrabajo(ClImagenesTrabajosE objTrab)
+        {
+            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values(imagen='" + objTrab.imagenTrabajo + "', idProfesional='"+objTrab.idProfesional+"')";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Regis = SQL.mtdIUDConec(Consulta);
+            return Regis;
+        }
+
+        public List<ClImagenesTrabajosE> mtdListarImgTrab(int idProfesional)
+        {
+            string consulta = "Select imagen, idProfesional from Imagenes Where idProfesional = '" + idProfesional + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblImgTrabajos = SQL.mtdSelectDesc(consulta);
+
+            List<ClImagenesTrabajosE> listaTrabajos = new List<ClImagenesTrabajosE>();
+            ClImagenesTrabajosE objTrabajos = null;
+            for (int i = 0; i < tblImgTrabajos.Rows.Count; i++)
+            {
+                objTrabajos = new ClImagenesTrabajosE();
+                objTrabajos.imagenTrabajo = tblImgTrabajos.Rows[i]["imagen"].ToString();
+                objTrabajos.idProfesional = int.Parse(tblImgTrabajos.Rows[i]["idProfesional"].ToString());
+                listaTrabajos.Add(objTrabajos);
+            }
+            return listaTrabajos;
+        }
+
         //public List<ClProfesionalE> mtdBusarProfesionales(string busqueda="")
         //{
         //    string consulta = "SELECT * FROM Profesional WHERE estado='Activo'";
@@ -174,6 +220,7 @@ namespace appWebServisoft.Datos
 
 
         //}
+
 
         public List<ClProfesionalSimple> mtdListarProfecional1()
         {
@@ -197,6 +244,7 @@ namespace appWebServisoft.Datos
 
             return VerProfesional;
         }
+
 
 
     }
