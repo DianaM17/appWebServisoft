@@ -49,13 +49,13 @@
     <div class="owl-carousel owl-theme text-center">
         <asp:Repeater ID="Repeater1" runat="server">
             <ItemTemplate>
-                <div class="card mx-2 mb-2 custom-card" style="width: 260px; height: 270px;">
+                <div class="card mx-2 mb-2 custom-card" style="width: 260px; height: 270px; border:groove">
                     <div class="card-body">
-                        <div style="width: 100px; height: 100px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; margin: 0 auto;">
+                        <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; margin-left:auto; margin-right:auto;  margin-top: 30px">
                             <img class="card-img-top" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
                         </div>
                         <p class="card-text"><%# Eval("nombres")%> <%# Eval("apellidos") %>  </p>
-                        <p class="card-text"><%# Eval("categorias") %> </p>
+                        <p class="card-text1"><%# Eval("categorias") %> </p>
                     </div>
                 </div>
             </ItemTemplate>
@@ -107,6 +107,11 @@
     }
 
     .card-text {
+        margin-top: 10px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    .card-text1 {
+        margin-top: 11px;
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
 
@@ -130,11 +135,9 @@
 
 <%--Carrucel Trabajos realizados--%>
     <br />
-    <br />
-    <br />
-        <%--<div class="label-container">
+        <div class="label-container">
         <asp:Label ID="Label1" CssClass="texto" runat="server" Text="Trabajos Realizados"></asp:Label>
-    </div--%>
+    </div
     <br />
     <br />
 
@@ -143,8 +146,10 @@
         <ItemTemplate>
             <div class="vertical-card mx-2 mb-2 custom-vertical-card" style="width: 240px; height: 150px;">
                 <div class="vertical-card-body">
-                    <img class="vertical-card-img-top align-items-center" src="Imagenes/imagenesTrabajosRealizados/<%# Eval("imagen") %>" alt="Card image cap" />
-                </div>
+     
+                    <img class="vertical-card-img-top align-items-center" src="Imagenes/imagenesTrabajosRealizados/<%# Eval("imagen") %>" alt="Card image cap"  />
+               
+                    </div>
             </div>
         </ItemTemplate>
     </asp:Repeater>

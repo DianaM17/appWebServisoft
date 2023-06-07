@@ -11,7 +11,7 @@ namespace appWebServisoft.Logica
     {
         public List<ClCategoriaE> mtdBuscarCategoria(string buscar)
         {
-            ClBusquedaD ObjCategoria = new ClBusquedaD();
+            ClCategoriaD ObjCategoria = new ClCategoriaD();
             List<ClCategoriaE> buscarCategoria = ObjCategoria.mtdBuscarCategoria();
             List<ClCategoriaE> ListaCategoria = new List<ClCategoriaE>();
 

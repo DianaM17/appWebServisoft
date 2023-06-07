@@ -196,6 +196,7 @@
     <Content Include="Vista\perfilCliente.aspx" />
     <Content Include="Vista\PerfilProfesional.aspx" />
     <Content Include="Vista\Principal.aspx" />
+    <Content Include="Vista\Prueba.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
     <Content Include="Vista\RegistrarCategoria.aspx" />
     <Content Include="Vista\RegistrarUsuario.aspx" />
@@ -303,6 +304,13 @@
     </Compile>
     <Compile Include="Vista\Principal.aspx.designer.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Prueba.aspx.cs">
+      <DependentUpon>Prueba.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Prueba.aspx.designer.cs">
+      <DependentUpon>Prueba.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\RecuperarContraseña.aspx.cs">
       <DependentUpon>RecuperarContraseña.aspx</DependentUpon>
