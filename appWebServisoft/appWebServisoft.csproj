@@ -166,8 +166,8 @@
     <Content Include="Vista\Imagenes\foto4.jpg" />
     <Content Include="Vista\Imagenes\foto5.jpg" />
     <Content Include="Vista\Imagenes\imagenesProfesional\abogado.jpg" />
-    <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\abogado.jpg" />
-    <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\abogado2.jpg" />
+    <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\eee.jpg" />
+    <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\zzz.jpg" />
     <Content Include="Vista\Imagenes\img-1.jpg" />
     <Content Include="Vista\Imagenes\img-2.jpg" />
     <Content Include="Vista\Imagenes\img-3.jpg" />
@@ -216,7 +216,10 @@
     <Compile Include="Entidades\ClCategoriaE.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
+
+
     <Compile Include="Entidades\ClImagenesTrabajosE.cs" />
+
     <Compile Include="Entidades\ClComentarioE.cs" />
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
@@ -386,7 +389,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Vista\Imagenes\ImagenesTrabajos\" />
     <Folder Include="Vista\Imagenes\PerfilCliente\" />
   </ItemGroup>
   <PropertyGroup>

@@ -60,41 +60,6 @@
                                         reader.readAsDataURL(imagen);
                                     }
                                 });
-                                //function procesarArchivo() {
-                                //    // Obtener el elemento de entrada de archivos
-                                //    var input = document.getElementById('imagenInput');
-
-                                //    // Verificar si se seleccionó un archivo
-                                //    if (input.files.length > 0) {
-                                //        var archivo = fileInput.files[0];
-
-                                //        console.log('Se seleccionó el archivo: ' + archivo.name);
-
-                                //        // Aquí puedes llamar a una función adicional para procesar el archivo, si es necesario
-                                //        // procesarArchivoAdicional(archivo);
-                                //    }
-                                //}
-
-                               <%-- function imagen(imput) {
-                                    console.log('cargo');
-                                    if (imput.files && imput.files[0]) {
-                                        console.log('tiene');
-                                        var img = new FileReader();
-                                        img.onload = function (e) {
-                                            console.log('Entro');
-                                            document.getElementById("<%=ImgPerfil.ClientID%>").src = e.target.result;
-
-                                        }
-                                        img.readAsDataURL = imput.files[0];
-                                    }
-                                }
-
-
-                                function SeleccionarImagen() {
-                                    document.getElementById("<%=cambiarImg.ClientID%>").click();
-                                    return false;
-                                }--%>
-
                             </script>
                         </div>
                         <button type="button" class="btn btn-primary boton-portada" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -145,17 +110,16 @@
                 <br />
                 <br />
                 <%--inicio galeria--%>
-                <asp:Repeater ID="Repeater1" runat="server">
+                <asp:Repeater ID="RptImagenes" runat="server">
                     <ItemTemplate>
                         <ul class="ul">
                             <li class="li">
                                 <a href="#" class="a" title="Imagen 1">
-
-                                    <asp:Image CssClass="img" runat="server" ID="ImgTrabajos" />
+                                      <asp:Image CssClass="img" runat="server"   ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
                                     <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
                                 </a>
                             </li>
-                            <%--                    <li class="li">
+                            <%--<li class="li">
                         <a href="#" class="a" title="Imagen 2">
                             <img src="assets/2.jpg" alt="Imagen 2" class="img" loading="lazy">
                         </a>
@@ -168,6 +132,7 @@
                         </ul>
                     </ItemTemplate>
                 </asp:Repeater>
+
                 <div class="lightbox">
                     <button class="cerrar">Cerrar</button>
                     <img src="Carrusel/assets/1.jpg" alt="Imagen 1" class="grande" loading="lazy">
@@ -175,20 +140,12 @@
             </section>
             <!--====  End of html  ====-->
 
-            <input type="file" id="imgTrabajo" accept="image/**" style="display: none;" />
-            <button class="button" data-bs-toggle="modal" data-bs-target="#myModal">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 20 20" height="20" fill="none" class="svg-icon">
-                    <g stroke-width="1.5" stroke-linecap="round" stroke="#de8a2a">
-                        <circle r="7.5" cy="10" cx="10"></circle>
-                        <path d="m9.99998 7.5v5"></path>
-                        <path d="m7.5 9.99998h5"></path>
-                    </g></svg>
-                <span class="lable">Add</span>
-            </button>
-
-            <!--====  End of tarjeta  ====-->
-
-            <%--Ventana modal Agregar Imagenes de trabajos--%>
+            <%-- Botón Agrgar Imagen --%>
+            <a class="cssbuttons-io-button" data-bs-toggle="modal" data-bs-target="#myModal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
+                <span>Add</span>
+            </a>
 
             <!-- The Modal -->
             <div class="modal" id="myModal">
@@ -196,15 +153,16 @@
                     <div class="modal-content">
                         <div class="containerS">
                             <div>
-                                <label for="arquivo">Choose a file:</label>
-                                <asp:FileUpload ID="FluImagen" runat="server" class="inpdddut" />
-                                <asp:Button ID="btnAgregarImagen" runat="server" Text="Agregar" OnClick="btnAgregarImagen_Click" />
+                                <label for="arquivo">Agregar Imagen:</label>
+                                <asp:FileUpload ID="FluImagenTrab" runat="server" class="inpdddut" />
+                                <%--<input accept=".jpg, .jpeg, .png, .gif, .pdf"  name="arquivo" id="arquivo" type="file">--%>
+                                <input value="Agregar" type="submit" class="inpdddut" id="btnAgregarImagen" name="btnAgregarImagen" runat="server" onserverclick="btnAgregarImagen_ServerClick">
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
+            <!-- The Modal -->
 
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
