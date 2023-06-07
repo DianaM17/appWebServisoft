@@ -36,13 +36,13 @@ $(document).ready(function () {
         ],
         responsive: {
             0: {
-                items: 1
-            },
-            600: {
                 items: 2
             },
-            800: {
-                items: 4
+            720: {
+                items: 3
+            },
+            900: {
+                items: 3.8
             }
         }
     });

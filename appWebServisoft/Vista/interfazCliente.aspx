@@ -45,17 +45,47 @@
 </div>
 <br />
 
-<div class="container">
-    <div class="owl-carousel owl-theme text-center">
-        <asp:Repeater ID="Repeater1" runat="server">
-            <ItemTemplate>
-                <div class="card mx-2 mb-2 custom-card" style="width: 260px; height: 270px; border:groove">
-                    <div class="card-body">
-                        <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; justify-content: center; margin-left:auto; margin-right:auto;  margin-top: 30px">
-                            <img class="card-img-top" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+    <div class="container">
+        <div class="owl-carousel owl-theme text-center">
+            <asp:Repeater ID="Repeater1" runat="server">
+                <ItemTemplate>
+                    <div class="card mx-2 mb-2 custom-card" style="width: 220px; height: 275px; background-color: #1ab999; border-radius: 10%;">
+                        <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px">
+                                <img class="card-img-top" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+                            </div>
+                            <p class="card-text"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
+                            <p class="card-text"><%# Eval("categorias") %> </p>
                         </div>
-                        <p class="card-text"><%# Eval("nombres")%> <%# Eval("apellidos") %>  </p>
-                        <p class="card-text1"><%# Eval("categorias") %> </p>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+    </div>
+</div>
+
+<style>
+   
+</style>
+
+
+
+<%--Carrucel Trabajos realizados--%>
+    <br />
+        <div class="label-container">
+        <asp:Label ID="Label1" CssClass="texto1" runat="server" Text="Trabajos Realizados"></asp:Label>
+    </div>
+    <br />
+    <br />
+
+<div class="container">
+    <div class="vertical-carousel owl-carousel owl-theme">
+        <asp:Repeater ID="Repeater2" runat="server">
+            <ItemTemplate>
+                <div class="vertical-card mx-2 mb-2 custom-vertical-card" style="width: 100%; height: 400px;">
+                    <div class="vertical-card-body">
+                        <div style="width: 100%; height: 400px; overflow: hidden; display: flex; justify-content: center; margin-left:auto; margin-right:auto; margin-top: 30px">
+                            <img class="vertical-card-img-top align-items-center" src="Imagenes/imagenesTrabajosRealizados/<%# Eval("imagen") %>" alt="Card image cap" />
+                        </div>
                     </div>
                 </div>
             </ItemTemplate>
@@ -64,12 +94,8 @@
 </div>
 
 <style>
-    .label-container {
-        max-width: 300px;
-        margin: 0 auto;
-    }
-
-    .texto {
+    .texto1 {
+        margin-top: 10px;
         background-color: #8a4a4a;
         display: flex;
         height: 50px;
@@ -81,107 +107,33 @@
         font-weight: bold;
     }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    /* Resto del estilo de las tarjetas y el carrusel */
-    .card {
+    .vertical-carousel {
         display: flex;
-        justify-content: center; /* Centrar horizontalmente */
+        flex-direction: column;
     }
 
-    .custom-card {
-        margin: 0 10px; /* Margen entre tarjetas */
+    .vertical-carousel .vertical-card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
     }
 
-    .card-body {
-        background-color: white;
-        font-family: 'Bernard MT';
-        transition: box-shadow 0.3s ease;
+    .vertical-carousel .custom-vertical-card {
+        width: 240px;
+        margin: 0 auto;
+        margin-bottom: 10px; /* Agregado margen inferior de 10px */
     }
 
-    .card-body:hover {
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    .vertical-card-body {
+        /* Estilos personalizados para el cuerpo de la tarjeta vertical */
     }
 
-    .card-text {
-        margin-top: 10px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-    .card-text1 {
-        margin-top: 11px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    }
-
-    .owl-carousel .owl-nav button.owl-prev:hover,
-    .owl-carousel .owl-nav button.owl-next:hover {
-        color: #b92323;
-    }
-
-    .owl-carousel .owl-nav button.owl-prev {
-        margin-top: 50px;
-        margin-right: 10px;
-    }
-
-    .owl-carousel .owl-nav button.owl-next {
-        margin-top: 50px;
-        margin-left: 10px;
+    .vertical-card-img-top {
+        /* Estilos personalizados para la imagen de la tarjeta vertical */
     }
 </style>
 
-
-
-<%--Carrucel Trabajos realizados--%>
-    <br />
-        <div class="label-container">
-        <asp:Label ID="Label1" CssClass="texto" runat="server" Text="Trabajos Realizados"></asp:Label>
-    </div
-    <br />
-    <br />
-
-<div class="vertical-carousel owl-carousel owl-theme">
-    <asp:Repeater ID="Repeater2" runat="server">
-        <ItemTemplate>
-            <div class="vertical-card mx-2 mb-2 custom-vertical-card" style="width: 240px; height: 150px;">
-                <div class="vertical-card-body">
-     
-                    <img class="vertical-card-img-top align-items-center" src="Imagenes/imagenesTrabajosRealizados/<%# Eval("imagen") %>" alt="Card image cap"  />
-               
-                    </div>
-            </div>
-        </ItemTemplate>
-    </asp:Repeater>
-</div>
-
-    <style>
-        .vertical-carousel {
-  display: flex;
-  flex-direction: column;
-}
-
-.vertical-carousel .vertical-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 150px;
-}
-
-.vertical-carousel .custom-vertical-card {
-  width: 240px;
-  margin: 0 auto;
-}
-
-.vertical-card-body {
-  /* Estilos personalizados para el cuerpo de la tarjeta vertical */
-}
-
-.vertical-card-img-top {
-  /* Estilos personalizados para la imagen de la tarjeta vertical */
-}
-
-    </style>
 
     <script> 
         $(document).ready(function () {
@@ -202,10 +154,10 @@
                         items: 1
                     },
                     768: {
-                        items: 3
+                        items: 2
                     },
-                    1200: {
-                        items: 5
+                    1000: {
+                        items: 2
                     }
                 }
             });
