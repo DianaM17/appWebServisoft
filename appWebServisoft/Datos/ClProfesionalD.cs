@@ -179,26 +179,26 @@ namespace appWebServisoft.Datos
             return Actualizar;
         }
 
-        public int mtdRegistrarTrabajo(ClImagenesTrabajosE objTrab)
+        public int mtdRegistrarTrabajo(ClImagenesServicioE objTrab)
         {
-            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values(imagen='" + objTrab.imagenTrabajo + "', idProfesional='"+objTrab.idProfesional+"')";
+            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values('"+objTrab.imagen + "','"+objTrab.idProfesional+"')";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int Regis = SQL.mtdIUDConec(Consulta);
             return Regis;
         }
 
-        public List<ClImagenesTrabajosE> mtdListarImgTrab(int idProfesional)
+        public List<ClImagenesServicioE> mtdListarImgTrab(int idProfesional)
         {
             string consulta = "Select imagen, idProfesional from Imagenes Where idProfesional = '" + idProfesional + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblImgTrabajos = SQL.mtdSelectDesc(consulta);
 
-            List<ClImagenesTrabajosE> listaTrabajos = new List<ClImagenesTrabajosE>();
-            ClImagenesTrabajosE objTrabajos = null;
+            List<ClImagenesServicioE> listaTrabajos = new List<ClImagenesServicioE>();
+            ClImagenesServicioE objTrabajos = null;
             for (int i = 0; i < tblImgTrabajos.Rows.Count; i++)
             {
-                objTrabajos = new ClImagenesTrabajosE();
-                objTrabajos.imagenTrabajo = tblImgTrabajos.Rows[i]["imagen"].ToString();
+                objTrabajos = new ClImagenesServicioE();
+                objTrabajos.imagen = tblImgTrabajos.Rows[i]["imagen"].ToString();
                 objTrabajos.idProfesional = int.Parse(tblImgTrabajos.Rows[i]["idProfesional"].ToString());
                 listaTrabajos.Add(objTrabajos);
             }

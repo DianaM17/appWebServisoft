@@ -216,7 +216,10 @@
     <Compile Include="Entidades\ClCategoriaE.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
+
+
     <Compile Include="Entidades\ClImagenesTrabajosE.cs" />
+
     <Compile Include="Entidades\ClComentarioE.cs" />
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
@@ -386,7 +389,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Vista\Imagenes\ImagenesTrabajos\" />
     <Folder Include="Vista\Imagenes\PerfilCliente\" />
   </ItemGroup>
   <PropertyGroup>
