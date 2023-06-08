@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
@@ -78,6 +80,14 @@ namespace appWebServisoft.Datos
         {
 
             string Consulta = "Select * from Profesional [prof] inner join Categoria [cat] ON prof.idCategoria = cat.idCategoria";
+
+
+            //string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria";
+
+            //string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria;";
+
+
+
 
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
@@ -206,18 +216,23 @@ namespace appWebServisoft.Datos
             return listaTrabajos;
         }
 
+
         public List<ClProfesionalSimple> mtdListarProfecional1()
+
+        public List<ClProfesionalSimple> mtdListarProfesionalActivo()
+
         {
             string Consulta = "SELECT * FROM Profesional WHERE estado = 'Activo'";
 
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
             List<ClProfesionalSimple> VerProfesional = new List<ClProfesionalSimple>();
-
+            ClProfesionalSimple ObjProfesional = null;
             for (int i = 0; i < TablaProfesional.Rows.Count; i++)
             {
-                ClProfesionalSimple ObjProfesional = new ClProfesionalSimple();
+                ObjProfesional  = new ClProfesionalSimple();
 
+                ObjProfesional.idProfesional = int.Parse(TablaProfesional.Rows[i]["idProfesional"].ToString());
                 ObjProfesional.nombres = TablaProfesional.Rows[i]["nombres"].ToString();
                 ObjProfesional.apellidos = TablaProfesional.Rows[i]["apellidos"].ToString();
                 ObjProfesional.fotos = TablaProfesional.Rows[i]["fotos"].ToString();

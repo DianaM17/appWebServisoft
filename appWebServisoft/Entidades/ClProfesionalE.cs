@@ -31,7 +31,8 @@ namespace appWebServisoft.Entidades
 
 }   public class ClProfesionalSimple
     {
-        public string nombres { get; set; }
+    public int idProfesional { get; set; }
+    public string nombres { get; set; }
         public string apellidos { get; set; }
         public string fotos { get; set; }
         public string estado { get; set; }
