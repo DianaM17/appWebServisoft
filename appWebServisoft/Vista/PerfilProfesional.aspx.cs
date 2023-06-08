@@ -155,6 +155,7 @@ namespace appWebServisoft.Vista
             ddlServicio.DataValueField = "idServicio";
             ddlServicio.DataBind();
             ddlServicio.SelectedValue = Buscar.idServicio.ToString();
+
         }
 
         protected void chkEstado_CheckedChanged(object sender, EventArgs e)
