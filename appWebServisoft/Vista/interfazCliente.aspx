@@ -194,16 +194,17 @@
                             <div class="d-flex justify-content-center">
                                 <div class="comentario">
                                     <div class="text" style="margin-top: 50px;">
+                                          <div class="nombreContainer">
+                                        <h5 class="nombre"><%# Eval("nombres") %> <%# Eval("apellidos") %></h5>
+                                   
+                                    </div>
                                         <p class="comentarioTexto">
                                             <span class="comillas">"</span>
                                             <%# Eval("comentarios") %>
                                             <span class="comillas">"</span>
                                         </p>
                                     </div>
-                                    <div class="nombreContainer">
-                                        <h5 class="nombre"><%# Eval("nombres") %> <%# Eval("apellidos") %></h5>
-                                   
-                                    </div>
+                                  
                                     <div class="Tipo">
                                         <h5 class="Tipo"><%# Eval("puntos") %></h5>
                                     </div>
