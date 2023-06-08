@@ -216,10 +216,6 @@
     <Compile Include="Entidades\ClCategoriaE.cs" />
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
-
-
-    <Compile Include="Entidades\ClImagenesTrabajosE.cs" />
-
     <Compile Include="Entidades\ClComentarioE.cs" />
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />

@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -15,19 +16,25 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int idCliente = Int32.Parse(lblIdCliente.Text = Session["idCliente"].ToString());
+            int idCliente = Int32.Parse(lblidCliente.Text = Session["idCliente"].ToString());
             if (!IsPostBack)
             {
                 ClClienteL objCliente = new ClClienteL();
                 ClClienteE Buscar = objCliente.mtdSeleccionarCliente(idCliente);
                 if (Buscar != null)
                 {
-                    txtNombres.Text = Buscar.nombres;
-                    txtApellidos.Text = Buscar.apellidos;
-                    txtDireccion.Text = Buscar.direccion;
-                    txtTelefono.Text = Buscar.telefono;
-                    txtEmail.Text = Buscar.email;
-                    txtClave.Text = Buscar.clave;
+                    lblNombre.Text = Session["Usuario"].ToString();
+                    txtNombre.Value = Buscar.nombres;
+                    txtApellido.Value = Buscar.apellidos;
+                    txtDireccionC.Value = Buscar.direccion;
+                    txtTelefonoC.Value = Buscar.telefono;
+                    txtEmailC.Value = Buscar.email;
+                    txtPasswordC.Value = Buscar.clave;
+
+                    lblDireccion.Text = Buscar.direccion;
+                    lblTelefono.Text = Buscar.telefono;
+                    lblEmail.Text = Buscar.email;
+                    lblCiudad.Text = Buscar.nombre;
 
                     //Combo ddlCiudad
                     ClCiudadD objCiudad = new ClCiudadD();
@@ -43,16 +50,29 @@ namespace appWebServisoft.Vista
 
         }
 
-        protected void BtnGuardar_Click(object sender, EventArgs e)
+        protected void btnGuardar_Click1(object sender, EventArgs e)
         {
-            int idCliente = Int32.Parse(lblIdCliente.Text = Session["idCliente"].ToString());
+            int idCliente = Int32.Parse(txtNombre.Value = Session["idCliente"].ToString());
             ClClienteE objClient = new ClClienteE();
-            objClient.nombres = txtNombres.Text;
-            objClient.apellidos = txtApellidos.Text;
-            objClient.direccion = txtDireccion.Text;
-            objClient.telefono = txtTelefono.Text;
-            objClient.email = txtEmail.Text;
-            objClient.clave = txtClave.Text;
+            string telefono = lblTelCliente.Text = Session["Cliente"].ToString();
+            string nombreImg = telefono + ".png";
+            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
+            string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
+            var file = Request.Files[0];
+            if (imagenImput.PostedFile != null && imagenImput.PostedFile.ContentLength > 0)
+            {
+                file.SaveAs(rutaImg);
+                objClient.foto = rutaSql;
+                ClClienteL clProf = new ClClienteL();
+                int actualizar = clProf.mtdActualizarDatos(objClient, idCliente);
+            }
+
+            objClient.nombres = txtNombre.Value;
+            objClient.apellidos = txtNombre.Value;
+            objClient.direccion = txtNombre.Value;
+            objClient.telefono = txtNombre.Value;
+            objClient.email = txtNombre.Value;
+            objClient.clave = txtNombre.Value;
             objClient.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
 
             ClClienteL objCliente = new ClClienteL();
@@ -66,6 +86,19 @@ namespace appWebServisoft.Vista
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
+        }
+
+        protected void btnCambiarColor_Click(object sender, EventArgs e)
+        {
+            // Genera un número aleatorio entre 0 y 16777215 (0xFFFFFF en hexadecimal)
+            Random random = new Random();
+            int colorCode = random.Next(0x1000000);
+
+            // Convierte el número en un código de color hexadecimal
+            string hexColor = "#" + colorCode.ToString("X6");
+
+            // Llama a una función JavaScript para cambiar el color de fondo de la página
+            ClientScript.RegisterStartupScript(this.GetType(), "ChangeColor", "changeBackgroundColor('" + hexColor + "');", true);
 
         }
     }

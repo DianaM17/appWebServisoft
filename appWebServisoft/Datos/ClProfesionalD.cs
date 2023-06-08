@@ -65,6 +65,7 @@ namespace appWebServisoft.Datos
             int verif = SQL.mtdVerificarExistenciaCorreo(correo);
             return verif;
         }
+
         public int mtdActualizarContaseña(string email, string nuevaContraseña)
         {
             string consulta = "UPDATE Profesional SET clave = '" + nuevaContraseña + "' where email='" + email + "'";
@@ -204,18 +205,6 @@ namespace appWebServisoft.Datos
             }
             return listaTrabajos;
         }
-
-        //public List<ClProfesionalE> mtdBusarProfesionales(string busqueda="")
-        //{
-        //    string consulta = "SELECT * FROM Profesional WHERE estado='Activo'";
-        //    ClProcesarSQL ObjSQL = new ClProcesarSQL();
-        //    DataTable TablaProfesionales = ObjSQL.mtdSelectDesc(consulta);
-
-        //    List<ClProfesionalE> buscarProfesional = new List<ClProfesionalE>();
-
-
-        //}
-
 
         public List<ClProfesionalSimple> mtdListarProfecional1()
         {
