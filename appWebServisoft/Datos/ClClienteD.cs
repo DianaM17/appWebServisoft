@@ -89,7 +89,7 @@ namespace appWebServisoft.Datos
         {
             string Actualizar = "UPDATE Cliente Set nombres ='" + objCliente.nombres + "', apellidos='" + objCliente.apellidos + "',direccion=" +
                 "'" + objCliente.direccion + "',telefono='" + objCliente.telefono + "',email='" + objCliente.email + "',clave='" + objCliente.clave + "'," +
-                "idCiudad=" + objCliente.idCiudad + " where idCliente=" + idCliente + "";
+                "foto = '"+objCliente.foto+"',idCiudad=" + objCliente.idCiudad + " where idCliente=" + idCliente + "";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int actualizar = SQL.mtdIUDConec(Actualizar);
             return actualizar;

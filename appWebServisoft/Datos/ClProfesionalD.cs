@@ -67,6 +67,7 @@ namespace appWebServisoft.Datos
             int verif = SQL.mtdVerificarExistenciaCorreo(correo);
             return verif;
         }
+
         public int mtdActualizarContaseña(string email, string nuevaContraseña)
         {
             string consulta = "UPDATE Profesional SET clave = '" + nuevaContraseña + "' where email='" + email + "'";
@@ -215,7 +216,11 @@ namespace appWebServisoft.Datos
             return listaTrabajos;
         }
 
+
+        public List<ClProfesionalSimple> mtdListarProfecional1()
+
         public List<ClProfesionalSimple> mtdListarProfesionalActivo()
+
         {
             string Consulta = "SELECT * FROM Profesional WHERE estado = 'Activo'";
 

@@ -35,7 +35,7 @@ namespace appWebServisoft.Vista
                     lblCiudad.Text = Buscar.nombre;
                     lblEstado.Text = Buscar.estado;
 
-                    //ImgPerfil1.ImageUrl = Buscar.fotos;
+                    ImgPerfil1.ImageUrl = Buscar.fotos;
                     txtNombres.Value = Buscar.nombres;
                     txtApellidos.Value = Buscar.apellidos;
                     txtTelefono.Value = Buscar.telefono;
@@ -80,6 +80,8 @@ namespace appWebServisoft.Vista
                     ddlServicio.SelectedValue = Buscar.idServicio.ToString();
                 }
             }
+
+            //Galeria de imagenes trabajos realizados
             ClProfesionalL objProfesionalD = new ClProfesionalL();
             List<ClImagenesServicioE> list = objProfesionalD.mtdListarTrabajos(idProf);
 
