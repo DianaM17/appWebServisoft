@@ -33,6 +33,15 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Image ImgPerfil;
 
         /// <summary>
+        /// Control imagenInput.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile imagenInput;
+
+        /// <summary>
         /// Control chkEstado.
         /// </summary>
         /// <remarks>
@@ -123,22 +132,22 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblEstado;
 
         /// <summary>
-        /// Control Repeater1.
+        /// Control RptImagenes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater Repeater1;
+        protected global::System.Web.UI.WebControls.Repeater RptImagenes;
 
         /// <summary>
-        /// Control FluImagen.
+        /// Control FluImagenTrab.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FluImagen;
+        protected global::System.Web.UI.WebControls.FileUpload FluImagenTrab;
 
         /// <summary>
         /// Control btnAgregarImagen.
@@ -147,7 +156,7 @@ namespace appWebServisoft.Vista
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAgregarImagen;
+        protected global::System.Web.UI.HtmlControls.HtmlInputSubmit btnAgregarImagen;
 
         /// <summary>
         /// Control lblIdProfesional.
