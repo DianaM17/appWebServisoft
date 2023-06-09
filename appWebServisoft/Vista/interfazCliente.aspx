@@ -10,32 +10,6 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <section>
-        <div>
-            <div class="splitview skewed">
-
-                <div class="panel bottom">
-                    <div class="content">
-                        <div class="description">
-                            <h1>Registrate para obtener el servicio que desees.</h1>
-                            <p>Con tan solo un click podràs registrarte, encontrar infinidad de servicios y ofertas que seràn de gran importancia en el momento que lo necesites.</p>
-                        </div>
-                        <img src="Imagenes/international Workers day (Poster) (2) (1).png" alt="Original" />
-                    </div>
-                </div>
-                <div class="panel top">
-                    <div class="content">
-                        <div class="description">
-                            <h1>Forma parte de nuestro grupo de profesionales.</h1>
-                            <p>Haz parte de nuestra familia y ten la oportunidad de publicar los servicios que le puedas brindar a la comunidad. No dejes pasar esta maravillosa oportunidad.</p>
-                        </div>
-                        <img src="Imagenes/profesional.png" alt="Duotone" />
-                    </div>
-                </div>
-                <div class="handle"></div>
-            </div>
-        </div>
-    </section>
 
   <%--  Cards Profesionales--%>
     <br />

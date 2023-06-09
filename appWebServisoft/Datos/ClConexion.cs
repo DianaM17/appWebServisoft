@@ -17,6 +17,7 @@ namespace appWebServisoft.Datos
             conexion = new SqlConnection("Data Source=.;Initial Catalog=bdProyecto;Integrated Security=True");
 
 
+
            
             conexion.Open();
             return conexion;
