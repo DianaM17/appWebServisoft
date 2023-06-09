@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Formulario template.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
@@ -103,13 +104,16 @@
     <Content Include="Vista\Css\interfazCliente.css" />
     <Content Include="Vista\Css\interfazMasterCliente.css" />
     <Content Include="Vista\Css\Estilos_PerfilProfesional.css" />
+    <Content Include="Vista\Css\normalize.css" />
     <Content Include="Vista\Css\style.css" />
+    <Content Include="Vista\Css\style_formularioServ.css" />
     <Content Include="Vista\Css\sweetalert.css" />
     <Content Include="Vista\Css\Estilos_Categoria.css" />
     <Content Include="Vista\Css\Estilos_Login.css" />
     <Content Include="Vista\Css\Estilos_Master.css" />
     <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
+    <Content Include="Vista\Formulario.aspx" />
     <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -123,6 +127,7 @@
     <Content Include="Vista\Imagenes\aviso1-1.png" />
     <Content Include="Vista\Imagenes\AVISO2-1.png" />
     <Content Include="Vista\Imagenes\aviso3.png" />
+    <Content Include="Vista\Imagenes\background.png" />
     <Content Include="Vista\Imagenes\buscar.png" />
     <Content Include="Vista\Imagenes\Categoria\Abogado.jpg" />
     <Content Include="Vista\Imagenes\Categoria\Admin.jpg" />
@@ -165,6 +170,7 @@
     <Content Include="Vista\Imagenes\foto3.jpg" />
     <Content Include="Vista\Imagenes\foto4.jpg" />
     <Content Include="Vista\Imagenes\foto5.jpg" />
+    <Content Include="Vista\Imagenes\image-1.svg" />
     <Content Include="Vista\Imagenes\imagenesProfesional\abogado.jpg" />
     <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\eee.jpg" />
     <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\zzz.jpg" />
@@ -251,6 +257,13 @@
     </Compile>
     <Compile Include="Vista\Clientes-Categoria.aspx.designer.cs">
       <DependentUpon>Clientes-Categoria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Formulario.aspx.cs">
+      <DependentUpon>Formulario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Formulario.aspx.designer.cs">
+      <DependentUpon>Formulario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\HomeProfesional.aspx.cs">
       <DependentUpon>HomeProfesional.aspx</DependentUpon>

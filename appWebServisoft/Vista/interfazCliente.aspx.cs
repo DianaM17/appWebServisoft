@@ -22,11 +22,11 @@ namespace appWebServisoft.Vista
 
 
 
-            ClServicioL objServicio = new ClServicioL();
-            List<ClImagenesServicioE> imagenes = objServicio.mtdlistarImagenServicio();
+            //ClServicioL objServicio = new ClServicioL();
+            //List<ClImagenesServicioE> imagenes = objServicio.mtdlistarImagenServicio();
 
-            Repeater2.DataSource = imagenes;
-            Repeater2.DataBind();
+            //Repeater2.DataSource = imagenes;
+            //Repeater2.DataBind();
 
             if (!IsPostBack)
             {

@@ -68,11 +68,11 @@ namespace appWebServisoft.Vista
             }
 
             objClient.nombres = txtNombre.Value;
-            objClient.apellidos = txtNombre.Value;
-            objClient.direccion = txtNombre.Value;
-            objClient.telefono = txtNombre.Value;
-            objClient.email = txtNombre.Value;
-            objClient.clave = txtNombre.Value;
+            objClient.apellidos = txtApellido.Value;
+            objClient.direccion = txtDireccionC.Value;
+            objClient.telefono = txtTelefonoC.Value;
+            objClient.email = txtEmailC.Value;
+            objClient.clave = txtPasswordC.Value;
             objClient.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
 
             ClClienteL objCliente = new ClClienteL();

@@ -78,40 +78,20 @@ namespace appWebServisoft.Datos
 
         public List<ClProfesionalE> mtdListarProfecional()
         {
-
             string Consulta = "Select * from Profesional [prof] inner join Categoria [cat] ON prof.idCategoria = cat.idCategoria";
-
-
-            //string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria";
-
-            //string Consulta = "SELECT  p.nombres, p.apellidos,p.fotos, c.categoria FROM Profesional p JOIN Categoria c ON p.idCategoria = c.idCategoria;";
-
-
-
-
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
-
             List<ClProfesionalE> VerProfesional = new List<ClProfesionalE>();
 
             for (int i = 0; i < TablaProfesional.Rows.Count; i++)
             {
                 ClProfesionalE ObjProfesional = new ClProfesionalE();
-                //ObjProfesional.idProfesional = int.Parse(TablaProfesional.Rows[i]["idProfesional"].ToString());
                 ObjProfesional.nombres = TablaProfesional.Rows[i]["nombres"].ToString();
                 ObjProfesional.apellidos = TablaProfesional.Rows[i]["apellidos"].ToString();
-                //ObjProfesional.telefono = TablaProfesional.Rows[i]["telefono"].ToString();
-                //ObjProfesional.email = TablaProfesional.Rows[i]["email"].ToString();
-                //ObjProfesional.clave = TablaProfesional.Rows[i]["clave"].ToString();
-                //ObjProfesional.direccion = TablaProfesional.Rows[i]["direccion"].ToString();
-                //ObjProfesional.perfil = TablaProfesional.Rows[i]["perfil"].ToString();
                 ObjProfesional.fotos = TablaProfesional.Rows[i]["fotos"].ToString();
-
                 ObjProfesional.estado = TablaProfesional.Rows[i]["estado"].ToString();
                 ObjProfesional.idCategoria = int.Parse(TablaProfesional.Rows[i]["idCategoria"].ToString());
                 ObjProfesional.categoria = TablaProfesional.Rows[i]["categoria"].ToString();
-
-                //ObjProfesional.estado = TablaProfesional.Rows[i]["estado"].ToString();
                 ObjProfesional.categorias = TablaProfesional.Rows[i]["categoria"].ToString();
 
                 VerProfesional.Add(ObjProfesional);
@@ -192,7 +172,7 @@ namespace appWebServisoft.Datos
 
         public int mtdRegistrarTrabajo(ClImagenesServicioE objTrab)
         {
-            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values('"+objTrab.imagen + "','"+objTrab.idProfesional+"')";
+            string Consulta = "Insert Into Imagenes(imagen,idProfesional) Values('" + objTrab.imagen + "','" + objTrab.idProfesional + "')";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int Regis = SQL.mtdIUDConec(Consulta);
             return Regis;
@@ -203,7 +183,6 @@ namespace appWebServisoft.Datos
             string consulta = "Select imagen, idProfesional from Imagenes Where idProfesional = '" + idProfesional + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblImgTrabajos = SQL.mtdSelectDesc(consulta);
-
             List<ClImagenesServicioE> listaTrabajos = new List<ClImagenesServicioE>();
             ClImagenesServicioE objTrabajos = null;
             for (int i = 0; i < tblImgTrabajos.Rows.Count; i++)
@@ -220,14 +199,13 @@ namespace appWebServisoft.Datos
 
         {
             string Consulta = "SELECT * FROM Profesional WHERE estado = 'Activo'";
-
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
             DataTable TablaProfesional = ObjSQL.mtdSelectDesc(Consulta);
             List<ClProfesionalSimple> VerProfesional = new List<ClProfesionalSimple>();
             ClProfesionalSimple ObjProfesional = null;
             for (int i = 0; i < TablaProfesional.Rows.Count; i++)
             {
-                ObjProfesional  = new ClProfesionalSimple();
+                ObjProfesional = new ClProfesionalSimple();
 
                 ObjProfesional.idProfesional = int.Parse(TablaProfesional.Rows[i]["idProfesional"].ToString());
                 ObjProfesional.nombres = TablaProfesional.Rows[i]["nombres"].ToString();
@@ -240,8 +218,5 @@ namespace appWebServisoft.Datos
 
             return VerProfesional;
         }
-
-
-
     }
 }

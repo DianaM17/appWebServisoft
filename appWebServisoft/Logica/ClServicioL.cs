@@ -30,11 +30,11 @@ namespace appWebServisoft.Logica
             return regis;
         }
 
-        public List<ClImagenesServicioE> mtdlistarImagenServicio()
-        { 
-            ClServicioD objServicio = new ClServicioD();
-            List<ClImagenesServicioE> listaServicio = objServicio.mtdlistarImagenServicio();    
-            return listaServicio;
-        }
+        //public List<ClImagenesServicioE> mtdlistarImagenServicio()
+        //{ 
+        //    ClServicioD objServicio = new ClServicioD();
+        //    List<ClImagenesServicioE> listaServicio = objServicio.mtdlistarImagenServicio();    
+        //    return listaServicio;
+        //}
     }
 }
