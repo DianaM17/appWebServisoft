@@ -187,10 +187,5 @@ namespace appWebServisoft.Vista
             ddlServicio.DataBind();
             ddlServicio.Items.Insert(0, new ListItem("Seleccione Servicio: ", "0"));
         }
-
-        protected void btnRegistrarCliente1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

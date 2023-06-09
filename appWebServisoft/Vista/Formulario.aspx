@@ -38,11 +38,16 @@
 
                     <!-- inputs -->
                     <div class="inputs-form form-group">
-                        <label for="categoria" class="ubuntu">Categoria:</label>
-                        <asp:DropDownList ID="ddlCategoria" runat="server"></asp:DropDownList>
+                        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>
+                                <label for="categoria" class="ubuntu">Categoria:</label>
+                                <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
 
-                        <label for="servicio" class="ubuntu">Servicio:</label>
-                        <asp:DropDownList ID="ddlServicio" runat="server"></asp:DropDownList>
+                                <label for="servicio" class="ubuntu">Servicio:</label>
+                                <asp:DropDownList ID="ddlServicio" runat="server"></asp:DropDownList>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                         <br />
                         <label for="titulo" class="ubuntu">Título del servicio:</label>
                         <input type="text" name="username" id="tituloServicio" class="form-control mb-4" required>
