@@ -23,13 +23,18 @@
 
 <body>
     <form runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div style="display: block">
             <section class="seccion-perfil-usuario container">
                 <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
                 <div class="perfil-usuario-header">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
-                            <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" />
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" />
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
                             <%--<asp:FileUpload ID="cambiarImg" runat="server" onchange="imagen(this)" />--%>
                             <input type="file" id="imagenInput" runat="server" accept="image/**" style="display: none;">
                             <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
@@ -115,7 +120,7 @@
                         <ul class="ul">
                             <li class="li">
                                 <a href="#" class="a" title="Imagen 1">
-                                      <asp:Image CssClass="img" runat="server"   ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
+                                    <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
                                     <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
                                 </a>
                             </li>
@@ -222,7 +227,7 @@
                                             </div>
                                         </div>
                                         <div class="form-row">
-                                            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
                                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                                 <ContentTemplate>
                                                     <div class="form-holder">

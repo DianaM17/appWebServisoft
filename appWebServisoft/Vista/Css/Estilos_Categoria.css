@@ -10,7 +10,7 @@
     /*width: 1000px;*/
     margin: 30px auto 0;
     height: auto;
-    display: grid;
+    /*display: grid;*/
     grid-template-columns: 150px;
     grid-template-rows: 200px;
     grid-gap: 40px;
@@ -22,7 +22,8 @@
         overflow: hidden;
         border-radius: 10px;
         transition: .5s;
-        height: 150px;
+        height: 80px;
+        width: 80px;
     }
 
         .card-container .custom-card:hover {
@@ -69,4 +70,9 @@
 
         .card-container .custom-card:nth-child(1) {
             background: linear-gradient(0deg, #c21833, transparent)
+        }
+
+        .col-md-3{
+            flex: 0 0 auto;
+            width: 14%;
         }

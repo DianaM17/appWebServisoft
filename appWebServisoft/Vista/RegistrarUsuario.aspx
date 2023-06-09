@@ -2,11 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
-
-
     <script src="https://kit.fontawesome.com/e5246dcec8.js" crossorigin="anonymous"></script>
-
     <link href="Css/sweetalert.css" rel="stylesheet" />
     <script src="../Scripts/sweetalert.min.js"></script>
     <link href="Css/Estilos_Registro.css" rel="stylesheet" />
@@ -65,7 +61,8 @@
                         <i class="fa-solid fa-city" style="color: #ec4670;"></i>
                         <asp:DropDownList ID="ddlCiudad" runat="server" CssClass="combo" required></asp:DropDownList>
                     </div>
-                    <button id="btnRegistrarCliente" type="submit" runat="server" onserverclick="btnRegistrarCliente_ServerClick">Regístrarse</button>
+                    <%--<asp:Button ID="Button1" runat="server" Text="Button" Onclick="btnRegistrarCliente_Click"/>--%>
+                    <button id="btnRegistrarCliente" runat="server" type="submit" Onclick="btnRegistrarCliente_ServerClick">Regístrarse</button>
                 </div>
                 <!--Register-->
                 <div class="formulario__register">

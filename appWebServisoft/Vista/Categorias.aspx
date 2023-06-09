@@ -13,9 +13,9 @@
                             <div class="card-img-box">
                                 <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
                             </div>
-                            <div class="card-content">
-                                <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
-                            </div>
+                        </div>
+                        <div class="card-content">
+                            <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
                         </div>
                     </div>
                 </ItemTemplate>
@@ -25,9 +25,9 @@
                     <div class="card-img-box">
                         <img src="Imagenes/NuevaCategoria.jpg" />
                     </div>
-                    <div class="card-content">
-                        <a href="RegistrarCategoria.aspx" style="text-decoration: none; color:#000000">Registrar Categoria</a>
-                    </div>
+                </div>
+                <div class="card-content">
+                    <a href="RegistrarCategoria.aspx" style="text-decoration: none; color: #000000">Registrar <br /> Categoria</a>
                 </div>
             </div>
         </div>
