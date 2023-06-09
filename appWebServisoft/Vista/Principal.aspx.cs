@@ -9,6 +9,7 @@ using System.Net;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Microsoft.Win32;
 
 namespace appWebServisoft.Vista
 {
@@ -37,6 +38,11 @@ namespace appWebServisoft.Vista
             string nombre = txtNombre.Value;
             string celular = txtTelefono.Value;
             string comentario = txtMessage.Value;
+            txtNombre.Value = string.Empty;
+            txtTelefono.Value = string.Empty;
+            txtMessage.Value = string.Empty;
+            txtTelefono.Value = string.Empty;
+            txtEmail.Value = string.Empty;
 
             mensaje.Body = $"Nombre: {nombre}\nCelular: {celular}\nComentario: {comentario}";
 
@@ -50,11 +56,35 @@ namespace appWebServisoft.Vista
             clienteSmtp.Port = 587;
             clienteSmtp.EnableSsl = true;
 
-            // Enviar el correo electrónico
-            clienteSmtp.Send(mensaje);
+            try
+            {
+                // Enviar el correo electrónico
+                clienteSmtp.Send(mensaje);
+
+                // Limpiar los campos de texto después del envío exitoso
+                txtNombre.Value = string.Empty;
+                txtTelefono.Value = string.Empty;
+                txtMessage.Value = string.Empty;
+                txtEmail.Value = string.Empty;
+
+                // Agregar una notificación SweetAlert si el envío es exitoso
+                string script = @"<script> swal({ title: '¡Envio Exitoso!',
+                              text: 'El correo electronico se ha enviado correctamente', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, false);
+            }
+            catch (Exception ex)
+            {
+                // Agregar una notificación SweetAlert si ocurre un error
+                string script = $@"<script>
+                        swal('Error al enviar el correo', '{ex.Message}', 'error');
+                      </script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "ErrorEnvioCorreo", script);
+            }
         }
 
     }
 }
 
-   

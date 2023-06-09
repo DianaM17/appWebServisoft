@@ -216,9 +216,6 @@ namespace appWebServisoft.Datos
             return listaTrabajos;
         }
 
-
-        public List<ClProfesionalSimple> mtdListarProfecional1()
-
         public List<ClProfesionalSimple> mtdListarProfesionalActivo()
 
         {

@@ -45,6 +45,7 @@ namespace appWebServisoft.Vista
                 ddlCiudadd.DataBind();
                 ddlCiudadd.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
             }
+
         }
 
         protected void btnRegistrarCliente_ServerClick(object sender, EventArgs e)
@@ -81,13 +82,13 @@ namespace appWebServisoft.Vista
                     objCliente.clave = txtContraseña.Value;
                     objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
 
-                    txtNombres.Value = "";
-                    txtApellidos.Value = "";
-                    txtDireccion.Value = "";
-                    txtTelefono.Value = "";
-                    txtEmail.Value = "";
-                    txtContraseña.Value = "";
-                    ddlCiudad.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
+                    txtNombres.Value = string.Empty;
+                    txtApellidos.Value = string.Empty;
+                    txtDireccion.Value = string.Empty;
+                    txtTelefono.Value = string.Empty;
+                    txtEmail.Value = string.Empty;
+                    txtContraseña.Value = string.Empty;
+                    ddlCiudad.SelectedIndex = 0;
 
 
                     int registro = objClient.mtdRegistroCliente(objCliente);
@@ -140,12 +141,15 @@ namespace appWebServisoft.Vista
                     objProf.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
                     objProf.idCiudad = int.Parse(ddlCiudadd.SelectedValue.ToString());
 
-                    txtNombresP.Value = "";
-                    txtApellidosP.Value = "";
-                    txtTelefonoP.Value = "";
-                    txtEmailP.Value = "";
-                    txtDireccionP.Value = "";
-                    txtPerfilP.Value = "";
+                    txtNombresP.Value = string.Empty;
+                    txtApellidosP.Value = string.Empty;
+                    txtTelefonoP.Value = string.Empty;
+                    txtEmailP.Value = string.Empty;
+                    txtDireccionP.Value = string.Empty;
+                    txtPerfilP.Value = string.Empty;
+                    ddlCategoria.SelectedIndex = 0;
+                    ddlServicio.SelectedIndex= 0;
+                    ddlCiudadd.SelectedIndex = 0;
 
                     ClProfesionalL objProfe = new ClProfesionalL();
                     //Recibo el entero de la ejecucion de la consulta
@@ -182,6 +186,11 @@ namespace appWebServisoft.Vista
             ddlServicio.DataValueField = "idServicio";
             ddlServicio.DataBind();
             ddlServicio.Items.Insert(0, new ListItem("Seleccione Servicio: ", "0"));
+        }
+
+        protected void btnRegistrarCliente1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
