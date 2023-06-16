@@ -27,9 +27,20 @@ namespace appWebServisoft.Vista
 
             //Repeater2.DataSource = imagenes;
             //Repeater2.DataBind();
-
+         
             if (!IsPostBack)
             {
+                //Cargar Combo ddlCategoria 
+                ClCategoriaL objCategoria = new ClCategoriaL();
+                List<ClCategoriaE> listaCategoria = new List<ClCategoriaE>();
+                listaCategoria = objCategoria.mtdListar();
+
+                ddlCategoria.DataSource = listaCategoria;
+                ddlCategoria.DataTextField = "categoria";
+                ddlCategoria.DataValueField = "idCategoria";
+                ddlCategoria.DataBind();
+                ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
+
                 ClComentarioL objComentario = new ClComentarioL();
                 List<ClComentarioE> comentario = objComentario.mtdListarComentario();
                 RepeaterContenido.DataSource = comentario;
@@ -40,6 +51,21 @@ namespace appWebServisoft.Vista
             }
         }
 
+        protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string idCateg = ddlCategoria.SelectedValue;
+            ClServicioL objServicio = new ClServicioL();
+            List<ClServicioE> listaServicio = objServicio.mtdListarServicio(idCateg);
+
+            // Limpiar los elementos existentes en el ComboBox
+            ddlServicio.Items.Clear();
+
+            ddlServicio.DataSource = listaServicio;
+            ddlServicio.DataTextField = "servicio";
+            ddlServicio.DataValueField = "idServicio";
+            ddlServicio.DataBind();
+            ddlServicio.Items.Insert(0, new ListItem("Seleccione: ", "0"));
+        }
 
         protected void RepeaterContenido_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
