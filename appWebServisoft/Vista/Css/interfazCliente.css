@@ -75,7 +75,7 @@
         height: 80%;
     }
 
-* media query *
+
 @media only screen and (max-width:647px) {
     #form-container {
         width: 90%;
@@ -99,7 +99,7 @@ Cards Profecionales
     margin: 0 auto;
 }
 
-.texto {
+/*.texto {
     background-color: #8a4a4a;
     display: flex;
     height: 50px;
@@ -109,7 +109,7 @@ Cards Profecionales
     color: white;
     font-size: 24px;
     font-weight: bold;
-}
+}*/
 
 .container {
     max-width: 1200px;
@@ -131,7 +131,7 @@ Cards Profecionales
     font-size: 20px;
     font-family: 'Bernard MT';
     transition: box-shadow 0.3s ease;
-    margin-bottom: 10px;  Agregado margen inferior de 10px 
+    margin-bottom: 10px; 
 }
 
     .card-body:hover {
@@ -157,9 +157,6 @@ Cards Profecionales
     margin-left: 10px;
 }
 
-
-
-Footer
 
 footer {
     width: 100%;

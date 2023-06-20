@@ -11,7 +11,7 @@ namespace appWebServisoft.Datos
     {
         public List<ClComentarioE> mtdListarComentario()
         {
-            string consulta = "SELECT c.nombres, c.apellidos, ca.comentarios, ca.puntos FROM Cliente c JOIN Calificacion ca ON c.IdCliente = ca.IdCliente";
+            string consulta = "SELECT c.nombres, c.apellidos,c.foto, ca.comentarios, ca.puntos FROM Cliente c JOIN Calificacion ca ON c.IdCliente = ca.IdCliente ORDER BY RAND()";
             ClProcesarSQL objSql = new ClProcesarSQL();
             DataTable tblComentario = objSql.mtdSelectDesc(consulta);
 
@@ -20,6 +20,7 @@ namespace appWebServisoft.Datos
             for (int i = 0; i < tblComentario.Rows.Count; i++)
             {
                 ClComentarioE objDatos = new ClComentarioE();
+                objDatos.foto = tblComentario.Rows[i]["foto"].ToString();
                 objDatos.nombres = tblComentario.Rows[i]["nombres"].ToString();
                 objDatos.apellidos = tblComentario.Rows[i]["apellidos"].ToString();
                 objDatos.comentarios = tblComentario.Rows[i]["comentarios"].ToString();

@@ -169,6 +169,8 @@
     <Content Include="Vista\Imagenes\foto3.jpg" />
     <Content Include="Vista\Imagenes\foto4.jpg" />
     <Content Include="Vista\Imagenes\foto5.jpg" />
+    <Content Include="Vista\Imagenes\Iconos\abajo.png" />
+    <Content Include="Vista\Imagenes\Iconos\arriba.png" />
     <Content Include="Vista\Imagenes\image-1.svg" />
     <Content Include="Vista\Imagenes\imagenesProfesional\abogado.jpg" />
     <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\eee.jpg" />
@@ -183,7 +185,9 @@
     <Content Include="Vista\Imagenes\Logo.png" />
     <Content Include="Vista\Imagenes\logo_preview_rev_3.png" />
     <Content Include="Vista\Imagenes\NuevaCategoria.jpg" />
+    <Content Include="Vista\Imagenes\PerfilCliente\pic3.jpg" />
     <Content Include="Vista\Imagenes\PerfilProfesional\3144277312.png" />
+    <Content Include="Vista\Imagenes\PerfilProfesional\imagen1.jpg" />
     <Content Include="Vista\Imagenes\profesional.png" />
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\Js\app.js" />
@@ -396,9 +400,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vista\Imagenes\PerfilCliente\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
