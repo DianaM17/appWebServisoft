@@ -34,6 +34,162 @@
             <div class="animation start-home"></div>
         </nav>
 
+        <style>
+                        /*navBar Menu*/
+nav {
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    nav .animation {
+        position: absolute;
+        height: 50px;
+        top: 30px;
+        z-index: -1;
+        transition: all .5s ease 0s;
+        border-radius: 8px;
+    }
+
+.menu-links {
+    margin-left: auto;
+}
+
+.link1,
+.link2 {
+    margin-right: 30px;
+}
+
+nav a {
+    line-height: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+    position: relative;
+}
+
+nav .animation {
+    position: absolute;
+    height: 50px;
+    top: 30px;
+    z-index: -1;
+    transition: all .5s ease 0s;
+    border-radius: 8px;
+}
+
+#cardElements {
+    display: flex;
+    align-items: center;
+}
+
+    #cardElements a {
+        margin-right: 50px;
+    }
+
+.menu-links a:hover:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+    border-radius: 8px;
+}
+
+.menu-links a:hover {
+    z-index: 1;
+}
+
+.menu-links a:nth-child(1):hover:before {
+    background-color: #1abc9c;
+}
+
+.menu-links a:nth-child(2):hover:before {
+    background-color: #e74c3c;
+}
+
+
+
+.imgs {
+    margin-left: 50px;
+    width: 100px;
+    height: auto;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+}
+
+.titulo1 {
+    margin: 0;
+    margin-left: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+}
+
+nav a {
+    line-height: 50px;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+}
+
+
+nav .animation {
+    position: absolute;
+    height: 50px;
+    top: 30px;
+    z-index: -1;
+    transition: all .5s ease 0s;
+    border-radius: 8px;
+}
+
+
+.menu-button {
+    display: none;
+    margin-left: 20px;
+}
+
+@media (max-width: 900px) {
+    #cardElements {
+        display: none;
+    }
+    .imgs {
+        margin-left: 10px;
+        
+    }
+
+        #cardElements.show-links {
+            display: flex;
+            flex-direction: column;
+            margin-left: 10px;
+        }
+    .titulo1 {
+        
+        margin-left: 10px;
+       
+    }
+
+    .menu-button {
+        display: block;
+    }
+}
+
+@media (min-width: 900px) {
+    .menu-button {
+        display: none;
+    }
+}
+        </style>
+
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
