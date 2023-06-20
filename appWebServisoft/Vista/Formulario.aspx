@@ -29,7 +29,8 @@
                             <h3 class="ubuntu">Servisoft</h3>
                         </a>
                     </div>
-
+                    <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
+                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
                     <h4 class="text-center text-uppercase anton">Bienvenidos</h4>
                     <hr>
                     <p class="text-center text-uppercase anton">¿Que servcio necesitas?</p>
@@ -50,23 +51,22 @@
                         </asp:UpdatePanel>
                         <br />
                         <label for="titulo" class="ubuntu">Título del servicio:</label>
-                        <input type="text" name="username" id="tituloServicio" class="form-control mb-4" required>
+                        <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-4" required/>
 
                         <label for="descripcion" class="ubuntu">Descripción del servicio:</label>
-                        <input type="text" name="descripcion_form" id="descripcion_form" class="form-control mb-4" required>
+                        <input type="text" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-4" required/>
 
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
-                        <asp:FileUpload ID="Imagen" runat="server" />
+                        <asp:FileUpload ID="FluImagen" runat="server" />
                         <br />
                         <label for="descripcion" class="ubuntu">Dirección:</label>
-                        <input type="text" name="direccion_form" id="direccion_form" class="form-control mb-4" required>
+                        <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
                         <div class="form-group mt-2">
                             <input type="checkbox" name="accept_terms" value="" required>
                             <label for="accept_terms">Acepto términos y condiciones.</label>
                         </div>
-
-                        <button type="submit" class="btn mt-1 ubuntu" id="send-form">Enviar</button>
+                        <button id="btnEnviar" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick" >Enviar</button>
 
                     </div>
 

@@ -165,6 +165,8 @@
             </div>
         </div>
 
+        <asp:Button ID="btn" runat="server" OnClick="btn_Click" />
+
         <script src="js/jquery-3.3.1.min.js"></script>
 
         <!-- JQUERY STEP -->

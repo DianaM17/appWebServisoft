@@ -24,6 +24,24 @@ namespace Formulario
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// Control lblIdCliente.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdCliente;
+
+        /// <summary>
+        /// Control lblIdCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdCiudad;
+
+        /// <summary>
         /// Control ScriptManager1.
         /// </summary>
         /// <remarks>
@@ -60,12 +78,48 @@ namespace Formulario
         protected global::System.Web.UI.WebControls.DropDownList ddlServicio;
 
         /// <summary>
-        /// Control Imagen.
+        /// Control txtTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload Imagen;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtTitulo;
+
+        /// <summary>
+        /// Control txtDescripcion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDescripcion;
+
+        /// <summary>
+        /// Control FluImagen.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FluImagen;
+
+        /// <summary>
+        /// Control txtDireccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtDireccion;
+
+        /// <summary>
+        /// Control btnEnviar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnEnviar;
     }
 }
