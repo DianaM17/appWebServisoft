@@ -215,6 +215,7 @@
     <Compile Include="Datos\ClClienteD.cs" />
     <Compile Include="Datos\ClComentarioD.cs" />
     <Compile Include="Datos\ClConexion.cs" />
+    <Compile Include="Datos\ClCotizacioD.cs" />
     <Compile Include="Datos\ClProcesarSQL.cs" />
     <Compile Include="Datos\ClProfesionalD.cs" />
     <Compile Include="Datos\ClServicioD.cs" />
@@ -222,6 +223,7 @@
     <Compile Include="Entidades\ClCiudadE.cs" />
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClComentarioE.cs" />
+    <Compile Include="Entidades\ClCotizacionE.cs" />
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
@@ -233,6 +235,7 @@
     <Compile Include="Logica\ClCiudadL.cs" />
     <Compile Include="Logica\ClClienteL.cs" />
     <Compile Include="Logica\ClComentarioL.cs" />
+    <Compile Include="Logica\ClCotizacionL.cs" />
     <Compile Include="Logica\ClProfesionalL.cs" />
     <Compile Include="Logica\ClServicioL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -397,6 +400,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Vista\Imagenes\Cotizaciones\" />
     <Folder Include="Vista\Imagenes\PerfilCliente\" />
   </ItemGroup>
   <PropertyGroup>

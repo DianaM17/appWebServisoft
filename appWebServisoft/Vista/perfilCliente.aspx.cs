@@ -101,5 +101,10 @@ namespace appWebServisoft.Vista
             ClientScript.RegisterStartupScript(this.GetType(), "ChangeColor", "changeBackgroundColor('" + hexColor + "');", true);
 
         }
+
+        protected void btn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Formulario.aspx");
+        }
     }
 }

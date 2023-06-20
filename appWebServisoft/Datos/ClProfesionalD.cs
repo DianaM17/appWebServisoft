@@ -196,7 +196,6 @@ namespace appWebServisoft.Datos
         }
 
         public List<ClProfesionalSimple> mtdListarProfesionalActivo()
-
         {
             string Consulta = "SELECT * FROM Profesional WHERE estado = 'Activo'";
             ClProcesarSQL ObjSQL = new ClProcesarSQL();
@@ -217,6 +216,23 @@ namespace appWebServisoft.Datos
             }
 
             return VerProfesional;
+        }
+
+        //Selecciona el correo de los profesionales que pertenecen a un categoria y un servicio
+        public List<ClProfesionalE> mtdSelecCorreoCateg(string categ, string serv)
+        {
+            string Consulta = "Select email from Profesional where idCategoria= '" + categ + "' and idServicio = '" + serv + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblProf = SQL.mtdSelectDesc(Consulta);
+
+            List<ClProfesionalE> listaProf = new List<ClProfesionalE>();
+            for (int i = 0; i < tblProf.Rows.Count; i++)
+            {
+                ClProfesionalE objProf = new ClProfesionalE();
+                objProf.email = tblProf.Rows[i]["email"].ToString();
+                listaProf.Add(objProf);
+            }
+            return listaProf;
         }
     }
 }

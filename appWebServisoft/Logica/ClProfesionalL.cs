@@ -69,7 +69,6 @@ namespace appWebServisoft.Logica
             return Verificar;
         }
 
-
         public List<ClProfesionalSimple> mtdListarProfesionalActivo()
         {
             ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
@@ -77,14 +76,12 @@ namespace appWebServisoft.Logica
             return verProfesional;
         }
 
-
         public List<ClProfesionalSimple> mtdListarProfesional1()
         {
             ClProfesionalD ObjProfecionalProfecional = new ClProfesionalD();
             List<ClProfesionalSimple> verProfesional = ObjProfecionalProfecional.mtdListarProfesionalActivo();
             return verProfesional;
         }
-
 
         public int mtdActualizarImagen(ClProfesionalE objProf, int idProfesional)
         {
@@ -105,6 +102,13 @@ namespace appWebServisoft.Logica
         {
             ClProfesionalD objProf = new ClProfesionalD();
             List<ClImagenesServicioE> lista = objProf.mtdListarImgTrab(idProfesional);
+            return lista;
+        }
+
+        public List<ClProfesionalE> mtdSelecCorreoCateg(string cate, string serv)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            List<ClProfesionalE> lista = objProf.mtdSelecCorreoCateg(cate, serv);
             return lista;
         }
     }
