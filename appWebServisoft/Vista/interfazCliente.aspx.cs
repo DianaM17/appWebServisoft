@@ -21,13 +21,11 @@ namespace appWebServisoft.Vista
             Repeater1.DataBind();
 
 
+            ClServicioL objServicio = new ClServicioL();
+            List<ClImagenesServicioE> imagenes = objServicio.mtdlistarImagenServicio();
+            Repeater2.DataSource = imagenes;
+            Repeater2.DataBind();
 
-            //ClServicioL objServicio = new ClServicioL();
-            //List<ClImagenesServicioE> imagenes = objServicio.mtdlistarImagenServicio();
-
-            //Repeater2.DataSource = imagenes;
-            //Repeater2.DataBind();
-         
             if (!IsPostBack)
             {
                 //Cargar Combo ddlCategoria 
@@ -49,6 +47,12 @@ namespace appWebServisoft.Vista
                 // Ejecutar la función de cambio de índice cada 5 segundos
                 ScriptManager.RegisterStartupScript(this, GetType(), "ChangeIndex", "setInterval(ChangeCarouselIndex, 5000);", true);
             }
+
+            ClCategoriaL objCate = new ClCategoriaL();
+            List<ClCategoriaE> list = objCate.mtdListar();
+
+            reptCateg.DataSource = list;
+            reptCateg.DataBind();
         }
 
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
