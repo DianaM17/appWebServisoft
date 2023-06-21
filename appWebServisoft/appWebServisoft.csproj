@@ -100,6 +100,7 @@
     <Content Include="Vista\Css\app.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
+    <Content Include="Vista\Css\Estilos_SolicitudServicio.css" />
     <Content Include="Vista\Css\interfazCliente.css" />
     <Content Include="Vista\Css\interfazMasterCliente.css" />
     <Content Include="Vista\Css\Estilos_PerfilProfesional.css" />
@@ -198,6 +199,7 @@
     <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
+    <Content Include="Vista\Js\Js_SolicitudServicio.js" />
     <Content Include="Vista\Js\SiteMaster2.js" />
     <Content Include="Vista\Js\SweetCerrarSecion.js" />
     <Content Include="Vista\Login.aspx" />
@@ -211,6 +213,7 @@
     <Content Include="Vista\RegistrarUsuario.aspx" />
     <Content Include="Vista\Js\theme-map.js" />
     <Content Include="Vista\CategoriasCliente.aspx" />
+    <Content Include="Vista\SolicitudServicio.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +234,7 @@
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
+    <Compile Include="Entidades\ClSolicitudServicioE.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -362,6 +366,13 @@
     <Compile Include="Vista\CategoriasCliente.aspx.designer.cs">
       <DependentUpon>CategoriasCliente.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\SolicitudServicio.aspx.cs">
+      <DependentUpon>SolicitudServicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\SolicitudServicio.aspx.designer.cs">
+      <DependentUpon>SolicitudServicio.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vista\Site2.Master" />
@@ -403,14 +414,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Vista\Imagenes\Cotizaciones\" />
-    <Folder Include="Vista\Imagenes\PerfilCliente\" />
   </ItemGroup>
-
   <ItemGroup />
-   
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
