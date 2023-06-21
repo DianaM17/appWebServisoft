@@ -2,6 +2,7 @@
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net.Mail;
@@ -15,6 +16,12 @@ namespace Formulario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Establecer el idioma deseado
+            string idioma = "en-ES"; // Idioma español
+            CultureInfo cultura = new CultureInfo(idioma);
+            System.Threading.Thread.CurrentThread.CurrentCulture = cultura;
+            System.Threading.Thread.CurrentThread.CurrentUICulture = cultura;
+        
             if (!IsPostBack)
             {
                 //Cargar Combo ddlCategoria 
