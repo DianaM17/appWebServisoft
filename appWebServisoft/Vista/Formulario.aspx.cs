@@ -2,6 +2,7 @@
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Web;
@@ -28,6 +29,13 @@ namespace Formulario
                 ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
             }
 
+            string idCateg = ddlCategoria.SelectedValue;
+            ClCotizacionL objCot = new ClCotizacionL();
+            ClCotizacionE Buscar = objCot.mtdCotizacion(idCateg);
+            if (Buscar != null)
+            {
+                ImgCateg.ImageUrl = Buscar.imagen;
+            }
         }
 
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,7 +56,7 @@ namespace Formulario
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
-
+            
             //Registrar la cotización
             if (FluImagen.HasFile)
             {
@@ -98,7 +106,14 @@ namespace Formulario
                 string descripcion = txtDescripcion.Value;
                 string direccion = txtDireccion.Value;
 
-                
+                //string rutaRelativa = Path.Combine(Environment.CurrentDirectory, "Vista", "Imagenes", "Cotizaciones", nombre);
+                //// Convertir la ruta relativa a una ruta absoluta
+                //string rutaAbsoluta = Path.GetFullPath(rutaRelativa);
+
+                //// Adjuntar la imagen
+                //Attachment adjunto = new Attachment(rutaAbsoluta);
+                //mensaje.Attachments.Add(adjunto);
+
                 txtTitulo.Value = string.Empty;
                 txtDescripcion.Value = string.Empty;
                 txtDireccion.Value = string.Empty;

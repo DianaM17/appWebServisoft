@@ -1,4 +1,4 @@
-﻿<%@ Assembly |EXXED<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario.aspx.cs" Inherits="Formulario.Formulario" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario.aspx.cs" Inherits="Formulario.Formulario" %>
 
 <!DOCTYPE html>
 
@@ -75,7 +75,7 @@
                 <!-- form img -->
                 <div class="col-lg-6 col-md-12 col-sm-12">
                     <figure class="w-100 img-form">
-                        <img src="Imagenes/image-1.svg">
+                        <asp:Image ID="ImgCateg" runat="server" /> 
                     </figure>
 
                 </div>

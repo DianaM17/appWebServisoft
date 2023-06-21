@@ -25,6 +25,8 @@
 
                 <!-- inputs -->
                 <div class="inputs-form form-group">
+                    <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
+                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
@@ -37,22 +39,17 @@
                     </asp:UpdatePanel>
                     <br />
                     <label for="titulo" class="ubuntu" style="font-size: 14px;">Título del servicio:</label>
-                    <input type="text" name="username" id="tituloServicio" class="form-control mb-2" style="font-size: 14px;" required>
+                    <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
 
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Descripción del servicio:</label>
-                    <input type="text" name="descripcion_form" id="descripcion_form" class="form-control mb-2" style="font-size: 14px;" required>
+                    <input type="text" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
 
                     <label for="imagenes" class="ubuntu" style="font-size: 14px;">Imágenes:</label>
-                    <asp:FileUpload ID="Imagen" runat="server" Style="font-size: 14px;" />
+                    <asp:FileUpload ID="FluImagen" runat="server" Style="font-size: 14px;" />
                     <br />
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Dirección:</label>
-                    <input type="text" name="direccion_form" id="direccion_form" class="form-control mb-2" style="font-size: 14px;" required>
-
-                    <div class="form-group mt-2">
-                        <input type="checkbox" name="accept_terms" value="" required>
-                        <label for="accept_terms" style="font-size: 14px;">Acepto términos y condiciones.</label>
-                    </div>
-                    <button type="submit" class="btn mt-1 ubuntu" id="send-form" style="font-size: 14px;">Enviar</button>
+                    <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
+                    <button type="submit" class="btn mt-1 ubuntu send-form" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="font-size: 14px;">Enviar</button>
                 </div>
             </div>
 
@@ -82,11 +79,12 @@
                             <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2 " onclick="redirectToPage('')">
                                 <div class="custom-card">
                                     <div class="card-img-box">
-                                        <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
+                                        <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>'/>
                                     </div>
                                 </div>
                                 <div class="card-content">
                                     <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
+                                    <a href="Formulario.aspx">Hola</a>
                                 </div>
                             </div>
                         </ItemTemplate>
