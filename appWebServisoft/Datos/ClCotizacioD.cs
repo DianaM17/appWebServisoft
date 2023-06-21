@@ -1,6 +1,7 @@
 ﻿using appWebServisoft.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -16,6 +17,21 @@ namespace appWebServisoft.Datos
             ClProcesarSQL SQL = new ClProcesarSQL();
             int regis = SQL.mtdIUDConec(Registro);
             return regis;
+        }
+
+        public ClCotizacionE mtdMostrarImg(string idCategoria)
+        {
+            string consult = "Select imagen from Imagenes where idCategoria = "+idCategoria+"";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblCot = SQL.mtdSelectDesc(consult);
+
+            ClCotizacionE objCot = null;
+            if (tblCot.Rows.Count >0)
+            {
+                objCot = new ClCotizacionE();
+                objCot.imagen = tblCot.Rows[0]["imagen"].ToString();
+            }
+            return objCot;
         }
     }
 }
