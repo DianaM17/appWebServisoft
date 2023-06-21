@@ -28,14 +28,6 @@ namespace Formulario
                 ddlCategoria.DataBind();
                 ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
             }
-
-            string idCateg = ddlCategoria.SelectedValue;
-            ClCotizacionL objCot = new ClCotizacionL();
-            ClCotizacionE Buscar = objCot.mtdCotizacion(idCateg);
-            if (Buscar != null)
-            {
-                ImgCateg.ImageUrl = Buscar.imagen;
-            }
         }
 
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
@@ -52,17 +44,24 @@ namespace Formulario
             ddlServicio.DataValueField = "idServicio";
             ddlServicio.DataBind();
             ddlServicio.Items.Insert(0, new ListItem("Seleccione: ", "0"));
+
+            int idCate = ddlCategoria.SelectedIndex;
+            ClCotizacionL objCot = new ClCotizacionL();
+            ClCotizacionE Buscar = objCot.mtdCotizacion(idCate);
+            if (Buscar != null)
+            {
+                ImgCategoria.ImageUrl = Buscar.imagen;
+            }
         }
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
-            
+
             //Registrar la cotización
             if (FluImagen.HasFile)
             {
                 string idClienteString = Session["idCliente"].ToString();
                 int Idcliente = Int32.Parse(idClienteString);
-
 
                 string ciudad = lblIdCiudad.Text = Session["Cliente"].ToString();
                 int idCiudad = Int32.Parse(idClienteString);
@@ -106,13 +105,12 @@ namespace Formulario
                 string descripcion = txtDescripcion.Value;
                 string direccion = txtDireccion.Value;
 
-                //string rutaRelativa = Path.Combine(Environment.CurrentDirectory, "Vista", "Imagenes", "Cotizaciones", nombre);
-                //// Convertir la ruta relativa a una ruta absoluta
-                //string rutaAbsoluta = Path.GetFullPath(rutaRelativa);
-
-                //// Adjuntar la imagen
-                //Attachment adjunto = new Attachment(rutaAbsoluta);
-                //mensaje.Attachments.Add(adjunto);
+                //Optiene el archivo adjunto cargardo atraves del fileupload
+                //PostedFile es una propiedad del control FileUpload
+                HttpPostedFile archivoAdjunto = FluImagen.PostedFile;
+                Stream flujoAdjunto = archivoAdjunto.InputStream;
+                Attachment adjunto = new Attachment(flujoAdjunto, archivoAdjunto.FileName);
+                mensaje.Attachments.Add(adjunto);
 
                 txtTitulo.Value = string.Empty;
                 txtDescripcion.Value = string.Empty;

@@ -22,6 +22,7 @@ namespace appWebServisoft
             Session["TeleProfesional"] = "";
             Session["idCliente"] = "";
             Session["Cliente"] = "";
+            Session["Categoria"] = "";
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace appWebServisoft
             Session["TeleProfesional"] = "";
             Session["idCliente"] = "";
             Session["Cliente"] = "";
+            Session["Categoria"] = "";
         }
 
         protected void Application_End(object sender, EventArgs e)

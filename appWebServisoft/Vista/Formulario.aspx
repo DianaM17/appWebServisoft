@@ -30,7 +30,7 @@
                         </a>
                     </div>
                     <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
-                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
+                    <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
                     <h4 class="text-center text-uppercase anton">Bienvenidos</h4>
                     <hr>
                     <p class="text-center text-uppercase anton">¿Que servcio necesitas?</p>
@@ -39,6 +39,7 @@
 
                     <!-- inputs -->
                     <div class="inputs-form form-group">
+                        <asp:Label ID="lblidCategoria" runat="server"></asp:Label>
                         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                             <ContentTemplate>
@@ -51,35 +52,31 @@
                         </asp:UpdatePanel>
                         <br />
                         <label for="titulo" class="ubuntu">Título del servicio:</label>
-                        <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-4" required/>
+                        <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-4" required />
 
                         <label for="descripcion" class="ubuntu">Descripción del servicio:</label>
-                        <input type="text" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-4" required/>
+                        <input type="text" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-4" required />
 
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
                         <asp:FileUpload ID="FluImagen" runat="server" />
                         <br />
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
-
-                        <div class="form-group mt-2">
-                            <input type="checkbox" name="accept_terms" value="" required>
-                            <label for="accept_terms">Acepto términos y condiciones.</label>
-                        </div>
-                        <button id="btnEnviar" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick" >Enviar</button>
-
+                        <button id="btnEnviar" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick">Enviar</button>
                     </div>
-
                 </div>
 
                 <!-- form img -->
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <figure class="w-100 img-form">
-                        <asp:Image ID="ImgCateg" runat="server" /> 
-                    </figure>
+                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <ContentTemplate>
+                            <figure class="w-100 img-form">
+                                <asp:Image CssClass="imagenes" runat="server" ID="ImgCategoria"/>
+                            </figure>
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
 
                 </div>
-
             </div>
         </form>
 

@@ -76,7 +76,7 @@
                 <div class="d-flex flex-wrap justify-content-center align-items-center" style="max-height: 500px; overflow-y: auto;">
                     <asp:Repeater ID="reptCateg" runat="server">
                         <ItemTemplate>
-                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2 " onclick="redirectToPage('')">
+                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2 " onclick="redirectToPage('Formulario.aspx')">
                                 <div class="custom-card">
                                     <div class="card-img-box">
                                         <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>'/>
@@ -84,7 +84,6 @@
                                 </div>
                                 <div class="card-content">
                                     <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
-                                    <a href="Formulario.aspx">Hola</a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -93,6 +92,11 @@
             </div>
         </div>
     </section>
+    <script>
+        function redirectToPage(url) {
+            window.location.href = 'Formulario.aspx';
+        }
+    </script>
 
     <%--  Cards Profesionales--%>
     <br />

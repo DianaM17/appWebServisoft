@@ -164,6 +164,8 @@
     <Content Include="Vista\Imagenes\Categoria\Seguridad.jpg" />
     <Content Include="Vista\Imagenes\Categoria\Tapicero.jpg" />
     <Content Include="Vista\Imagenes\Categoria\Tecnico.jpg" />
+    <Content Include="Vista\Imagenes\Cotizaciones\Abogado.png" />
+    <Content Include="Vista\Imagenes\Cotizaciones\Administrador.png" />
     <Content Include="Vista\Imagenes\foto1.jpg" />
     <Content Include="Vista\Imagenes\foto2.jpg" />
     <Content Include="Vista\Imagenes\foto3.jpg" />
@@ -203,7 +205,6 @@
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Js\main.js" />
     <Content Include="Vista\perfilCliente.aspx" />
-    <Content Include="Vista\PerfilProfesional.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\Prueba.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
@@ -306,13 +307,6 @@
     <Compile Include="Vista\perfilCliente.aspx.designer.cs">
       <DependentUpon>perfilCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\PerfilProfesional.aspx.cs">
-      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\PerfilProfesional.aspx.designer.cs">
-      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vista\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -403,9 +397,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vista\Imagenes\Cotizaciones\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
