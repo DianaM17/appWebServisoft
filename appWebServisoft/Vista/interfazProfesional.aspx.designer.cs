@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class HomeProfesional
+    public partial class interfazProfecional
     {
     }
 }

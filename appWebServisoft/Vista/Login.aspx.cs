@@ -39,7 +39,7 @@ namespace appWebServisoft.Vista
                 Session["TeleProfesional"] = objProfesionalE.telefono;
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
 
-                Response.Redirect("PerfilProfesional.aspx");
+                Response.Redirect("interfazProfesional.aspx");
 
             }
             else if (objClienteE != null)

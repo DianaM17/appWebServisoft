@@ -114,7 +114,6 @@
     <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
     <Content Include="Vista\Formulario.aspx" />
-    <Content Include="Vista\HomeProfesional.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
     <Content Include="Vista\Imagenes\3099609.jpg" />
@@ -191,6 +190,7 @@
     <Content Include="Vista\Imagenes\PerfilProfesional\imagen1.jpg" />
     <Content Include="Vista\Imagenes\profesional.png" />
     <Content Include="Vista\interfazCliente.aspx" />
+    <Content Include="Vista\interfazProfesional.aspx" />
     <Content Include="Vista\Js\app.js" />
     <Content Include="Vista\Js\jquery-3.3.1.min.js" />
     <Content Include="Vista\Js\jquery.steps.js" />
@@ -205,7 +205,7 @@
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Js\main.js" />
     <Content Include="Vista\perfilCliente.aspx" />
-    <Content Include="Vista\PerfilProfesional.aspx" />
+    <Content Include="Vista\perfilProfesional.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\Prueba.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
@@ -275,19 +275,19 @@
     <Compile Include="Vista\Formulario.aspx.designer.cs">
       <DependentUpon>Formulario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\HomeProfesional.aspx.cs">
-      <DependentUpon>HomeProfesional.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\HomeProfesional.aspx.designer.cs">
-      <DependentUpon>HomeProfesional.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Vista\interfazCliente.aspx.cs">
       <DependentUpon>interfazCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Vista\interfazCliente.aspx.designer.cs">
       <DependentUpon>interfazCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\interfazProfesional.aspx.cs">
+      <DependentUpon>interfazProfesional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\interfazProfesional.aspx.designer.cs">
+      <DependentUpon>interfazProfesional.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -303,6 +303,13 @@
     <Compile Include="Vista\MasterCliente.Master.designer.cs">
       <DependentUpon>MasterCliente.Master</DependentUpon>
     </Compile>
+    <Compile Include="Vista\MasterProfesional.Master.cs">
+      <DependentUpon>MasterProfesional.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\MasterProfesional.Master.designer.cs">
+      <DependentUpon>MasterProfesional.Master</DependentUpon>
+    </Compile>
     <Compile Include="Vista\perfilCliente.aspx.cs">
       <DependentUpon>perfilCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,12 +317,12 @@
     <Compile Include="Vista\perfilCliente.aspx.designer.cs">
       <DependentUpon>perfilCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\PerfilProfesional.aspx.cs">
-      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
+    <Compile Include="Vista\perfilProfesional.aspx.cs">
+      <DependentUpon>perfilProfesional.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\PerfilProfesional.aspx.designer.cs">
-      <DependentUpon>PerfilProfesional.aspx</DependentUpon>
+    <Compile Include="Vista\perfilProfesional.aspx.designer.cs">
+      <DependentUpon>perfilProfesional.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
@@ -407,6 +414,7 @@
     <Content Include="Vista\Boostrap\js\bootstrap.js.map" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js.map" />
     <None Include="packages.config" />
+    <Content Include="Vista\MasterProfesional.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

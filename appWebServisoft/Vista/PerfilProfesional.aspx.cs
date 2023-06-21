@@ -3,16 +3,14 @@ using appWebServisoft.Entidades;
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.Remoting;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace appWebServisoft.Vista
 {
-    public partial class PerfilProfesional : System.Web.UI.Page
+    public partial class perfilProfesional1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -105,7 +103,7 @@ namespace appWebServisoft.Vista
                 ClProfesionalL clProf = new ClProfesionalL();
                 int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
             }
-           
+
             objProf.nombres = txtNombres.Value;
             objProf.apellidos = txtApellidos.Value;
             objProf.telefono = txtTelefono.Value;
@@ -219,4 +217,3 @@ namespace appWebServisoft.Vista
         }
     }
 }
-

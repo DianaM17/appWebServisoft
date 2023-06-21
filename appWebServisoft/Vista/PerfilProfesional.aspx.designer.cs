@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class PerfilProfesional
+    public partial class perfilProfesional1
     {
 
         /// <summary>

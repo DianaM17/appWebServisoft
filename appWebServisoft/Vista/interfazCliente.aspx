@@ -65,6 +65,7 @@
 
 
     <%--Categorias--%>
+   
     <section>
         <br />
         <div class="hero">
@@ -76,7 +77,7 @@
                 <div class="d-flex flex-wrap justify-content-center align-items-center" style="max-height: 500px; overflow-y: auto;">
                     <asp:Repeater ID="reptCateg" runat="server">
                         <ItemTemplate>
-                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2 " onclick="redirectToPage('')">
+                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2 ">
                                 <div class="custom-card">
                                     <div class="card-img-box">
                                         <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>'/>
@@ -93,6 +94,7 @@
             </div>
         </div>
     </section>
+   
 
     <%--  Cards Profesionales--%>
     <br />
@@ -108,7 +110,7 @@
                 <ItemTemplate>
                     <div class="card mx-2 mb-2 custom-card" style="width: 220px; height: 275px; background-color: #1ab999; border-radius: 10%;">
                         <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
-                            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px">
+                            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px" onclick="redirectToPage('Login.aspx')">
                                 <img class="card-img-top" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
                                 
                                 </div>

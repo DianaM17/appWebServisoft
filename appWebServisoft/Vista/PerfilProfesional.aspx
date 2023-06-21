@@ -1,10 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PerfilProfesional.aspx.cs" Inherits="appWebServisoft.Vista.PerfilProfesional" %>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/MasterProfesional.Master" AutoEventWireup="true" CodeBehind="perfilProfesional.aspx.cs" Inherits="appWebServisoft.Vista.perfilProfesional1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apock web design</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -19,11 +15,9 @@
 
     <!-- STYLE CSS -->
     <link href="Css/style.css" rel="stylesheet" />
-</head>
-
-<body>
-    <form runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div style="display: block">
             <section class="seccion-perfil-usuario container">
                 <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
@@ -262,6 +256,4 @@
         <script src="Js/jquery.steps.js"></script>
         <script src="Js/main.js"></script>
         <script src="Js/theme-map.js"></script>
-    </form>
-</body>
-</html>
+</asp:Content>
