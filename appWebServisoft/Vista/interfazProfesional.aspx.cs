@@ -1,4 +1,6 @@
-﻿using System;
+﻿using appWebServisoft.Entidades;
+using appWebServisoft.Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,17 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                ClCotizacionL objCotizacion = new ClCotizacionL();
+                List<ClCotizacionE> listaCotizaciones = objCotizacion.mtdListarCotizacion(Convert.ToInt32(Session["idCategoria"]));
+                repeaterListar.DataSource = listaCotizaciones;
+                repeaterListar.DataBind();
+            }
+
+
 
         }
+
     }
 }

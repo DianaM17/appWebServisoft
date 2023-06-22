@@ -14,6 +14,7 @@ namespace appWebServisoft.Datos
 {
     public class ClProfesionalD
     {
+
         public int mtdRegistroProfesional(ClProfesionalE objProfesional)
         {
             int Registros = 1;
