@@ -26,7 +26,7 @@
                 <!-- inputs -->
                 <div class="inputs-form form-group">
                     <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
-                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
+                    <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
@@ -65,7 +65,7 @@
 
 
     <%--Categorias--%>
-   
+
     <section>
         <br />
         <div class="hero">
@@ -77,15 +77,14 @@
                 <div class="d-flex flex-wrap justify-content-center align-items-center" style="max-height: 500px; overflow-y: auto;">
                     <asp:Repeater ID="reptCateg" runat="server">
                         <ItemTemplate>
-                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2 ">
+                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2" onclick="redirectToPage('Formulario.aspx')">
                                 <div class="custom-card">
                                     <div class="card-img-box">
-                                        <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>'/>
+                                        <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
                                     </div>
                                 </div>
                                 <div class="card-content">
                                     <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
-                                    <a href="Formulario.aspx">Hola</a>
                                 </div>
                             </div>
                         </ItemTemplate>
@@ -94,7 +93,12 @@
             </div>
         </div>
     </section>
-   
+    <script>
+        function redirectToPage(url) {
+            window.location.href = 'Formulario.aspx';
+        }
+    </script>
+
 
     <%--  Cards Profesionales--%>
     <br />
@@ -112,10 +116,10 @@
                         <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
                             <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px" onclick="redirectToPage('Login.aspx')">
                                 <img class="card-img-top" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
-                                
-                                </div>
-                            <p class="card-text" style="font-size:17px"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
-                            <p class="card-text" style="font-size:18px"><%# Eval("categorias") %> </p>
+
+                            </div>
+                            <p class="card-text" style="font-size: 17px"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
+                            <p class="card-text" style="font-size: 18px"><%# Eval("categorias") %> </p>
                         </div>
                     </div>
                 </ItemTemplate>
@@ -218,7 +222,8 @@
     <div class="hero">
         <h1>Comentarios</h1>
         <div class="review-box">
-            <div id="slide">q
+            <div id="slide">
+                q
                 <asp:Repeater ID="RepeaterContenido" runat="server">
                     <ItemTemplate>
                         <div class="cardComentario">
@@ -319,18 +324,17 @@
             z-index: 1;
         }
 
-        .cardComentario::before{
-            content: '';
-            width: 110px;
-            height: 110px;
-            border-bottom-right-radius: 100%;
-            background: #f44336;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: -1;
-
-        }
+            .cardComentario::before {
+                content: '';
+                width: 110px;
+                height: 110px;
+                border-bottom-right-radius: 100%;
+                background: #f44336;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+            }
 
         .profile {
             display: flex;
@@ -381,48 +385,49 @@
                 background: #fff;
                 border-radius: 50%;
                 cursor: pointer;
+            }
     </style>
 
 
 
 
 
-   <footer style="margin-top: 100px">
-    <div class="container__footer">
-        <div class="box__footer">
-            <div class="logo">
-                <img src="Imagenes/logo_preview_rev_3.png" alt="">
+    <footer style="margin-top: 100px">
+        <div class="container__footer">
+            <div class="box__footer">
+                <div class="logo">
+                    <img src="Imagenes/logo_preview_rev_3.png" alt="">
+                </div>
+                <div class="terms">
+                    <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+                </div>
             </div>
-            <div class="terms">
-                <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+            <div class="box__footer">
+                <h2>Compañía</h2>
+                <a href="#">Acerca de</a>
+                <a href="#">Categoría</a>
+                <a href="#">Cliente</a>
+                <a href="#">Profesional</a>
+            </div>
+            <div class="box__footer">
+                <h2>Redes Sociales</h2>
+                <a href="#"><i class="fab fa-facebook-square"></i>Facebook</a>
+                <a href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
+                <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
+                <a href="#"><i class="fab fa-instagram-square"></i>Instagram</a>
             </div>
         </div>
-        <div class="box__footer">
-            <h2>Compañía</h2>
-            <a href="#">Acerca de</a>
-            <a href="#">Categoría</a>
-            <a href="#">Cliente</a>
-            <a href="#">Profesional</a>
-        </div>
-        <div class="box__footer">
-            <h2>Redes Sociales</h2>
-            <a href="#"><i class="fab fa-facebook-square"></i>Facebook</a>
-            <a href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
-            <a href="#"><i class="fab fa-linkedin"></i>LinkedIn</a>
-            <a href="#"><i class="fab fa-instagram-square"></i>Instagram</a>
-        </div>
-    </div>
-    <div class="box__copyright">
-        <hr>
-        <p style="font-size: 15px">
-           SERVISOFT ® 2022
+        <div class="box__copyright">
+            <hr>
+            <p style="font-size: 15px">
+                SERVISOFT ® 2022
              <a href="#" style="text-decoration: none;">
                  <strong class="text-info">Consulta nuestras políticas de privacidad</strong>
              </a>
-        </p>
-    </div>
-</footer>
+            </p>
+        </div>
+    </footer>
 
-<script src="Js/JavaScript_Principal.js"></script>
+    <script src="Js/JavaScript_Principal.js"></script>
 
 </asp:Content>
