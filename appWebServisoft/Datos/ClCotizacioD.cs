@@ -19,9 +19,9 @@ namespace appWebServisoft.Datos
             return regis;
         }
 
-        public ClCotizacionE mtdMostrarImg(string idCategoria)
+        public ClCotizacionE mtdMostrarImg(int idCategoria)
         {
-            string consult = "Select imagen from Imagenes where idCategoria = "+idCategoria+"";
+            string consult = "Select * from Imagenes where idCategoria = "+idCategoria+"";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblCot = SQL.mtdSelectDesc(consult);
 
@@ -30,6 +30,7 @@ namespace appWebServisoft.Datos
             {
                 objCot = new ClCotizacionE();
                 objCot.imagen = tblCot.Rows[0]["imagen"].ToString();
+                objCot.idCategoria = int.Parse(tblCot.Rows[0]["idCategoria"].ToString());
             }
             return objCot;
         }
