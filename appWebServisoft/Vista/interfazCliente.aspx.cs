@@ -8,6 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Net.Mail;
+using System.IO;
 
 namespace appWebServisoft.Vista
 {
@@ -142,13 +143,12 @@ namespace appWebServisoft.Vista
                 string descripcion = txtDescripcion.Value;
                 string direccion = txtDireccion.Value;
 
-                //string rutaRelativa = Path.Combine(Environment.CurrentDirectory, "Vista", "Imagenes", "Cotizaciones", nombre);
-                //// Convertir la ruta relativa a una ruta absoluta
-                //string rutaAbsoluta = Path.GetFullPath(rutaRelativa);
-
-                //// Adjuntar la imagen
-                //Attachment adjunto = new Attachment(rutaAbsoluta);
-                //mensaje.Attachments.Add(adjunto);
+                //Optiene el archivo adjunto cargardo atraves del fileupload
+                //PostedFile es una propiedad del control FileUpload
+                HttpPostedFile archivoAdjunto = FluImagen.PostedFile;
+                Stream flujoAdjunto = archivoAdjunto.InputStream;
+                Attachment adjunto = new Attachment(flujoAdjunto, archivoAdjunto.FileName);
+                mensaje.Attachments.Add(adjunto);
 
                 txtTitulo.Value = string.Empty;
                 txtDescripcion.Value = string.Empty;
