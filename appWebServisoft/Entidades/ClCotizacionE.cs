@@ -12,6 +12,7 @@ namespace appWebServisoft.Entidades
         public string descripcion { get; set; }
         public string imagen { get; set; }
         public string direccion { get; set; }
+        public int idSelecionProf { get; set; }
         public int idCiudad { get; set; }
         public int idCategoria { get; set; }
         public int idServicio { get; set; }
