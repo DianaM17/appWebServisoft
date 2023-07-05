@@ -220,9 +220,9 @@ namespace appWebServisoft.Datos
         }
 
         //Selecciona el correo de los profesionales que pertenecen a un categoria y un servicio
-        public List<ClProfesionalE> mtdSelecCorreoCateg(string categ, string serv)
+        public List<ClProfesionalE> mtdSelecCorreoCateg(string categ, string serv, string ciudad)
         {
-            string Consulta = "Select email from Profesional where idCategoria= '" + categ + "' and idServicio = '" + serv + "'";
+            string Consulta = "Select idProfesional, nombres, apellidos, email from Profesional where idCategoria= '" + categ + "' and idServicio = '" + serv + "' and idCiudad = '"+ciudad+"'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblProf = SQL.mtdSelectDesc(Consulta);
 
@@ -230,7 +230,11 @@ namespace appWebServisoft.Datos
             for (int i = 0; i < tblProf.Rows.Count; i++)
             {
                 ClProfesionalE objProf = new ClProfesionalE();
+                objProf.idProfesional = int.Parse(tblProf.Rows[i]["idProfesional"].ToString());
+                objProf.nombres = tblProf.Rows[i]["nombres"].ToString();
+                objProf.apellidos = tblProf.Rows[i]["apellidos"].ToString();
                 objProf.email = tblProf.Rows[i]["email"].ToString();
+                objProf.nombreCompleto = objProf.nombres + " " + objProf.apellidos;
                 listaProf.Add(objProf);
             }
             return listaProf;
