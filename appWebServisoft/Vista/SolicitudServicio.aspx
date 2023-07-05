@@ -39,22 +39,52 @@
             <span class="close" onclick="closeModal()">&times;</span>
             <h2>Crear evento</h2>
             <div>
-                <label for="event-date">Fecha:</label>
                 <input type="text" id="event-date" disabled>
             </div>
             <div>
-                <label for="event-time">Hora:</label>
-                <input type="time" id="event-time">
+           <%--     <label for="fechaServicio">Fecha Servicio:</label>
+                <input type="date" name="fechaSevicio" runat="server" id="txtfechaServicio">
             </div>
             <div>
-                <label for="client-name">Nombre del Cliente:</label>
-                <input type="text" id="client-name">
+                <label for="hora">Hora:</label>
+                <input type="time" name="hora" runat="server" id="txtHora">
             </div>
             <div>
-                <label for="professional-name">Nombre del Profesional:</label>
-                <input type="text" id="professional-name">
+                <label for="descripcion">Descripcion:</label>
+                <input type="text" id="txtDescripcion" runat="server" name="descripcion" placeholder="Descripcion">
             </div>
-            <button onclick="saveEvent()">Guardar</button>
+            <div>
+                <label for="estado">Estado:</label>
+                <input type="text" id="txtEstado" runat="server" name="estado" placeholder="Estado">
+            </div>
+            <div>
+                <label for="direccion">Direccion:</label>
+                <%--<input type="text" id="txtDireccion" runat="server" name="direccion" placeholder="Direccion">--%>
+            </div>
+            <form runat="server">
+                <div>
+                    <asp:Label ID="lblFecha" runat="server" Text="Fecha Servicio:"></asp:Label>
+                    <asp:TextBox ID="txtFecha" runat="server" Type="date" ></asp:TextBox>
+                </div>
+                <div>
+                    <asp:Label ID="lblHora" runat="server" Text="Hora:"></asp:Label>
+                    <asp:TextBox ID="txtHora" type="time" runat="server"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:Label ID="lblDescripcion" runat="server" Text="Descripción: "></asp:Label>
+                    <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:Label ID="lblEstado" runat="server" Text="Estado:"></asp:Label>
+                    <asp:TextBox ID="txtEstado" runat="server" placeholder="Estado"></asp:TextBox>
+                </div>
+                <div>
+                    <asp:Label ID="lblDireccion" runat="server" Text="Direccion:"></asp:Label>
+                    <asp:TextBox ID="txtDireccion" runat="server" placeholder="Direccion"></asp:TextBox>
+                </div>
+                <asp:Button ID="Button1" OnClick="Button1_Click" runat="server" Text="Solicitar" />
+            </form>
+            <%--<button id="btnGuardar" type="submit" name="guardar" runat="server" onserverclick="btnGuardar_ServerClick">Guardar</button>--%>
         </div>
     </div>
 
