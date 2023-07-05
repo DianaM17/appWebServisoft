@@ -20,6 +20,7 @@ namespace appWebServisoft.Entidades
         public string categorias { get; set; }
         public int idCategoria { get; set; }
         public int idCiudad { get; set; }
+        public string nombreCompleto { get; set; }
     }
 }
 public class ClProfesionalSimple
@@ -29,4 +30,5 @@ public class ClProfesionalSimple
     public string apellidos { get; set; }
     public string fotos { get; set; }
     public string estado { get; set; }
+    
 }
