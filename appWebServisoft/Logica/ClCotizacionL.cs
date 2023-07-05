@@ -29,5 +29,12 @@ namespace appWebServisoft.Logica
             List<ClCotizacionE> ListaCotizacion = ObjCotizacion.mtdListaCotizacion(idCategoria);
             return ListaCotizacion;
         }
+
+        public List<ClCotizacionE> mtdListarCotizacionCliente(int idCliente)
+        {
+            ClCotizacioD ObjCotizacion = new ClCotizacioD();
+            List<ClCotizacionE> ListaCotizacion = ObjCotizacion.mtdListaCotizacionCliente(idCliente);
+            return ListaCotizacion;
+        }
     }
 }
