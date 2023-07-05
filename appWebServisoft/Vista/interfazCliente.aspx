@@ -223,7 +223,6 @@
         <h1>Comentarios</h1>
         <div class="review-box">
             <div id="slide">
-                q
                 <asp:Repeater ID="RepeaterContenido" runat="server">
                     <ItemTemplate>
                         <div class="cardComentario">

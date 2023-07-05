@@ -60,5 +60,34 @@ namespace appWebServisoft.Datos
 
             return listaCotizacion;
         }
+
+        public List<ClCotizacionE> mtdListaCotizacionCliente(int idCliente)
+        {
+            string consulta = "select * from Cotizacion where idCliente ='" + idCliente + "'";
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            DataTable tblCotizacion = objSQL.mtdSelectDesc(consulta);
+
+            List<ClCotizacionE> listaCotizacion = new List<ClCotizacionE>();
+
+            for (int i = 0; i < tblCotizacion.Rows.Count; i++)
+            {
+                ClCotizacionE ObjCotizacion = new ClCotizacionE();
+                ObjCotizacion.idCotizacion = int.Parse(tblCotizacion.Rows[i]["idCotizacion"].ToString());
+                ObjCotizacion.tituloServicio = tblCotizacion.Rows[i]["tituloServicio"].ToString();
+                ObjCotizacion.descripcion = tblCotizacion.Rows[i]["descripcion"].ToString();
+                ObjCotizacion.imagen = tblCotizacion.Rows[i]["imagen"].ToString();
+                ObjCotizacion.direccion = tblCotizacion.Rows[i]["direccion"].ToString();
+                ObjCotizacion.idCategoria = int.Parse(tblCotizacion.Rows[i]["idCategoria"].ToString());
+                listaCotizacion.Add(ObjCotizacion);
+
+            }
+
+            return listaCotizacion;
+        }
+
+        public void mtdSelecionCotizacion()
+        {
+            string consulta = "select * from Cotizacion where idCliente ";
+        }
     }
 }
