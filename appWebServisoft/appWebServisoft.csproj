@@ -51,6 +51,10 @@
 
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -100,9 +104,11 @@
     <Content Include="Vista\Boostrap\js\bootstrap.js" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
     <Content Include="Vista\busquedaCliente.aspx" />
+    <Content Include="Vista\CalendarioCitas.aspx" />
     <Content Include="Vista\Categorias.aspx" />
     <Content Include="Vista\Clientes-Categoria.aspx" />
     <Content Include="Vista\Css\app.css" />
+    <Content Include="Vista\Css\Calendario_Servicios.css" />
     <Content Include="Vista\Css\Estilos_RecuperarContraseña.css" />
     <Content Include="Vista\Css\Estilos_RegistrarCategoria.css" />
     <Content Include="Vista\Css\Estilos_SolicitudServicio.css" />
@@ -206,6 +212,7 @@
     <Content Include="Vista\Js\JavaScript_Perfiles.js" />
     <Content Include="Vista\Js\JavaScript_Principal.js" />
     <Content Include="Vista\Js\JavaScript_Registrar.js" />
+    <Content Include="Vista\Js\Js_CalendarioServicios.js" />
     <Content Include="Vista\Js\Js_SolicitudServicio.js" />
     <Content Include="Vista\Js\SiteMaster2.js" />
     <Content Include="Vista\Js\SweetCerrarSecion.js" />
@@ -262,6 +269,13 @@
     </Compile>
     <Compile Include="Vista\busquedaCliente.aspx.designer.cs">
       <DependentUpon>busquedaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\CalendarioCitas.aspx.cs">
+      <DependentUpon>CalendarioCitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\CalendarioCitas.aspx.designer.cs">
+      <DependentUpon>CalendarioCitas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>

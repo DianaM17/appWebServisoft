@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* Aquí definimos las Custom properties */
+ /*Aquí definimos las Custom properties */
 :root {
   --negro: #393939;
   --blanco: #ececec;
@@ -7,7 +7,7 @@
   --sombra-sec: #ffffff;
   --borde-negro: #00000050;
   --marcado: rgb(127, 195, 255);
-  /* Tipografía */
+   Tipografía 
   --tipo-principal: Helvetica, Arial, sans-serif;
 }
 
@@ -129,9 +129,9 @@ body {
   font-smooth: always;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: -webkit-box;
+  /*display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
+  display: flex;*/
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row nowrap;

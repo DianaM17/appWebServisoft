@@ -27,8 +27,9 @@
                                     <i class="button__icon fas fa-chevron-right"></i>
                                 </button>
                                 <br />
-                                <a href="RecuperaciónContraseña.aspx" style="text-decoration: none; color: #000000">¿Olvidaste tu contraseña?</a>
+                                <a href="RecuperarContraseña.aspx"  style="text-decoration: none; color: #000000">¿Olvidaste la contraseña?</a>
                             </div>
+                            
                             <div class="social-login">
                                 <h3>log in via</h3>
                                 <div class="social-icons">

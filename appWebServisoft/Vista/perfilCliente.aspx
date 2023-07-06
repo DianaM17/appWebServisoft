@@ -15,12 +15,6 @@
     <link href="Css/style.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button ID="btnCambiarColor" runat="server" Text="CambiarColor" OnClick="btnCambiarColor_Click" />
-    <script type="text/javascript">
-        function changeBackgroundColor(color) {
-            document.body.style.backgroundColor = color;
-        }
-    </script>
     <div runat="server">
         <div style="display: block">
             <section class="seccion-perfil-usuario container">
