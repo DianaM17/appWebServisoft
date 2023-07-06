@@ -100,7 +100,6 @@
     <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
     <Content Include="Vista\busquedaCliente.aspx" />
     <Content Include="Vista\CalendarioCitas.aspx" />
-    <Content Include="Vista\CalendarioServicios.aspx" />
     <Content Include="Vista\Categorias.aspx" />
     <Content Include="Vista\Clientes-Categoria.aspx" />
     <Content Include="Vista\Css\app.css" />
@@ -270,13 +269,6 @@
     </Compile>
     <Compile Include="Vista\CalendarioCitas.aspx.designer.cs">
       <DependentUpon>CalendarioCitas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\CalendarioServicios.aspx.cs">
-      <DependentUpon>CalendarioServicios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\CalendarioServicios.aspx.designer.cs">
-      <DependentUpon>CalendarioServicios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
