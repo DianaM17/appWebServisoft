@@ -67,7 +67,7 @@ namespace appWebServisoft.Vista
             objDatos.fecha = txtFecha.Text;
             objDatos.hora = txtHora.Value;
             objDatos.descripcion = txtDescripcion.Text;
-            objDatos.estado = txtEstado.Text;
+           
             objDatos.ubicacion = txtDireccion.Text;
             objDatos.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
             objDatos.idServicio = int.Parse(ddlServicio.SelectedValue.ToString()); ;
