@@ -1,12 +1,10 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="appWebServisoft.Vista.Principal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Principall.aspx.cs" Inherits="appWebServisoft.Vista.Principall" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link href="Css/Estilos_Principal..css" rel="stylesheet" />
+    <link href="Css/Estilos_Principal.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link href="Css/sweetalert.css" rel="stylesheet" />
-    <script src="../Scripts/sweetalert.min.js"></script>
 </asp:Content>
-<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
         <div>
             <div class="splitview skewed">
@@ -81,25 +79,20 @@
         </div>
     </section>
     <section class="principal">
-
         <%-- Inicio Perfiles Profesionales --%>
+        <link href="Css/Estilos_Principal.css" rel="stylesheet" />
         <div class="principal" style="display: flex">
             <div class="wrapper">
                 <i id="left" class="fa-solid fa-angle-left"></i>
                 <ul class="carousel">
-                    <asp:Repeater ID="ReptPerfil" runat="server">
-                        <ItemTemplate>
-                            <li class="card">
-                                <div class="img">
-                                    <img class="imagenes" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
-                                </div>
-                                <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
-                                <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>
-                                <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
-                            </li>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                    <%--<li class="card">
+                    <li class="card">
+                        <div class="img">
+                            <img src="Imagenes/img-1.jpg" alt="img" draggable="false">
+                        </div>
+                        <h2>Blanche Pearson</h2>
+                        <span>Sales Manager</span>
+                    </li>
+                    <li class="card">
                         <div class="img">
                             <img src="Imagenes/img-2.jpg" alt="img" draggable="false">
                         </div>
@@ -133,11 +126,12 @@
                         </div>
                         <h2>Donald Horton</h2>
                         <span>App Designer</span>
-                    </li>--%>
+                    </li>
                 </ul>
                 <i id="right" class="fa-solid fa-angle-right"></i>
             </div>
         </div>
+
         <script src="Js/JavaScript_Perfiles.js"></script>
     </section>
     <%-- Inicio Testimonios --%>
@@ -214,7 +208,7 @@
                     </div>
                 </div>
                 <div class="comentarios-cliente">
-                    <p>Es una página que cuenta con diversos profesionales quienes estan especializados en diferentes campos y siepmre están prestos a brindar su ayuda.</p>
+                    <p>Es una ágina que cuenta con diversos profesionales quienes estan especializados en diferentes campos y siepmre están prestos a brindar su ayuda.</p>
                 </div>
             </div>
             <div class="testimonios_caja">
@@ -276,29 +270,29 @@
             <img src="Imagenes/images/shape.png" class="square" alt="" />
             <div class="form">
                 <div class="contact-info">
-                    <h3 class="title">Puedes Contáctarte con nosotros!!</h3>
+                    <h3 class="title">Let's get in touch</h3>
                     <p class="text">
-                        Si necesitás contactarnos para hacer alguna consulta o sumplemente para dejar tu comentario,
-                        puedes tener la libertad de hacerlo. Repondemos en horario laboral.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
                     </p>
 
                     <div class="info">
                         <div class="information">
                             <img src="Imagenes/images/location.png" class="icon" alt="" />
-                            <p>Sogamoso - Boyacá</p>
+                            <p>92 Cherry Drive Uniondale, NY 11553</p>
                         </div>
                         <div class="information">
                             <img src=".." class="icon" alt="" />
-                            <p>servisoft1710@gmail.com</p>
+                            <p>lorem@ipsum.com</p>
                         </div>
                         <div class="information">
                             <img src="Imagenes/images/phone.png" class="icon" alt="" />
-                            <p>310-241-2563</p>
+                            <p>123-456-789</p>
                         </div>
                     </div>
 
                     <div class="social-media">
-                        <p>Conectate con nosotros :</p>
+                        <p>Connect with us :</p>
                         <div class="social-icons">
                             <a href="#">
                                 <i class="fab fa-facebook-f"></i>
@@ -321,29 +315,28 @@
                     <span class="circle two"></span>
 
                     <form action="index.html" autocomplete="off">
-                        <h3 class="title">Contáctanos</h3>
+                        <h3 class="title">Contact us</h3>
                         <div class="input-container">
-                            <input id="txtNombre" type="text" name="txtNombre" class="input" runat="server" />
-                            <label for="">Usuario</label>
+                            <input type="text" name="name" class="input" />
+                            <label for="">Username</label>
                             <span>Username</span>
                         </div>
                         <div class="input-container">
-                            <input id="txtEmail" type="email" name="txtEmail" class="input" runat="server" />
-                            <label for="">Correo</label>
+                            <input type="email" name="email" class="input" />
+                            <label for="">Email</label>
                             <span>Email</span>
                         </div>
                         <div class="input-container">
-                            <input id="txtTelefono" type="tel" name="txtTelefono" class="input" runat="server" />
-                            <label for="">Telefono</label>
+                            <input type="tel" name="phone" class="input" />
+                            <label for="">Phone</label>
                             <span>Phone</span>
                         </div>
                         <div class="input-container textarea">
-                            <textarea id="txtMessage" name="txtMessage" class="input" runat="server"></textarea>
-                            <label for="">Mensaje</label>
+                            <textarea name="message" class="input"></textarea>
+                            <label for="">Message</label>
                             <span>Message</span>
                         </div>
-                        <asp:Button ID="btnEnviar" runat="server" Text="Contactar" CssClass="btn" OnClick="btnEnviar_Click" />
-                        <%-- <input id="btnEnviarr" type="submit" value="Send" class="btn" />--%>
+                        <input type="submit" value="Send" class="btn" />
                     </form>
                 </div>
             </div>

@@ -16,8 +16,14 @@
 <body>
     <form id="form1" runat="server">
 
+
         <nav class="navbar1">
             <asp:Label ID="lblUsuario" runat="server" Text="Label" Style="margin-right: 20px;"></asp:Label>
+
+        <nav class="navbar1" >
+            <asp:Label ID="lblUsuario" runat="server" Text="Label" style="margin-right: 20px;"></asp:Label>
+            <asp:Label ID="lblIdCategoria" runat="server" Text="Label" Visible="false"></asp:Label>
+
         </nav>
 
         <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
@@ -61,8 +67,14 @@
             </div>
             <button id="toggleButton" class="menu-button">Menú</button>
             <div id="cardElements" class="menu-links">
+
                 <a class="link1" href="perfilProfesional.aspx">Perfil</a>
                 <a class="link2" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
+
+                <a class="link1"  href="trabajosSolicitadosProfesional.aspx">Trabajos Solicitados</a>
+                <a class="link2"  href="perfilProfesional.aspx">Perfil</a>
+                <a class="link3" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
+
             </div>
             <div class="animation start-home"></div>
         </nav>

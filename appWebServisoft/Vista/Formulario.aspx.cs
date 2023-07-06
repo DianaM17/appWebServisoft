@@ -88,7 +88,7 @@ namespace Formulario
                 string categ = ddlCategoria.SelectedValue.ToString();
                 string serv = ddlServicio.SelectedValue.ToString();
                 ClProfesionalL objProf = new ClProfesionalL();
-                List<ClProfesionalE> listaProf = objProf.mtdSelecCorreoCateg(categ, serv);
+                List<ClProfesionalE> listaProf = objProf.mtdSelecCorreoCateg(categ, serv, ciudad);
                 List<string> destinatarios = listaProf.Select(prof => prof.email).ToList();
                 string email = listaProf.FirstOrDefault()?.email;
                 MailMessage mensaje = new MailMessage();

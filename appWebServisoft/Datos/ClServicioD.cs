@@ -31,9 +31,15 @@ namespace appWebServisoft.Datos
 
         public int mtdsolicitarServicio(ClSolicitudServicioE objDatos)
         {
+
             string consulta = "Insert into solicitudServicio(fecha, hora, descripcion, estado, ubicacion, idServicio, idProfesional, " +
                 "idCliente) values ('" + objDatos.fecha + "','" + objDatos.hora + "', '" + objDatos.descripcion + "','" +
                 objDatos.ubicacion + "', " + objDatos.idServicio + ", " + objDatos.idProfesional + ", " + objDatos.idCliente + ")";
+
+            string consulta = "Insert into solicitudServicio(fecha, hora, descripcion, estado, ubicacion, idCiudad, idServicio, idCategoria, idProfesional, " +
+                "idCliente) values ('" + objDatos.fecha + "','" + objDatos.hora + "', '" + objDatos.descripcion + "', '" + objDatos.estado + "', '" +
+                objDatos.ubicacion + "', "+objDatos.idCiudad+" , " + objDatos.idServicio + ", "+objDatos.idCategoria+", " + objDatos.idProfesional + ", " + objDatos.idCliente + ")";
+
             ClProcesarSQL SQL = new ClProcesarSQL();
             int registro = SQL.mtdIUDConec(consulta);
             return registro;

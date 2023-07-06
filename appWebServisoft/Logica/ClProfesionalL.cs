@@ -105,10 +105,10 @@ namespace appWebServisoft.Logica
             return lista;
         }
 
-        public List<ClProfesionalE> mtdSelecCorreoCateg(string cate, string serv)
+        public List<ClProfesionalE> mtdSelecCorreoCateg(string cate, string serv, string ciudad)
         {
             ClProfesionalD objProf = new ClProfesionalD();
-            List<ClProfesionalE> lista = objProf.mtdSelecCorreoCateg(cate, serv);
+            List<ClProfesionalE> lista = objProf.mtdSelecCorreoCateg(cate, serv, ciudad);
             return lista;
         }
     }

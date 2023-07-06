@@ -14,6 +14,7 @@ namespace appWebServisoft.Entidades
         public string ubicacion { get; set; }
         public int idCiudad { get; set; }
         public int idServicio { get; set; }
+        public int idCategoria { get; set; }
         public int idProfesional { get; set; }
         public int idCliente { get; set; }
     }

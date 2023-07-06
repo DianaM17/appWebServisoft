@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class interfazProfecional
+    public partial class TrabajosSolicitadosCliente
     {
 
         /// <summary>
