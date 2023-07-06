@@ -43,5 +43,12 @@ namespace appWebServisoft.Logica
             int registro = objSolicitud.mtdsolicitarServicio(objDatos);
             return registro;
         }
+
+        public List<ClSolicitudServicioE> mtdServicioAceptado(int idProfesional)
+        {
+            ClServicioD objServicio = new ClServicioD();
+            List<ClSolicitudServicioE> listaServ = objServicio.mtdServicioAceptado(idProfesional);
+            return listaServ;
+        }
     }
 }

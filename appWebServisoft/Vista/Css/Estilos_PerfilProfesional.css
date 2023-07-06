@@ -42,12 +42,12 @@ body {
         height: 17rem;
         background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
         border-radius: 0 0 20px 20px;
-        /*
+        
     background-image: url('http://localhost/multimedia/png/user-portada-3.png');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    */
+    
     }
 
         .seccion-perfil-usuario .perfil-usuario-portada .boton-portada {
@@ -189,7 +189,7 @@ body {
         background: linear-gradient(45deg, #FF2DFD, #40A7FF);
     }
 
-/* adactacion a dispositivos */
+ adactacion a dispositivos 
 @media (max-width: 750px) {
     .seccion-perfil-usuario .lista-datos {
         width: 100%;
@@ -229,7 +229,7 @@ body {
         transform: scale(1.4)
     }
 
-/*Estilos Checkbox*/
+Estilos Checkbox
 .slider {
     background-color: #ffffff2b;
     border-radius: 100px;
@@ -272,7 +272,7 @@ body {
     display: none;
 }
 
-/*Estilos boton Add Trabajos Realizados*/
+Estilos boton Add Trabajos Realizados
 .cssbuttons-io-button {
     display: flex;
     align-items: center;
@@ -301,7 +301,7 @@ body {
         box-shadow: 0 0.3em 1em -0.5em #14a73e98;
     }
 
-/*Estilos Ventana Modal Trabajos Realizados*/
+Estilos Ventana Modal Trabajos Realizados
 .containerS {
     max-width: 300px;
     margin: 0 auto;
