@@ -62,13 +62,10 @@
             <button id="toggleButton" class="menu-button">Menú</button>
             <div id="cardElements" class="menu-links">
 
-                <a class="link1" href="perfilCliente.aspx">Perfil</a>
+       
 
 
-                <a class="link1"  href="perfilCliente.aspx">Perfil</a>
                 <a class="link1"  href="SolicitudServicio.aspx">Solicitud Servicio</a>
-
-                <a class="link2" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
 
                 <a class="link1"  href="TrabajosSolicitadosCliente.aspx">Trabajos</a>
                 <a class="link2"  href="perfilCliente.aspx">Perfil</a>
