@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace appWebServisoft.Vista
 {
@@ -11,29 +12,18 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                int idProf = int.Parse(Session["idProfesional"].ToString());
-                ClServicioL objServi = new ClServicioL();
-                List<ClSolicitudServicioE> listaServ = objServi.mtdServicioAceptado(idProf);
+            
+        }
 
-                // Ajustar el formato de la fecha
-                for (int i = 0; i < listaServ.Count; i++)
-                {
-                    ClSolicitudServicioE servicio = listaServ[i];
-                    DateTime fechaServicio = DateTime.Parse(servicio.fecha);
-                    servicio.fecha = fechaServicio.ToString("yyyy-MM-dd"); // Ajustar el formato de la fecha
-                }
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            int idProf = int.Parse(Session["idProfesional"].ToString());
+            string fecha = txtFecha.Text;
+            ClServicioL objServicio = new ClServicioL();
+            List<ClSolicitudServicioE> lista = objServicio.mtdServicioAceptado(idProf, fecha);
 
-                // Serializar la lista de eventos a formato JSON
-                string eventosJson = JsonConvert.SerializeObject(listaServ, new IsoDateTimeConverter { DateTimeFormat = "yyyy-MM-ddTHH:mm:ss" });
-
-                // Retornar los datos en formato JSON
-                Response.Clear();
-                Response.ContentType = "application/json; charset=utf-8";
-                Response.Write(eventosJson);
-                Response.End();
-            }
+            gvServicio.DataSource = lista;
+            gvServicio.DataBind();
         }
     }
 }
