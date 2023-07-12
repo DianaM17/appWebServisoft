@@ -362,17 +362,16 @@
             </div>
             <div class="box__footer">
                 <h2>Compañia</h2>
-                <a href="#">Acerca de</a>
-                <a href="#">Categoria</a>
-                <a href="#">Cliente</a>
-                <a href="#">Profesional</a>
+                <a href="Login.aspx">Categoria</a>
+                <a href="RegistrarUsuario.aspx">Cliente</a>
+                <a href="RegistrarUsuario.aspx">Profesional</a>
+                
+
             </div>
             <div class="box__footer">
                 <h2>Redes Sociales</h2>
-                <a href="#"><i class="fab fa-facebook-square"></i>Facebook</a>
-                <a href="#"><i class="fab fa-twitter-square"></i>Twitter</a>
-                <a href="#"><i class="fab fa-linkedin"></i>Linkedin</a>
-                <a href="#"><i class="fab fa-instagram-square"></i>Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=100094488848221&mibextid=LQQJ4d"><i class="fab fa-facebook-square"></i>Facebook</a>
+                <a href="https://www.instagram.com/servisoft1710/?igshid=MzRlODBiNWFlZA%3D%3D"><i class="fab fa-instagram-square"></i>Instagram</a>
             </div>
         </div>
         <div class="box__copyright">
