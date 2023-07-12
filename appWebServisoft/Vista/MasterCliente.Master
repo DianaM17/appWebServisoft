@@ -70,6 +70,7 @@
                 <a class="link1"  href="TrabajosSolicitadosCliente.aspx">Trabajos</a>
                 <a class="link2"  href="perfilCliente.aspx">Perfil</a>
                 <a class="link3" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
+                <a class="link2"  href="EstadoServicios.aspx">Servicios Solicitados</a>
 
             </div>
             <div class="animation start-home"></div>
