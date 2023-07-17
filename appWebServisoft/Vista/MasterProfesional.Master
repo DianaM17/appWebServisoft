@@ -21,7 +21,6 @@
         <nav class="navbar1" >
             <asp:Label ID="lblUsuario" runat="server" Text="Label" style="margin-right: 20px;"></asp:Label>
             <asp:Label ID="lblIdCategoria" runat="server" Text="Label" Visible="false"></asp:Label>
-
         </nav>
 
         <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
@@ -68,6 +67,7 @@
 
                 <a class="link1"  href="trabajosSolicitadosProfesional.aspx">Trabajos Solicitados</a>
                 <a class="link2"  href="perfilProfesional.aspx">Perfil</a>
+                <a class="link4"  href="CalendarioCitas.aspx">Calendario Solicitudes</a>
                 <a class="link3" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
 
             </div>

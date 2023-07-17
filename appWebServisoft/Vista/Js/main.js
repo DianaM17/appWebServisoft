@@ -14,7 +14,6 @@ $(function(){
             return true; 
         },
         labels: {
-            finish: "Guardar",
             next: "Continuar",
             previous: "Atras"
         }

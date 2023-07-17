@@ -62,7 +62,7 @@
                         <asp:DropDownList ID="ddlCiudad" runat="server" CssClass="combo" required></asp:DropDownList>
                     </div>
                     <%--<asp:Button ID="Button1" runat="server" Text="Button" Onclick="btnRegistrarCliente_Click"/>--%>
-                    <button id="btnRegistrarCliente" runat="server" type="submit" Onclick="btnRegistrarCliente_ServerClick">Regístrarse</button>
+                    <button id="btnRegistrarCliente" runat="server" type="submit" onserverclick="btnRegistrarCliente_ServerClick">Regístrarse</button>
                 </div>
                 <!--Register-->
                 <div class="formulario__register">

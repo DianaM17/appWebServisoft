@@ -12,7 +12,7 @@ namespace appWebServisoft.Datos
     {
         public List<ClServicioE> mtdListarServicio(string idCateg)
         {
-            string consulta = "Select * from Servicio where idCategoria = '" + idCateg + "'";
+            string consulta = "Select * from Servicio where idCategoria = " + idCateg + "";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblServicios = SQL.mtdSelectDesc(consulta);
 
@@ -90,12 +90,12 @@ namespace appWebServisoft.Datos
             for (int i = 0; i < tblServ.Rows.Count; i++)
             {
                 objServ = new ClSolicitudServicioE();
-                objServ.idsolicitudServicio = int.Parse(tblServ.Rows[i]["idSolicitudServicio"].ToString());
-                objServ.fecha = tblServ.Rows[i]["fecha"].ToString();
+                string fechaCompleta = tblServ.Rows[i]["fecha"].ToString();
+                DateTime fechas = DateTime.Parse(fechaCompleta);
+                string fechaSinHora = fechas.ToString("dd-MM-yyyy");
+                objServ.fecha = fechaSinHora;
                 objServ.hora = tblServ.Rows[i]["hora"].ToString();
                 objServ.descripcion = tblServ.Rows[i]["descripcion"].ToString();
-                objServ.ubicacion = tblServ.Rows[i]["ubicacion"].ToString();
-                objServ.idCiudad = int.Parse(tblServ.Rows[i]["idCiudad"].ToString());
                 objServ.ubicacion = tblServ.Rows[i]["ubicacion"].ToString();
                 objServ.nombre = tblServ.Rows[i]["nombre"].ToString(); //Nombre de la ciudad
                 objServ.servicio = tblServ.Rows[i]["servicio"].ToString();
@@ -123,7 +123,10 @@ namespace appWebServisoft.Datos
             {
                 objServ = new ClSolicitudServicioE();
                 objServ.idsolicitudServicio = int.Parse(tblDatos.Rows[i]["idsolicitudServicio"].ToString());
-                objServ.fecha = tblDatos.Rows[i]["fecha"].ToString();
+                string fechaCompleta = tblDatos.Rows[i]["fecha"].ToString();
+                DateTime fechas = DateTime.Parse(fechaCompleta);
+                string fechaSinHora = fechas.ToString("dd-MM-yyyy");
+                objServ.fecha = fechaSinHora;
                 objServ.hora = tblDatos.Rows[i]["hora"].ToString();
                 objServ.descripcion = tblDatos.Rows[i]["descripcion"].ToString();
                 objServ.ubicacion = tblDatos.Rows[i]["ubicacion"].ToString();
