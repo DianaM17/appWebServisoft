@@ -228,6 +228,7 @@
     <Content Include="Vista\Js\theme-map.js" />
     <Content Include="Vista\CategoriasCliente.aspx" />
     <Content Include="Vista\SolicitudServicio.aspx" />
+    <Content Include="Vista\TrabajosPendientes.aspx" />
     <Content Include="Vista\TrabajosSolicitadosCliente.aspx" />
     <Content Include="Vista\trabajosSolicitadosProfesional.aspx" />
     <Content Include="Web.config" />
@@ -247,6 +248,7 @@
     <Compile Include="Entidades\ClClienteE.cs" />
     <Compile Include="Entidades\ClComentarioE.cs" />
     <Compile Include="Entidades\ClCotizacionE.cs" />
+    <Compile Include="Entidades\ClEstadoServicioE.cs" />
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
@@ -409,6 +411,13 @@
     </Compile>
     <Compile Include="Vista\SolicitudServicio.aspx.designer.cs">
       <DependentUpon>SolicitudServicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\TrabajosPendientes.aspx.cs">
+      <DependentUpon>TrabajosPendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\TrabajosPendientes.aspx.designer.cs">
+      <DependentUpon>TrabajosPendientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\TrabajosSolicitadosCliente.aspx.cs">
       <DependentUpon>TrabajosSolicitadosCliente.aspx</DependentUpon>

@@ -71,5 +71,26 @@ namespace appWebServisoft.Logica
             int Reprogramar = objServ.mtdReprogramarServicio(objSolicitud, idServicio);
             return Reprogramar;
         }
+
+        public List<ClSolicitudServicioE> mtdListarTrabajos(int idProfesional)
+        {
+            ClServicioD objServicio = new ClServicioD();
+            List<ClSolicitudServicioE> listarTrabajos = objServicio.mtdListarTrabajos(idProfesional);
+            return listarTrabajos;
+        }
+
+        public List<ClEstadoServicioE> mtdListarEstadoS()
+        {
+            ClServicioD objEstadoS = new ClServicioD();
+            List<ClEstadoServicioE> ListaEstadoServ = objEstadoS.mtdListarEstadoS();
+            return ListaEstadoServ;
+        }
+
+        //public int mtdActualizarEstadoServ(ClSolicitudServicioE objSolicitud, int idServicio)
+        //{
+        //    //ClServicioD objServ = new ClServicioD();
+        //    //int Reprogramar = objServ.mtdActualizarEstadoServ(objSolicitud, idServicio);
+        //    //return Reprogramar;
+        //}
     }
 }
