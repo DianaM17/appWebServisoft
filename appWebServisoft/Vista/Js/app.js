@@ -10,7 +10,7 @@
         // .lightbox REMOVE CLASS 'activo'
 */
 
-const enlaces  = document.querySelectorAll('.ul .a')
+/*const enlaces  = document.querySelectorAll('.ul .a')*/
 const lightbox = document.querySelector('.lightbox')
 const grande   = document.querySelector('.grande')
 const cerrar   = document.querySelector('.cerrar')

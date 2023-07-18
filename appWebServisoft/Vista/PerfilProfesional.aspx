@@ -27,22 +27,22 @@
                     <div class="perfil-usuario-avatar">
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
-                                <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" />
+                                <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfil" Height="150px" Width="1560px" />
                             </ContentTemplate>
                         </asp:UpdatePanel>
                         <%--<asp:FileUpload ID="cambiarImg" runat="server" onchange="imagen(this)" />--%>
-                        <input type="file" id="imagenInput" runat="server" accept="image/**" style="display: none;">
+                        <input type="file" id="ImagenInputT" runat="server" accept="image/**" style="display: none;">
                         <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                             <i class="far fa-image"></i>
                         </button>
                         <script>
                             function seleccionarImagen() {
-                                var input = document.getElementById('imagenInput');
+                                var input = document.getElementById('ImagenInputT');
                                 input.click();
                             }
 
                             // Manejar el cambio de imagen seleccionada
-                            var input = document.getElementById('imagenInput');
+                            var input = document.getElementById('ImagenInputT');
                             input.addEventListener('change', function () {
                                 var imagen = input.files[0];
 
@@ -54,26 +54,104 @@
 
                                         // Asignar la URL de la imagen seleccionada al control ImgPerfil
                                         var imgPerfil = document.getElementById('<%= ImgPerfil.ClientID %>');
-                                            imgPerfil.src = imagenSeleccionada;
-                                        }
-
-                                        reader.readAsDataURL(imagen);
+                                        imgPerfil.src = imagenSeleccionada;
                                     }
-                                });
+
+                                    reader.readAsDataURL(imagen);
+                                }
+                            });
                         </script>
                     </div>
                     <button type="button" class="btn btn-primary boton-portada" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="bi bi-pencil-square"></i>Editar Perfil
                     </button>
+                    <style>
+                        /* The switch - the box around the slider */
+                        .switch {
+                            font-size: 17px;
+                            position: relative;
+                            display: inline-block;
+                            width: 3.5em;
+                            height: 2em;
+                        }
+
+                            /* Hide default HTML checkbox */
+                            .switch input {
+                                opacity: 0;
+                                width: 0;
+                                height: 0;
+                            }
+
+                        /* The slider */
+                        .slider {
+                            position: absolute;
+                            cursor: pointer;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: #fff;
+                            border: 1px solid #adb5bd;
+                            transition: .4s;
+                            border-radius: 30px;
+                        }
+
+                            .slider:before {
+                                position: absolute;
+                                content: "";
+                                height: 1.4em;
+                                width: 1.4em;
+                                border-radius: 20px;
+                                left: 0.27em;
+                                bottom: 0.25em;
+                                background-color: #adb5bd;
+                                transition: .4s;
+                            }
+
+                        input:checked + .slider {
+                            background-color: #007bff;
+                            border: 1px solid #007bff;
+                        }
+
+                        input:focus + .slider {
+                            box-shadow: 0 0 1px #007bff;
+                        }
+
+                        input:checked + .slider:before {
+                            transform: translateX(1.4em);
+                            background-color: #fff;
+                        }
+                    </style>
                     <label class="switch">
-                        <asp:CheckBox ID="chkEstado" runat="server" AutoPostBack="True" OnCheckedChanged="chkEstado_CheckedChanged" />
-                        <%--<input type="checkbox">--%>
+                        <%-- <asp:CheckBox ID="chkEstado" runat="server" CssClass="input" AutoPostBack="True" OnCheckedChanged="chkEstado_CheckedChanged" />--%>
+                        <input type="checkbox" id="chkEstado" onchange="chkEstadoChanged()" />
                         <span class="slider"></span>
                     </label>
-
-                    <a href="CalendarioCitas.aspx">Calendario Citas</a>
                 </div>
             </div>
+            <script>
+                function chkEstadoChanged() {
+                    var chkEstado = document.getElementById("chkEstado");
+                    var isChecked = chkEstado.checked;
+
+                    // Realiza una solicitud AJAX al servidor
+                    $.ajax({
+                        type: "POST",
+                        url: "perfilProfesional.aspx/CambiarEstado",
+                        data: JSON.stringify({ isChecked: isChecked, idProfesional: '<%= Session["idProfesional"] %>' }),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (response) {
+                            // Maneja la respuesta del servidor
+                            console.log("Estado enviado al servidor con éxito.");
+                        },
+                        error: function () {
+                            // Maneja errores en la solicitud AJAX
+                            console.log("Error al enviar el estado al servidor.");
+                        }
+                    });
+                }
+            </script>
             <div class="perfil-usuario-body">
                 <div class="perfil-usuario-bio">
                     <asp:Label ID="lblNombre" runat="server" CssClass="titulo"></asp:Label>
@@ -96,8 +174,12 @@
                                 <asp:Label ID="lblCategoria" runat="server"></asp:Label></li>
                         <li><i class="icono fas fa-map-marker-alt"></i>Ciudad:
                                 <asp:Label ID="lblCiudad" runat="server"></asp:Label></li>
-                        <li><i class="icono fas fa-user-check"></i>Estado:
+                        <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                            <ContentTemplate>
+                                <li><i class="icono fas fa-user-check"></i>Estado:
                                 <asp:Label ID="lblEstado" runat="server"></asp:Label></li>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
                         <li><i class="icono fas fa-share-alt"></i>Redes sociales.</li>
                     </ul>
                 </div>
@@ -117,20 +199,10 @@
                     <ul class="ul">
                         <li class="li">
                             <a href="#" class="a" title="Imagen 1">
-                                <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
+                                <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
                                 <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
                             </a>
                         </li>
-                        <%--<li class="li">
-                        <a href="#" class="a" title="Imagen 2">
-                            <img src="assets/2.jpg" alt="Imagen 2" class="img" loading="lazy">
-                        </a>
-                    </li>
-                    <li class="li">
-                        <a href="#" class="a" title="Imagen 3">
-                            <img src="assets/3.jpg" alt="Imagen 3" class="img" loading="lazy">
-                        </a>
-                    </li>--%>
                     </ul>
                 </ItemTemplate>
             </asp:Repeater>
@@ -209,9 +281,7 @@
                                     <div class="form-holder">
                                         <input id="txtPassword" name="txtPassword" type="text" placeholder="Contraseña" class="form-control" runat="server" />
                                     </div>
-
                                 </section>
-
                                 <!-- SECTION 3 -->
                                 <h4></h4>
                                 <section>
@@ -224,7 +294,6 @@
                                         </div>
                                     </div>
                                     <div class="form-row">
-
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
                                                 <div class="form-holder">
@@ -242,12 +311,11 @@
                                             <%--<input type="text" placeholder="Country" class="form-control">--%>
                                         </div>
                                     </div>
-                                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+                                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" style="float: right;"/>
                                 </section>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

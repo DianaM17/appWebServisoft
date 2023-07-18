@@ -45,63 +45,66 @@ namespace appWebServisoft.Vista
                 ddlCiudadd.DataBind();
                 ddlCiudadd.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
             }
+            //if (IsPostBack)
+            //{
+            //    // Comprueba si se hizo clic en el botón y maneja su evento
+            //    if (Request.Form["btnRegistrarCliente"] != null)
+            //    {
+            //        btnRegistrarCliente_ServerClick(sender, e);
+            //    }
+            //}
 
         }
 
         protected void btnRegistrarCliente_ServerClick(object sender, EventArgs e)
         {
             ClClienteL objClient = new ClClienteL();
-            string telefono = txtTelefonoP.Value;
+            string telefono = txtTelefono.Value;
             int veriTelefono = objClient.mtdVerificarTelefono(telefono);
+
             if (veriTelefono > 0)
             {
-                string scripts = @"<script> swal({ title: '¡Error!', text: 'El número de telefono que ingresaste ya esta registrado!!.',type: 'error',
-                            confirmButtonText: 'Aceptar'});
-                    </script>";
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'El número de teléfono que ingresaste ya está registrado.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
-
-            }else
+            }
+            else
             {
-                if (FlImagen.HasFile)
+                ClClienteE objCliente = new ClClienteE();
+                objCliente.nombres = txtNombres.Value;
+                objCliente.apellidos = txtApellidos.Value;
+                objCliente.direccion = txtDireccion.Value;
+                objCliente.telefono = txtTelefono.Value;
+                objCliente.email = txtEmail.Value;
+                objCliente.clave = txtContraseña.Value;
+                objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+
+                txtNombres.Value = string.Empty;
+                txtApellidos.Value = string.Empty;
+                txtDireccion.Value = string.Empty;
+                txtTelefono.Value = string.Empty;
+                txtEmail.Value = string.Empty;
+                txtContraseña.Value = string.Empty;
+                ddlCiudad.SelectedIndex = 0;
+
+                ClClienteL objClientee = new ClClienteL();
+                int registro = objClientee.mtdRegistroCliente(objCliente);
+
+                if (registro == 1)
                 {
-                    string nombreImg = txtTelefonoP.Value + ".png";
-                    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/"+ nombreImg);
-                    string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg); ;
-                    FlImagen.SaveAs(rutaImg);
-
-                    // Quitar el atributo oculto del archivo guardado
-                    File.SetAttributes(rutaImg, File.GetAttributes(rutaImg) & ~FileAttributes.Hidden);
-
-                    ClClienteE objCliente = new ClClienteE();
-
-                    objCliente.nombres = txtNombres.Value;
-                    objCliente.apellidos = txtApellidos.Value;
-                    objCliente.direccion = txtDireccion.Value;
-                    objCliente.telefono = txtTelefono.Value;
-                    objCliente.email = txtEmail.Value;
-                    objCliente.clave = txtContraseña.Value;
-                    objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
-
-                    txtNombres.Value = string.Empty;
-                    txtApellidos.Value = string.Empty;
-                    txtDireccion.Value = string.Empty;
-                    txtTelefono.Value = string.Empty;
-                    txtEmail.Value = string.Empty;
-                    txtContraseña.Value = string.Empty;
-                    ddlCiudad.SelectedIndex = 0;
-
-
-                    int registro = objClient.mtdRegistroCliente(objCliente);
-
-                    string script = @"<script> swal({ title: '¡Registro Exitoso!',
-                              text: 'Cliente Registrado Exitosamente', type: 'success',
-                            confirmButtonText: 'Aceptar'
-                });
-                    </script>";
-                    if (registro == 1)
+                    // Guardar la imagen solo si se adjunta un archivo
+                    if (FlImagen.HasFile)
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                        string nombreImg = txtTelefono.Value + ".png";
+                        string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                        string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                        FlImagen.SaveAs(rutaImg);
+
+                        // Quitar el atributo oculto del archivo guardado
+                        File.SetAttributes(rutaImg, File.GetAttributes(rutaImg) & ~FileAttributes.Hidden);
                     }
+
+                    string script = @"<script> swal({ title: '¡Registro Exitoso!', text: 'Cliente Registrado Exitosamente', type: 'success', confirmButtonText: 'Aceptar' });</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
                 }
             }
         }
@@ -148,7 +151,7 @@ namespace appWebServisoft.Vista
                     txtDireccionP.Value = string.Empty;
                     txtPerfilP.Value = string.Empty;
                     ddlCategoria.SelectedIndex = 0;
-                    ddlServicio.SelectedIndex= 0;
+                    ddlServicio.SelectedIndex = 0;
                     ddlCiudadd.SelectedIndex = 0;
 
                     ClProfesionalL objProfe = new ClProfesionalL();

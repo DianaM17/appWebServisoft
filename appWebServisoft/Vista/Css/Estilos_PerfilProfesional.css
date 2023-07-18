@@ -42,12 +42,10 @@ body {
         height: 17rem;
         background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
         border-radius: 0 0 20px 20px;
-        
-    background-image: url('http://localhost/multimedia/png/user-portada-3.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    
+        background-image: url('http://localhost/multimedia/png/user-portada-3.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 
         .seccion-perfil-usuario .perfil-usuario-portada .boton-portada {
@@ -189,33 +187,36 @@ body {
         background: linear-gradient(45deg, #FF2DFD, #40A7FF);
     }
 
- adactacion a dispositivos 
+adactacion a dispositivos
 @media (max-width: 750px) {
-    .seccion-perfil-usuario .lista-datos {
-        width: 100%;
+    .seccion-perfil-usuario .lista-datos
+
+{
+    width: 100%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-portada,
+.seccion-perfil-usuario .perfil-usuario-body {
+    width: 95%;
+}
+
+.seccion-perfil-usuario .redes-sociales {
+    position: relative;
+    flex-direction: row;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: center
+}
+
+    .seccion-perfil-usuario .redes-sociales .boton-redes + .boton-redes {
+        margin-left: 1rem;
+        margin-top: 0;
     }
 
-    .seccion-perfil-usuario .perfil-usuario-portada,
-    .seccion-perfil-usuario .perfil-usuario-body {
-        width: 95%;
-    }
-
-    .seccion-perfil-usuario .redes-sociales {
-        position: relative;
-        flex-direction: row;
-        width: 100%;
-        left: 0;
-        text-align: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        align-items: center;
-        justify-content: center
-    }
-
-        .seccion-perfil-usuario .redes-sociales .boton-redes + .boton-redes {
-            margin-left: 1rem;
-            margin-top: 0;
-        }
 }
 
 .mensaje a {
@@ -230,46 +231,60 @@ body {
     }
 
 Estilos Checkbox
-.slider {
-    background-color: #ffffff2b;
-    border-radius: 100px;
-    padding: 1px;
-    margin: 10px;
-    cursor: pointer;
-    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
-    align-items: center;
+/* The switch - the box around the slider */
+.switch {
+    font-size: 17px;
     position: relative;
     display: inline-block;
-    width: 51px;
-    height: 29px;
-    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset, #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+    width: 3.5em;
+    height: 2em;
 }
 
-    .slider::after {
-        content: "";
-        display: flex;
-        top: 2.3px;
-        left: 2px;
-        width: 26px;
-        height: 26px;
-        background-color: #e3e3e3;
-        border-radius: 200px;
+/* Hide default HTML checkbox */
+.switch .input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    border: 1px solid #adb5bd;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+    .slider:before {
         position: absolute;
-        box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
-        transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
-        will-change: left, background-color;
+        content: "";
+        height: 1.4em;
+        width: 1.4em;
+        border-radius: 20px;
+        left: 0.27em;
+        bottom: 0.25em;
+        background-color: #adb5bd;
+        transition: .4s;
     }
 
-.switch input[type="checkbox"]:checked + .slider {
-    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, #22cc3f 0px 0px 0px 2px inset, #22cc3f 0px 0px 0px 24px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+.input:checked + .slider {
+    background-color: #007bff;
+    border: 1px solid #007bff;
 }
 
-    .switch input[type="checkbox"]:checked + .slider::after {
-        left: 24px;
-    }
+.input:focus + .slider {
+    box-shadow: 0 0 1px #007bff;
+}
 
-.switch input[type="checkbox"] {
-    display: none;
+.input:checked + .slider:before {
+    transform: translateX(1.4em);
+    background-color: #fff;
 }
 
 Estilos boton Add Trabajos Realizados
@@ -289,17 +304,17 @@ Estilos boton Add Trabajos Realizados
     border-radius: 20em;
 }
 
-    .cssbuttons-io-button svg {
-        margin-right: 6px;
-    }
+.cssbuttons-io-button svg {
+    margin-right: 6px;
+}
 
-    .cssbuttons-io-button:hover {
-        box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
-    }
+.cssbuttons-io-button:hover {
+    box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
 
-    .cssbuttons-io-button:active {
-        box-shadow: 0 0.3em 1em -0.5em #14a73e98;
-    }
+.cssbuttons-io-button:active {
+    box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}
 
 Estilos Ventana Modal Trabajos Realizados
 .containerS {
@@ -338,4 +353,8 @@ label {
     .inpdddut[type="submit"]:hover {
         background-color: #006F8F;
     }
-    
+
+.imagenes {
+    height: 150px;
+    width: 150px;
+}
