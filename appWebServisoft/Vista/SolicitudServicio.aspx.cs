@@ -38,6 +38,18 @@ namespace appWebServisoft.Vista
                 ddlCategoria.DataBind();
                 ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
 
+                //Cargar Combo ddlEstadoServ
+                ClServicioL objEstadoServ = new ClServicioL();
+                List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
+                ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
+
+                ddlEstadoSev.DataSource = ListaEstadoServ;
+                ddlEstadoSev.DataTextField = "estado";
+                ddlEstadoSev.DataValueField = "idEstadoServicio";
+                ddlEstadoSev.DataBind();
+                ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
+                ddlEstadoSev.Enabled = false;
+
             }
         }
 
@@ -64,15 +76,18 @@ namespace appWebServisoft.Vista
             int idCliente = Int32.Parse(lblIdCliente.Text = Session["idCliente"].ToString());
             ClSolicitudServicioE objDatos = new ClSolicitudServicioE();
 
+
+
             objDatos.fecha = txtFecha.Text;
             objDatos.hora = txtHora.Value;
             objDatos.descripcion = txtDescripcion.Text;
-           
+            //objDatos.estado = txtEstado.Text;
             objDatos.ubicacion = txtDireccion.Text;
             objDatos.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
-            objDatos.idServicio = int.Parse(ddlServicio.SelectedValue.ToString()); ;
+            objDatos.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
             objDatos.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
             objDatos.idProfesional = int.Parse(ddlProfesional.SelectedValue.ToString());
+            objDatos.idEstadoServicio = int.Parse(ddlEstadoSev.SelectedValue.ToString());
             objDatos.idCliente = (int)Session["idCliente"];
 
 
