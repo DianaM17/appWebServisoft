@@ -16,15 +16,15 @@ namespace appWebServisoft.Vista
             if (!IsPostBack)
             {
                
-                ClServicioL objEstadoServ = new ClServicioL();
-                List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
-                ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
+                //ClServicioL objEstadoServ = new ClServicioL();
+                //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
+                //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
 
-                ddlEstadoModal.DataSource = ListaEstadoServ;
-                ddlEstadoModal.DataTextField = "estado";
-                ddlEstadoModal.DataValueField = "idEstadoServicio";
-                ddlEstadoModal.DataBind();
-                ddlEstadoModal.Items.Insert(0, new ListItem("Seleccione el estado: ", "0"));
+                //ddlEstadoModal.DataSource = ListaEstadoServ;
+                //ddlEstadoModal.DataTextField = "estado";
+                //ddlEstadoModal.DataValueField = "idEstadoServicio";
+                //ddlEstadoModal.DataBind();
+                //ddlEstadoModal.Items.Insert(0, new ListItem("Seleccione el estado: ", "0"));
 
                 int idProf = int.Parse(Session["idProfesional"].ToString());
                 ClServicioL objServicio = new ClServicioL();

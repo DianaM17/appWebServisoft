@@ -1,6 +1,7 @@
 ﻿using appWebServisoft.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -162,7 +163,7 @@ namespace appWebServisoft.Datos
                 "EstadoServicio.estado AS estadoServicio FROM solicitudServicio LEFT JOIN ciudad ON solicitudServicio.idCiudad = ciudad.idCiudad " +
                 "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
-                "WHERE idProfesional = "+idProf+"";
+                "WHERE idProfesional = "+ idProfesional + "";
 
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
@@ -185,7 +186,7 @@ namespace appWebServisoft.Datos
                 objServ.nombres = tblDatos.Rows[i]["nombreCliente"].ToString();
                 objServ.apellidos = tblDatos.Rows[i]["apellidoCliente"].ToString();
                 objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
-                objServ.idEstadoServicio = tblDatos.Rows[i]["estadoServicio"].ToString();
+                objServ.idEstadoServicio = int.Parse(tblDatos.Rows[i]["estadoServicio"].ToString());
                 listaServ.Add(objServ);
             }
             return listaServ;

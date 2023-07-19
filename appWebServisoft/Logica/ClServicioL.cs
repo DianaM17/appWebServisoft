@@ -79,12 +79,12 @@ namespace appWebServisoft.Logica
             return listarTrabajos;
         }
 
-        public List<ClEstadoServicioE> mtdListarEstadoS()
-        {
-            ClServicioD objEstadoS = new ClServicioD();
-            List<ClEstadoServicioE> ListaEstadoServ = objEstadoS.mtdListarEstadoS();
-            return ListaEstadoServ;
-        }
+        //public List<ClEstadoServicioE> mtdListarEstadoS()
+        //{
+        //    ClServicioD objEstadoS = new ClServicioD();
+        //    List<ClEstadoServicioE> ListaEstadoServ = objEstadoS.mtdListarEstadoS();
+        //    return ListaEstadoServ;
+        //}
 
         //public int mtdActualizarEstadoServ(ClSolicitudServicioE objSolicitud, int idServicio)
         //{

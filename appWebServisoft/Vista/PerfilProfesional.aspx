@@ -37,12 +37,12 @@
                         </button>
                         <script>
                             function seleccionarImagen() {
-                                var input = document.getElementById('ImagenInputT');
+                                var input = document.getElementById('<%= ImagenInputT.ClientID%>');
                                 input.click();
                             }
 
                             // Manejar el cambio de imagen seleccionada
-                            var input = document.getElementById('ImagenInputT');
+                            var input = document.getElementById('<%= ImagenInputT.ClientID%>');
                             input.addEventListener('change', function () {
                                 var imagen = input.files[0];
 
