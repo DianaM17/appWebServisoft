@@ -154,5 +154,41 @@ namespace appWebServisoft.Datos
             int Reprogramar = SQL.mtdIUDConec(Consulta);
             return Reprogramar;
         }
+
+        public List<ClSolicitudServicioE> mtdListarTrabajos(int idProfesional)
+        {
+            string consulta = "SELECT solicitudServicio.idsolicitudServicio, solicitudServicio.fecha, solicitudServicio.hora, solicitudServicio.descripcion, solicitudServicio.ubicacion, " +
+                "ciudad.nombre AS nombreCiudad, servicio.servicio AS nombreServicio, profesional.nombres AS nombreProfesional, cliente.nombres AS nombreCliente, Cliente.apellidos AS apellidoCliente, " +
+                "EstadoServicio.estado AS estadoServicio FROM solicitudServicio LEFT JOIN ciudad ON solicitudServicio.idCiudad = ciudad.idCiudad " +
+                "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
+                "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
+                "WHERE idProfesional = "+idProf+"";
+
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
+
+            List<ClSolicitudServicioE> listaServ = new List<ClSolicitudServicioE>();
+            ClSolicitudServicioE objServ = null;
+            for (int i = 0; i < tblDatos.Rows.Count; i++)
+            {
+                objServ = new ClSolicitudServicioE();
+                objServ.idsolicitudServicio = int.Parse(tblDatos.Rows[i]["idsolicitudServicio"].ToString());
+                string fechaCompleta = tblDatos.Rows[i]["fecha"].ToString();
+                DateTime fechas = DateTime.Parse(fechaCompleta);
+                string fechaSinHora = fechas.ToString("dd-MM-yyyy");
+                objServ.fecha = fechaSinHora;
+                objServ.hora = tblDatos.Rows[i]["hora"].ToString();
+                objServ.descripcion = tblDatos.Rows[i]["descripcion"].ToString();
+                objServ.ubicacion = tblDatos.Rows[i]["ubicacion"].ToString();
+                objServ.nombre = tblDatos.Rows[i]["nombreCiudad"].ToString(); 
+                objServ.servicio = tblDatos.Rows[i]["nombreServicio"].ToString();
+                objServ.nombres = tblDatos.Rows[i]["nombreCliente"].ToString();
+                objServ.apellidos = tblDatos.Rows[i]["apellidoCliente"].ToString();
+                objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
+                objServ.idEstadoServicio = tblDatos.Rows[i]["estadoServicio"].ToString();
+                listaServ.Add(objServ);
+            }
+            return listaServ;
+        }
     }
 }
