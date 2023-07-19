@@ -39,6 +39,7 @@ namespace appWebServisoft.Vista
                 ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
 
                 //Cargar Combo ddlEstadoServ
+
                 ClServicioL objEstadoServ = new ClServicioL();
                 List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
                 //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
@@ -49,6 +50,18 @@ namespace appWebServisoft.Vista
                 ddlEstadoSev.DataBind();
                 ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
                 ddlEstadoSev.Enabled = false;
+
+                //ClServicioL objEstadoServ = new ClServicioL();
+                //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
+                //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
+
+                //ddlEstadoSev.DataSource = ListaEstadoServ;
+                //ddlEstadoSev.DataTextField = "estado";
+                //ddlEstadoSev.DataValueField = "idEstadoServicio";
+                //ddlEstadoSev.DataBind();
+                //ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
+                //ddlEstadoSev.Enabled = false;
+
 
             }
         }
