@@ -41,7 +41,7 @@ namespace appWebServisoft.Vista
                 //Cargar Combo ddlEstadoServ
                 ClServicioL objEstadoServ = new ClServicioL();
                 List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
-                ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
+                //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
 
                 ddlEstadoSev.DataSource = ListaEstadoServ;
                 ddlEstadoSev.DataTextField = "estado";

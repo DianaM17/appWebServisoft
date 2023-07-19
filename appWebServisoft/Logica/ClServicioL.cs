@@ -86,11 +86,6 @@ namespace appWebServisoft.Logica
             return ListaEstadoServ;
         }
 
-        //public int mtdActualizarEstadoServ(ClSolicitudServicioE objSolicitud, int idServicio)
-        //{
-        //    //ClServicioD objServ = new ClServicioD();
-        //    //int Reprogramar = objServ.mtdActualizarEstadoServ(objSolicitud, idServicio);
-        //    //return Reprogramar;
-        //}
+      
     }
 }

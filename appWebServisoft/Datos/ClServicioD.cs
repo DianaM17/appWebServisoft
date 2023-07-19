@@ -1,6 +1,7 @@
 ﻿using appWebServisoft.Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 
@@ -30,9 +31,9 @@ namespace appWebServisoft.Datos
         public int mtdsolicitarServicio(ClSolicitudServicioE objDatos)
         {
 
-            string consulta = "Insert into solicitudServicio(fecha, hora, descripcion, estado, ubicacion, idServicio, idProfesional, " +
-                "idCliente) values ('" + objDatos.fecha + "','" + objDatos.hora + "', '" + objDatos.descripcion + "','" +
-                objDatos.ubicacion + "', " + objDatos.idServicio + ", " + objDatos.idProfesional + ", " + objDatos.idCliente + ")";
+            string consulta = "Insert into solicitudServicio(fecha, hora, descripcion, ubicacion, idCiudad, idServicio, idProfesional, " +
+                "idCliente, idEstadoServicio) values ('" + objDatos.fecha + "','" + objDatos.hora + "', '" + objDatos.descripcion + "','" +
+                objDatos.ubicacion + "', "+objDatos.idCiudad+" , " + objDatos.idServicio + ", " + objDatos.idProfesional + ", " + objDatos.idCliente + ", "+objDatos.idEstadoServicio+")";
 
 
             ClProcesarSQL SQL = new ClProcesarSQL();
@@ -155,14 +156,14 @@ namespace appWebServisoft.Datos
             return Reprogramar;
         }
 
-        public List<ClSolicitudServicioE> mtdListarTrabajos(int idProfesional)
+        public List<ClSolicitudServicioE> mtdListarTrabajos(int idProf)
         {
             string consulta = "SELECT solicitudServicio.idsolicitudServicio, solicitudServicio.fecha, solicitudServicio.hora, solicitudServicio.descripcion, solicitudServicio.ubicacion, " +
                 "ciudad.nombre AS nombreCiudad, servicio.servicio AS nombreServicio, profesional.nombres AS nombreProfesional, cliente.nombres AS nombreCliente, Cliente.apellidos AS apellidoCliente, " +
                 "EstadoServicio.estado AS estadoServicio FROM solicitudServicio LEFT JOIN ciudad ON solicitudServicio.idCiudad = ciudad.idCiudad " +
                 "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
-                "WHERE idProfesional = "+idProf+"";
+                "WHERE solicitudServicio.idProfesional = "+idProf+ "";
 
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
@@ -185,10 +186,28 @@ namespace appWebServisoft.Datos
                 objServ.nombres = tblDatos.Rows[i]["nombreCliente"].ToString();
                 objServ.apellidos = tblDatos.Rows[i]["apellidoCliente"].ToString();
                 objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
-                objServ.idEstadoServicio = tblDatos.Rows[i]["estadoServicio"].ToString();
+                objServ.estadoServ = tblDatos.Rows[i]["estadoServicio"].ToString();
                 listaServ.Add(objServ);
             }
             return listaServ;
+        }
+
+        public List<ClEstadoServicioE> mtdListarEstadoS()
+        {
+            string Consulta = "Select idEstadoServicio, estado from EstadoServicio";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblEstadoS = SQL.mtdSelectDesc(Consulta);
+
+            List<ClEstadoServicioE> listaEstadoS = new List<ClEstadoServicioE>();
+            ClEstadoServicioE objDatos = null;
+            for (int i = 0; i < tblEstadoS.Rows.Count; i++)
+            {
+                objDatos = new ClEstadoServicioE();
+                objDatos.idEstadoServicio = int.Parse(tblEstadoS.Rows[i]["idEstadoServicio"].ToString());
+                objDatos.estado = tblEstadoS.Rows[i]["estado"].ToString();
+                listaEstadoS.Add(objDatos);
+            }
+            return listaEstadoS;
         }
     }
 }
