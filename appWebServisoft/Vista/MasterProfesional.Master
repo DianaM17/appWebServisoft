@@ -65,7 +65,7 @@
             <button id="toggleButton" class="menu-button">Menú</button>
             <div id="cardElements" class="menu-links">
 
-                <a class="link1"  href="trabajosSolicitadosProfesional.aspx">Trabajos Solicitados</a>
+                
                 <a class="link1"  href="TrabajosPendientes.aspx">Trabajos</a>
                 <a class="link2"  href="perfilProfesional.aspx">Perfil</a>
                 <a class="link4"  href="CalendarioCitas.aspx">Calendario Solicitudes</a>

@@ -48,7 +48,7 @@
                         <i class="fa-regular fa-image" style="color: #ec4670;"></i>
                         <asp:FileUpload ID="FuImagen" runat="server" />
                     </div>
-                    
+
                     <div class="emailIcono">
                         <i class="fa-solid fa-envelope" style="color: #ec4670;"></i>
                         <input id="txtEmail" name="txtEmail" runat="server" type="text" placeholder="Correo Electronico" required />
@@ -96,18 +96,26 @@
                         <input id="txtPerfilP" name="txtPerfilP" runat="server" type="text" placeholder="Perfil Profesional" required />
                     </div>
                     <div class="imagenpIcono">
-                        <i class="fa-solid fa-image"></i>
+                        <i class="fa-solid fa-image" style="color: #ec4670;"></i>
                     </div>
-                    <div >
-                        <i class="fa-regular fa-imag" style="color: #ec4670;"></i>
+                    <div>
                         <asp:FileUpload ID="FlImagen" runat="server" />
                     </div>
                     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                         <ContentTemplate>
+                            <div class="categoriapIcono">
+                                <i class="bi bi-person-circle" style="color: #ec4670;"></i>
+                            </div>
                             <div class="clavelIcono">
 
                                 <asp:DropDownList ID="ddlCategoria" CssClass="combo" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged" required></asp:DropDownList>
+                            </div>
+                            <div class="categoriapIcono">
+                                <i class="bi bi-person-circle" style="color: #ec4670;"></i>
+                            </div>
+                            <div class="serviciopIcono">
+                                <i class="bi bi-person-square" style="color: #ec4670;"></i>
                             </div>
                             <div class="clavelIcono">
 
@@ -115,6 +123,9 @@
                             </div>
                         </ContentTemplate>
                     </asp:UpdatePanel>
+                    <div class="ciudadpIcono">
+                        <i class="bi bi-buildings-fill" style="color: #ec4670;"></i>
+                    </div>
                     <div class="clavelIcono">
                         <asp:DropDownList ID="ddlCiudadd" CssClass="combo" runat="server" required></asp:DropDownList>
                     </div>
