@@ -167,6 +167,7 @@ namespace appWebServisoft.Vista
             ddlServicio.SelectedValue = Buscar.idServicio.ToString();
 
         }
+
         [WebMethod]
         public static void CambiarEstado(bool isChecked, string idProfesional)
         {
@@ -187,18 +188,17 @@ namespace appWebServisoft.Vista
 
             ClProfesionalL objProfesional = new ClProfesionalL();
             int regisProf = objProfesional.mtdCambiarEstado(objProf, idProf);
-
-            //            string script = @"<script> swal({ title: '¡Cambio Exitoso!',
-            //              text: 'Su estado se ha cambiado Exitosamente', type: 'success',
-            //            confirmButtonText: 'Aceptar'
-            //});
-            //    </script>";
-
-            //if (regisProf == 1)
-            //{
-            //    ClientScript.RegisterStartupScript(typeof(perfilProfesional1), "SweetAlert", script);
-            //}
         }
+
+        //[WebMethod]
+        //public static void GuardarImagen(string nombreImagen, string idProfesional)
+        //{
+        //    int idProf = Int32.Parse(idProfesional);
+        //    ClProfesionalE objProf = new ClProfesionalE();
+        //    objProf.fotos = nombreImagen;
+        //    ClProfesionalL objProfesional = new ClProfesionalL();
+        //    objProfesional.mtdActualizarImagen(objProf, idProf);
+        //}
 
         protected void btnAgregarImagen_ServerClick(object sender, EventArgs e)
         {

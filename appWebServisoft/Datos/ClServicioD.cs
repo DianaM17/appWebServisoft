@@ -80,7 +80,7 @@ namespace appWebServisoft.Datos
             string consulta = "SELECT SolSer.fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, cli.nombres,apellidos " +
                 "FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
                 "ON SolSer.idServicio = Servicio.idServicio JOIN Cliente[cli] " +
-                "ON SolSer.idCliente = cli.idCliente where SolSer.estado = 'aceptado' and idProfesional = " + idProf + " and fecha = '" + fecha + "'";
+                "ON SolSer.idCliente = cli.idCliente where idEstadoServicio = 1  and idProfesional = " + idProf + " and fecha = '" + fecha + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblServ = SQL.mtdSelectDesc(consulta);
 
@@ -112,7 +112,7 @@ namespace appWebServisoft.Datos
             string consulta = "SELECT SolSer.idsolicitudServicio,fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, Prof.nombres,apellidos" +
                 " FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
                 "ON SolSer.idServicio = Servicio.idServicio JOIN Profesional[Prof] " +
-                "ON SolSer.idProfesional = Prof.idProfesional where SolSer.estado= 'aceptado' and idCliente = " + idCliente + "";
+                "ON SolSer.idProfesional = Prof.idProfesional where SolSer.idEstadoServicio = 1 and idCliente = " + idCliente + "";
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
@@ -164,7 +164,6 @@ namespace appWebServisoft.Datos
                 "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
                 "WHERE solicitudServicio.idProfesional = "+idProf+ "";
-                
 
 
             ClProcesarSQL objSQL = new ClProcesarSQL();
