@@ -19,4 +19,27 @@ namespace appWebServisoft.Entidades
         public int idCliente { get; set; }
 
     }
+
+    public class ClSeleccionCotizacionE
+    {
+        public int idSeleccionCotizacion { get; set; }
+        public int seleccionProfesional { get; set; }
+        public int idProfesional { get; set; }
+        public int idCotizacion { get; set; }
+
+    }
+
+    public class ClSeleccionCotizacion1E
+    {
+        public int idCotizacion { get; set; }
+
+        public string tituloServicio { get; set; }
+        public string descripcion { get; set; }
+        public int idSeleccionCotizacion { get; set; }
+        public int seleccionProfesional { get; set; }
+        public int idProfesional { get; set; }
+        public string nombres { get; set; }
+        public string apellidos { get; set; }
+
+    }
 }

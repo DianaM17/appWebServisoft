@@ -24,6 +24,9 @@ namespace appWebServisoft
             Session["idCliente"] = "";
             Session["Cliente"] = "";
             Session["idCategoria"] = "";
+            Session["idSolicitudServicio"] = "";
+
+
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -49,6 +52,9 @@ namespace appWebServisoft
             Session["idCliente"] = "";
             Session["Cliente"] = "";
             Session["idCategoria"] = "";
+            Session["idSolicitudServicio"] = "";
+
+
         }
 
         protected void Application_End(object sender, EventArgs e)

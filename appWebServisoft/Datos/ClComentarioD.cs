@@ -1,9 +1,6 @@
 ﻿using appWebServisoft.Entidades;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Web;
 
 namespace appWebServisoft.Datos
 {
@@ -11,7 +8,7 @@ namespace appWebServisoft.Datos
     {
         public List<ClComentarioE> mtdListarComentario()
         {
-            string consulta = "SELECT c.nombres, c.apellidos,c.foto, ca.comentarios, ca.puntos FROM Cliente c JOIN Calificacion ca ON c.IdCliente = ca.IdCliente ORDER BY RAND()";
+            string consulta = "SELECT c.nombres, c.apellidos,c.foto, ca.comentarios, ca.nivel FROM Cliente c JOIN Calificacion ca ON c.IdCliente = ca.IdCliente ORDER BY RAND()";
             ClProcesarSQL objSql = new ClProcesarSQL();
             DataTable tblComentario = objSql.mtdSelectDesc(consulta);
 
@@ -24,11 +21,21 @@ namespace appWebServisoft.Datos
                 objDatos.nombres = tblComentario.Rows[i]["nombres"].ToString();
                 objDatos.apellidos = tblComentario.Rows[i]["apellidos"].ToString();
                 objDatos.comentarios = tblComentario.Rows[i]["comentarios"].ToString();
-                objDatos.puntos = tblComentario.Rows[i]["puntos"].ToString();
+                objDatos.nivel = tblComentario.Rows[i]["nivel"].ToString();
+
 
                 listaComentarios.Add(objDatos);
             }
             return listaComentarios;
+        }
+
+        public int mtdRegistrarComentario(ClComentarioE objSelectCom)
+        {
+            string Registro = "Insert Into Calificacion(nivel, estrellas, comentarios, idsolicitudServicio, idCliente)" +
+                             "Values('" + objSelectCom.nivel +  "'," + objSelectCom.estrellas + ",'"+objSelectCom.comentarios+"',"+objSelectCom.idsolicitudServicio+","+objSelectCom.idCliente+")";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int regis = SQL.mtdIUDConec(Registro);
+            return regis;
         }
     }
 }

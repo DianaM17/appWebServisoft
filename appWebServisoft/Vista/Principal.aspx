@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="Css/sweetalert.css" rel="stylesheet" />
     <script src="../Scripts/sweetalert.min.js"></script>
+
+   
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
@@ -268,7 +271,7 @@
     <br />
     <br />
     <%-- Fin testimonios --%>
-    <section>
+    <section id="formularioContacto">
         <link href="Css/Estilos_Principal.css" rel="stylesheet" />
         <%--Inicia Formulario de contacto--%>
         <div class="container">

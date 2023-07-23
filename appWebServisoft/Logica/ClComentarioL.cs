@@ -14,8 +14,13 @@ namespace appWebServisoft.Logica
             ClComentarioD objComentarioD = new ClComentarioD();
             List<ClComentarioE> listaComentarios = objComentarioD.mtdListarComentario();
             return listaComentarios;
+        }
 
-
+        public int mtdRegistroComentario(ClComentarioE objCom)
+        {
+            ClComentarioD objCoti = new ClComentarioD();
+            int regis = objCoti.mtdRegistrarComentario(objCom);
+            return regis;
         }
     }
 }

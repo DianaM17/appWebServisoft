@@ -48,6 +48,7 @@ namespace appWebServisoft.Vista
                 Session["idCliente"] = objClienteE.idCliente;
                 Session["Cliente"] = objClienteE;
                 Session["usuario"] = objClienteE.nombres + " " + objClienteE.apellidos;
+                
                 Response.Redirect("interfazCliente.aspx");
             }
             else
