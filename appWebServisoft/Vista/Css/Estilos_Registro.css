@@ -191,7 +191,7 @@ main {
 .emailIcono i {
     position: absolute;
     left: 25px;
-    top: 480px;
+    top: 485px;
     padding: 9px 8px;
     color: #aaa;
     transition: 3s;
@@ -266,7 +266,6 @@ main {
     top: 515px;
     padding: 9px 8px;
     color: #aaa;
-    transition: 3s;
 }
 
 .perfilpIcono i {
@@ -281,11 +280,39 @@ main {
 .imagenpIcono i {
     position: absolute;
     left: 25px;
-    top: 680px;
+    top: 647px;
     padding: 9px 8px;
     color: #aaa;
     transition: 3s;
 }
+
+.categoriapIcono i {
+    position: absolute;
+    left: 25px;
+    top: 709px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 3s;
+}
+
+.serviciopIcono i {
+    position: absolute;
+    left: 25px;
+    top: 769px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 3s;
+}
+
+.ciudadpIcono i {
+    position: absolute;
+    left: 25px;
+    top: 830px;
+    padding: 9px 8px;
+    color: #aaa;
+    transition: 3s;
+}
+
 .contenedor__login-register button {
     padding: 15px 40px;
     margin-top: 40px;
