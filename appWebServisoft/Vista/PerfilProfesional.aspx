@@ -60,6 +60,37 @@
                                     reader.readAsDataURL(imagen);
                                 }
                             });
+
+                            <%--function guardarImagen() {
+                                var input = document.getElementById('<%= ImagenInputT.ClientID %>');
+                                var imagen = input.files[0];
+
+                                if (imagen) {
+                                    var nombreImagen = imagen.name; // Obtiene el nombre de la imagen
+
+                                    // Llama a enviarImagenAlServidor con el nombre de la imagen
+                                    enviarImagenAlServidor(nombreImagen);
+                                }
+                            }
+
+                            function enviarImagenAlServidor(nombreImagen) {
+                                // Realiza una solicitud AJAX al servidor para guardar el nombre de la imagen
+                                $.ajax({<
+                                    type: "POST",
+                                    url: "perfilProfesional.aspx/GuardarNombreImagen",
+                                    data: JSON.stringify({ nombreImagen: nombreImagen, idProfesional: '<%= Session["idProfesional"] %>' }),
+                                    contentType: "application/json; charset=utf-8",
+                                    dataType: "json",
+                                    success: function (response) {
+                                        // Maneja la respuesta del servidor
+                                        console.log("Nombre de imagen guardado con éxito.");
+                                    },
+                                    error: function () {
+                                        // Maneja errores en la solicitud AJAX
+                                        console.log("Error al guardar el nombre de la imagen.");
+                                    }
+                                });
+                            }--%>
                         </script>
                     </div>
                     <button type="button" class="btn btn-primary boton-portada" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -311,7 +342,7 @@
                                             <%--<input type="text" placeholder="Country" class="form-control">--%>
                                         </div>
                                     </div>
-                                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" style="float: right;"/>
+                                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Style="float: right;" />
                                 </section>
                             </div>
                         </div>
