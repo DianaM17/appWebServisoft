@@ -230,7 +230,7 @@
                                 <img src="Imagenes/PerfilCliente/<%# Eval("foto") %>" />
                                 <div>
                                     <h3 class="card-text"><%# Eval("nombres") %> <%# Eval("apellidos") %></h3>
-                                    <p class="card-text"><%# Eval("puntos") %></p>
+                                    <p class="card-text"><%# Eval("nivel") %></p>
                                 </div>
                             </div>
                             <p class="card-text"><%# Eval("comentarios") %></p>
@@ -246,11 +246,13 @@
     </div>
 
     <script>
+      
+
+        let x = 0;
         var slide = document.getElementById("slide");
         var ArribaFlecha = document.getElementById("ArribaFlecha");
         var AbajoFlecha = document.getElementById("AbajoFlecha");
 
-        let x = 0;
         function moverArriba() {
             if (x > -900) {
                 x = x - 300;

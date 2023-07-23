@@ -1,9 +1,6 @@
 ﻿using appWebServisoft.Datos;
 using appWebServisoft.Entidades;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace appWebServisoft.Logica
 {
@@ -34,6 +31,28 @@ namespace appWebServisoft.Logica
         {
             ClCotizacioD ObjCotizacion = new ClCotizacioD();
             List<ClCotizacionE> ListaCotizacion = ObjCotizacion.mtdListaCotizacionCliente(idCliente);
+            return ListaCotizacion;
+        }
+
+
+        public int mtdRegistroSeleccionCotizacion(ClSeleccionCotizacionE objSelectCot)
+        {
+            ClCotizacioD objSelectCoti = new ClCotizacioD();
+            int regis = objSelectCoti.mtdRegistrarSelecionCotizacion(objSelectCot);
+            return regis;
+        }
+
+        public List<ClSeleccionCotizacionE> mtdSeleccionCotizacion(int seleccionProf)
+        {
+            ClCotizacioD ObjCotizacion = new ClCotizacioD();
+            List<ClSeleccionCotizacionE> ListaCotizacion = ObjCotizacion.mtdSeleccionCotizacion(seleccionProf);
+            return ListaCotizacion;
+        }
+
+        public List<ClSeleccionCotizacion1E> mtdListarProfesionalCotiizacion(int idCotizacion, int seleccionProfesional)
+        {
+            ClCotizacioD ObjCotizacion = new ClCotizacioD();
+            List<ClSeleccionCotizacion1E> ListaCotizacion = ObjCotizacion.mtdListarProfesionalCotizacion(idCotizacion, seleccionProfesional);
             return ListaCotizacion;
         }
     }

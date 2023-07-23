@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Cryptography;
 using System.Web;
 using System.Web.Services.Description;
@@ -15,8 +16,13 @@ using System.Web.UI.WebControls.WebParts;
 
 namespace appWebServisoft.Vista
 {
-    public partial class EstadoServicios : System.Web.UI.Page
+    
+        public partial class EstadoServicios : System.Web.UI.Page
     {
+        // Variable de clase para almacenar el valor de "idsolicitudServicio"
+        protected int selectedSolicitudId = 0;
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -40,7 +46,48 @@ namespace appWebServisoft.Vista
                 ddlCiudad.DataValueField = "idCiudad";
                 ddlCiudad.DataBind();
                 ddlCiudad.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
+                // Llamar al método para enlazar datos al GridView
+                BindGridView();
             }
+
+           
+        }
+
+
+        protected void BindGridView()
+        {
+            int idCliente = int.Parse(Session["idCliente"].ToString());
+            ClServicioL objServicioL = new ClServicioL();
+            List<ClSolicitudServicioE> listaServ = objServicioL.mtdServicioCliente(idCliente);
+            gvServicio.DataSource = listaServ;
+            gvServicio.DataBind();
+        }
+
+        protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                System.Web.UI.WebControls.Label label1 = e.Row.FindControl("Label1") as System.Web.UI.WebControls.Label;
+                if (label1 != null)
+                {
+                    string idsolicitudServicio = gvServicio.DataKeys[e.Row.RowIndex]["idsolicitudServicio"].ToString();
+                    label1.Text = idsolicitudServicio;
+                    System.Web.UI.WebControls.Button btnOpenModal = e.Row.FindControl("btnOpenModal") as System.Web.UI.WebControls.Button;
+                    if (btnOpenModal != null)
+                    {
+                        btnOpenModal.Attributes["data-idsolicitudservicio"] = idsolicitudServicio;
+                    }
+                }
+            }
+        }
+
+        protected void btnOpenModal_Click(object sender, EventArgs e)
+        {
+           
+            Button btnOpenModal = sender as Button;
+            string idsolicitudServicio = btnOpenModal.CommandArgument;
+            Label2.Text = idsolicitudServicio;
+            ScriptManager.RegisterStartupScript(this, GetType(), "MostrarModal", "$('#miModal').modal('show');", true);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -113,6 +160,44 @@ namespace appWebServisoft.Vista
             }
 
         }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            int idUsuario = Convert.ToInt32(Session["idCliente"]);
+            ClComentarioE objRegistroComentario = new ClComentarioE();
+            objRegistroComentario.nivel = hdnSelectedLevel.Value;
+            objRegistroComentario.estrellas = Convert.ToInt32(hdnSelectedRating.Value);
+            objRegistroComentario.comentarios = txtComentario.Text;
+            int idsolicitudServicio;
+            if (int.TryParse(Label2.Text, out idsolicitudServicio))
+            {
+                objRegistroComentario.idsolicitudServicio = idsolicitudServicio;
+            }
+            objRegistroComentario.idCliente = idUsuario;
+            ClComentarioL objRegistroL = new ClComentarioL();
+            int resultado = objRegistroL.mtdRegistroComentario(objRegistroComentario);
+
+            if (resultado == 1)
+            {
+                string script = @"<script>
+                    alert('Comentario Registrado: Su Comentario se ha registrado correctamente.');
+                  </script>";
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertTest", script, true);
+
+                ScriptManager.RegisterStartupScript(this, GetType(), "CerrarModalYRecargar", "$('.modal').modal('hide'); location.reload();", true);
+            }
+        }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            ScriptManager.RegisterStartupScript(this, GetType(), "CerrarModalYRecargar", "$('.modal').modal('hide'); location.reload();", true);
+
+        }
+
+
     }
+
+
 }
 

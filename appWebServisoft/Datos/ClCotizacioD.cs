@@ -85,9 +85,62 @@ namespace appWebServisoft.Datos
             return listaCotizacion;
         }
 
-        public void mtdSelecionCotizacion()
+
+        public int mtdRegistrarSelecionCotizacion(ClSeleccionCotizacionE objSelectCot)
         {
-            string consulta = "select * from Cotizacion where idCliente ";
+            string Registro = "Insert Into SeleccionCotizacion(seleccionProfesional, idProfesional, idCotizacion)" +
+                             "Values(" + objSelectCot.seleccionProfesional + "," + objSelectCot.idProfesional + "," + objSelectCot.idCotizacion + ")";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int regis = SQL.mtdIUDConec(Registro);
+            return regis;
+        }
+
+
+        public List<ClSeleccionCotizacionE> mtdSeleccionCotizacion(int seleccionProf)
+        {
+            string consulta = "SELECT * FROM SeleccionCotizacion WHERE seleccionProfesional = '" + seleccionProf + "'";
+                ClProcesarSQL objSQL = new ClProcesarSQL();
+            DataTable tblSeleccionCotizacion = objSQL.mtdSelectDesc(consulta);
+
+            List<ClSeleccionCotizacionE> listaCotizacion = new List<ClSeleccionCotizacionE>();
+
+            for (int i = 0; i < tblSeleccionCotizacion.Rows.Count; i++)
+            {
+                ClSeleccionCotizacionE ObjCotizacion = new ClSeleccionCotizacionE();
+                ObjCotizacion.idSeleccionCotizacion = int.Parse(tblSeleccionCotizacion.Rows[i]["idSeleccionCotizacion"].ToString());
+                ObjCotizacion.seleccionProfesional = int.Parse(tblSeleccionCotizacion.Rows[i]["seleccionProfesional"].ToString());
+                listaCotizacion.Add(ObjCotizacion);
+
+            }
+
+            return listaCotizacion;
+        }
+
+
+        public List<ClSeleccionCotizacion1E> mtdListarProfesionalCotizacion(int idCotizacion, int seleccionProfesional)
+        {
+            string consulta = "SELECT Cotizacion.idCotizacion, Cotizacion.tituloServicio, Cotizacion.descripcion, SeleccionCotizacion.*, Profesional.nombres, Profesional.apellidos FROM Cotizacion INNER JOIN SeleccionCotizacion ON Cotizacion.idCotizacion = SeleccionCotizacion.idCotizacion INNER JOIN Profesional ON SeleccionCotizacion.idProfesional = Profesional.idProfesional WHERE Cotizacion.idCotizacion = '" + idCotizacion + "'AND SeleccionCotizacion.SeleccionProfesional = '"+seleccionProfesional+"'";
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            DataTable tblSeleccionCotizacion = objSQL.mtdSelectDesc(consulta);
+
+            List<ClSeleccionCotizacion1E> listaCotizacion = new List<ClSeleccionCotizacion1E>();
+
+            for (int i = 0; i < tblSeleccionCotizacion.Rows.Count; i++)
+            {
+                ClSeleccionCotizacion1E ObjCotizacion = new ClSeleccionCotizacion1E();
+                ObjCotizacion.idCotizacion = int.Parse(tblSeleccionCotizacion.Rows[i]["idCotizacion"].ToString());
+                ObjCotizacion.tituloServicio = tblSeleccionCotizacion.Rows[i]["tituloServicio"].ToString();
+                ObjCotizacion.descripcion = tblSeleccionCotizacion.Rows[i]["descripcion"].ToString();
+                ObjCotizacion.idSeleccionCotizacion = int.Parse(tblSeleccionCotizacion.Rows[i]["idSeleccionCotizacion"].ToString());
+                ObjCotizacion.seleccionProfesional = int.Parse(tblSeleccionCotizacion.Rows[i]["seleccionProfesional"].ToString());
+                ObjCotizacion.idProfesional = int.Parse(tblSeleccionCotizacion.Rows[i]["idProfesional"].ToString());
+                ObjCotizacion.nombres = tblSeleccionCotizacion.Rows[i]["nombres"].ToString();
+                ObjCotizacion.apellidos = tblSeleccionCotizacion.Rows[i]["apellidos"].ToString();
+                listaCotizacion.Add(ObjCotizacion);
+
+            }
+
+            return listaCotizacion;
         }
     }
 }
