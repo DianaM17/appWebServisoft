@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -77,6 +78,17 @@ namespace appWebServisoft.Vista
                     ddlServicio.DataBind();
                     ddlServicio.SelectedValue = Buscar.idServicio.ToString();
                 }
+                // Buscar el control chkEstado dentro del UpdatePanel
+                CheckBox chkEstado = (CheckBox)UpdatePanel3.ContentTemplateContainer.FindControl("chkEstado");
+
+                // Agregar el control chkEstado como un AsyncPostBackTrigger
+                if (chkEstado != null)
+                {
+                    AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
+                    trigger.ControlID = chkEstado.UniqueID;
+                    trigger.EventName = "CheckedChanged";
+                    UpdatePanel3.Triggers.Add(trigger);
+                }
             }
 
             //Galeria de imagenes trabajos realizados
@@ -96,7 +108,7 @@ namespace appWebServisoft.Vista
             string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
             string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
             var file = Request.Files[0];
-            if (imagenInput.PostedFile != null && imagenInput.PostedFile.ContentLength > 0)
+            if (ImagenInputT.PostedFile != null && ImagenInputT.PostedFile.ContentLength > 0)
             {
                 file.SaveAs(rutaImg);
                 objProf.fotos = rutaSql;
@@ -156,14 +168,16 @@ namespace appWebServisoft.Vista
 
         }
 
-        protected void chkEstado_CheckedChanged(object sender, EventArgs e)
+        [WebMethod]
+        public static void CambiarEstado(bool isChecked, string idProfesional)
         {
-            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            int idProf = Int32.Parse(idProfesional);
             ClProfesionalE objProf = new ClProfesionalE();
 
             string activo = "Activo";
             string inactivo = "Inactivo";
-            if (chkEstado.Checked)
+
+            if (isChecked)
             {
                 objProf.estado = activo;
             }
@@ -171,19 +185,20 @@ namespace appWebServisoft.Vista
             {
                 objProf.estado = inactivo;
             }
+
             ClProfesionalL objProfesional = new ClProfesionalL();
             int regisProf = objProfesional.mtdCambiarEstado(objProf, idProf);
-            string script = @"<script> swal({ title: '¡Cambio Exitoso!',
-                              text: 'Su estado se ha cambiado Exitosamente', type: 'success',
-                            confirmButtonText: 'Aceptar'
-                });
-                    </script>";
-
-            if (regisProf == 1)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
-            }
         }
+
+        //[WebMethod]
+        //public static void GuardarImagen(string nombreImagen, string idProfesional)
+        //{
+        //    int idProf = Int32.Parse(idProfesional);
+        //    ClProfesionalE objProf = new ClProfesionalE();
+        //    objProf.fotos = nombreImagen;
+        //    ClProfesionalL objProfesional = new ClProfesionalL();
+        //    objProfesional.mtdActualizarImagen(objProf, idProf);
+        //}
 
         protected void btnAgregarImagen_ServerClick(object sender, EventArgs e)
         {

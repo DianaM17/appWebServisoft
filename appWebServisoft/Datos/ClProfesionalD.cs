@@ -161,8 +161,6 @@ namespace appWebServisoft.Datos
             return Verificar;
 
         }
-
-
         public int mtdActualizarImagen(ClProfesionalE objProf, int idProfesional)
         {
             string Consulta = "Update Profesional Set fotos = '" + objProf.fotos + "' where idProfesional=" + idProfesional + "";

@@ -20,7 +20,7 @@ namespace appWebServisoft.Datos
         }
 
         public ClCotizacionE mtdMostrarImg(int idCategoria)
-        {
+         {
             string consult = "Select * from Imagenes where idCategoria = "+idCategoria+"";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblCot = SQL.mtdSelectDesc(consult);

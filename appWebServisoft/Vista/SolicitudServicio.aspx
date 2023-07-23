@@ -69,7 +69,8 @@
                 <br />
                 <div>
                     <asp:Label ID="lblEstado" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Estado:"></asp:Label>
-                    <asp:TextBox ID="txtEstado" runat="server" placeholder="Estado" Enabled="false">En Proceso</asp:TextBox>
+                    <asp:DropDownList ID="ddlEstadoSev" runat="server"></asp:DropDownList>
+                    <%--<asp:TextBox ID="txtEstado" runat="server" Enabled="false">En Proceso</asp:TextBox>--%>
                     <br />
                 </div>
                 <br />

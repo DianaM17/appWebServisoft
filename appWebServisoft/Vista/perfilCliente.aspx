@@ -31,12 +31,12 @@
                             </button>
                              <script>
                                  function seleccionarImagenn() {
-                                     var input = document.getElementById('imagenImput');
+                                     var input = document.getElementById('<%= imagenImput.ClientID%>');
                                      input.click();
                                  }
 
                                  // Manejar el cambio de imagen seleccionada
-                                 var imput = document.getElementById('imagenImput');
+                                 var imput = document.getElementById('<%= imagenImput.ClientID%>');
                                  imput.addEventListener('change', function () {
                                      var imagen = imput.files[0];
 

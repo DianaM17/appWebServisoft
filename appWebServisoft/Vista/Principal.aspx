@@ -102,41 +102,6 @@
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
-                    <%--<li class="card">
-                        <div class="img">
-                            <img src="Imagenes/img-2.jpg" alt="img" draggable="false">
-                        </div>
-                        <h2>Joenas Brauers</h2>
-                        <span>Web Developer</span>
-                    </li>
-                    <li class="card">
-                        <div class="img">
-                            <img src="Imagenes/img-3.jpg" alt="img" draggable="false">
-                        </div>
-                        <h2>Lariach French</h2>
-                        <span>Online Teacher</span>
-                    </li>
-                    <li class="card">
-                        <div class="img">
-                            <img src="Imagenes/img-4.jpg" alt="img" draggable="false">
-                        </div>
-                        <h2>James Khosravi</h2>
-                        <span>Freelancer</span>
-                    </li>
-                    <li class="card">
-                        <div class="img">
-                            <img src="Imagenes/img-5.jpg" alt="img" draggable="false">
-                        </div>
-                        <h2>Kristina Zasiadko</h2>
-                        <span>Bank Manager</span>
-                    </li>
-                    <li class="card">
-                        <div class="img">
-                            <img src="Imagenes/img-6.jpg" alt="img" draggable="false">
-                        </div>
-                        <h2>Donald Horton</h2>
-                        <span>App Designer</span>
-                    </li>--%>
                 </ul>
                 <i id="right" class="fa-solid fa-angle-right"></i>
             </div>
@@ -381,9 +346,9 @@
             <hr>
             <p style="font-size: 15px">
                 SERVISOFT ® 2022
-                 <a href="#" style="text-decoration: none;">
+                 <%--<a href="#" style="text-decoration: none;">
                      <strong class="text-info">Consulta nuestras politicas de privacidad</strong>
-                 </a>
+                 </a>--%>
             </p>
         </div>
     </footer>

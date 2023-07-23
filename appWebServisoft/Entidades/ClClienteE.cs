@@ -14,6 +14,9 @@ namespace appWebServisoft.Entidades
         public string telefono { get; set; }
         public string email { get; set; }
         public string clave { get; set; }
-        public string foto { get; set; }        
+        public string foto { get; set; }
+
+        public string nombreCompleto { get; set; }
+
     }
 }

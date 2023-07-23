@@ -69,11 +69,11 @@
                 </div>
 
                 <!-- form img -->
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center">
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
                             <figure class="w-100 img-form">
-                                <asp:Image ID="ImgCateg" runat="server" />
+                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px"/>
                             </figure>
                         </ContentTemplate>
                     </asp:UpdatePanel>
