@@ -66,32 +66,6 @@ namespace appWebServisoft.Vista
             }
         }
 
-        //protected void btnReprogramar_Click(object sender, EventArgs e)
-        //{
-        //    Button btnReprogramar = (Button)sender;
-        //    GridViewRow row = (GridViewRow)btnReprogramar.NamingContainer.FindControl("gvServicioRow");
-        //    if (row != null)
-        //    {
-        //        int idServicio = Convert.ToInt32(gvServicio.DataKeys[row.RowIndex].Value);
-        //        ClSolicitudServicioE objServ = new ClSolicitudServicioE();
-        //        objServ.fecha = txtFecha.Text;
-        //        objServ.hora = txtHora.Value;
-        //        objServ.ubicacion = txtDireccion.Text;
-        //        objServ.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
-        //        ClServicioL objServi = new ClServicioL();
-        //        int Reprogramar = objServi.mtdReprogramarServicio(objServ, idServicio);
-        //        string script = @"<script> swal({ title: '¡Reprogramación Exitosa!',
-        //                      text: 'El servicio se ah reprogramado con exito', type: 'success',
-        //                    confirmButtonText: 'Aceptar'
-        //        });
-        //            </script>";
-        //        if (Reprogramar == 1)
-        //        {
-        //            ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
-        //        }
-        //    }
-        //}
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             int idServicio = Convert.ToInt32(hdnSelectedId.Value);

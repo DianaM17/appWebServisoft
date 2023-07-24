@@ -192,8 +192,6 @@ namespace appWebServisoft.Datos
 
                 objServ.estadoServ = tblDatos.Rows[i]["estadoServicio"].ToString();
 
-                objServ.idEstadoServicio = int.Parse(tblDatos.Rows[i]["estadoServicio"].ToString());
-
                 listaServ.Add(objServ);
             }
             return listaServ;

@@ -1,18 +1,19 @@
 ﻿using appWebServisoft.Entidades;
 using appWebServisoft.Logica;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace appWebServisoft.Vista
 {
-    public partial class CalendarioCitas : System.Web.UI.Page
+    public partial class CalendarioCitass : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void btnBuscar_Click(object sender, EventArgs e)
