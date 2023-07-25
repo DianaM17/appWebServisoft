@@ -10,6 +10,7 @@ namespace appWebServisoft.Entidades
         public int idCalificacion { get; set; }
         public string nivel { get; set; }
         public string puntos { get; set; }
+        public int estrellas { get; set; } 
         public string comentarios { get; set; }
         public string foto { get; set; }
         public string nombres { get; set; }
