@@ -165,7 +165,7 @@ namespace appWebServisoft.Datos
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
 
                 "WHERE solicitudServicio.idProfesional = "+idProf+ "";
-                "WHERE idProfesional = "+ idProfesional + "";
+                
 
 
             ClProcesarSQL objSQL = new ClProcesarSQL();
