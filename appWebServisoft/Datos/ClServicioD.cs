@@ -189,6 +189,7 @@ namespace appWebServisoft.Datos
                 objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
                 objServ.telefonoCliente = tblDatos.Rows[i]["telefonoCliente"].ToString();
                 objServ.estadoServ = tblDatos.Rows[i]["estadoServicio"].ToString();
+
                 listaServ.Add(objServ);
             }
             return listaServ;

@@ -103,7 +103,7 @@
     <Content Include="Vista\Boostrap\js\bootstrap.js" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
     <Content Include="Vista\busquedaCliente.aspx" />
-    <Content Include="Vista\CalendarioCitas.aspx" />
+    <Content Include="Vista\CalendarioCitass.aspx" />
     <Content Include="Vista\Categorias.aspx" />
     <Content Include="Vista\Clientes-Categoria.aspx" />
     <Content Include="Vista\Css\app.css" />
@@ -125,6 +125,7 @@
     <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
     <Content Include="Vista\EstadoServicios.aspx" />
+    <Content Include="Vista\EstadoServicioss.aspx" />
     <Content Include="Vista\Formulario.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -300,12 +301,12 @@
     <Compile Include="Vista\busquedaCliente.aspx.designer.cs">
       <DependentUpon>busquedaCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\CalendarioCitas.aspx.cs">
-      <DependentUpon>CalendarioCitas.aspx</DependentUpon>
+    <Compile Include="Vista\CalendarioCitass.aspx.cs">
+      <DependentUpon>CalendarioCitass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\CalendarioCitas.aspx.designer.cs">
-      <DependentUpon>CalendarioCitas.aspx</DependentUpon>
+    <Compile Include="Vista\CalendarioCitass.aspx.designer.cs">
+      <DependentUpon>CalendarioCitass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
@@ -327,6 +328,13 @@
     </Compile>
     <Compile Include="Vista\EstadoServicios.aspx.designer.cs">
       <DependentUpon>EstadoServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\EstadoServicioss.aspx.cs">
+      <DependentUpon>EstadoServicioss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\EstadoServicioss.aspx.designer.cs">
+      <DependentUpon>EstadoServicioss.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Formulario.aspx.cs">
       <DependentUpon>Formulario.aspx</DependentUpon>

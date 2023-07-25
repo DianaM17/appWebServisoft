@@ -59,7 +59,7 @@ namespace appWebServisoft.Datos
                 objProfesional.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());
             }
             return objProfesional;
-        }
+        } 
 
         public int mtdVerificarCorreo(string email)
         {
@@ -236,6 +236,14 @@ namespace appWebServisoft.Datos
                 listaProf.Add(objProf);
             }
             return listaProf;
+        }
+
+        public int mtdCambiarEstadoTrabajos(int idEstado, int idServicio)
+        {
+            string consulta = "Update solicitudServicio set idEstadoServicio = " + idEstado + " where idsolicitudServicio = " + idServicio + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Actualizar = SQL.mtdIUDConec(consulta);
+            return Actualizar;
         }
     }
 }
