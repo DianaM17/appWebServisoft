@@ -1,32 +1,28 @@
-'use strict'
+function initializeGallery() {
+    const enlaces = document.querySelectorAll('.custom-link');
+    const lightbox = document.querySelector('.lightbox');
+    const grande = document.querySelector('.grande');
+    const cerrar = document.querySelector('.cerrar');
 
-/* 
-    // Cuando hacemos CLICK en .a
-        // .lightbox ADD CLASS 'activo'
-        // .img ATTR "SRC"
-        // .grande COLOCAR el SRC de .img
+    enlaces.forEach((cadaEnlace) => {
+        cadaEnlace.addEventListener('click', (e) => {
+            e.preventDefault();
+            let ruta = cadaEnlace.querySelector('.img').src;
+            console.log(ruta);
 
-    // Cuando hacemos CLICK en .cerrar
-        // .lightbox REMOVE CLASS 'activo'
-*/
+            lightbox.classList.add('activo');
+            grande.setAttribute('src', ruta);
+        });
+    });
 
-/*const enlaces  = document.querySelectorAll('.ul .a')*/
-const lightbox = document.querySelector('.lightbox')
-const grande   = document.querySelector('.grande')
-const cerrar   = document.querySelector('.cerrar')
+    cerrar.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita que la página se recargue al cerrar la lightbox
+        lightbox.classList.remove('activo');
+        // Vuelve a inicializar la galería cada vez que se cierra la lightbox
+        initializeGallery();
+    });
+}
 
-enlaces.forEach(( cadaEnlace , i )=>{
-    enlaces[i].addEventListener('click', ( e )=>{
-        e.preventDefault()
-        let ruta = cadaEnlace.querySelector('.img').src
-        console.log( ruta ) 
-
-        lightbox.classList.add('activo')
-        grande.setAttribute('src', ruta)
-
-    })
-})
-
-cerrar.addEventListener('click', ()=>{
-    lightbox.classList.remove('activo')
-})
+document.addEventListener('DOMContentLoaded', () => {
+    initializeGallery();
+});

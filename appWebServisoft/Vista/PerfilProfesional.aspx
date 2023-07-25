@@ -229,7 +229,7 @@
                 <ItemTemplate>
                     <ul class="ul">
                         <li class="li">
-                            <a href="#" class="a" title="Imagen 1">
+                            <a href="#" class="a custom-link" title="Imagen 1">
                                 <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
                                 <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
                             </a>
@@ -242,6 +242,38 @@
                 <button class="cerrar">Cerrar</button>
                 <img src="Carrusel/assets/1.jpg" alt="Imagen 1" class="grande" loading="lazy">
             </div>
+
+            <script>
+                function initializeGallery() {
+                    const enlaces = document.querySelectorAll('.custom-link');
+                    const lightbox = document.querySelector('.lightbox');
+                    const grande = document.querySelector('.grande');
+                    const cerrar = document.querySelector('.cerrar');
+
+                    enlaces.forEach((cadaEnlace) => {
+                        cadaEnlace.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            let ruta = cadaEnlace.querySelector('.img').src;
+                            console.log(ruta);
+
+                            lightbox.classList.add('activo');
+                            grande.setAttribute('src', ruta);
+                        });
+                    });
+
+                    cerrar.addEventListener('click', (e) => {
+                        e.preventDefault(); // Evita que la página se recargue al cerrar la lightbox
+                        lightbox.classList.remove('activo');
+                        // Vuelve a inicializar la galería cada vez que se cierra la lightbox
+                        initializeGallery();
+                    });
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    initializeGallery();
+                });
+            </script>
+
         </section>
         <!--====  End of html  ====-->
 

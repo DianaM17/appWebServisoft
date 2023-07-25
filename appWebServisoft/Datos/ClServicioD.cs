@@ -166,6 +166,7 @@ namespace appWebServisoft.Datos
                 "WHERE solicitudServicio.idProfesional = "+idProf+ "";
 
 
+
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
