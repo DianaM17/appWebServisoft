@@ -111,6 +111,13 @@ namespace appWebServisoft.Logica
             List<ClProfesionalE> lista = objProf.mtdSelecCorreoCateg(cate, serv, ciudad);
             return lista;
         }
+
+        public int mtdCambiarEstadoTrabajo(int idEstado, int idServicio)
+        {
+            ClProfesionalD objProf = new ClProfesionalD();
+            int Actualizar = objProf.mtdCambiarEstadoTrabajos(idEstado,idServicio);
+            return Actualizar;
+        }
     }
 }
 

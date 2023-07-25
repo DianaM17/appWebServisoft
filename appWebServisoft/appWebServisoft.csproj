@@ -44,8 +44,10 @@
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
+
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -101,7 +103,7 @@
     <Content Include="Vista\Boostrap\js\bootstrap.js" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js" />
     <Content Include="Vista\busquedaCliente.aspx" />
-    <Content Include="Vista\CalendarioCitas.aspx" />
+    <Content Include="Vista\CalendarioCitass.aspx" />
     <Content Include="Vista\Categorias.aspx" />
     <Content Include="Vista\Clientes-Categoria.aspx" />
     <Content Include="Vista\Css\app.css" />
@@ -123,6 +125,7 @@
     <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
     <Content Include="Vista\EstadoServicios.aspx" />
+    <Content Include="Vista\EstadoServicioss.aspx" />
     <Content Include="Vista\Formulario.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -298,12 +301,12 @@
     <Compile Include="Vista\busquedaCliente.aspx.designer.cs">
       <DependentUpon>busquedaCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vista\CalendarioCitas.aspx.cs">
-      <DependentUpon>CalendarioCitas.aspx</DependentUpon>
+    <Compile Include="Vista\CalendarioCitass.aspx.cs">
+      <DependentUpon>CalendarioCitass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vista\CalendarioCitas.aspx.designer.cs">
-      <DependentUpon>CalendarioCitas.aspx</DependentUpon>
+    <Compile Include="Vista\CalendarioCitass.aspx.designer.cs">
+      <DependentUpon>CalendarioCitass.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Categorias.aspx.cs">
       <DependentUpon>Categorias.aspx</DependentUpon>
@@ -325,6 +328,13 @@
     </Compile>
     <Compile Include="Vista\EstadoServicios.aspx.designer.cs">
       <DependentUpon>EstadoServicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\EstadoServicioss.aspx.cs">
+      <DependentUpon>EstadoServicioss.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\EstadoServicioss.aspx.designer.cs">
+      <DependentUpon>EstadoServicioss.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Formulario.aspx.cs">
       <DependentUpon>Formulario.aspx</DependentUpon>
@@ -492,8 +502,8 @@
     <Content Include="Vista\Boostrap\js\bootstrap.esm.min.js.map" />
     <Content Include="Vista\Boostrap\js\bootstrap.js.map" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js.map" />
-    <None Include="packages.config" />
     <Content Include="Vista\MasterProfesional.Master" />
+    <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -531,7 +541,7 @@
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>

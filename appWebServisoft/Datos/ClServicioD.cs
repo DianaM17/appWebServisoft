@@ -80,7 +80,7 @@ namespace appWebServisoft.Datos
             string consulta = "SELECT SolSer.fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, cli.nombres,apellidos " +
                 "FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
                 "ON SolSer.idServicio = Servicio.idServicio JOIN Cliente[cli] " +
-                "ON SolSer.idCliente = cli.idCliente where SolSer.estado = 'aceptado' and idProfesional = " + idProf + " and fecha = '" + fecha + "'";
+                "ON SolSer.idCliente = cli.idCliente where idEstadoServicio = 1  and idProfesional = " + idProf + " and fecha = '" + fecha + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblServ = SQL.mtdSelectDesc(consulta);
 
@@ -112,7 +112,7 @@ namespace appWebServisoft.Datos
             string consulta = "SELECT SolSer.idsolicitudServicio,fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, Prof.nombres,apellidos" +
                 " FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
                 "ON SolSer.idServicio = Servicio.idServicio JOIN Profesional[Prof] " +
-                "ON SolSer.idProfesional = Prof.idProfesional where SolSer.estado= 'aceptado' and idCliente = " + idCliente + "";
+                "ON SolSer.idProfesional = Prof.idProfesional where SolSer.idEstadoServicio = 1 and idCliente = " + idCliente + "";
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
@@ -159,13 +159,12 @@ namespace appWebServisoft.Datos
         public List<ClSolicitudServicioE> mtdListarTrabajos(int idProf)
         {
             string consulta = "SELECT solicitudServicio.idsolicitudServicio, solicitudServicio.fecha, solicitudServicio.hora, solicitudServicio.descripcion, solicitudServicio.ubicacion, " +
-                "ciudad.nombre AS nombreCiudad, servicio.servicio AS nombreServicio, profesional.nombres AS nombreProfesional, cliente.nombres AS nombreCliente, Cliente.apellidos AS apellidoCliente, " +
+                "ciudad.nombre AS nombreCiudad, servicio.servicio AS nombreServicio, profesional.nombres AS nombreProfesional, cliente.nombres AS nombreCliente, cliente.telefono AS telefonoCliente, Cliente.apellidos AS apellidoCliente, " +
                 "EstadoServicio.estado AS estadoServicio FROM solicitudServicio LEFT JOIN ciudad ON solicitudServicio.idCiudad = ciudad.idCiudad " +
                 "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
-
                 "WHERE solicitudServicio.idProfesional = "+idProf+ "";
-                
+
 
 
             ClProcesarSQL objSQL = new ClProcesarSQL();
@@ -189,10 +188,8 @@ namespace appWebServisoft.Datos
                 objServ.nombres = tblDatos.Rows[i]["nombreCliente"].ToString();
                 objServ.apellidos = tblDatos.Rows[i]["apellidoCliente"].ToString();
                 objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
-
+                objServ.telefonoCliente = tblDatos.Rows[i]["telefonoCliente"].ToString();
                 objServ.estadoServ = tblDatos.Rows[i]["estadoServicio"].ToString();
-
-                objServ.idEstadoServicio = int.Parse(tblDatos.Rows[i]["estadoServicio"].ToString());
 
                 listaServ.Add(objServ);
             }

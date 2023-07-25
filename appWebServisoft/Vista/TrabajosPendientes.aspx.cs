@@ -15,16 +15,16 @@ namespace appWebServisoft.Vista
         {
             if (!IsPostBack)
             {
-               
-                //ClServicioL objEstadoServ = new ClServicioL();
-                //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
-                //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
 
-                //ddlEstadoModal.DataSource = ListaEstadoServ;
-                //ddlEstadoModal.DataTextField = "estado";
-                //ddlEstadoModal.DataValueField = "idEstadoServicio";
-                //ddlEstadoModal.DataBind();
-                //ddlEstadoModal.Items.Insert(0, new ListItem("Seleccione el estado: ", "0"));
+                ClServicioL objEstadoServ = new ClServicioL();
+                List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
+                ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
+
+                ddlEstadoModal.DataSource = ListaEstadoServ;
+                ddlEstadoModal.DataTextField = "estado";
+                ddlEstadoModal.DataValueField = "idEstadoServicio";
+                ddlEstadoModal.DataBind();
+                ddlEstadoModal.Items.Insert(0, new ListItem("Seleccione el estado: ", "0"));
 
                 int idProf = int.Parse(Session["idProfesional"].ToString());
                 ClServicioL objServicio = new ClServicioL();
@@ -38,7 +38,21 @@ namespace appWebServisoft.Vista
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-         
+            int idServicio = Convert.ToInt32(hdnSelectedId.Value);
+            int idEstado = int.Parse(ddlEstadoModal.SelectedValue.ToString());
+
+            ClProfesionalL objProf = new ClProfesionalL();
+            int Cancelar = objProf.mtdCambiarEstadoTrabajo(idEstado,idServicio);
+
+            string script = @"<script> swal({ title: '¡Cancelacion Exitosa!',
+                              text: 'El servicio se ah cancelado con exito', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+            if (Cancelar == 1)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+            }
         }
 
     }

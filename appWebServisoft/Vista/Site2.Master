@@ -9,6 +9,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <link href="Css/Estilos_Master.css" rel="stylesheet" />
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    function scrollToContactForm() {
+        var contactFormSection = document.getElementById("formularioContacto");
+        if (contactFormSection) {
+            contactFormSection.scrollIntoView({ behavior: "smooth" });
+        }
+    }
+</script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -53,9 +63,9 @@
                     <button id="toggleButton" class="menu-button">Menú</button>
                     <div id="cardElements" class="menu-links">
                         <a href="Principal.aspx">Inicio</a>
-                        <a href="#">Contáctanos</a>
+                        <a href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
                         <a href="Categorias.aspx">Categorías</a>
-                        <a href="RegistrarUsuario.aspx">Registrar</a>
+                        <a href="RegistrarUsuario.aspx">Registrarse</a>
                         <a href="Login.aspx">Iniciar Sesión</a>
                         <div class="animation start-home"></div>
                     </div>
