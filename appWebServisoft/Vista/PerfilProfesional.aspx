@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
     <link href="Css/app.css" rel="stylesheet" />
     <link href="Css/Estilos_PerfilProfesional.css" rel="stylesheet" />
     <!-- MATERIAL DESIGN ICONIC FONT -->
@@ -202,7 +202,7 @@
             <div class="row">
                 <asp:Repeater ID="RptImagenes" runat="server">
                     <ItemTemplate>
-                        <div class="col-3">
+                        <div class="col-12 col-sm-4 col-md-3 ">
                             <ul class="ul">
                                 <li class="li">
                                     <a href="#" class="a" title="Imagen 1">
@@ -216,20 +216,6 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
-
-            <asp:Repeater ID="RptImagenes" runat="server">
-                <ItemTemplate>
-                    <ul class="ul">
-                        <li class="li">
-                            <a href="#" class="a custom-link" title="Imagen 1">
-                                <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
-                                <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
-                            </a>
-                        </li>
-                    </ul>
-                </ItemTemplate>
-            </asp:Repeater>
-
 
             <div class="lightbox">
                 <button class="cerrar">Cerrar</button>
