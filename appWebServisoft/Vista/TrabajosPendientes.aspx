@@ -20,20 +20,34 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h3>Trabajos</h3>
+            <h3 style="text-align: center; margin-top: 40px; font-family:Georgia;">TRABAJOS PENDIENTES</h3>
+            <br />
+            <br />
 
             <style>
                 .centered-header th {
                     text-align: center;
                 }
+
+                .Encabezado {
+                    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; 
+                    font-size: 15px;
+                }
+
+                .filas {
+                    font-family:'Bookman Old Style';
+                    font-size: 14px;
+                }
             </style>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvTrabajos" runat="server" DataKeyNames="idsolicitudServicio" BorderColor="#9900FF" BorderStyle="Groove" BorderWidth="2px" BackColor="#FFCCFF" AutoGenerateColumns="False" Style="margin: auto;">
-                        <HeaderStyle CssClass="centered-header" />
+                    <asp:GridView ID="gvTrabajos" runat="server" DataKeyNames="idsolicitudServicio" BorderColor="#000099" BorderStyle="Groove" BorderWidth="3px" AutoGenerateColumns="False" Style="margin: auto;">
+                        <HeaderStyle CssClass="centered-header Encabezado" BackColor="#99ccff" />
+                        <AlternatingRowStyle BackColor="#cedcfd" />
+                        <RowStyle BackColor="white" CssClass="filas"/>
                         <Columns>
-                            <asp:BoundField DataField="idsolicitudServicio" HeaderText="Servicio" Visible="false" />
+                            <asp:BoundField DataField="idsolicitudServicio" HeaderText="Servicio" Visible="false"/>
                             <asp:BoundField DataField="fecha" HeaderText="Fecha" />
                             <asp:BoundField DataField="hora" HeaderText="Hora" />
                             <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
