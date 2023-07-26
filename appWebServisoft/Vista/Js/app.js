@@ -16,9 +16,9 @@ function initializeGallery() {
     });
 
     cerrar.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita que la p·gina se recargue al cerrar la lightbox
+        e.preventDefault(); // Evita que la p√°gina se recargue al cerrar la lightbox
         lightbox.classList.remove('activo');
-        // Vuelve a inicializar la galerÌa cada vez que se cierra la lightbox
+        // Vuelve a inicializar la galer√≠a cada vez que se cierra la lightbox
         initializeGallery();
     });
 }

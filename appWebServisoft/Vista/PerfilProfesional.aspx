@@ -205,7 +205,7 @@
                         <div class="col-3">
                             <ul class="ul">
                                 <li class="li">
-                                    <a href="#" class="a" title="Imagen 1">
+                                    <a href="#" class="a custom-link" title="Imagen 1">
                                         <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
                                         <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
                                     </a>
@@ -216,20 +216,6 @@
                     </ItemTemplate>
                 </asp:Repeater>
             </div>
-
-            <asp:Repeater ID="RptImagenes" runat="server">
-                <ItemTemplate>
-                    <ul class="ul">
-                        <li class="li">
-                            <a href="#" class="a custom-link" title="Imagen 1">
-                                <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
-                                <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
-                            </a>
-                        </li>
-                    </ul>
-                </ItemTemplate>
-            </asp:Repeater>
-
 
             <div class="lightbox">
                 <button class="cerrar">Cerrar</button>
