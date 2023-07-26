@@ -60,6 +60,15 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.HtmlControls.HtmlInputFile ImagenInputT;
 
         /// <summary>
+        /// Control btnGuardarImg.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnGuardarImg;
+
+        /// <summary>
         /// Control lblNombre.
         /// </summary>
         /// <remarks>

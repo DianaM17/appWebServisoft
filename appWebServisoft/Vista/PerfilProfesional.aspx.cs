@@ -101,21 +101,9 @@ namespace appWebServisoft.Vista
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+
             int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
             ClProfesionalE objProf = new ClProfesionalE();
-            string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
-            string nombreImg = Telefonoo + ".png";
-            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-            string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
-            var file = Request.Files[0];
-            if (ImagenInputT.PostedFile != null && ImagenInputT.PostedFile.ContentLength > 0)
-            {
-                file.SaveAs(rutaImg);
-                objProf.fotos = rutaSql;
-                ClProfesionalL clProf = new ClProfesionalL();
-                int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
-            }
-
             objProf.nombres = txtNombres.Value;
             objProf.apellidos = txtApellidos.Value;
             objProf.telefono = txtTelefono.Value;
@@ -227,6 +215,25 @@ namespace appWebServisoft.Vista
                     ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
                 }
 
+            }
+
+        }
+
+        protected void btnGuardarImg_Click(object sender, EventArgs e)
+        {
+            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+            ClProfesionalE objProf = new ClProfesionalE();
+            string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
+            string nombreImg = Telefonoo + ".png";
+            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+            string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
+            var file = Request.Files[0];
+            if (ImagenInputT.PostedFile != null && ImagenInputT.PostedFile.ContentLength > 0)
+            {
+                file.SaveAs(rutaImg);
+                objProf.fotos = rutaSql;
+                ClProfesionalL clProf = new ClProfesionalL();
+                int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
             }
 
         }

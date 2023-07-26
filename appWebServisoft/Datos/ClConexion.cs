@@ -11,12 +11,7 @@ namespace appWebServisoft.Datos
         SqlConnection conexion = null;
         public SqlConnection mtdConexion()
         {
-
-
-
-            conexion = new SqlConnection("Data Source=ACERNITRO5\\SQLEXPRESS;Initial Catalog=bdProyecto;User ID=GymHouse;Password=1234");
-
-          
+            conexion = new SqlConnection("Data Source=LAPTOP-NGR8K750;Initial Catalog=bdProyecto;Integrated Security=True");
             conexion.Open();
             return conexion;
         }
