@@ -35,7 +35,7 @@
                         <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                             <i class="far fa-image"></i>
                         </button>
-                        <asp:Button ID="btnGuardarImg" runat="server" Text="Button" OnClick="btnGuardarImg_Click" style="display: none;"/>
+                        <asp:Button ID="btnGuardarImg" runat="server" Text="Button" OnClick="btnGuardarImg_Click" Style="display: none;" />
                         <script>
                             function seleccionarImagen() {
                                 var input = document.getElementById('<%= ImagenInputT.ClientID%>');
@@ -194,22 +194,27 @@
                 </div>
             </div>
         </section>
-        <section class="container row">
+        <section class="container">
             <br />
             <br />
             <%--inicio galeria--%>
-            <asp:Repeater ID="RptImagenes" runat="server">
-                <ItemTemplate>
-                    <ul class="ul">
-                        <li class="li">
-                            <a href="#" class="a" title="Imagen 1">
-                                <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
-                                <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
-                            </a>
-                        </li>
-                    </ul>
-                </ItemTemplate>
-            </asp:Repeater>
+            <div class="row">
+                <asp:Repeater ID="RptImagenes" runat="server">
+                    <ItemTemplate>
+                        <div class="col-3">
+                            <ul class="ul">
+                                <li class="li">
+                                    <a href="#" class="a" title="Imagen 1">
+                                        <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
+                                        <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
 
             <div class="lightbox">
                 <button class="cerrar">Cerrar</button>

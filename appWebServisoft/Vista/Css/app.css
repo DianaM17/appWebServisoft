@@ -11,9 +11,10 @@
   --tipo-principal: Helvetica, Arial, sans-serif;
 }
 
+
 /* Las adaptamos al modo oscuro */
 @media (prefers-color-scheme: dark) {
-  :root {
+    : root {
     --negro: #ececec;
     --blanco: #ffffff;
     --sombra-ppal: #242424;
@@ -145,7 +146,7 @@ body {
 }
 
 .ul {
-  width: 32%;
+  width: 110%;
   background: lightgrey;
   padding: 1em;
   display: -ms-grid;
