@@ -54,19 +54,6 @@ namespace appWebServisoft.Vista
         {
             int idCliente = Int32.Parse(txtNombre.Value = Session["idCliente"].ToString());
             ClClienteE objClient = new ClClienteE();
-            string telefono = lblTelCliente.Text = Session["Cliente"].ToString();
-            string nombreImg = telefono + ".png";
-            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
-            string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
-            var file = Request.Files[0];
-            if (imagenImput.PostedFile != null && imagenImput.PostedFile.ContentLength > 0)
-            {
-                file.SaveAs(rutaImg);
-                objClient.foto = rutaSql;
-                ClClienteL clProf = new ClClienteL();
-                int actualizar = clProf.mtdActualizarDatos(objClient, idCliente);
-            }
-
             objClient.nombres = txtNombre.Value;
             objClient.apellidos = txtApellido.Value;
             objClient.direccion = txtDireccionC.Value;
@@ -105,6 +92,24 @@ namespace appWebServisoft.Vista
         protected void btn_Click(object sender, EventArgs e)
         {
             Response.Redirect("Formulario.aspx");
+        }
+
+        protected void btnGuardarImg_Click(object sender, EventArgs e)
+        {
+            int idCliente = Int32.Parse(txtNombre.Value = Session["idCliente"].ToString());
+            ClClienteE objClient = new ClClienteE();
+            string telefono = lblTelCliente.Text = Session["Cliente"].ToString();
+            string nombreImg = telefono + ".png";
+            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
+            string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
+            var file = Request.Files[0];
+            if (imagenImput.PostedFile != null && imagenImput.PostedFile.ContentLength > 0)
+            {
+                file.SaveAs(rutaImg);
+                objClient.foto = rutaSql;
+                ClClienteL clProf = new ClClienteL();
+                int actualizar = clProf.mtdActualizarDatos(objClient, idCliente);
+            }
         }
     }
 }

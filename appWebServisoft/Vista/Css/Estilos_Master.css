@@ -1,4 +1,7 @@
-﻿body{
+﻿.menu-links {
+    margin: 0 50px;
+}
+body {
     margin: 0;
 }
 
@@ -17,8 +20,8 @@ nav {
     height: auto;
 }
 
-nav a {
-    margin-left: 97px;
+nav .nav-link {
+   /* margin-left: 97px;*/
     line-height: 50px;
     text-decoration: none;
     text-transform: uppercase;
@@ -37,12 +40,12 @@ nav .animation {
     border-radius: 8px;
 }
 
-#cardElements {
+#navbarNavAltMarkup {
     display: flex;
     align-items: center;
 }
 
-    #cardElements a {
+    #navbarNavAltMarkup .nav-link {
         margin-right: 10px;
     }
 
@@ -52,11 +55,11 @@ nav .animation {
 }
 
 @media (max-width: 700px) {
-    #cardElements {
+    #navbarNavAltMarkup {
         display: none;
     }
 
-        #cardElements.show-links {
+        #navbarNavAltMarkup.show-links {
             display: flex;
             flex-direction: column;
         }
@@ -72,7 +75,7 @@ nav .animation {
     }
 }
 
-.menu-links a:hover:before {
+.menu-links .nav-link:hover:before {
     content: "";
     position: absolute;
     width: 100%;
@@ -84,7 +87,7 @@ nav .animation {
     border-radius: 8px;
 }
 
-.menu-links a:hover {
+.menu-links .nav-link:hover {
     z-index: 1;
 }
 

@@ -1,13 +1,10 @@
-﻿ <%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="appWebServisoft.Vista.Principal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/Site2.Master" AutoEventWireup="true" CodeBehind="Principal.aspx.cs" Inherits="appWebServisoft.Vista.Principal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Principal..css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link href="Css/sweetalert.css" rel="stylesheet" />
     <script src="../Scripts/sweetalert.min.js"></script>
-
-   
-
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section>
@@ -86,20 +83,22 @@
     <section class="principal">
 
         <%-- Inicio Perfiles Profesionales --%>
-        <div class="principal" style="display: flex">
-            <div class="wrapper">
+        <div class="principal" <%--style="display: flex"--%>>
+            <div class="wrapper ">
                 <i id="left" class="fa-solid fa-angle-left"></i>
-                <ul class="carousel">
+                <ul class="carousel row justify-content-center">
                     <asp:Repeater ID="ReptPerfil" runat="server">
                         <ItemTemplate>
-                            <li class="card">
-                                <div class="img">
-                                    <img class="imagenes" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
-                                </div>
-                                <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
-                                <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>
-                                <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
-                            </li>
+                            <div class="col-12">
+                                <li class="card">
+                                    <div class="img">
+                                        <img class="imagenes" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+                                    </div>
+                                    <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>
+                                    <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
+                                </li>
+                            </div>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
@@ -288,7 +287,7 @@
                     <span class="circle one"></span>
                     <span class="circle two"></span>
 
-                    <form action="index.html" autocomplete="off">
+                    <div action="index.html" autocomplete="off">
                         <h3 class="title">Contáctanos</h3>
                         <div class="input-container">
                             <input id="txtNombre" type="text" name="txtNombre" class="input" runat="server" />
@@ -312,7 +311,7 @@
                         </div>
                         <asp:Button ID="btnEnviar" runat="server" Text="Contactar" CssClass="btn" OnClick="btnEnviar_Click" />
                         <%-- <input id="btnEnviarr" type="submit" value="Send" class="btn" />--%>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -333,7 +332,7 @@
                 <a href="Login.aspx">Categoria</a>
                 <a href="RegistrarUsuario.aspx">Cliente</a>
                 <a href="RegistrarUsuario.aspx">Profesional</a>
-                
+
 
             </div>
             <div class="box__footer">
