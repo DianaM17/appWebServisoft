@@ -42,7 +42,7 @@
                                 input.click();
                             }
 
-                            // Manejar el cambio de imagen seleccionada
+                            // Manejar el cambio de imagen se leccionada
                             var input = document.getElementById('<%= ImagenInputT.ClientID%>');
                             input.addEventListener('change', function () {
                                 var imagen = input.files[0];

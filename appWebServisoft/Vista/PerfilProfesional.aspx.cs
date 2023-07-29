@@ -178,16 +178,6 @@ namespace appWebServisoft.Vista
             int regisProf = objProfesional.mtdCambiarEstado(objProf, idProf);
         }
 
-        //[WebMethod]
-        //public static void GuardarImagen(string nombreImagen, string idProfesional)
-        //{
-        //    int idProf = Int32.Parse(idProfesional);
-        //    ClProfesionalE objProf = new ClProfesionalE();
-        //    objProf.fotos = nombreImagen;
-        //    ClProfesionalL objProfesional = new ClProfesionalL();
-        //    objProfesional.mtdActualizarImagen(objProf, idProf);
-        //}
-
         protected void btnAgregarImagen_ServerClick(object sender, EventArgs e)
         {
             int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());

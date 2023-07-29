@@ -18,69 +18,167 @@
             }
         }
     </script>
-
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
 
-        <nav>
-            <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
-            <button id="toggleButton" class="menu-button">Menú</button>
-            <div id="cardElements" class="menu-links">
-                <a href="Principal.aspx">Inicio</a>
-                <a href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
-                <a href="Categorias.aspx">Categorías</a>
-                <a href="RegistrarUsuario.aspx">Registrarse</a>
-                <a href="Login.aspx">Iniciar Sesión</a>
-                <style>
-                    .combo {
-                        margin-left: 40px;
-                        line-height: 50px;
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        text-align: center;
-                        color: #000000;
-                        cursor: pointer;
-                        position: relative;
-                    }
+        <%--   <nav class="navbar navbar-expand-lg navbar-light bg-light">--%>
+        <style>
+            /* Agrega el siguiente estilo para expandir los li en la barra de navegación */
+            .navbar-nav {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
 
-                    body {
-                        transition: background-color 0.3s ease-in-out;
-                    }
+                .navbar-nav .nav-item {
+                    flex-grow: 1;
+                    text-align: center;
+                }
 
-                        body.white {
-                            background-color: white;
+                .navbar-nav .nav-link {
+                    display: block;
+                }
+
+            /* Asegúrate de quitar cualquier estilo de padding o margin que podría afectar el espaciado */
+            .navbar-nav {
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse menu-links" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Principal.aspx">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Categorias.aspx">Categorías</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="RegistrarUsuario.aspx">Registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Login.aspx">Iniciar Sesión</a>
+                        </li>
+                    </ul>
+                    <style>
+                        .combo {
+                            margin-left: 40px;
+                            line-height: 50px;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            text-align: center;
+                            color: #000000;
+                            cursor: pointer;
+                            position: relative;
                         }
 
-                        body.black {
-                            background-color: #272525;
-                            color: #272525;
+                        body {
+                            transition: background-color 0.3s ease-in-out;
                         }
-                </style>
-                <select id="colorSelector" class="combo">
-                    <option>Tema</option>
-                    <option value="white">Blanco</option>
-                    <option value="black">Negro</option>
-                </select>
-                <script>
-                    window.onload = function () {
-                        var colorSelector = document.getElementById("colorSelector");
-                        colorSelector.addEventListener("change", function () {
-                            var color = this.value;
-                            cambiarColorPagina(color);
-                        });
 
-                        function cambiarColorPagina(color) {
-                            var body = document.getElementsByTagName("body")[0];
-                            body.style.backgroundColor = color;
+                            body.white {
+                                background-color: white;
+                            }
+
+                            body.black {
+                                background-color: #272525;
+                                color: #272525;
+                            }
+                    </style>
+                    <select id="colorSelector" class="combo">
+                        <option>Tema</option>
+                        <option value="white">Blanco</option>
+                        <option value="black">Negro</option>
+                    </select>
+                    <script>
+                        window.onload = function () {
+                            var colorSelector = document.getElementById("colorSelector");
+                            colorSelector.addEventListener("change", function () {
+                                var color = this.value;
+                                cambiarColorPagina(color);
+                            });
+
+                            function cambiarColorPagina(color) {
+                                var body = document.getElementsByTagName("body")[0];
+                                body.style.backgroundColor = color;
+                            }
                         }
-                    }
-                </script>
-                <div class="animation start-home"></div>
+                    </script>
+                    <div class="animation start-home"></div>
+                </div>
             </div>
         </nav>
+        <%--<div class="container-fluid">
+                <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="cardElements" class="menu-links ">
+                    <a href="Principal.aspx" class="nav-link active" aria-current="page">Inicio</a>
+                    <a href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
+                    <a href="Categorias.aspx">Categorías</a>
+                    <a href="RegistrarUsuario.aspx">Registrarse</a>
+                    <a href="Login.aspx">Iniciar Sesión</a>
+                    <style>
+                        .combo {
+                            margin-left: 40px;
+                            line-height: 50px;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            text-align: center;
+                            color: #000000;
+                            cursor: pointer;
+                            position: relative;
+                        }
+
+                        body {
+                            transition: background-color 0.3s ease-in-out;
+                        }
+
+                            body.white {
+                                background-color: white;
+                            }
+
+                            body.black {
+                                background-color: #272525;
+                                color: #272525;
+                            }
+                    </style>
+                    <select id="colorSelector" class="combo">
+                        <option>Tema</option>
+                        <option value="white">Blanco</option>
+                        <option value="black">Negro</option>
+                    </select>
+                    <script>
+                        window.onload = function () {
+                            var colorSelector = document.getElementById("colorSelector");
+                            colorSelector.addEventListener("change", function () {
+                                var color = this.value;
+                                cambiarColorPagina(color);
+                            });
+
+                            function cambiarColorPagina(color) {
+                                var body = document.getElementsByTagName("body")[0];
+                                body.style.backgroundColor = color;
+                            }
+                        }
+                    </script>
+                    <div class="animation start-home"></div>
+                </div>
+            </div>--%>
+        <%-- </nav>--%>
         <br />
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

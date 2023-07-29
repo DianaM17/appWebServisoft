@@ -29,6 +29,7 @@
                             <button type="button" class="boton-avatar" onclick="seleccionarImagenn()">
                                 <i class="far fa-image"></i>
                             </button>
+                            <asp:Button ID="btnGuardarImg" runat="server" Text="Button" OnClick="btnGuardarImg_Click" Style="display: none;" />
                              <script>
                                  function seleccionarImagenn() {
                                      var input = document.getElementById('<%= imagenImput.ClientID%>');
@@ -39,6 +40,7 @@
                                  var imput = document.getElementById('<%= imagenImput.ClientID%>');
                                  imput.addEventListener('change', function () {
                                      var imagen = imput.files[0];
+                                     var btnGuardarImg = document.getElementById('<%= btnGuardarImg.ClientID%>');
 
                                      if (imagen) {
                                          var reader = new FileReader();
@@ -52,7 +54,8 @@
                                         }
 
                                         reader.readAsDataURL(imagen);
-                                    }
+                                     }
+                                     btnGuardarImg.click();
                                 });
                              </script>
                         </div>
