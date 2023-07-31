@@ -20,7 +20,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h3 style="text-align: center; margin-top: 40px; font-family:Georgia;">TRABAJOS PENDIENTES</h3>
+            <h3 style="text-align: center; margin-top: 40px; font-family: Georgia;">TRABAJOS PENDIENTES</h3>
             <br />
             <br />
 
@@ -30,12 +30,12 @@
                 }
 
                 .Encabezado {
-                    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif; 
+                    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
                     font-size: 15px;
                 }
 
                 .filas {
-                    font-family:'Bookman Old Style';
+                    font-family: 'Bookman Old Style';
                     font-size: 14px;
                 }
             </style>
@@ -45,9 +45,9 @@
                     <asp:GridView ID="gvTrabajos" runat="server" DataKeyNames="idsolicitudServicio" BorderColor="#000099" BorderStyle="Groove" BorderWidth="3px" AutoGenerateColumns="False" Style="margin: auto;">
                         <HeaderStyle CssClass="centered-header Encabezado" BackColor="#99ccff" />
                         <AlternatingRowStyle BackColor="#cedcfd" />
-                        <RowStyle BackColor="white" CssClass="filas"/>
+                        <RowStyle BackColor="white" CssClass="filas" />
                         <Columns>
-                            <asp:BoundField DataField="idsolicitudServicio" HeaderText="Servicio" Visible="false"/>
+                            <asp:BoundField DataField="idsolicitudServicio" HeaderText="Servicio" Visible="false" />
                             <asp:BoundField DataField="fecha" HeaderText="Fecha" />
                             <asp:BoundField DataField="hora" HeaderText="Hora" />
                             <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
@@ -63,10 +63,14 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Editar">
                                 <ItemTemplate>
-                                    <a href="#" data-toggle="modal" data-target="#myModal" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">
-                                        <i class="fa fa-pencil"></i>
+                                    <div style="text-align: center;">
+                                        <a href="#" data-toggle="modal" data-target="#myModal" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">
+                                    </div>
+                                    <i class="fa fa-pencil"></i>
                                     </a>
                                 </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Center" />
+                                <ItemStyle HorizontalAlign="Center" />
                             </asp:TemplateField>
                         </Columns>
                     </asp:GridView>
