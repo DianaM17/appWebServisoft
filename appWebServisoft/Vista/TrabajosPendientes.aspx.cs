@@ -38,20 +38,36 @@ namespace appWebServisoft.Vista
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
+
             int idServicio = Convert.ToInt32(hdnSelectedId.Value);
-            int idEstado = int.Parse(ddlEstadoModal.SelectedValue.ToString());
+            int idEstado = int.Parse(ddlEstadoModal.SelectedValue);
 
             ClProfesionalL objProf = new ClProfesionalL();
-            int Cancelar = objProf.mtdCambiarEstadoTrabajo(idEstado,idServicio);
+            int resultadoActualizacion = objProf.mtdCambiarEstadoTrabajo(idEstado, idServicio);
 
-            string script = @"<script> swal({ title: '¡Cancelacion Exitosa!',
-                              text: 'El servicio se ah cancelado con exito', type: 'success',
-                            confirmButtonText: 'Aceptar'
-                });
-                    </script>";
-            if (Cancelar == 1)
+            if (resultadoActualizacion == 1)
             {
+                // La actualización fue exitosa, ahora actualizamos el GridView
+                int idProf = int.Parse(Session["idProfesional"].ToString());
+                ClServicioL objServicio = new ClServicioL();
+                List<ClSolicitudServicioE> lista = objServicio.mtdListarTrabajos(idProf);
+                gvTrabajos.DataSource = lista;
+                gvTrabajos.DataBind();
+
+                // Mostramos el mensaje de éxito con SweetAlert
+                string script = @"<script> 
+            swal({ 
+                title: '¡Cancelación Exitosa!',
+                text: 'El servicio se ha cancelado con éxito',
+                type: 'success',
+                confirmButtonText: 'Aceptar'
+            });
+        </script>";
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+            }
+            else
+            {
+              
             }
         }
 
