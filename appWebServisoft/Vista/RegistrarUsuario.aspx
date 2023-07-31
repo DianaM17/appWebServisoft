@@ -108,7 +108,6 @@
                                 <i class="bi bi-person-circle" style="color: #ec4670;"></i>
                             </div>
                             <div class="clavelIcono">
-
                                 <asp:DropDownList ID="ddlCategoria" CssClass="combo" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged" required></asp:DropDownList>
                             </div>
                             <div class="categoriapIcono">

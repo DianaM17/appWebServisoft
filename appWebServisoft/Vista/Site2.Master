@@ -73,7 +73,7 @@
                         </li>
                     </ul>
                     <style>
-                        .combo {
+                        .combobox{
                             margin-left: 40px;
                             line-height: 50px;
                             text-decoration: none;
@@ -97,7 +97,7 @@
                                 color: #272525;
                             }
                     </style>
-                    <select id="colorSelector" class="combo">
+                    <select id="colorSelector" class="combobox">
                         <option>Tema</option>
                         <option value="white">Blanco</option>
                         <option value="black">Negro</option>
