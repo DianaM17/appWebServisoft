@@ -86,10 +86,10 @@
         <div class="principal" <%--style="display: flex"--%>>
             <div class="wrapper ">
                 <i id="left" class="fa-solid fa-angle-left"></i>
-                <ul class="carousel row justify-content-center">
+                <ul class="carousel row justify-content-center col-12">
                     <asp:Repeater ID="ReptPerfil" runat="server">
                         <ItemTemplate>
-                            <div class="col-12">
+                            <div class="">
                                 <li class="card">
                                     <div class="img">
                                         <img class="imagenes" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
