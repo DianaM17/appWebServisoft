@@ -56,7 +56,7 @@
                 </div>
                 <div class="card col-3">
                     <div class="face front">
-                        <img src="Imagenes/2978479.jpg" alt="">
+                        <img src="Imagenes/2978479.jpg" alt=""> 
                         <h3>TRABAJOS REALIZADOS</h3>
                     </div>
                     <div class="face back">

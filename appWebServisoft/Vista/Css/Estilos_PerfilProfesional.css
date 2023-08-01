@@ -64,7 +64,7 @@ body {
                 margin-right: 1rem;
             }
 
-    .seccion-perfil-usuario .perfil-usuario-avatar {
+    .seccion-perfil-usuario .perfil-usuario-avatar  {
         display: flex;
         width: 180px;
         height: 180px;
@@ -80,13 +80,13 @@ body {
         z-index: 1;
     }
 
-        .seccion-perfil-usuario .perfil-usuario-avatar img {
+        .seccion-perfil-usuario .perfil-usuario-avatar img  {
             width: 100%;
             position: relative;
             border-radius: 50%;
         }
 
-        .seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar {
+        .seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar   {
             position: absolute;
             left: -2px;
             top: -2px;
@@ -98,6 +98,9 @@ body {
             border-radius: 50%;
             cursor: pointer;
         }
+
+
+
 
     .seccion-perfil-usuario .perfil-usuario-body {
         width: 70%;
