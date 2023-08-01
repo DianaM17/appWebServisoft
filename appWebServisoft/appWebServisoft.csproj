@@ -256,6 +256,7 @@
     <Content Include="Vista\TrabajosPendientes.aspx" />
     <Content Include="Vista\TrabajosSolicitadosCliente.aspx" />
     <Content Include="Vista\trabajosSolicitadosProfesional.aspx" />
+    <Content Include="Vista\Trabajos_pendientes.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -464,6 +465,13 @@
     </Compile>
     <Compile Include="Vista\trabajosSolicitadosProfesional.aspx.designer.cs">
       <DependentUpon>trabajosSolicitadosProfesional.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Trabajos_pendientes.aspx.cs">
+      <DependentUpon>Trabajos_pendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Trabajos_pendientes.aspx.designer.cs">
+      <DependentUpon>Trabajos_pendientes.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
