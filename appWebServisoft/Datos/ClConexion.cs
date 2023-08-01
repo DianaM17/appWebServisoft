@@ -12,11 +12,9 @@ namespace appWebServisoft.Datos
         public SqlConnection mtdConexion()
         {
 
+            conexion = new SqlConnection("Data Source=DESKTOP-24921JO\\SQLEXPRESS;Initial Catalog=bdProyecto;Integrated Security=True");
 
 
-            conexion = new SqlConnection("Data Source=acernitro5\\sqlexpress;Initial Catalog=bdProyecto;Integrated Security=True");
-
-          
             conexion.Open();
             return conexion;
         }

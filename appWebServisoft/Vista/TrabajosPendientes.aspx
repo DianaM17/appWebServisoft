@@ -20,40 +20,62 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h3>Trabajos</h3>
+            <h3 style="text-align: center; margin-top: 40px; font-family: Georgia;">TRABAJOS PENDIENTES</h3>
+            <br />
+            <br />
 
             <style>
                 .centered-header th {
                     text-align: center;
                 }
+
+                .Encabezado {
+                    font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;
+                    font-size: 15px;
+                }
+
+                .filas {
+                    font-family: 'Bookman Old Style';
+                    font-size: 14px;
+                }
             </style>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:GridView ID="gvTrabajos" runat="server" DataKeyNames="idsolicitudServicio" BorderColor="#000099" BorderStyle="Groove" BorderWidth="3px" AutoGenerateColumns="False" Style="margin: auto;">
+                        <HeaderStyle CssClass="centered-header Encabezado" BackColor="#99ccff" />
+                        <AlternatingRowStyle BackColor="#cedcfd" />
+                        <RowStyle BackColor="white" CssClass="filas" />
+                        <Columns>
+                            <asp:BoundField DataField="idsolicitudServicio" HeaderText="Servicio" Visible="false" />
+                            <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+                            <asp:BoundField DataField="hora" HeaderText="Hora" />
+                            <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
+                            <asp:BoundField DataField="ubicacion" HeaderText="Direccion" />
+                            <asp:BoundField DataField="nombre" HeaderText="Ciudad" />
+                            <asp:BoundField DataField="NombreCompleto" HeaderText="Cliente" />
+                            <asp:BoundField DataField="telefonoCliente" HeaderText="Telefono Cliente" />
+                            <asp:TemplateField HeaderText="Estado">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("estadoServ") %>'></asp:Label>
+                                </ItemTemplate>
 
-            <asp:GridView ID="gvTrabajos" runat="server" BorderColor="#9900FF" BorderStyle="Groove" BorderWidth="2px" BackColor="#FFCCFF" AutoGenerateColumns="False" Style="margin: auto;">
-                <HeaderStyle CssClass="centered-header" />
-                <Columns>
-                    <asp:BoundField DataField="idsolicitudServicio" HeaderText="Servicio" Visible="false" />
-                    <asp:BoundField DataField="fecha" HeaderText="Fecha" />
-                    <asp:BoundField DataField="hora" HeaderText="Hora" />
-                    <asp:BoundField DataField="descripcion" HeaderText="Descripcion" />
-                    <asp:BoundField DataField="ubicacion" HeaderText="Direccion" />
-                    <asp:BoundField DataField="nombre" HeaderText="Ciudad" />
-                    <asp:BoundField DataField="NombreCompleto" HeaderText="Cliente" />
-                    <asp:BoundField DataField="telefonoCliente" HeaderText="Telefono Cliente" />
-                    <asp:TemplateField HeaderText="Estado">
-                        <ItemTemplate>
-                            <asp:Label ID="lblEstado" runat="server" Text='<%# Eval("estadoServ") %>'></asp:Label>
-                        </ItemTemplate>
-
-                    </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Editar">
-                        <ItemTemplate>
-                            <a href="#" data-toggle="modal" data-target="#myModal">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Editar">
+                                <ItemTemplate>
+                                    <div style="text-align: center;">
+                                        <a href="#" data-toggle="modal" data-target="#myModal" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">
+                                    </div>
+                                    <i class="fa fa-pencil"></i>
+                                    </a>
+                                </ItemTemplate>
+                                <HeaderStyle HorizontalAlign="Center" />
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
@@ -68,15 +90,21 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-primary" onclick="btnGuardar_Click">Guardar</button>
+                            <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-primary" OnClick="btnGuardar_Click" />
                         </div>
                     </div>
                 </div>
             </div>
-            <asp:HiddenField ID="hdnSelectedId" runat="server" />
 
         </div>
+        <asp:HiddenField ID="hdnSelectedId" runat="server" />
+        <script>
+            function setSelectedId(id) {
+                document.getElementById('<%= hdnSelectedId.ClientID %>').value = id;
+            }
+        </script>
     </form>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

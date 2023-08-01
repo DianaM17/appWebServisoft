@@ -12,12 +12,90 @@
     <link href="Css/sweetalert.css" rel="stylesheet" />
 </head>
 <body>
-    <h1>Solictar Servicio</h1>
+    <div>
+        <a href="interfazCliente.aspx" class="cta">
+            <span>Volver</span>
+            <svg width="13px" height="10px" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1,5 L5,1 L5,3 L11,3 L11,7 L5,7 L5,9 L1,5" stroke="black" stroke-width="1.5" fill="black"></path>
+            </svg>
+
+
+        </a>
+        <style>
+            a {
+                text-decoration: none;
+                color: inherit;
+                top: 30px;
+                right: -30px;
+            }
+
+            .cta {
+                position: relative;
+                margin: auto;
+                padding: 19px 22px;
+                transition: all 0.2s ease;
+            }
+
+                .cta:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    border-radius: 28px;
+                    background: rgba(255, 171, 157, 0.5);
+                    width: 56px;
+                    height: 56px;
+                    transition: all 0.3s ease;
+                }
+
+                .cta span {
+                    position: relative;
+                    font-size: 16px;
+                    line-height: 18px;
+                    font-weight: 900;
+                    letter-spacing: 0.25em;
+                    text-transform: uppercase;
+                    vertical-align: middle;
+                }
+
+                .cta svg {
+                    position: relative;
+                    top: 0;
+                    margin-left: 10px;
+                    fill: none;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke: #111;
+                    stroke-width: 2;
+                    transform: translateX(-5px);
+                    transition: all 0.3s ease;
+                }
+
+                .cta:hover:before {
+                    width: 100%;
+                    background: #ffab9d;
+                }
+
+                .cta:hover svg {
+                    transform: translateX(0);
+                }
+
+                .cta:active {
+                    transform: scale(0.96);
+                }
+        </style>
+    </div>
+    <br />
+    <br />
+    <h1 style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;">Solicitar Servicio</h1>
+    <br />
     <div id="calendar-container">
-        <h2>Selecciona el mes y el año:</h2>
+        <h2 style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;">Selecciona el mes y el año:</h2>
+        <br />
         <asp:Label ID="lblIdCliente" runat="server" Visible="false" Text="Label"></asp:Label>
         <div class="select-container">
-            <select id="month">
+            <select id="month" style="font-family: 'Bookman Old Style';">
                 <option value="0">Enero</option>
                 <option value="1">Febrero</option>
                 <option value="2">Marzo</option>
@@ -31,10 +109,10 @@
                 <option value="10">Noviembre</option>
                 <option value="11">Diciembre</option>
             </select>
-            <select id="year"></select>
+            <select id="year" style="font-family: 'Bookman Old Style';"></select>
         </div>
         <div class="button-container">
-            <button onclick="loadCalendar()">Ver Calendario</button>
+            <button style="font-family: Cambria, Cochin, Georgia, Times, Times New Roman, serif;" onclick="loadCalendar()">Ver Calendario</button>
         </div>
         <div id="calendar"></div>
     </div>

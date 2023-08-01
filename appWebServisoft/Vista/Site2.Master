@@ -9,24 +9,81 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <link href="Css/Estilos_Master.css" rel="stylesheet" />
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    function scrollToContactForm() {
-        var contactFormSection = document.getElementById("formularioContacto");
-        if (contactFormSection) {
-            contactFormSection.scrollIntoView({ behavior: "smooth" });
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function scrollToContactForm() {
+            var contactFormSection = document.getElementById("formularioContacto");
+            if (contactFormSection) {
+                contactFormSection.scrollIntoView({ behavior: "smooth" });
+            }
         }
-    }
-</script>
-
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
 
-        <nav>
+        <%--   <nav class="navbar navbar-expand-lg navbar-light bg-light">--%>
+        <style>
+            /* Agrega el siguiente estilo para expandir los li en la barra de navegación */
+            .navbar-nav {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+                .navbar-nav .nav-item {
+                    flex-grow: 1;
+                    text-align: center;
+                }
+
+                .navbar-nav .nav-link {
+                    display: block;
+                }
+
+            /* Asegúrate de quitar cualquier estilo de padding o margin que podría afectar el espaciado */
+            .navbar-nav {
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse menu-links" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="Principal.aspx">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Categorias.aspx">Categorías</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="RegistrarUsuario.aspx">Registrarse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Login.aspx">Iniciar Sesión</a>
+                        </li>
+                    </ul>
                     <style>
+                        .combobox{
+                            margin-left: 40px;
+                            line-height: 50px;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            text-align: center;
+                            color: #000000;
+                            cursor: pointer;
+                            position: relative;
+                        }
+
                         body {
                             transition: background-color 0.3s ease-in-out;
                         }
@@ -40,7 +97,7 @@
                                 color: #272525;
                             }
                     </style>
-                    <select id="colorSelector">
+                    <select id="colorSelector" class="combobox">
                         <option>Tema</option>
                         <option value="white">Blanco</option>
                         <option value="black">Negro</option>
@@ -59,26 +116,77 @@
                             }
                         }
                     </script>
-                    <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
-                    <button id="toggleButton" class="menu-button">Menú</button>
-                    <div id="cardElements" class="menu-links">
-                        <a href="Principal.aspx">Inicio</a>
-                        <a href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
-                        <a href="Categorias.aspx">Categorías</a>
-                        <a href="RegistrarUsuario.aspx">Registrarse</a>
-                        <a href="Login.aspx">Iniciar Sesión</a>
-                        <div class="animation start-home"></div>
-                    </div>
-                </nav>
-                <br />
-
-                <div>
-                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-                    </asp:ContentPlaceHolder>
+                    <div class="animation start-home"></div>
                 </div>
-                <script src="Js/SiteMaster2.js"></script>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-            </form>
+            </div>
+        </nav>
+        <%--<div class="container-fluid">
+                <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="cardElements" class="menu-links ">
+                    <a href="Principal.aspx" class="nav-link active" aria-current="page">Inicio</a>
+                    <a href="#" onclick="scrollToContactForm(); return false;">Contáctanos</a>
+                    <a href="Categorias.aspx">Categorías</a>
+                    <a href="RegistrarUsuario.aspx">Registrarse</a>
+                    <a href="Login.aspx">Iniciar Sesión</a>
+                    <style>
+                        .combo {
+                            margin-left: 40px;
+                            line-height: 50px;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            text-align: center;
+                            color: #000000;
+                            cursor: pointer;
+                            position: relative;
+                        }
+
+                        body {
+                            transition: background-color 0.3s ease-in-out;
+                        }
+
+                            body.white {
+                                background-color: white;
+                            }
+
+                            body.black {
+                                background-color: #272525;
+                                color: #272525;
+                            }
+                    </style>
+                    <select id="colorSelector" class="combo">
+                        <option>Tema</option>
+                        <option value="white">Blanco</option>
+                        <option value="black">Negro</option>
+                    </select>
+                    <script>
+                        window.onload = function () {
+                            var colorSelector = document.getElementById("colorSelector");
+                            colorSelector.addEventListener("change", function () {
+                                var color = this.value;
+                                cambiarColorPagina(color);
+                            });
+
+                            function cambiarColorPagina(color) {
+                                var body = document.getElementsByTagName("body")[0];
+                                body.style.backgroundColor = color;
+                            }
+                        }
+                    </script>
+                    <div class="animation start-home"></div>
+                </div>
+            </div>--%>
+        <%-- </nav>--%>
+        <br />
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <script src="Js/SiteMaster2.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    </form>
 </body>
 </html>

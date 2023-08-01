@@ -6,58 +6,119 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-    <link href="Boostrap/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="Boostrap/js/bootstrap.min.js"></script>
+    <%--<link href="Boostrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Boostrap/js/bootstrap.min.js"></script>--%>
     <link href="Css/interfazMasterCliente.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-
-
-
-        <nav class="navbar1" >
-            <asp:Label ID="lblUsuario" runat="server" Text="Label" style="margin-right: 20px;"></asp:Label>
+        <nav class="navbar1">
+            <asp:Label ID="lblUsuario" runat="server" Text="Label" Style="margin-right: 20px;"></asp:Label>
             <asp:Label ID="lblIdCategoria" runat="server" Text="Label" Visible="false"></asp:Label>
         </nav>
 
         <%-- BARRA DE NAVEGACION DE BUSQUEDA--%>
-        <nav>
-            <style>
-                body {
-                    transition: background-color 0.3s ease-in-out;
+        <style>
+            /* Agrega el siguiente estilo para expandir los li en la barra de navegación */
+            .navbar-nav {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+
+                .navbar-nav .nav-item {
+                    flex-grow: 1;
+                    text-align: center;
                 }
 
-                    body.white {
-                        background-color: white;
-                    }
-
-                    body.black {
-                        background-color: #272525;
-                        color: #272525;
-                    }
-            </style>
-            <select id="colorSelector">
-                <option>Tema</option>
-                <option value="white">Blanco</option>
-                <option value="black">Negro</option>
-            </select>
-            <script>
-                window.onload = function () {
-                    var colorSelector = document.getElementById("colorSelector");
-                    colorSelector.addEventListener("change", function () {
-                        var color = this.value;
-                        cambiarColorPagina(color);
-                    });
-
-                    function cambiarColorPagina(color) {
-                        var body = document.getElementsByTagName("body")[0];
-                        body.style.backgroundColor = color;
-                    }
+                .navbar-nav .nav-link {
+                    display: block;
                 }
-            </script>
+
+            /* Asegúrate de quitar cualquier estilo de padding o margin que podría afectar el espaciado */
+            .navbar-nav {
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                <div class="titulo">
+                    <p class="titulo1">Servisoft</p>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse menu-links" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active link1" href="TrabajosPendientes.aspx">Trabajos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link2" href="perfilProfesional.aspx">Perfil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link4" href="CalendarioCitass.aspx">Calendario Solicitudes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link link3" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                    <style>
+                        .combo {
+                            margin-left: 40px;
+                            line-height: 50px;
+                            text-decoration: none;
+                            text-transform: uppercase;
+                            text-align: center;
+                            color: #000000;
+                            cursor: pointer;
+                            position: relative;
+                        }
+
+                        body {
+                            transition: background-color 0.3s ease-in-out;
+                        }
+
+                            body.white {
+                                background-color: white;
+                            }
+
+                            body.black {
+                                background-color: #272525;
+                                color: #272525;
+                            }
+                    </style>
+                    <select id="colorSelector" class="combo">
+                        <option>Tema</option>
+                        <option value="white">Blanco</option>
+                        <option value="black">Negro</option>
+                    </select>
+                    <script>
+                        window.onload = function () {
+                            var colorSelector = document.getElementById("colorSelector");
+                            colorSelector.addEventListener("change", function () {
+                                var color = this.value;
+                                cambiarColorPagina(color);
+                            });
+
+                            function cambiarColorPagina(color) {
+                                var body = document.getElementsByTagName("body")[0];
+                                body.style.backgroundColor = color;
+                            }
+                        }
+                    </script>
+                    <div class="animation start-home"></div>
+                </div>
+            </div>
+        </nav>
+        <%-- <nav>
             <asp:ImageButton class="imgs" ID="miImageButton" runat="server" ImageUrl="/Vista/Imagenes/logo_preview_rev_3.png" AlternateText="Texto_alternativo" OnClick="miImageButton_Click" />
             <div class="titulo">
                 <p class="titulo1">Servisoft</p>
@@ -65,17 +126,48 @@
             <button id="toggleButton" class="menu-button">Menú</button>
             <div id="cardElements" class="menu-links">
 
-                
-                <a class="link1"  href="TrabajosPendientes.aspx">Trabajos</a>
-                <a class="link2"  href="perfilProfesional.aspx">Perfil</a>
-                <a class="link4"  href="CalendarioCitas.aspx">Calendario Solicitudes</a>
-                <a class="link3" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
 
+                <a class="link1" href="TrabajosPendientes.aspx">Trabajos</a>
+                <a class="link2" href="perfilProfesional.aspx">Perfil</a>
+                <a class="link4" href="CalendarioCitass.aspx">Calendario Solicitudes</a>
+                <a class="link3" onclick="confirmarCerrarSesion()">Cerrar Sesión</a>
+                <style>
+                    body {
+                        transition: background-color 0.3s ease-in-out;
+                    }
+
+                        body.white {
+                            background-color: white;
+                        }
+
+                        body.black {
+                            background-color: #272525;
+                            color: #272525;
+                        }
+                </style>
+                <select id="colorSelector">
+                    <option>Tema</option>
+                    <option value="white">Blanco</option>
+                    <option value="black">Negro</option>
+                </select>
+                <script>
+                    window.onload = function () {
+                        var colorSelector = document.getElementById("colorSelector");
+                        colorSelector.addEventListener("change", function () {
+                            var color = this.value;
+                            cambiarColorPagina(color);
+                        });
+
+                        function cambiarColorPagina(color) {
+                            var body = document.getElementsByTagName("body")[0];
+                            body.style.backgroundColor = color;
+                        }
+                    }
+                </script>
             </div>
             <div class="animation start-home"></div>
-        </nav>
-
-        <style>
+        </nav>--%>
+         <style>
             /*navBar Menu*/
             nav {
                 background-color: #f0f0f0;
@@ -137,7 +229,7 @@
                 height: 100%;
                 top: 0;
                 left: 0;
-                background-color: rgba(0, 0, 0, 0.2);
+                /*background-color: rgba(0, 0, 0, 0.2);*/
                 z-index: -1;
                 border-radius: 8px;
             }
@@ -179,7 +271,7 @@
                 text-decoration: none;
                 text-transform: uppercase;
                 text-align: center;
-                color: #000000;
+               /* color: #000000;*/
                 cursor: pointer;
             }
 
@@ -238,7 +330,8 @@
 
         <script src="Js/SweetCerrarSecion.js"></script>
         <script src="Js/SiteMaster2.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
     </form>
 </body>

@@ -11,7 +11,7 @@ namespace appWebServisoft.Vista
 {
 
 
-    public partial class Principall
+    public partial class EstadoServicioss
     {
     }
 }

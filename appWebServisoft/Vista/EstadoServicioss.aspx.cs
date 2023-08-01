@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace appWebServisoft.Vista
 {
-    public partial class Principall : System.Web.UI.Page
+    public partial class EstadoServicioss : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

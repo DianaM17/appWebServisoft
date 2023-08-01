@@ -3,12 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apock web design</title>
+    <title>Perfil Profesional</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
     <link href="Css/app.css" rel="stylesheet" />
     <link href="Css/Estilos_PerfilProfesional.css" rel="stylesheet" />
     <!-- MATERIAL DESIGN ICONIC FONT -->
@@ -35,16 +35,18 @@
                         <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                             <i class="far fa-image"></i>
                         </button>
+                        <asp:Button ID="btnGuardarImg" runat="server" Text="Button" OnClick="btnGuardarImg_Click" Style="display: none;" />
                         <script>
                             function seleccionarImagen() {
                                 var input = document.getElementById('<%= ImagenInputT.ClientID%>');
                                 input.click();
                             }
 
-                            // Manejar el cambio de imagen seleccionada
+                            // Manejar el cambio de imagen se leccionada
                             var input = document.getElementById('<%= ImagenInputT.ClientID%>');
                             input.addEventListener('change', function () {
                                 var imagen = input.files[0];
+                                var btnGuardarImg = document.getElementById('<%= btnGuardarImg.ClientID%>');
 
                                 if (imagen) {
                                     var reader = new FileReader();
@@ -59,38 +61,9 @@
 
                                     reader.readAsDataURL(imagen);
                                 }
+                                btnGuardarImg.click();
                             });
 
-                            <%--function guardarImagen() {
-                                var input = document.getElementById('<%= ImagenInputT.ClientID %>');
-                                var imagen = input.files[0];
-
-                                if (imagen) {
-                                    var nombreImagen = imagen.name; // Obtiene el nombre de la imagen
-
-                                    // Llama a enviarImagenAlServidor con el nombre de la imagen
-                                    enviarImagenAlServidor(nombreImagen);
-                                }
-                            }
-
-                            function enviarImagenAlServidor(nombreImagen) {
-                                // Realiza una solicitud AJAX al servidor para guardar el nombre de la imagen
-                                $.ajax({<
-                                    type: "POST",
-                                    url: "perfilProfesional.aspx/GuardarNombreImagen",
-                                    data: JSON.stringify({ nombreImagen: nombreImagen, idProfesional: '<%= Session["idProfesional"] %>' }),
-                                    contentType: "application/json; charset=utf-8",
-                                    dataType: "json",
-                                    success: function (response) {
-                                        // Maneja la respuesta del servidor
-                                        console.log("Nombre de imagen guardado con éxito.");
-                                    },
-                                    error: function () {
-                                        // Maneja errores en la solicitud AJAX
-                                        console.log("Error al guardar el nombre de la imagen.");
-                                    }
-                                });
-                            }--%>
                         </script>
                     </div>
                     <button type="button" class="btn btn-primary boton-portada" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -225,23 +198,61 @@
             <br />
             <br />
             <%--inicio galeria--%>
-            <asp:Repeater ID="RptImagenes" runat="server">
-                <ItemTemplate>
-                    <ul class="ul">
-                        <li class="li">
-                            <a href="#" class="a" title="Imagen 1">
-                                <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
-                                <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
-                            </a>
-                        </li>
-                    </ul>
-                </ItemTemplate>
-            </asp:Repeater>
+
+            <div class="row">
+                <asp:Repeater ID="RptImagenes" runat="server">
+                    <ItemTemplate>
+                        <div class="col-12 col-sm-4 col-md-3 ">
+                            <ul class="ul">
+                                <li class="li">
+                                    <a href="#" class="a custom-link" title="Imagen 1">
+                                        <asp:Image CssClass="img" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' Height="150px" Width="1560px" />
+                                        <%--<img src="assets/1.jpg" alt="Imagen 1" class="img" loading="lazy">--%>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
 
             <div class="lightbox">
                 <button class="cerrar">Cerrar</button>
                 <img src="Carrusel/assets/1.jpg" alt="Imagen 1" class="grande" loading="lazy">
             </div>
+
+            <script>
+                function initializeGallery() {
+                    const enlaces = document.querySelectorAll('.custom-link');
+                    const lightbox = document.querySelector('.lightbox');
+                    const grande = document.querySelector('.grande');
+                    const cerrar = document.querySelector('.cerrar');
+
+                    enlaces.forEach((cadaEnlace) => {
+                        cadaEnlace.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            let ruta = cadaEnlace.querySelector('.img').src;
+                            console.log(ruta);
+
+                            lightbox.classList.add('activo');
+                            grande.setAttribute('src', ruta);
+                        });
+                    });
+
+                    cerrar.addEventListener('click', (e) => {
+                        e.preventDefault(); // Evita que la página se recargue al cerrar la lightbox
+                        lightbox.classList.remove('activo');
+                        // Vuelve a inicializar la galería cada vez que se cierra la lightbox
+                        initializeGallery();
+                    });
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    initializeGallery();
+                });
+            </script>
+
         </section>
         <!--====  End of html  ====-->
 
