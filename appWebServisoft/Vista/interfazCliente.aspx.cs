@@ -16,6 +16,8 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+          
+           
             ClProfesionalL objProfesional = new ClProfesionalL();
             List<ClProfesionalE> verifica = objProfesional.mtdListarProfesional();
             Repeater1.DataSource = verifica;

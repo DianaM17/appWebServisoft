@@ -42,8 +42,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.6.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\lib\net462\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -112,6 +119,7 @@
     <Content Include="Vista\Css\interfazMasterCliente.css" />
     <Content Include="Vista\Css\Estilos_PerfilProfesional.css" />
     <Content Include="Vista\Css\normalize.css" />
+    <Content Include="Vista\Css\perfilProfesionalUsuario.css" />
     <Content Include="Vista\Css\style.css" />
     <Content Include="Vista\Css\style_formularioServ.css" />
     <Content Include="Vista\Css\sweetalert.css" />
@@ -209,6 +217,8 @@
     <Content Include="Vista\Imagenes\foto5.jpg" />
     <Content Include="Vista\Imagenes\Iconos\abajo.png" />
     <Content Include="Vista\Imagenes\Iconos\arriba.png" />
+    <Content Include="Vista\Imagenes\Iconos\Ubicacion.png" />
+    <Content Include="Vista\Imagenes\Iconos\whatsapp.png" />
     <Content Include="Vista\Imagenes\image-1.svg" />
     <Content Include="Vista\Imagenes\imagenesProfesional\abogado.jpg" />
     <Content Include="Vista\Imagenes\imagenesTrabajosRealizados\eee.jpg" />
@@ -245,6 +255,7 @@
     <Content Include="Vista\Js\main.js" />
     <Content Include="Vista\perfilCliente.aspx" />
     <Content Include="Vista\perfilProfesional.aspx" />
+    <Content Include="Vista\perfilProfesionalUsuario.aspx" />
     <Content Include="Vista\Principal.aspx" />
     <Content Include="Vista\Prueba.aspx" />
     <Content Include="Vista\RecuperarContraseña.aspx" />
@@ -387,6 +398,13 @@
     </Compile>
     <Compile Include="Vista\perfilProfesional.aspx.designer.cs">
       <DependentUpon>perfilProfesional.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\perfilProfesionalUsuario.aspx.cs">
+      <DependentUpon>perfilProfesionalUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\perfilProfesionalUsuario.aspx.designer.cs">
+      <DependentUpon>perfilProfesionalUsuario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Principal.aspx.cs">
       <DependentUpon>Principal.aspx</DependentUpon>
