@@ -109,9 +109,10 @@ namespace appWebServisoft.Datos
         //Muestra todos los servicios que ha hecho un cliente
         public List<ClSolicitudServicioE> mtdServicioCliente(int idCliente)
         {
-            string consulta = "SELECT SolSer.idsolicitudServicio, fecha, hora, descripcion, ubicacion, Ciu.nombre AS nombre_ciudad, Servicio.servicio, Prof.nombres AS nombres_profesional, apellidos AS apellidos_profesional, EstadoServicio.* FROM solicitudServicio AS SolSer JOIN Ciudad AS Ciu ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio JOIN Profesional AS Prof ON SolSer.idProfesional = Prof.idProfesional LEFT JOIN EstadoServicio ON SolSer.idsolicitudServicio = EstadoServicio.idEstadoServicio WHERE idCliente = " + idCliente + "";
-
-            ;
+            string consulta = "SELECT SolSer.idsolicitudServicio,fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, Prof.nombres,apellidos" +
+                " FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
+                "ON SolSer.idServicio = Servicio.idServicio JOIN Profesional[Prof] " +
+                "ON SolSer.idProfesional = Prof.idProfesional where SolSer.idEstadoServicio = 1 and idCliente = " + idCliente + "";
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
@@ -128,12 +129,11 @@ namespace appWebServisoft.Datos
                 objServ.hora = tblDatos.Rows[i]["hora"].ToString();
                 objServ.descripcion = tblDatos.Rows[i]["descripcion"].ToString();
                 objServ.ubicacion = tblDatos.Rows[i]["ubicacion"].ToString();
-                objServ.nombre = tblDatos.Rows[i]["nombre_ciudad"].ToString(); //Nombre de la ciudad
+                objServ.nombre = tblDatos.Rows[i]["nombre"].ToString(); //Nombre de la ciudad
                 objServ.servicio = tblDatos.Rows[i]["servicio"].ToString();
-                objServ.nombres = tblDatos.Rows[i]["nombres_profesional"].ToString();
-                objServ.apellidos = tblDatos.Rows[i]["apellidos_profesional"].ToString();
+                objServ.nombres = tblDatos.Rows[i]["nombres"].ToString();
+                objServ.apellidos = tblDatos.Rows[i]["apellidos"].ToString();
                 objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
-                objServ.estadoServ = tblDatos.Rows[i]["estado"].ToString();
                 listaServ.Add(objServ);
             }
             return listaServ;
