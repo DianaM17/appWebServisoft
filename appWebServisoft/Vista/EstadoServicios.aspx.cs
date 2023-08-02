@@ -63,21 +63,47 @@ namespace appWebServisoft.Vista
             gvServicio.DataBind();
         }
 
+        //protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        System.Web.UI.WebControls.Label label1 = e.Row.FindControl("Label1") as System.Web.UI.WebControls.Label;
+        //        if (label1 != null)
+        //        {
+        //            string idsolicitudServicio = gvServicio.DataKeys[e.Row.RowIndex]["idsolicitudServicio"].ToString();
+        //            label1.Text = idsolicitudServicio;
+        //            System.Web.UI.WebControls.Button btnOpenModal = e.Row.FindControl("btnOpenModal") as System.Web.UI.WebControls.Button;
+        //            if (btnOpenModal != null)
+        //            {
+        //                btnOpenModal.Attributes["data-idsolicitudservicio"] = idsolicitudServicio;
+        //            }
+        //        }
+        //    }
+        //}
+
         protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                System.Web.UI.WebControls.Label label1 = e.Row.FindControl("Label1") as System.Web.UI.WebControls.Label;
-                if (label1 != null)
+                // Obtener el valor del campo "estadoServ" para la fila actual
+                string estadoServicio = DataBinder.Eval(e.Row.DataItem, "estadoServ").ToString();
+
+                // Buscar el control de botón dentro del UpdatePanel
+                Button btnOpenModal = e.Row.FindControl("btnOpenModal") as Button;
+
+                // Verificar si el estado del servicio es "terminado" para mostrar el botón de comentarios
+                if (estadoServicio == "Terminado")
                 {
-                    string idsolicitudServicio = gvServicio.DataKeys[e.Row.RowIndex]["idsolicitudServicio"].ToString();
-                    label1.Text = idsolicitudServicio;
-                    System.Web.UI.WebControls.Button btnOpenModal = e.Row.FindControl("btnOpenModal") as System.Web.UI.WebControls.Button;
-                    if (btnOpenModal != null)
-                    {
-                        btnOpenModal.Attributes["data-idsolicitudservicio"] = idsolicitudServicio;
-                    }
+                    btnOpenModal.Visible = true;
                 }
+                else
+                {
+                    btnOpenModal.Visible = false;
+                }
+
+                // Ajustar el atributo data-idsolicitudservicio del botón para usarlo en JavaScript
+                string idsolicitudServicio = gvServicio.DataKeys[e.Row.RowIndex]["idsolicitudServicio"].ToString();
+                btnOpenModal.Attributes["data-idsolicitudservicio"] = idsolicitudServicio;
             }
         }
 
@@ -153,15 +179,11 @@ namespace appWebServisoft.Vista
 
             if (resultado == 1)
             {
-                string script = @"<script>
-                    alert('Comentario Registrado: Su Comentario se ha registrado correctamente.');
-                  </script>";
-
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertTest", script, true);
-
+                
                 ScriptManager.RegisterStartupScript(this, GetType(), "CerrarModalYRecargar", "$('.modal').modal('hide'); location.reload();", true);
             }
         }
+
 
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
