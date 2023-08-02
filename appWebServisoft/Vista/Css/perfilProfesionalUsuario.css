@@ -1,0 +1,403 @@
+﻿﻿html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    line-height: 1.4;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    color: #404040;
+    font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
+}
+
+
+/* Estilos para la sección del perfil del usuario */
+.seccion-perfil-usuario,
+.seccion-perfil-usuario .perfil-usuario-body {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .seccion-perfil-usuario .perfil-usuario-header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(#B873FF, transparent);
+        margin-bottom: 1.25rem;
+    }
+
+    .seccion-perfil-usuario .perfil-usuario-portada {
+        display: block;
+        position: relative;
+        width: 90%;
+        height: 17rem;
+        background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
+        border-radius: 0 0 20px 20px;
+        background-image: url('http://localhost/multimedia/png/user-portada-3.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+.titulo {
+    font-family: "Bahnschrift", sans-serif;
+    font-size: 70px;
+    font-weight: bold;
+}
+
+.informacion1 {
+    font-family: "Bahnschrift", sans-serif;
+    font-size: 20px;
+}
+
+.informacion2 {
+    font-family: "Bahnschrift", sans-serif;
+    font-size: 20px;
+}
+
+
+.perfil-usuario-footer {
+    font-family: "Bahnschrift", sans-serif;
+    font-size: 20px;
+}
+
+/* Estilos para el avatar */
+.seccion-perfil-usuario .perfil-usuario-avatar .imagenes {
+    display: flex;
+    width: 180px;
+    height: 180px;
+    align-items: center;
+    justify-content: center;
+    border: 7px solid #FFFFFF;
+    background-color: #DFE5F2;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: -10px;
+    left: calc(50% - 90px);
+    z-index: 1;
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar img .imagenes {
+    width: 100%;
+    position: relative;
+    border-radius: 50%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-avatar .boton-avatar .imagenes {
+    position: absolute;
+    left: -2px;
+    top: -2px;
+    border: 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Estilos para el cuerpo del perfil del usuario */
+.seccion-perfil-usuario .perfil-usuario-body {
+    width: 70%;
+    position: relative;
+    max-width: 950px;
+}
+
+    .seccion-perfil-usuario .perfil-usuario-body .titulo {
+        display: block;
+        width: 100%;
+        font-size: 1.75em;
+        margin-bottom: 0.5rem;
+    }
+
+    .seccion-perfil-usuario .perfil-usuario-body .texto {
+        color: #848484;
+        font-size: 0.95em;
+    }
+
+/* Estilos para el pie de página y la biografía del perfil del usuario */
+.seccion-perfil-usuario .perfil-usuario-footer,
+.seccion-perfil-usuario .perfil-usuario-bio {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3.5rem 2rem;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.seccion-perfil-usuario .perfil-usuario-bio {
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+/* Estilos para la lista de datos en el perfil del usuario */
+.seccion-perfil-usuario .lista-datos {
+    width: 50%;
+    list-style: none;
+}
+
+    .seccion-perfil-usuario .lista-datos li {
+        padding: 5px 0;
+    }
+
+        .seccion-perfil-usuario .lista-datos li > .icono {
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            vertical-align: middle;
+        }
+
+/* Estilos para las redes sociales en el perfil del usuario */
+.seccion-perfil-usuario .redes-sociales {
+    position: absolute;
+    right: calc(0px - 50px - 1rem);
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    .seccion-perfil-usuario .redes-sociales .boton-redes {
+        border: 0;
+        background-color: #fff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        color: #fff;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+        font-size: 1.3rem;
+    }
+
+        .seccion-perfil-usuario .redes-sociales .boton-redes + .boton-redes {
+            margin-top: 0.5rem;
+        }
+
+
+
+.galeria {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los elementos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos dentro del contenedor */
+    width: 100%;
+    height: 500px;
+    padding: 10PX;
+}
+
+
+    .galeria img {
+        flex-grow: 1;
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        filter: brightness(80%);
+        transition: .7s ease;
+        object-fit: cover; /* Ajusta la imagen para cubrir todo el contenedor sin deformarla*/
+        object-position: center; /*Centra la imagen verticalmente dentro del contenedor*/
+    }
+
+
+
+/* Mantén los estilos existentes del carrusel y las imágenes aquí */
+.carousel-container {
+    position: relative;
+}
+
+
+
+/* Estilos para la sección de título */
+.containerTitulo {
+    font-family: Century, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    position: relative; /* Ajustar la posición de los elementos hijos */
+}
+
+.titulo1 {
+    display: inline-block;
+}
+
+/* Estilos para la línea de colores debajo del título */
+.lineaDeColores {
+    position: absolute;
+    bottom: -10px; /* Ajustar la posición vertical de la línea según sea necesario */
+    left: 50%; /* Centrar la línea horizontalmente */
+    transform: translateX(-50%); /* Ajustar la posición horizontal para que la línea esté debajo del h5 */
+    width: calc(100% - 1000px); /* Ancho de la línea (ancho total del contenedor - 40px de margen) */
+    height: 3px; /* Altura de la línea */
+    background: linear-gradient(to right, red, green, blue); /* Gradiente de colores para la línea */
+}
+
+/* Estilos para adaptación a dispositivos móviles */
+@media (max-width: 750px) {
+    .seccion-perfil-usuario .lista-datos {
+        width: 100%;
+    }
+
+    .seccion-perfil-usuario .perfil-usuario-portada,
+    .seccion-perfil-usuario .perfil-usuario-body {
+        width: 95%;
+    }
+
+    .seccion-perfil-usuario .redes-sociales {
+        position: relative;
+        flex-direction: row;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /* Estilos para adaptación a dispositivos móviles */
+    @media (max-width: 750px) {
+        .seccion-perfil-usuario .lista-datos {
+            width: 100%;
+        }
+
+        .seccion-perfil-usuario .perfil-usuario-portada,
+        .seccion-perfil-usuario .perfil-usuario-body {
+            width: 95%;
+        }
+
+        .seccion-perfil-usuario .redes-sociales {
+            position: relative;
+            flex-direction: row;
+            width: 100%;
+            left: 0;
+            text-align: center;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            border: 1px solid #adb5bd;
+            transition: .4s;
+            border-radius: 30px;
+        }
+
+            .slider:before {
+                position: absolute;
+                content: "";
+                height: 1.4em;
+                width: 1.4em;
+                border-radius: 20px;
+                left: 0.27em;
+                bottom: 0.25em;
+                background-color: #adb5bd;
+                transition: .4s;
+            }
+
+        .input:checked + .slider {
+            background-color: #007bff;
+            border: 1px solid #007bff;
+        }
+
+        .input:focus + .slider {
+            box-shadow: 0 0 1px #007bff;
+        }
+
+        .input:checked + .slider:before {
+            transform: translateX(1.4em);
+            background-color: #fff;
+        }
+
+        Estilos boton Add Trabajos Realizados
+        .cssbuttons-io-button {
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 0.7em 1.4em 0.7em 1.1em;
+            color: white;
+            background: #ad5389;
+            background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+            border: none;
+            box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+            letter-spacing: 0.05em;
+            border-radius: 20em;
+        }
+
+        .cssbuttons-io-button svg {
+            margin-right: 6px;
+        }
+
+        .cssbuttons-io-button:hover {
+            box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+        }
+
+        .cssbuttons-io-button:active {
+            box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+        }
+
+        /*Estilos Ventana Modal Trabajos Realizados*/
+        .containerS {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #13121269;
+            border-radius: 5px;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .inpdddut[type="file"] {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            background-color: #1aa3bb;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .inpdddut[type="submit"] {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .inpdddut[type="submit"]:hover {
+                background-color: #006F8F;
+            }
+
+        .imagenes {
+            height: 150px;
+            width: 150px;
+        }
