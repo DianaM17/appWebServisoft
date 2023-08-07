@@ -36,7 +36,7 @@ namespace appWebServisoft.Datos
 
         public ClProfesionalE mtdLoginProfesional(string Usuario, string clave)
         {
-            string consulta = "Select * from Profesional where email='" + Usuario + "' and clave='" + clave + "'";
+            string consulta = "SELECT * FROM Profesional INNER JOIN Categoria ON Profesional.idCategoria = Categoria.idCategoria where email='" + Usuario + "' and clave='" + clave + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblDatos = SQL.mtdSelectDesc(consulta);
 
@@ -54,6 +54,7 @@ namespace appWebServisoft.Datos
                 objProfesional.perfil = tblDatos.Rows[0]["perfil"].ToString();
                 objProfesional.fotos = tblDatos.Rows[0]["fotos"].ToString();
                 objProfesional.estado = tblDatos.Rows[0]["estado"].ToString();
+                objProfesional.categoria = tblDatos.Rows[0]["categoria"].ToString();
                 objProfesional.idCategoria = int.Parse(tblDatos.Rows[0]["idCategoria"].ToString());
                 objProfesional.idServicio = int.Parse(tblDatos.Rows[0]["idServicio"].ToString());
                 objProfesional.idCiudad = int.Parse(tblDatos.Rows[0]["idCiudad"].ToString());

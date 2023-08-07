@@ -62,7 +62,7 @@
                             <a class="nav-link link2" href="EstadoServicios.aspx">Servicios Solicitados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link link1" href="TrabajosSolicitadosCliente.aspx">Trabajos</a>
+                            <a class="nav-link link1" href="TrabajosSolicitadosCliente.aspx">Cotizaciones</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link2" href="perfilCliente.aspx">Perfil</a>

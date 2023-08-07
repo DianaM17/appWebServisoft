@@ -33,13 +33,15 @@ namespace appWebServisoft.Vista
             ClClienteL objCliente = new ClClienteL();
             ClClienteE objClienteE = objCliente.mtdLoginCliente(usuario, clave);
 
+            
+
             if (objProfesionalE != null)
             {
                 Session["idProfesional"] = objProfesionalE.idProfesional;
                 Session["TeleProfesional"] = objProfesionalE.telefono;
                 Session["usuario"] = objProfesionalE.nombres + " " + objProfesionalE.apellidos;
                 Session["idCategoria"] = objProfesionalE.idCategoria;
-
+                Session["profesion"] = objProfesionalE.categoria;
                 Response.Redirect("interfazProfesional.aspx");
 
             }

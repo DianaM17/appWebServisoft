@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/MasterProfesional.Master" AutoEventWireup="true" CodeBehind="interfazProfesional.aspx.cs" Inherits="appWebServisoft.Vista.interfazProfecional" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-o8PzrEX2TAtKfG69ho/S3PvosKYYg3sMwQcov3a7oIE=" crossorigin="anonymous"></script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
       <nav class="navbar">
@@ -32,49 +35,80 @@
         }
     </style>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3O+6WOoHFiQz1Uph6u8iB1pMnqzu1mGbgwyOBk=" crossorigin="anonymous"></script>
 
 
     <asp:Label ID="lblUsuario" runat="server" Text="Label" Style="margin-right: 20px;" Visible="false"></asp:Label>
     <asp:Label ID="lblIdCategoria" runat="server" Text="" Visible="false"></asp:Label>
     <asp:Label ID="Label3" runat="server" Text=""></asp:Label>
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
 
- <asp:Repeater ID="repeaterListar" runat="server" OnItemDataBound="RepeaterListar_ItemDataBound">
-    <ItemTemplate>
-        <div class="card-container col-8 col-sm-6 col-md-4 col-lg-3">
-            <div class="card-content">
-                <asp:Label ID="lblIdCotizacion" runat="server" Text='<%# Eval("idCotizacion") %>' Visible="false"></asp:Label>
-                <div class="card1-container1">
-                    <asp:Label runat="server" ID="lblCategoria" class="lblCategoria centrar-texto" Text='<%# Eval("tituloServicio") %>'></asp:Label>
-                    <!-- Resto del contenido de la tarjeta -->
-                </div>
-                <br />
-                <asp:Label runat="server" ID="Label1" CssClass="Label1" Text='<%# Eval("descripcion") %>'></asp:Label>
-                <br />
-                <br />
-                <asp:Label runat="server" ID="Label2" class="Label2">
-                    <img src="Imagenes/Iconos/Ubicacion.png" alt="Ubicación" class="icon-location-img" /> Dirección: <%# Eval("direccion") %>
-                </asp:Label>
-
-                <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true">
-                    <ContentTemplate>
-                        <div class="boton-container">
+ 
+    <div class="container">
+        <div class="row justify-content-center">
+            <asp:Repeater ID="repeaterListar" runat="server" OnItemDataBound="RepeaterListar_ItemDataBound">
+                <ItemTemplate>
+                    <div class="col-sm-6 col-md-6 col-lg-6">
+                        <div class="card-content">
+                            <asp:Label ID="lblIdCotizacion" runat="server" Text='<%# Eval("idCotizacion") %>' Visible="false"></asp:Label>
+                            <div class="card1-container1">
+                                <asp:Label runat="server" ID="lblCategoria" class="lblCategoria centrar-texto" Text='<%# Eval("tituloServicio") %>'></asp:Label>
+                                <!-- Resto del contenido de la tarjeta -->
+                            </div>
                             <br />
-                            <asp:Button ID="btnSolicitarTrabajo" runat="server" Text="Solicitar Trabajo" CssClass="boton-derecha" OnClick="BtnSolicitarTrabajo_Click" OnClientClick="return solicitarTrabajo();" />
-                            <asp:Label ID="lblChulito" runat="server" Text="&#10004;" CssClass="chulito" Visible="false"></asp:Label>
-                            <asp:Label ID="lblTextoSolicitado" runat="server" Text="Cotización Solicitada" CssClass="texto-solicitado" Visible="false"></asp:Label>
-                            <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Cancelar Solicitud" CssClass="boton-derecha1" onclick="btnCancelarSolicitud_Click" Visible="false" />
-                        </div>
-                    </ContentTemplate>
-                </asp:UpdatePanel>
-            </div>
+                            <asp:Label runat="server" ID="Label1" CssClass="Label1" Text='<%# Eval("descripcion") %>'></asp:Label>
+                            <br />
+                            <br />
+                            <asp:Label runat="server" ID="Label2" class="Label2">
+                    <img src="Imagenes/Iconos/Ubicacion.png" alt="Ubicación" class="icon-location-img" /> Dirección: <%# Eval("direccion") %>
+                            </asp:Label>
+                            <div class="boton-container">
+                                <br />
+                                <br />
+                                <asp:UpdatePanel runat="server" ID="updPanel2" UpdateMode="Conditional">
+                                    <ContentTemplate>
+                                        <asp:Button ID="btnSolicitarTrabajo" runat="server" Text="Solicitar Trabajo" CssClass="boton-derecha"
+                                            OnClick="BtnSolicitarTrabajo_Click" OnClientClick="solicitarTrabajo(<%# Container.ItemIndex %>); return false;"
+                                            CommandArgument='<%# Eval("idCotizacion") %>' />
+                                        <asp:Label ID="lblChulito" runat="server" Text="&#10004;" CssClass="chulito" Visible="false"></asp:Label>
+                                        <asp:Label ID="lblTextoSolicitado" runat="server" Text="Cotización Solicitada" CssClass="texto-solicitado" Visible="false"></asp:Label>
+                                        <asp:Button ID="btnCancelarSolicitud" runat="server" Text="Cancelar Solicitud" CssClass="boton-derecha1" OnClick="btnCancelarSolicitud_Click" Visible="false" />
+                                        <!-- Agregar el Label fuera del Repeater -->
+                                        <asp:Label ID="lblIdSeleccionCotizacion" runat="server" Text="" Visible="false"></asp:Label>
+
+                                        </div>
+                                  </div>
+                             </div>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                                     
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
-    </ItemTemplate>
-</asp:Repeater>
+    </div>
 
 
-    <asp:GridView ID="GridView1" runat="server" DataKeyNames="idsolicitudServicio"></asp:GridView>
 
+    <asp:UpdatePanel ID="updatePanelGridView" runat="server" UpdateMode="Conditional">
+        <ContentTemplate>
+            <asp:GridView ID="gridViewDatos" runat="server" AutoGenerateColumns="False" Visible="false"> 
+                <Columns>
+                    <asp:BoundField DataField="idSeleccionCotizacion" HeaderText="idSeleccionCotizacion" />
+                    <asp:BoundField DataField="seleccionProfesional" HeaderText="seleccionProfesional" />
+                    <asp:BoundField DataField="idProfesional" HeaderText="idProfesional" />
+                    <asp:BoundField DataField="idCotizacion" HeaderText="idCotizacion" />
+                </Columns>
+            </asp:GridView>
+        </ContentTemplate>
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="timerActualizar" EventName="Tick" />
+        </Triggers>
+    </asp:UpdatePanel>
+
+    <asp:Timer ID="timerActualizar" runat="server" Interval="1000" OnTick="timerActualizar_Tick"></asp:Timer>
+
+              
+      
     <style>
         .chulito {
     font-size: 24px;
@@ -98,18 +132,22 @@
     </script>
 
     <style>
-        .card-container {
-            width: calc(100% - 80px);
+   .custom-card {
+        margin-top: 40px; /* Ajusta la cantidad de margen superior según tus preferencias */
+    }
 
-            margin: 40px;
-            padding: 20px;
+.card-content {
+    margin-top: 20px;
+   border-bottom: 50px;
+            padding: 30px;
             background-color: #f0f0f0;
             box-sizing: border-box;
-
             border: 2px solid transparent; 
-        }
+}
 
-        .card-container:hover{
+     
+
+        .card-content:hover{
              border-color:#2C43B4;
         }
 
@@ -187,12 +225,6 @@ text-align: center;
                 background-color: #b01b1b;
             }
 
-
-        
-
-        .card-content {
-            width: 100%;
-        }
 
         .boton-container {
             position: relative;

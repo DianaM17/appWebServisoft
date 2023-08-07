@@ -13,7 +13,7 @@
 </head>
 <body>
     <div>
-        <a href="interfazCliente.aspx" class="cta">
+        <a href="#" onclick="window.history.back(); return false;" class="cta">
             <span>Volver</span>
             <svg width="13px" height="10px" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M1,5 L5,1 L5,3 L11,3 L11,7 L5,7 L5,9 L1,5" stroke="black" stroke-width="1.5" fill="black"></path>

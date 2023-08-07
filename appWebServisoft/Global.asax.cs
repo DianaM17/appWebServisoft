@@ -25,6 +25,7 @@ namespace appWebServisoft
             Session["Cliente"] = "";
             Session["idCategoria"] = "";
             Session["idSolicitudServicio"] = "";
+            Session["profesion"] = "";
 
 
         }
@@ -53,6 +54,7 @@ namespace appWebServisoft
             Session["Cliente"] = "";
             Session["idCategoria"] = "";
             Session["idSolicitudServicio"] = "";
+            Session["profesion"] = "";
 
 
         }

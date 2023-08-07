@@ -21,7 +21,7 @@ namespace appWebServisoft.Logica
         }
 
         public List<ClCotizacionE> mtdListarCotizacion(int idCategoria)
-        {
+            {
             ClCotizacioD ObjCotizacion = new ClCotizacioD();
             List<ClCotizacionE> ListaCotizacion = ObjCotizacion.mtdListaCotizacion(idCategoria);
             return ListaCotizacion;
@@ -42,10 +42,10 @@ namespace appWebServisoft.Logica
             return regis;
         }
 
-        public List<ClSeleccionCotizacionE> mtdSeleccionCotizacion(int seleccionProf)
+        public List<ClSeleccionCotizacionE> mtdSeleccionCotizacion(int seleccionProf, int idProfesional)
         {
             ClCotizacioD ObjCotizacion = new ClCotizacioD();
-            List<ClSeleccionCotizacionE> ListaCotizacion = ObjCotizacion.mtdSeleccionCotizacion(seleccionProf);
+            List<ClSeleccionCotizacionE> ListaCotizacion = ObjCotizacion.mtdSeleccionCotizacion(seleccionProf, idProfesional);
             return ListaCotizacion;
         }
 
@@ -54,6 +54,14 @@ namespace appWebServisoft.Logica
             ClCotizacioD ObjCotizacion = new ClCotizacioD();
             List<ClSeleccionCotizacion1E> ListaCotizacion = ObjCotizacion.mtdListarProfesionalCotizacion(idCotizacion, seleccionProfesional);
             return ListaCotizacion;
+        }
+
+        //Logica eliminar selecion cotizacion
+        public int mtdEliminarseleleccionCotizacion(int idSeleccionCotizacion)
+        {
+            ClCotizacioD objSelectCoti = new ClCotizacioD();
+            int regis = objSelectCoti.mtdEliminarseleleccionCotizacion(idSeleccionCotizacion);
+            return regis;
         }
     }
 }
