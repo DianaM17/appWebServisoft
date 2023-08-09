@@ -12,6 +12,7 @@ namespace appWebServisoft.Vista
         protected void Page_Load(object sender, EventArgs e)
         {
             lblUsuario.Text = "Bienvenido: " + Session["usuario"].ToString();
+            lblProfesion.Text = "(" + Session["profesion"].ToString() + ")";
             lblIdCategoria.Text =Session["idCategoria"].ToString();
         }
 

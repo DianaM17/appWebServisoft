@@ -27,6 +27,7 @@ namespace appWebServisoft.Vista
             Repeater2.DataSource = imagenes;
             Repeater2.DataBind();
 
+
             if (!IsPostBack)
             {
                 //Cargar Combo ddlCategoria 
@@ -55,7 +56,6 @@ namespace appWebServisoft.Vista
             reptCateg.DataSource = list;
             reptCateg.DataBind();
         }
-
         protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             string idCateg = ddlCategoria.SelectedValue;

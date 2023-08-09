@@ -119,11 +119,11 @@ Cards Profecionales
  Resto del estilo de las tarjetas y el carrusel 
 .card {
     display: flex;
-    justify-content: center;  Centrar horizontalmente 
+    justify-content: center;  
 }
 
 .custom-card {
-    margin: 0 10px;  Margen entre tarjetas 
+    margin: 0 10px; 
 }
 
 .card-body {

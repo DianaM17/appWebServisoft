@@ -4,9 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.EnterpriseServices;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.DynamicData;
+using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -14,8 +16,12 @@ namespace appWebServisoft.Vista
 {
     public partial class interfazProfecional : System.Web.UI.Page
     {
-        // Declarar una variable de clase para almacenar los datos de listaCotizaciones1
-        private List<ClSeleccionCotizacionE> listaCotizaciones1;
+
+        private List<int> cotizacionesOcultas = new List<int>();
+
+        // Declarar la variable listaCotizaciones1 fuera del método BindRepeater() y RepeaterListar_ItemDataBound
+        private List<ClSeleccionCotizacionE> listaCotizaciones1 = new List<ClSeleccionCotizacionE>();
+
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -26,16 +32,15 @@ namespace appWebServisoft.Vista
 
             if (!IsPostBack)
             {
-                ClCotizacionL objCotizacion = new ClCotizacionL();
-                List<ClCotizacionE> listaCotizaciones = objCotizacion.mtdListarCotizacion(Convert.ToInt32(Session["idCategoria"]));
-                listaCotizaciones1 = objCotizacion.mtdSeleccionCotizacion(1);
-                //repeaterListar.DataSource = listaCotizaciones;
-                //repeaterListar.DataBind();
-                Session["ListaCotizaciones1"] = listaCotizaciones1;
-                GridView1.DataKeyNames = new string[] { "idsolicitudServicio" }; // Configurar DataKeyNames
-                GridView1.DataBind();
+                //ClCotizacionL objCotizacion = new ClCotizacionL();
+                //List<ClSeleccionCotizacionE> listaCotizaciones1 = objCotizacion.mtdSeleccionCotizacion(1, 7);
+                //GridView1.DataSource = listaCotizaciones1;
+                //GridView1.DataBind(); 
+
 
                 repeaterListar.ItemDataBound += RepeaterListar_ItemDataBound;
+
+     
 
                 BindRepeater();
 
@@ -46,66 +51,100 @@ namespace appWebServisoft.Vista
             }
         }
 
-        private void BindRepeater()
+        protected void BindRepeater()
         {
             ClCotizacionL objCotizacion = new ClCotizacionL();
             List<ClCotizacionE> listaCotizaciones = objCotizacion.mtdListarCotizacion(Convert.ToInt32(Session["idCategoria"]));
-            listaCotizaciones1 = objCotizacion.mtdSeleccionCotizacion(1);
+
+            int idProfesional;
+
+            if (int.TryParse(Session["idProfesional"].ToString(), out idProfesional))
+            {
+                // Obtener la lista de registros de seleccionProfesional para el idCotizacion e idProfesional específicos
+                listaCotizaciones1 = objCotizacion.mtdSeleccionCotizacion(1, idProfesional);
+            }
+
+            cotizacionesOcultas.Clear(); // Limpiamos la lista antes de agregar nuevas cotizaciones ocultas
+
+            foreach (ClSeleccionCotizacionE cotizacion in listaCotizaciones1)
+            {
+                // Verificar si la cotización tiene seleccionProfesional = 1
+                if (cotizacion.seleccionProfesional == 1)
+                {
+                    // Agregar el idCotizacion a la lista de cotizaciones ocultas
+                    cotizacionesOcultas.Add(cotizacion.idCotizacion);
+                }
+            }
+
             repeaterListar.DataSource = listaCotizaciones;
             repeaterListar.DataBind();
         }
+
+
+
+
+
 
         protected void RepeaterListar_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             if (e.Item.ItemType == ListItemType.Item || e.Item.ItemType == ListItemType.AlternatingItem)
             {
-                RepeaterItem repeaterItem = e.Item;
+                // Obtener el botón "btnSolicitarTrabajo" del RepeaterItem actual
+                Button btnSolicitarTrabajo = (Button)e.Item.FindControl("btnSolicitarTrabajo");
 
-                // Obtener el valor del identificador "idCotizacion" desde el RepeaterItem
-                int idCotizacion = Convert.ToInt32(DataBinder.Eval(repeaterItem.DataItem, "idCotizacion"));
+                Label lblChulito = (Label)e.Item.FindControl("lblChulito");
+                Label lblTextoSolicitado = (Label)e.Item.FindControl("lblTextoSolicitado");
+                // Obtener el botón "btnCancelarSolicitud" del RepeaterItem actual
+                Button btnCancelarSolicitud = (Button)e.Item.FindControl("btnCancelarSolicitud");
 
-                // Buscar el registro correspondiente en la lista listaCotizaciones1 usando el idCotizacion
-                ClSeleccionCotizacionE seleccionCotizacion = listaCotizaciones1.FirstOrDefault(c => c.seleccionProfesional == idCotizacion);
-
-                // Acceder al botón dentro del RepeaterItem
-                Button btnSolicitarTrabajo = repeaterItem.FindControl("btnSolicitarTrabajo") as Button;
-                Button btnCancelarSolicitud = repeaterItem.FindControl("btnCancelarSolicitud") as Button;
-                Label lblChulito = repeaterItem.FindControl("lblChulito") as Label;
-                Label lblTextoSolicitado = repeaterItem.FindControl("lblTextoSolicitado") as Label;
-
-                // Verificar si el campo seleccionProfesional es igual a 1 para ocultar el botón "Solicitar Trabajo"
-                if (seleccionCotizacion != null && seleccionCotizacion.seleccionProfesional == 1)
+                // Obtener el idCotizacion del botón actual
+                string idCotizacionBtnStr = btnSolicitarTrabajo.CommandArgument;
+                int idCotizacionBtn;
+                if (int.TryParse(idCotizacionBtnStr, out idCotizacionBtn))
                 {
-                    btnSolicitarTrabajo.Visible = false;
-                    lblChulito.Visible = true;
-                    lblTextoSolicitado.Visible = true;
-                    btnCancelarSolicitud.Visible = true; // Mostrar el botón "Cancelar Solicitud"
-                }
-                else
-                {
-                    btnSolicitarTrabajo.Visible = true;
-                    btnCancelarSolicitud.Visible = false; // Ocultar el botón "Cancelar Solicitud"
-                }
+                    // Verificar si el idCotizacion está en la lista de cotizaciones ocultas
+                    if (cotizacionesOcultas.Contains(idCotizacionBtn))
+                    {
+                        // Si el idCotizacion está en la lista, ocultar el botón "btnSolicitarTrabajo"
+                        btnSolicitarTrabajo.Visible = false;
 
-                // Agregar el controlador de eventos Click para el botón "Solicitar Trabajo"
-                btnSolicitarTrabajo.Click += BtnSolicitarTrabajo_Click;
+                        // Obtener la cotización correspondiente de la lista listaCotizaciones1
+                        ClSeleccionCotizacionE cotizacion = listaCotizaciones1.FirstOrDefault(c => c.idCotizacion == idCotizacionBtn);
+                        if (cotizacion != null)
+                        {
+                            // Asignar el idSeleccionCotizacion al botón "btnCancelarSolicitud"
+                            btnCancelarSolicitud.Attributes["data-idseleccioncotizaciones"] = cotizacion.idSeleccionCotizacion.ToString();
+                            // Encontrar el control Label "lblIdSeleccionCotizacion" dentro del contenedor
+                            Label lblIdSeleccionCotizacion = (Label)e.Item.FindControl("lblIdSeleccionCotizacion");
+                            // Asignar el valor de idSeleccionCotizacion al Label
+                            lblIdSeleccionCotizacion.Text = cotizacion.idSeleccionCotizacion.ToString();
+                            // Mostrar los elementos adicionales
+                            lblChulito.Visible = true;
+                            lblTextoSolicitado.Visible = true;
+                            btnCancelarSolicitud.Visible = true;
+                        }
 
-                // Agregar el atributo personalizado en el evento ItemDataBound
-                btnSolicitarTrabajo.Attributes["data-idcotizacion"] = idCotizacion.ToString();
+                        
+                    }
+                    else
+                    {
+                        btnSolicitarTrabajo.Visible = true;
+                        btnCancelarSolicitud.Visible = false; // Ocultar el botón "Cancelar Solicitud"
+                    }
+                }
             }
         }
 
 
-
-
-
-
-
-
-
-
         protected void BtnSolicitarTrabajo_Click(object sender, EventArgs e)
         {
+            // Obtener el botón que generó el evento
+            Button btn = (Button)sender;
+
+            // Obtener el CommandArgument que contiene el valor del idCotizacion
+            string idCotizacion1 = btn.CommandArgument;
+
+
             Button btnSolicitarTrabajo = sender as Button;
 
             //// Obtener el ID del botón
@@ -139,30 +178,82 @@ namespace appWebServisoft.Vista
             {
                 // Mostrar el SweetAlert
                 string script = @"<script type='text/javascript'>
-                            Swal.fire({
-                                title: 'Cotización solicitada',
-                                text: '¡La cotización ha sido solicitada exitosamente!',
-                                icon: 'success',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
+                        Swal.fire({
+                            title: 'Cotización solicitada',
+                            text: '¡La cotización ha sido solicitada exitosamente!',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar'
+                        }).then((result) => {
+                            // Recargar la página después de que el usuario hace clic en 'Aceptar'
+                            if (result.isConfirmed || result.isDismissed) {
+                                window.location.reload();
+                            }
+                        });
+                    </script>";
+
                 ScriptManager.RegisterStartupScript(this, GetType(), "Popup", script, false);
             }
-
+        
+          
+       
         }
 
         protected void btnCancelarSolicitud_Click(object sender, EventArgs e)
         {
-            // Mostrar el SweetAlert
-            string script = @"<script type='text/javascript'>
-                            Swal.fire({
-                                title: 'Cotización Cancelada',
-                                text: '¡La cotización ha sido Cancelada!',
-                                icon: 'success',
-                                confirmButtonText: 'Aceptar'
-                            });
-                        </script>";
-            ScriptManager.RegisterStartupScript(this, GetType(), "Popup", script, false);
+            Button btnCancelarSolicitud = (Button)sender;
+            RepeaterItem repeaterItem = (RepeaterItem)btnCancelarSolicitud.NamingContainer;
+
+            // Get the data-idseleccioncotizaciones attribute value from the "btnCancelarSolicitud" button
+            string idSeleccionCotizacionStr = btnCancelarSolicitud.Attributes["data-idseleccioncotizaciones"];
+
+            int idSeleccionCotizacion;
+            if (int.TryParse(idSeleccionCotizacionStr, out idSeleccionCotizacion))
+            {
+
+
+                ClCotizacionL objeliminarCotizacion = new ClCotizacionL();
+                int resultado = objeliminarCotizacion.mtdEliminarseleleccionCotizacion(idSeleccionCotizacion);
+
+                if (resultado == 1)
+                {
+                    // Mostrar el SweetAlert
+                    string script = @"<script type='text/javascript'>
+                        Swal.fire({
+                            title: 'Cotización Cancelada',
+                            text: '¡La cotización ha sido Cancelada!',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar'}).then((result) => {
+                            // Recargar la página después de que el usuario hace clic en 'Aceptar'
+                            if (result.isConfirmed || result.isDismissed) {
+                                window.location.reload();
+                            }
+                        });
+                    </script>";
+            
+                    ScriptManager.RegisterStartupScript(this, GetType(), "Popup", script, false);
+                }
+            }
+          
         }
-    }
+
+
+        protected void timerActualizar_Tick(object sender, EventArgs e)
+        {
+            // Obtener el valor de la sesión "idProfesional" como entero
+            int idProfesional;
+            if (int.TryParse(Session["idProfesional"].ToString(), out idProfesional))
+            {
+                // Crear una instancia de la clase ClCotizacionL
+                ClCotizacionL objCotizacion = new ClCotizacionL();
+
+                // Obtener la lista de registros de seleccionProfesional para el idCotizacion e idProfesional específicos
+                List<ClSeleccionCotizacionE> listaCotizaciones1 = objCotizacion.mtdSeleccionCotizacion(1, idProfesional);
+
+                // Asignar la lista como fuente de datos del GridView
+                gridViewDatos.DataSource = listaCotizaciones1;
+                gridViewDatos.DataBind();
+            }
+        }
+
+        }
 }

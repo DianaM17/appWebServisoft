@@ -17,15 +17,87 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </head>
-<body>
+<body >
     <form id="form1" runat="server">
-         <div>
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
             <div style="display: block">
+       
                 <section class="seccion-perfil-usuario container">
                     <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
                     <div class="perfil-usuario-header">
                         <div class="perfil-usuario-portada">
+                                     <a href="TrabajosSolicitadosCliente.aspx" class="cta">
+            <span>Volver</span>
+            <svg width="13px" height="10px" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1,5 L5,1 L5,3 L11,3 L11,7 L5,7 L5,9 L1,5" stroke="black" stroke-width="1.5" fill="black"></path>
+            </svg>
+
+
+        </a>
+        <style>
+            a {
+                text-decoration: none;
+                color: inherit;
+                top: 30px;
+                right: -30px;
+            }
+
+            .cta {
+                position: relative;
+                margin: auto;
+                padding: 19px 22px;
+                transition: all 0.2s ease;
+            }
+
+                .cta:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    border-radius: 28px;
+                    background: rgba(255, 171, 157, 0.5);
+                    width: 56px;
+                    height: 56px;
+                    transition: all 0.3s ease;
+                }
+
+                .cta span {
+                    position: relative;
+                    font-size: 16px;
+                    line-height: 18px;
+                    font-weight: 900;
+                    letter-spacing: 0.25em;
+                    text-transform: uppercase;
+                    vertical-align: middle;
+                }
+
+                .cta svg {
+                    position: relative;
+                    top: 0;
+                    fill: none;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke: #111;
+                    stroke-width: 2;
+                    transform: translateX(-5px);
+                    transition: all 0.3s ease;
+                }
+
+                .cta:hover:before {
+                    width: 100%;
+                    background: #ffab9d;
+                }
+
+                .cta:hover svg {
+                    transform: translateX(0);
+                }
+
+                .cta:active {
+                    transform: scale(0.96);
+                }
+        </style>
+
                             <div class="perfil-usuario-avatar">
                                 <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                     <ContentTemplate>
@@ -35,8 +107,7 @@
                             </div>
                         </div>
                     </div>
-
-
+            
                     <div class="perfil-usuario-body">
                         <div class="perfil-usuario-bio">
                             <asp:Label ID="lblNombre" runat="server" CssClass="titulo"></asp:Label>
@@ -77,7 +148,6 @@
             </section>
         </div>
 
-
             
        <style>
     .perfil-usuario-bio {
@@ -96,8 +166,6 @@
         margin-left: 15px; /* Puedes ajustar este valor según tu diseño */
     }
 </style>
-
-
 
             <section class="container">
                 <br />
@@ -122,7 +190,6 @@
                 <!-- Cierre del contenedor del carrusel -->
             </section>
 
-        </div>
         <!-- Agrega los estilos de slick-carousel -->
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" />
 
@@ -247,61 +314,345 @@
 }
 
         </style>
-     <div class="redes-sociales">
-  <a href="https://api.whatsapp.com/send?phone=3228008984" class="boton-redes whatsapp" onclick="openWhatsAppPopup(event)">
-    <img src="Imagenes/Iconos/whatsapp.png" alt="WhatsApp" />
-  </a>
+    <div class="redes-sociales">
+    <a href="javascript:void(0);" class="boton-redes whatsapp" onclick="mostrar_chat()">
+        <img src="Imagenes/Iconos/whatsapp.png" alt="WhatsApp" />
+    </a>
 </div>
+           <div id='whatsapp-chat' class='hide'>
+                <div class='header-chat'>
+                    <div class='head-home'>
+                        <h3>Envio Mensaje</h3>
+                        <div class='info-avatar'>
+                            <asp:Image CssClass="imagenes imagen-click" runat="server" ID="Image1" /></div>
 
-<div id="whatsapp-chat-container"></div>
+                    </div>
 
-<script type="text/javascript">
-    function openWhatsAppPopup(event) {
-        event.preventDefault();
+                    <div class='get-new'>
+                         <asp:Label ID="Label1" runat="server"></asp:Label>
+                        <div id='get-nama'>Envio Mensaje</div>
 
-        const phoneNumber = "+573228008984";
-        const message = "Hola, ¿cómo puedo ayudarte?";
+                    </div>
+                </div>
 
-        // Reemplaza "es" por el código de país del usuario, si lo conoces, para mostrar el mensaje en su idioma.
-        const countryCode = "es";
-
-        const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=${countryCode}`;
-        const options = "width=640,height=480";
-
-        window.open(url, "_blank", options);
-    }
-
-    window.onload = function () {
-        window.whatsappChatWidget = new WhatsAppChatWidget({
-            phoneNumber: "+573228008984", // Reemplaza con el número de teléfono de WhatsApp
-            text: "Hola, ¿cómo puedo ayudarte?", // Mensaje predeterminado
-        });
-        whatsappChatWidget.render('whatsapp-widget');
-    };
-</script>
-<script type="text/javascript" src="enlace_al_script_del_widget.js"></script>
-
-
-
-<%--<script>
-    function openWhatsAppPopup(event) {
-        event.preventDefault();
-
-        const phoneNumber = "+523228008984";
-        const message = "Hola, estoy contactándote desde la página web.";
-
-        // Reemplaza "es" por el código de país del usuario, si lo conoces, para mostrar el mensaje en su idioma.
-        const countryCode = "es";
-
-        const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}&lang=${countryCode}`;
-        const options = "width=640,height=480";
-
-        window.open(url, "_blank", options);
-    }
-</script>--%>
-        <style>
+                <div class='start-chat'>
+                    <div class='first-msg'><span>¡Hola! ¿Qieres contactar al Profesional?</span></div>
+                    <div class='blanter-msg'>
+                        <textarea id='chat-input' placeholder='Escribe un mensaje' maxlength='300' row='1'></textarea>
+                        <a href='#' onclick="enviar_mensaje();" id='send-it'>Enviar</a>
+                    </div>
+                </div>
+            <%--    <asp:Label ID="lblnumero" runat="server" style="color:#404040"></asp:Label>--%>
+                <a class='close-chat' onclick="cerrar_chat();" href='#'>×</a>
+            </div>
      
-          /* Estilos del enlace de WhatsApp */
+
+        <script>
+            function enviar_mensaje() {
+                var a = document.getElementById("chat-input");
+                var numeroLabel = document.getElementById("lblTelefono");
+                var numero = numeroLabel.textContent.trim();
+
+                // Agregar el prefijo de país si el número no lo tiene
+                var numeroConPrefijo = numero.startsWith("+57") ? numero : "+57" + numero;
+
+                if ("" != a.value) {
+                    var c = document.getElementById("chat-input").value;
+                    var d = "https://web.whatsapp.com/send";
+                    var e = numeroConPrefijo;
+                    var f = "&text=" + c;
+                    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+                        var d = "whatsapp://send";
+                    }
+                    var g = d + "?phone=" + e + f;
+                    window.open(g, "_blank");
+                }
+            }
+
+            const whatsapp_chat = document.getElementById("whatsapp-chat");
+
+            function cerrar_chat() {
+                whatsapp_chat.classList.add("hide");
+                whatsapp_chat.classList.remove("show");
+            }
+
+            function mostrar_chat() {
+                whatsapp_chat.classList.add("show");
+                whatsapp_chat.classList.remove("hide");
+            }
+            function openChatModal() {
+                var modal = document.getElementById("chatModal");
+                modal.style.display = "block";
+            }
+
+            // Función para cerrar el modal
+            function closeChatModal() {
+                var modal = document.getElementById("chatModal");
+                modal.style.display = "none";
+            }
+
+            // Función para enviar mensaje simulado (puedes personalizar esta función según tus necesidades)
+            function sendMessage() {
+                var messageInput = document.getElementById("messageInput");
+                var message = messageInput.value;
+
+                if (message.trim() !== "") {
+                    var chatMessages = document.querySelector(".chat-messages");
+                    var messageDiv = document.createElement("div");
+                    messageDiv.className = "message sent";
+                    messageDiv.innerHTML = '<div class="message-content">' + message + '</div>';
+                    chatMessages.appendChild(messageDiv);
+
+                    // Limpia el campo de entrada después de enviar el mensaje
+                    messageInput.value = "";
+                }
+            }
+
+
+        </script>
+        <style>/* Estilos para el modal */
+h1 {
+    text-align: center;
+    margin: 50px 0;
+}
+
+strong {
+    color: red;
+}
+
+image{
+    position:center;
+}
+
+
+body {
+    font-family: "Lato", sans-serif;
+    background: #f1f1f1;
+    background-image: url('imagenes/envio mensaje.png');
+}
+
+a:link,
+a:visited {
+    color: #444;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+
+h1 {
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    background: linear-gradient(to right top, #6f96f3, #164ed2);
+    padding: 20px;
+    color: #fff;
+    border-radius: 50px;
+}
+
+
+/* CSS Whatsapp Chat */
+#whatsapp-chat {
+    position: fixed;
+    background: #fff;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+    bottom: 90px;
+    right: 30px;
+    overflow: hidden;
+    z-index: 99;
+    animation-name: showchat;
+    animation-duration: 1s;
+    transform: scale(1);
+}
+
+a.blantershow-chat {
+    /*   background: #009688; */
+    background: #fff;
+    color: #404040;
+    position: fixed;
+    display: flex;
+    font-weight: 400;
+    justify-content: space-between;
+    z-index: 98;
+    bottom: 25px;
+    right: 30px;
+    font-size: 15px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
+}
+
+    a.blantershow-chat svg {
+        transform: scale(1.2);
+        margin: 0 10px 0 0;
+    }
+
+.header-chat {
+    background: #095e54;
+    color: #fff;
+    padding: 20px;
+}
+
+    .header-chat h3 {
+        margin: 0 0 10px;
+    }
+
+    .header-chat p {
+        font-size: 14px;
+        line-height: 1.7;
+        margin: 0;
+    }
+
+.info-avatar {
+    position: relative;
+}
+
+    .info-avatar img {
+        border-radius: 100%;
+        width: 50px;
+        float: left;
+        margin: 0 10px 0 0;
+    }
+
+    .info-avatar:before {
+        content: "\f232";
+        z-index: 1;
+        font-family: "Font Awesome 5 Brands";
+        background: #23ab23;
+        color: #fff;
+        padding: 4px 5px;
+        border-radius: 100%;
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+
+.info-chat span {
+    display: block;
+}
+
+#get-label,
+span.chat-label {
+    font-size: 12px;
+    color: #888;
+}
+
+#get-nama,
+span.chat-nama {
+    margin: 5px 0 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: #222;
+}
+
+#get-label,
+#get-nama {
+    color: #fff;
+}
+
+span.my-number {
+    display: none;
+}
+
+.blanter-msg {
+    color: #444;
+    padding: 20px;
+    font-size: 12.5px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+textarea#chat-input {
+    border: none;
+    font-family: "Arial", sans-serif;
+    width: 100%;
+    height: 20px;
+    outline: none;
+    resize: none;
+}
+
+a#send-it {
+    color: #555;
+    width: 40px;
+    margin: -5px 0 0 5px;
+    font-weight: 700;
+    padding: 8px;
+    background: #eee;
+    border-radius: 10px;
+}
+
+.first-msg {
+    background: #f5f5f5;
+    padding: 30px;
+    text-align: center;
+}
+
+    .first-msg span {
+        background: #e2e2e2;
+        color: #333;
+        font-size: 14.2px;
+        line-height: 1.7;
+        border-radius: 10px;
+        padding: 15px 20px;
+        display: inline-block;
+    }
+
+.start-chat .blanter-msg {
+    display: flex;
+}
+
+#get-number {
+    display: none;
+}
+
+a.close-chat {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: #fff;
+    font-size: 30px;
+}
+
+@keyframes showhide {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes showchat {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #whatsapp-chat {
+        width: auto;
+        left: 5%;
+        right: 5%;
+        font-size: 80%;
+    }
+}
+
+.hide {
+    display: none;
+    animation-name: showhide;
+    animation-duration: 1.5s;
+    transform: scale(1);
+    opacity: 1;
+}
+
+.show {
+    display: block;
+    animation-name: showhide;
+    animation-duration: 1.5s;
+    transform: scale(1);
+    opacity: 1;
+}
+
+         /* Estilos del enlace de WhatsApp */
 .redes-sociales {
     position: fixed;
     bottom: 20px; /* Ajusta la distancia desde la parte inferior según tus necesidades */
@@ -341,7 +692,9 @@
     opacity: 1; /* Mostramos el texto al hacer hover */
 }
 
-        </style>
+
+
+</style>
 
         <div class="btnSolicitarServicio">
             <asp:Button ID="btnSolicitarServicio" runat="server" Text="Solicitar Servicio" OnClick="btnSolicitarServicio_Click" />
@@ -366,8 +719,6 @@
                 background-color: #6f2a69;
             }
         </style>
-
-       
     </form>
 </body>
 </html>

@@ -96,9 +96,9 @@ namespace appWebServisoft.Datos
         }
 
 
-        public List<ClSeleccionCotizacionE> mtdSeleccionCotizacion(int seleccionProf)
+        public List<ClSeleccionCotizacionE> mtdSeleccionCotizacion(int seleccionProf, int idProfesional)
         {
-            string consulta = "SELECT * FROM SeleccionCotizacion WHERE seleccionProfesional = '" + seleccionProf + "'";
+            string consulta = "SELECT * FROM SeleccionCotizacion WHERE seleccionProfesional = '" + seleccionProf + "' AND idProfesional = '" + idProfesional + "'";
                 ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblSeleccionCotizacion = objSQL.mtdSelectDesc(consulta);
 
@@ -109,6 +109,8 @@ namespace appWebServisoft.Datos
                 ClSeleccionCotizacionE ObjCotizacion = new ClSeleccionCotizacionE();
                 ObjCotizacion.idSeleccionCotizacion = int.Parse(tblSeleccionCotizacion.Rows[i]["idSeleccionCotizacion"].ToString());
                 ObjCotizacion.seleccionProfesional = int.Parse(tblSeleccionCotizacion.Rows[i]["seleccionProfesional"].ToString());
+                ObjCotizacion.idProfesional = int.Parse(tblSeleccionCotizacion.Rows[i]["idProfesional"].ToString());
+                ObjCotizacion.idCotizacion = int.Parse(tblSeleccionCotizacion.Rows[i]["idCotizacion"].ToString());
                 listaCotizacion.Add(ObjCotizacion);
 
             }
@@ -141,6 +143,16 @@ namespace appWebServisoft.Datos
             }
 
             return listaCotizacion;
+        }
+
+
+        //Metodo para cancelar seleccion cotizacion
+        public int mtdEliminarseleleccionCotizacion(int idseleccionCotizacion)
+        {
+            string Registro = "DELETE FROM seleccionCotizacion WHERE idseleccionCotizacion ='" + idseleccionCotizacion + "'";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int regis = SQL.mtdIUDConec(Registro);
+            return regis;
         }
     }
 }

@@ -17,6 +17,7 @@ namespace appWebServisoft.Entidades
         public int idCategoria { get; set; }
         public int idServicio { get; set; }
         public int idCliente { get; set; }
+        public int seleccionProfesional { get; set; }
 
     }
 

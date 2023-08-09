@@ -6,6 +6,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Twilio;
+using Twilio.Rest.Api.V2010.Account;
 
 namespace appWebServisoft.Vista
 {
@@ -13,9 +15,9 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
-
                 string Telefono = lblTeleProf.Text = Session["TeleProfesional"].ToString();
                 // Verificar si la variable de sesión contiene el ID del profesional seleccionado
                 if (Session["IdProfesionalSeleccionado"] != null)
@@ -41,14 +43,15 @@ namespace appWebServisoft.Vista
                         lblServicio.Text = Buscar.servicio;
                         lblCiudad.Text = Buscar.nombre;
                         lblEstado.Text = Buscar.estado;
-
+                        Label1.Text = nombresCompletos;
+                        Image1.ImageUrl = Buscar.fotos;
 
 
                     }
                 }
                 else
                 {
-                    // Si la variable de sesión no contiene el ID del profesional, puedes manejar el caso de error o redireccionar a otra página, si es necesario.
+              
                 }
             }
             int idProfesional1 = Convert.ToInt32(Request.QueryString["id"]);
@@ -61,9 +64,42 @@ namespace appWebServisoft.Vista
 
         }
 
+
+        public void SendWhatsAppMessage(string numero, string mensaje)
+        {
+            var accountSid = "AC2ef4418d9eeb51d27d0f045196569022"; // Reemplaza con tu Account SID de Twilio
+            var authToken = "8e131745303e4f7ff45a79483914b77c";   // Reemplaza con tu Auth Token de Twilio
+
+            TwilioClient.Init(accountSid, authToken);
+
+            // Reemplaza "whatsapp:" con el prefijo adecuado para tu país (ejemplo: "whatsapp:+1" para Estados Unidos)
+            var fromNumber = "+14178922380"; // El número de Twilio que tiene habilitada la función de WhatsApp
+            var toWhatsAppNumber = "whatsapp:" + numero;
+
+            var messageOptions = new CreateMessageOptions(new Twilio.Types.PhoneNumber(toWhatsAppNumber))
+            {
+                From = new Twilio.Types.PhoneNumber(fromNumber),
+                Body = mensaje
+            };
+
+            var messageResource = MessageResource.Create(messageOptions);
+            Console.WriteLine(messageResource.Sid);
+        }
+
+
         protected void btnSolicitarServicio_Click(object sender, EventArgs e)
         {
             Response.Redirect("SolicitudServicio.aspx");
+        }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnVolver_Click1(object sender, EventArgs e)
+        {
+
         }
     }
 }
