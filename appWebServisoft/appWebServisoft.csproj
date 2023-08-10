@@ -82,6 +82,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Vista\Css\Estilos_Categ.css" />
+    <Content Include="Vista\Imagenes\images\bars.svg" />
+    <Content Include="Vista\Imagenes\bg-bottom-hero.png" />
+    <Content Include="Vista\Imagenes\images\bg-dot.png" />
+    <Content Include="Vista\Imagenes\images\bg-round.png" />
+    <Content Include="Vista\Imagenes\images\bg-tree.png" />
+    <Content Include="Vista\Imagenes\hero.png" />
+    <Content Include="Vista\Imagenes\images\times.svg" />
     <Content Include="Scripts\sweetalert-dev.js" />
     <Content Include="Scripts\sweetalert.min.js" />
     <Content Include="Styles\sweetalert.css" />
