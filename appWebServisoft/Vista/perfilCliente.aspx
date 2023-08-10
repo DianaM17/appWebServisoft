@@ -85,11 +85,7 @@
                             <li><i class="icono fas fa-share-alt"></i>Redes sociales.</li>
                         </ul>
                     </div>
-                    <div class="redes-sociales">
-                        <a href="#" class="boton-redes facebook fab fa-facebook-f"><i class="icon-facebook"></i></a>
-                        <a href="#" class="boton-redes twitter fab fa-twitter"><i class="icon-twitter"></i></a>
-                        <a href="#" class="boton-redes instagram fab fa-instagram"><i class="icon-instagram"></i></a>
-                    </div>
+                   
                 </div>
             </section>
 
