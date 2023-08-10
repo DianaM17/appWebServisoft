@@ -113,9 +113,12 @@ namespace appWebServisoft.Datos
             //    " FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
             //    "ON SolSer.idServicio = Servicio.idServicio JOIN Profesional[Prof] " +
             //    "ON SolSer.idProfesional = Prof.idProfesional where SolSer.idEstadoServicio = 1 and idCliente = " + idCliente + "";
-            string consulta = "SELECT SolSer.idsolicitudServicio, fecha, hora, descripcion, ubicacion, Ciu.nombre AS nombre_ciudad, Servicio.servicio, Prof.nombres AS nombres_profesional, apellidos AS apellidos_profesional, EstadoServicio.* FROM solicitudServicio AS SolSer JOIN Ciudad AS Ciu ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio JOIN Profesional AS Prof ON SolSer.idProfesional = Prof.idProfesional LEFT JOIN EstadoServicio ON SolSer.idsolicitudServicio = EstadoServicio.idEstadoServicio WHERE idCliente = " + idCliente + "";
-
-            ;
+            string consulta = "SELECT SolSer.idsolicitudServicio, fecha, hora, descripcion, ubicacion, Ciu.nombre AS nombre_ciudad, Servicio.servicio," +
+                " Prof.nombres AS nombres_profesional, apellidos AS apellidos_profesional, EstadoServicio.* FROM solicitudServicio AS SolSer" +
+                " JOIN Ciudad AS Ciu ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio JOIN Profesional" +
+                " AS Prof ON SolSer.idProfesional = Prof.idProfesional LEFT JOIN EstadoServicio ON " +
+                "SolSer.idsolicitudServicio = EstadoServicio.idEstadoServicio WHERE idCliente = " + idCliente + "";
+            
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
