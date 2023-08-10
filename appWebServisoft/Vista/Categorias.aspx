@@ -2,8 +2,46 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Categoria.css" rel="stylesheet" />
+    <link href="Css/Estilos_Categ.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+    <main>
+        <!-- Hero Start -->
+        <style>
+            .container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .column {
+                flex: 1;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+        </style>
+        <section class="hero">
+            <div class="container">
+                <div class="column" style="margin-top: 140px;">
+                    <h2 style="color:white">Registra Los Servicios & Categorias Que No Se Encuentren</h2>
+                    <p >En este apartado, podrás observar los servicios y categorias que se encuentran disponibles. Sin embargo, si eres profesiones y tu profesion no se encuentra disponible, puedes registrarla con tan solo un clic.</p>
+                    <br />
+                    <div class="buttons">
+                        <button class="btn">Registrar Servicios</button>
+                        <button class="btn">Registrar Categoría</button>
+                    </div>
+                </div>
+                <div class="column" style="margin-top: 120px;">
+                    <img src="Imagenes/hero.png" alt="heroImg" class="hero_img" />
+                </div>
+            </div>
+
+            <img src="Imagenes/bg-bottom-hero.png" alt="" class="curveImg" />
+        </section>
+        <!-- Hero End-->
+    </main>
+
     <div class="container">
         <div class="row">
             <asp:Repeater ID="reptCateg" runat="server">
@@ -27,7 +65,9 @@
                     </div>
                 </div>
                 <div class="card-content">
-                    <a href="RegistrarCategoria.aspx" style="text-decoration: none; color: #000000">Registrar <br /> Categoria</a>
+                    <a href="RegistrarCategoria.aspx" style="text-decoration: none; color: #000000">Registrar
+                        <br />
+                        Categoria</a>
                 </div>
             </div>
         </div>
