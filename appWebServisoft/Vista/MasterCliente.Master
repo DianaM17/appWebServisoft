@@ -46,7 +46,9 @@
         </style>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-                <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                <a href="interfazCliente.aspx">
+                    <img src="/Vista/Imagenes/logo_preview_rev_3.png" class="imgs" />
+                </a>
                 <div class="titulo">
                     <p class="titulo1">Servisoft</p>
                 </div>

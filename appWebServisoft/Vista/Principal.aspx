@@ -329,7 +329,7 @@
             </div>
             <div class="box__footer">
                 <h2>Compañia</h2>
-                <a href="Categorias.aspx">Categoria</a>
+                <a href="Categorias.aspx">Categorias</a>
                 <a href="RegistrarUsuario.aspx">Cliente</a>
                 <a href="RegistrarUsuario.aspx">Profesional</a>
 
