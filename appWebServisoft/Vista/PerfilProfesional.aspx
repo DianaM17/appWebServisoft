@@ -39,6 +39,7 @@
                         <script>
                             function seleccionarImagen() {
                                 var input = document.getElementById('<%= ImagenInputT.ClientID%>');
+                                console.log("Imagen Seleccionada");
                                 input.click();
                             }
 
@@ -57,6 +58,7 @@
                                         // Asignar la URL de la imagen seleccionada al control ImgPerfil
                                         var imgPerfil = document.getElementById('<%= ImgPerfil.ClientID %>');
                                         imgPerfil.src = imagenSeleccionada;
+                                        console.log("imagen Seleccionada");
                                     }
 
                                     reader.readAsDataURL(imagen);

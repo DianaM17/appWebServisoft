@@ -11,11 +11,6 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -31,6 +26,7 @@
                 <asp:BoundField DataField="ubicacion" HeaderText="Ubicación" />
                 <asp:BoundField DataField="nombre" HeaderText="Ciudad" />
                 <asp:BoundField DataField="servicio" HeaderText="Servicio" />
+                <asp:BoundField DataField="estadoServ" HeaderText="Servicio" />
                 <asp:BoundField DataField="NombreCompleto" HeaderText="Profesional" />
                 <asp:TemplateField>
                     <ItemTemplate>
@@ -150,10 +146,6 @@
             document.getElementById('<%= hdnSelectedLevel.ClientID %>').value = level;
         }
     </script>
-
-
-
-
 
     <style>
         #rating-stars {

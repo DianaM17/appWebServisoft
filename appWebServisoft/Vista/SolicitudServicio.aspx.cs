@@ -121,9 +121,9 @@ namespace appWebServisoft.Vista
 
         protected void ddlServicio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string serv = ddlServicio.SelectedValue;
-            string categ = ddlCategoria.SelectedValue;
-            string ciudad = ddlCiudad.SelectedValue;
+            int serv = int.Parse(ddlServicio.SelectedValue);
+            int categ = int.Parse(ddlCategoria.SelectedValue);
+            int ciudad = int.Parse(ddlCiudad.SelectedValue);
             ClProfesionalL objProfesional = new ClProfesionalL();
             List<ClProfesionalE> listaProf = new List<ClProfesionalE>();
             listaProf = objProfesional.mtdSelecCorreoCateg(categ, serv, ciudad);
@@ -135,10 +135,6 @@ namespace appWebServisoft.Vista
             ddlProfesional.DataValueField = "idProfesional";
             ddlProfesional.DataBind();
             ddlProfesional.Items.Insert(0, new ListItem("Seleccione Profesional: ", "0"));
-
-
-
-
         }
     }
 }

@@ -47,6 +47,9 @@
                     <label for="imagenes" class="ubuntu" style="font-size: 14px;">Imágenes:</label>
                     <asp:FileUpload ID="FluImagen" runat="server" Style="font-size: 14px;" />
                     <br />
+                    <label for="servicio" class="ubuntu" style="font-size: 14px;">Ciudad:</label>
+                    <asp:DropDownList ID="ddlCiudad" runat="server" Style="font-size: 14px;"></asp:DropDownList>
+                    <br />
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Dirección:</label>
                     <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
                     <button type="submit" class="btn mt-1 ubuntu send-form" id="btnEnviar" runat="server" onserverclick="btnEnviar_ServerClick" style="font-size: 14px;">Enviar</button>
@@ -246,7 +249,7 @@
     </div>
 
     <script>
-      
+
 
         let x = 0;
         var slide = document.getElementById("slide");

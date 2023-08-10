@@ -59,13 +59,14 @@
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
                         <asp:FileUpload ID="FluImagen" runat="server" />
                         <br />
+                        <label for="servicio" class="ubuntu" style="font-size: 14px;">Ciudad:</label>
+                        <asp:DropDownList ID="ddlCiudad" runat="server" Style="font-size: 14px;"></asp:DropDownList>
+                        <br />
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
                         <button id="btnEnviar" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick">Enviar</button>
-
                     </div>
-
                 </div>
 
                 <!-- form img -->
@@ -73,15 +74,13 @@
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
                             <figure class="w-100 img-form">
-                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px"/>
+                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px" />
                             </figure>
                         </ContentTemplate>
                     </asp:UpdatePanel>
                 </div>
-
             </div>
         </form>
-
     </section>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
