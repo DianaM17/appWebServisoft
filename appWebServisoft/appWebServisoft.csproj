@@ -83,6 +83,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Vista\Css\Estilos_Categ.css" />
+    <Content Include="Vista\Css\Estilos_registrarServ.css" />
+    <Content Include="Vista\Imagenes\20944146.jpg" />
+    <Content Include="Vista\Imagenes\6945535.jpg" />
     <Content Include="Vista\Imagenes\images\bars.svg" />
     <Content Include="Vista\Imagenes\bg-bottom-hero.png" />
     <Content Include="Vista\Imagenes\images\bg-dot.png" />
@@ -283,6 +286,7 @@
     <Content Include="Vista\TrabajosSolicitadosCliente.aspx" />
     <Content Include="Vista\trabajosSolicitadosProfesional.aspx" />
     <Content Include="Vista\Trabajos_pendientes.aspx" />
+    <Content Include="Vista\Registrar_Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -498,6 +502,13 @@
     </Compile>
     <Compile Include="Vista\Trabajos_pendientes.aspx.designer.cs">
       <DependentUpon>Trabajos_pendientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\Registrar_Servicios.aspx.cs">
+      <DependentUpon>Registrar_Servicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registrar_Servicios.aspx.designer.cs">
+      <DependentUpon>Registrar_Servicios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

@@ -22,17 +22,20 @@
             }
         </style>
         <section class="hero">
-            <div class="container">
-                <div class="column" style="margin-top: 140px;">
-                    <h2 style="color:white">Registra Los Servicios & Categorias Que No Se Encuentren</h2>
-                    <p >En este apartado, podrás observar los servicios y categorias que se encuentran disponibles. Sin embargo, si eres profesiones y tu profesion no se encuentra disponible, puedes registrarla con tan solo un clic.</p>
+            <div class="row container">
+                <div class="column">
+                    <h2>Registra Los Servicios & 
+                        <br />
+                        Categorias Que No Se Encuentren</h2>
+                    <p>En este apartado, podrás observar los servicios y categorias que se encuentran disponibles. Sin embargo, si eres profesiones y tu profesion no se encuentra disponible, puedes registrarla con tan solo un clic.</p>
                     <br />
                     <div class="buttons">
-                        <button class="btn">Registrar Servicios</button>
-                        <button class="btn">Registrar Categoría</button>
+                        <a class="btn" href="Registrar_Servicios.aspx">Registrar Servicios</a>
+                        <a class="btn" href="RegistrarCategoria.aspx">Registrar Categorias</a>
+
                     </div>
                 </div>
-                <div class="column" style="margin-top: 120px;">
+                <div class="column">
                     <img src="Imagenes/hero.png" alt="heroImg" class="hero_img" />
                 </div>
             </div>
@@ -58,18 +61,18 @@
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
-            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
+            <%--    <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
                 <div class="custom-card">
                     <div class="card-img-box">
                         <img src="Imagenes/NuevaCategoria.jpg" />
                     </div>
-                </div>
-                <div class="card-content">
+                </div>--%>
+            <%--  <div class="card-content">
                     <a href="RegistrarCategoria.aspx" style="text-decoration: none; color: #000000">Registrar
                         <br />
                         Categoria</a>
-                </div>
-            </div>
+                </div>--%>
         </div>
     </div>
+
 </asp:Content>

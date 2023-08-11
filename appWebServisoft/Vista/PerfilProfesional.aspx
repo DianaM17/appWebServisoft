@@ -352,7 +352,11 @@
                                         </div>
                                     </div>
                                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Style="float: right;" />
+                                    
                                 </section>
+                                <style>
+
+                                </style>
                             </div>
                         </div>
                     </div>
