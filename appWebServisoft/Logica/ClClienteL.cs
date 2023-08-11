@@ -55,5 +55,11 @@ namespace appWebServisoft.Logica
             int Actualizar = objCliente.mtdActualizarDatos(objClient, idCliente);
             return Actualizar;
         }
+        public int mtdActualizarImagen(ClClienteE objCliente, int idCliente)
+        {
+            ClClienteD objProfD = new ClClienteD();
+            int Actualizar = objProfD.mtdActualizarImagen(objCliente, idCliente);
+            return Actualizar;
+        }
     }
 }

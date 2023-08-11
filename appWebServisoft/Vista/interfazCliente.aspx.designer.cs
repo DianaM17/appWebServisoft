@@ -96,6 +96,15 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.FileUpload FluImagen;
 
         /// <summary>
+        /// Control ddlCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
+
+        /// <summary>
         /// Control txtDireccion.
         /// </summary>
         /// <remarks>

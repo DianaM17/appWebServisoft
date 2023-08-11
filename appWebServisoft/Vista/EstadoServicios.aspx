@@ -11,11 +11,6 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,7 +29,6 @@
                 <asp:BoundField DataField="estadoServ" HeaderText="Estado Servicio" />
                 <asp:TemplateField>
                     <ItemTemplate>
-
                         <div id="gvServicioRow">
                             <asp:Button ID="btnCancelar" CssClass="btn third" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CommandArgument='<%# Eval("idsolicitudServicio") %>' />
                             <a href="#" class="btn third" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">Reprogramar</a>
@@ -50,8 +44,6 @@
             </Columns>
         </asp:GridView>
     </div>
-
-
 
     <%--Ventana Modal Comentarios--%>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -198,8 +190,6 @@
                 z-index: 1;
             }
 
-
-
         #comment-form {
             margin-bottom: 10px;
         }
@@ -272,10 +262,6 @@
             document.getElementById('<%= hdnSelectedLevel.ClientID %>').value = level;
         }
     </script>
-
-
-
-
 
     <style>
         #rating-stars {

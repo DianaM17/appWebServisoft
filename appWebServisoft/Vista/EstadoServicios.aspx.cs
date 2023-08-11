@@ -1,18 +1,9 @@
 ﻿using appWebServisoft.Entidades;
 using appWebServisoft.Logica;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Cryptography;
-using System.Web;
-using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 
 namespace appWebServisoft.Vista
 {
@@ -49,10 +40,7 @@ namespace appWebServisoft.Vista
                 // Llamar al método para enlazar datos al GridView
                 BindGridView();
             }
-
-           
         }
-
 
         protected void BindGridView()
         {
