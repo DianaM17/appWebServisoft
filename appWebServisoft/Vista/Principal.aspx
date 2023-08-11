@@ -92,7 +92,8 @@
                             <div class="">
                                 <li class="card">
                                     <div class="img">
-                                        <img class="imagenes" src="Imagenes/PerfilProfesional/<%# Eval("fotos") %>" alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+                                         <asp:Image class="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;"  />
+                           
                                     </div>
                                     <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
                                     <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>

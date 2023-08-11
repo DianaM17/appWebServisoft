@@ -14,7 +14,78 @@
     <link rel="stylesheet" href="Css/normalize.css">
 </head>
 <body>
+    <a href="#" onclick="window.history.back(); return false;" class="cta">
+            <span>Volver</span>
+            <svg width="13px" height="10px" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1,5 L5,1 L5,3 L11,3 L11,7 L5,7 L5,9 L1,5" stroke="black" stroke-width="1.5" fill="black"></path>
+            </svg>
 
+
+        </a>
+        <style>
+            a {
+                text-decoration: none;
+                color: inherit;
+                top: 30px;
+                right: -30px;
+            }
+
+            .cta {
+                position: relative;
+                margin: auto;
+                padding: 19px 22px;
+                transition: all 0.2s ease;
+            }
+
+                .cta:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    border-radius: 28px;
+                    background: rgba(255, 171, 157, 0.5);
+                    width: 56px;
+                    height: 56px;
+                    transition: all 0.3s ease;
+                }
+
+                .cta span {
+                    position: relative;
+                    font-size: 16px;
+                    line-height: 18px;
+                    font-weight: 900;
+                    letter-spacing: 0.25em;
+                    text-transform: uppercase;
+                    vertical-align: middle;
+                }
+
+                .cta svg {
+                    position: relative;
+                    top: 0;
+                    margin-left: 10px;
+                    fill: none;
+                    stroke-linecap: round;
+                    stroke-linejoin: round;
+                    stroke: #111;
+                    stroke-width: 2;
+                    transform: translateX(-5px);
+                    transition: all 0.3s ease;
+                }
+
+                .cta:hover:before {
+                    width: 100%;
+                    background: #ffab9d;
+                }
+
+                .cta:hover svg {
+                    transform: translateX(0);
+                }
+
+                .cta:active {
+                    transform: scale(0.96);
+                }
+        </style>
     <!-- Form container -->
     <section id="form-width">
 
@@ -59,6 +130,9 @@
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
                         <asp:FileUpload ID="FluImagen" runat="server" />
                         <br />
+                        <label for="servicio" class="ubuntu">Ciudad:</label>
+                        <asp:DropDownList ID="ddlCiudad" runat="server"></asp:DropDownList>
+                        <br />
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
@@ -73,7 +147,7 @@
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
                             <figure class="w-100 img-form">
-                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px"/>
+                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px" />
                             </figure>
                         </ContentTemplate>
                     </asp:UpdatePanel>

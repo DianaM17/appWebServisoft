@@ -1,18 +1,9 @@
 ﻿using appWebServisoft.Entidades;
 using appWebServisoft.Logica;
-using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Security.Cryptography;
-using System.Web;
-using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
 
 namespace appWebServisoft.Vista
 {
@@ -49,10 +40,7 @@ namespace appWebServisoft.Vista
                 // Llamar al método para enlazar datos al GridView
                 BindGridView();
             }
-
-           
         }
-
 
         protected void BindGridView()
         {
@@ -62,24 +50,6 @@ namespace appWebServisoft.Vista
             gvServicio.DataSource = listaServ;
             gvServicio.DataBind();
         }
-
-        //protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        System.Web.UI.WebControls.Label label1 = e.Row.FindControl("Label1") as System.Web.UI.WebControls.Label;
-        //        if (label1 != null)
-        //        {
-        //            string idsolicitudServicio = gvServicio.DataKeys[e.Row.RowIndex]["idsolicitudServicio"].ToString();
-        //            label1.Text = idsolicitudServicio;
-        //            System.Web.UI.WebControls.Button btnOpenModal = e.Row.FindControl("btnOpenModal") as System.Web.UI.WebControls.Button;
-        //            if (btnOpenModal != null)
-        //            {
-        //                btnOpenModal.Attributes["data-idsolicitudservicio"] = idsolicitudServicio;
-        //            }
-        //        }
-        //    }
-        //}
 
         protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
         {

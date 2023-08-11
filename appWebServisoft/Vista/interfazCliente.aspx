@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- Agrega los archivos CSS y JS de Slick Slider desde la CDN de Slick -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -51,6 +51,9 @@
 
                     <label for="imagenes" class="ubuntu" style="font-size: 14px;">Imágenes:</label>
                     <asp:FileUpload ID="FluImagen" runat="server" Style="font-size: 14px;" />
+                    <br />
+                    <label for="servicio" class="ubuntu" style="font-size: 14px;">Ciudad:</label>
+                    <asp:DropDownList ID="ddlCiudad" runat="server" Style="font-size: 14px;"></asp:DropDownList>
                     <br />
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Dirección:</label>
                     <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
@@ -115,12 +118,12 @@
 
     <div class="container">
         <div class="owl-carousel owl-theme text-center">
-            <asp:Repeater ID="Repeater1" runat="server" >
+            <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                     <div class="card mx-2 mb-2 custom-card" style="width: 220px; height: 275px; background-color: #1ab999; border-radius: 10%;">
                         <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
                             <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px" onclick="redirectToPage('Login.aspx')">
-                                 <asp:Image class="card-img-top" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' style="max-width: 100%; max-height: 100%; object-fit: cover;"  />
+                                <asp:Image class="card-img-top" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' Style="max-width: 100%; max-height: 100%; object-fit: cover;" />
                             </div>
                             <p class="card-text" style="font-size: 17px"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
                             <p class="card-text" style="font-size: 18px"><%# Eval("categorias") %> </p>
@@ -136,6 +139,24 @@
 </style>
 
 
+
+    <%--Carrusel Trabajos realizados--%>
+    <br />
+    <div class="hero">
+        <h1>Trabajos Realizados</h1>
+    </div>
+    <br />
+    <br />
+
+    <div class="container2">
+        <div class="horizontal-carousel" id="carousel-trabajos">
+            <asp:Repeater ID="Repeater2" runat="server">
+                <ItemTemplate>
+                    <div class="horizontal-card">
+                        <div class="horizontal-card-img-container">
+                            <asp:Image CssClass="horizontal-card-img-top align-items-center" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
+                        </div>
+
 <%--Carrusel Trabajos realizados--%>
 <br />
 <div class="hero">
@@ -150,40 +171,68 @@
             <ItemTemplate>
                 <div class="horizontal-card">
                     <div class="horizontal-card-img-container">
-                        <asp:Image CssClass="horizontal-card-img-top align-items-center" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
+                        <asp:Image CssClass="horizontal-card-img-top align-items-center" style="height:500px" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
+
                     </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-       
+                </ItemTemplate>
+            </asp:Repeater>
+
+        </div>
     </div>
+
+    <br />
+    <br />
+    <style>
+        .container2 {
+            overflow-x: hidden; /* Ocultar desbordamiento horizontal */
+            margin-bottom: 40px;
+        }
+
 </div>
      <br />
         <br />
 <style>
-    .container2 {
-        overflow-x: hidden; /* Ocultar desbordamiento horizontal */
-        margin-bottom: 40px;
-    }
+    /* Estilos base */
+.container2 {
+    overflow-x: hidden;
+    margin-bottom: 40px;
+}
 
-    .horizontal-carousel {
-        display: flex; /* Hace que los elementos del carrusel se muestren en línea horizontal */
-        overflow-x: auto; /* Agregar desplazamiento horizontal si los elementos superan el ancho del contenedor */
-    }
+.horizontal-carousel {
+    display: flex;
+    overflow-x: auto;
+}
 
-    .horizontal-card {
-        flex: 0 0 50%; /* Definir el ancho de cada elemento del carrusel */
-        margin-right: 20px; /* Espacio entre los elementos */
-        /* Ajusta el ancho y otros estilos según tus necesidades */
-    }
+.horizontal-card {
+    flex: 0 0 50%;
+    margin-right: 20px;
+}
 
-    /* Estilos para las imágenes dentro del carrusel */
+/* Estilos para las imágenes dentro del carrusel */
+.horizontal-card-img-top {
+    max-width: 100%; /* El ancho de la imagen no excederá el ancho del contenedor */
+    width: 350px; /* Ancho fijo para pantallas pequeñas */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 768px) {
     .horizontal-card-img-top {
-        max-width: 100%; /* Limitar el ancho máximo de la imagen al 100% del contenedor */
-        max-height: 100%; /* Limitar la altura máxima de la imagen al 100% del contenedor */
-        display: block; /* Asegurarse de que la imagen ocupe todo el ancho disponible */
-        margin: 0 auto; /* Centrar la imagen horizontalmente */
+        width: 700px; /* Ancho máximo para pantallas grandes */
     }
+}
+
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .horizontal-card {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
       /* Estilos para ocultar la barra de desplazamiento */
     .horizontal-carousel {
         overflow-x: hidden;
@@ -193,89 +242,117 @@
         margin-right: 20px; /* Espacio entre las imágenes */
     }
 
+
+        .horizontal-carousel {
+            display: flex; /* Hace que los elementos del carrusel se muestren en línea horizontal */
+            overflow-x: auto; /* Agregar desplazamiento horizontal si los elementos superan el ancho del contenedor */
+        }
+
+        .horizontal-card {
+            flex: 0 0 50%; /* Definir el ancho de cada elemento del carrusel */
+            margin-right: 20px; /* Espacio entre los elementos */
+            /* Ajusta el ancho y otros estilos según tus necesidades */
+        }
+
+        /* Estilos para las imágenes dentro del carrusel */
+        .horizontal-card-img-top {
+            max-width: 100%; /* Limitar el ancho máximo de la imagen al 100% del contenedor */
+            max-height: 100%; /* Limitar la altura máxima de la imagen al 100% del contenedor */
+            display: block; /* Asegurarse de que la imagen ocupe todo el ancho disponible */
+            margin: 0 auto; /* Centrar la imagen horizontalmente */
+        }
+        /* Estilos para ocultar la barra de desplazamiento */
+        .horizontal-carousel {
+            overflow-x: hidden;
+        }
+
+            .horizontal-carousel .slick-slide {
+                margin-right: 20px; /* Espacio entre las imágenes */
+            }
+
         /* Estilos para las flechas de navegación */
-    .slick-prev,
-    .slick-next {
-        position: absolute;
-        top: 50%;
-        z-index: 1;
-        width: 40px;
-        height: 40px;
-        background-color: #1ab999; /* Color de fondo azul */
-        border-radius: 40%;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        transform: translateY(-50%);
-        color: #fff; /* Color del texto (flecha) en blanco */
-        font-size: 18px; /* Tamaño de la fuente de las flechas */
-    }
-
-    .slick-prev {
-        left: 10px;
-    }
-
-    .slick-next {
-        right: 10px;
-    }
-
-     /* Estilos para las flechas de navegación en hover */
-        .slick-prev:hover,
-        .slick-next:hover {
-            background-color: #007bff; /* Color de fondo verde en hover */
-            border-color: #007bff;
-        }
-</style>
-
-
-<script>
-    $(document).ready(function () {
-        var originalBackgroundColor; // Variable para almacenar el color original del botón
-
-        // Función para guardar el color original del botón
-        function storeOriginalBackgroundColor() {
-            originalBackgroundColor = $(".slick-prev").css("background-color");
+        .slick-prev,
+        .slick-next {
+            position: absolute;
+            top: 50%;
+            z-index: 1;
+            width: 40px;
+            height: 40px;
+            background-color: #1ab999; /* Color de fondo azul */
+            border-radius: 40%;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            transform: translateY(-50%);
+            color: #fff; /* Color del texto (flecha) en blanco */
+            font-size: 18px; /* Tamaño de la fuente de las flechas */
         }
 
-        // Inicializa el carrusel usando Slick Slider
-        $("#carousel-trabajos").slick({
-            slidesToShow: 2, // Mostrar dos imágenes a la vez
-            slidesToScroll: 1, // Número de elementos a desplazar en cada transición
-            autoplay: true, // Reproducir el carrusel automáticamente
-            autoplaySpeed: 10000, // Tiempo de espera entre transiciones en milisegundos (10 segundos)
-            prevArrow: '<button type="button" class="slick-prev"></button>',
-            nextArrow: '<button type="button" class="slick-next"></button>',
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2 // Número de elementos visibles en pantallas más grandes
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2 // Número de elementos visibles en pantallas más pequeñas
-                    }
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1 // Número de elementos visibles en pantallas aún más pequeñas
-                    }
-                }
-            ]
-        });
+        .slick-prev {
+            left: 10px;
+        }
 
-        // Llama a la función para almacenar el color original del botón al cargar la página
-        storeOriginalBackgroundColor();
+        .slick-next {
+            right: 10px;
+        }
 
-        // Restaura el color original del botón al soltar el clic
-        $(".slick-prev, .slick-next").mouseup(function () {
-            $(this).css("background-color", originalBackgroundColor);
+            /* Estilos para las flechas de navegación en hover */
+            .slick-prev:hover,
+            .slick-next:hover {
+                background-color: #007bff; /* Color de fondo verde en hover */
+                border-color: #007bff;
+            }
+    </style>
+
+
+    <script>
+        $(document).ready(function () {
+            var originalBackgroundColor; // Variable para almacenar el color original del botón
+
+            // Función para guardar el color original del botón
+            function storeOriginalBackgroundColor() {
+                originalBackgroundColor = $(".slick-prev").css("background-color");
+            }
+
+            // Inicializa el carrusel usando Slick Slider
+            $("#carousel-trabajos").slick({
+                slidesToShow: 2, // Mostrar dos imágenes a la vez
+                slidesToScroll: 1, // Número de elementos a desplazar en cada transición
+                autoplay: true, // Reproducir el carrusel automáticamente
+                autoplaySpeed: 10000, // Tiempo de espera entre transiciones en milisegundos (10 segundos)
+                prevArrow: '<button type="button" class="slick-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next"></button>',
+                responsive: [
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2 // Número de elementos visibles en pantallas más grandes
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2 // Número de elementos visibles en pantallas más pequeñas
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 1 // Número de elementos visibles en pantallas aún más pequeñas
+                        }
+                    }
+                ]
+            });
+
+            // Llama a la función para almacenar el color original del botón al cargar la página
+            storeOriginalBackgroundColor();
+
+            // Restaura el color original del botón al soltar el clic
+            $(".slick-prev, .slick-next").mouseup(function () {
+                $(this).css("background-color", originalBackgroundColor);
+            });
         });
-    });
-</script>
+    </script>
 
 
     <%--  Carrucel comentarios--%>
@@ -306,46 +383,46 @@
         </div>
     </div>
 
-<script>
-    var slide = document.getElementById("slide");
-    var ArribaFlecha = document.getElementById("ArribaFlecha");
-    var AbajoFlecha = document.getElementById("AbajoFlecha");
+    <script>
+        var slide = document.getElementById("slide");
+        var ArribaFlecha = document.getElementById("ArribaFlecha");
+        var AbajoFlecha = document.getElementById("AbajoFlecha");
 
-    // Clonar los comentarios para crear un efecto continuo
-    var comentarios = document.getElementsByClassName("cardComentario");
-    var totalComentarios = comentarios.length;
-    for (var i = 0; i < totalComentarios; i++) {
-        var clone = comentarios[i].cloneNode(true);
-        slide.appendChild(clone);
-    }
-
-    var x = 0;
-    var comentarioHeight = 300; // Altura de cada comentario en píxeles
-    var desplazamientoMaximo = -(totalComentarios * comentarioHeight);
-
-    function moverArriba() {
-        x = x - comentarioHeight;
-        if (x < desplazamientoMaximo) {
-            // Volver al principio para mostrar los comentarios originales
-            x = 0;
+        // Clonar los comentarios para crear un efecto continuo
+        var comentarios = document.getElementsByClassName("cardComentario");
+        var totalComentarios = comentarios.length;
+        for (var i = 0; i < totalComentarios; i++) {
+            var clone = comentarios[i].cloneNode(true);
+            slide.appendChild(clone);
         }
-        slide.style.top = x + "px";
-    }
 
-    function moverAbajo() {
-        x = x + comentarioHeight;
-        if (x > 0) {
-            // Volver al final para mostrar los comentarios clonados
-            x = desplazamientoMaximo;
+        var x = 0;
+        var comentarioHeight = 300; // Altura de cada comentario en píxeles
+        var desplazamientoMaximo = -(totalComentarios * comentarioHeight);
+
+        function moverArriba() {
+            x = x - comentarioHeight;
+            if (x < desplazamientoMaximo) {
+                // Volver al principio para mostrar los comentarios originales
+                x = 0;
+            }
+            slide.style.top = x + "px";
         }
-        slide.style.top = x + "px";
-    }
 
-    var intervalo = setInterval(moverArriba, 20000);
+        function moverAbajo() {
+            x = x + comentarioHeight;
+            if (x > 0) {
+                // Volver al final para mostrar los comentarios clonados
+                x = desplazamientoMaximo;
+            }
+            slide.style.top = x + "px";
+        }
 
-    ArribaFlecha.onclick = moverArriba;
-    AbajoFlecha.onclick = moverAbajo;
-</script>
+        var intervalo = setInterval(moverArriba, 20000);
+
+        ArribaFlecha.onclick = moverArriba;
+        AbajoFlecha.onclick = moverAbajo;
+    </script>
 
 
 
@@ -431,14 +508,15 @@
             }
 
         #slide {
-        width: 100%;
-        padding-right: 60px;
-        box-sizing: border-box;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: transform 0.5s; /* Añadimos una transición para suavizar el desplazamiento */
-    }
+            width: 100%;
+            padding-right: 60px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s; /* Añadimos una transición para suavizar el desplazamiento */
+        }
+
         .sidebar {
             width: 60px;
             height: 100%;

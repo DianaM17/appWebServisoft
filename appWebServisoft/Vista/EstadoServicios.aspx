@@ -11,11 +11,6 @@
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -34,7 +29,6 @@
                 <asp:BoundField DataField="estadoServ" HeaderText="Estado Servicio" />
                 <asp:TemplateField>
                     <ItemTemplate>
-
                         <div id="gvServicioRow">
                             <asp:Button ID="btnCancelar" CssClass="btn third" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CommandArgument='<%# Eval("idsolicitudServicio") %>' />
                             <a href="#" class="btn third" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">Reprogramar</a>
@@ -51,8 +45,6 @@
         </asp:GridView>
     </div>
 
-
-
     <%--Ventana Modal Comentarios--%>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -66,10 +58,10 @@
                         <div class="modal-header">
                             <asp:Button ID="btnCerrar" runat="server" CssClass="close" Text="&times;" OnClick="btnCerrar_Click" />
 
-                            <h4 class="modal-title">Calificar y Comentar</h4>
+                            <h4 class="modal1-title">Calificar y Comentar</h4>
                             <asp:Label ID="Label2" runat="server" Text="" Visible="false"></asp:Label>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal1-body">
                             <form id="comment-form">
                                 <asp:TextBox ID="txtComentario" CssClass="txtComentario" runat="server" placeholder="Escribe tu comentario aquí"></asp:TextBox>
                             </form>
@@ -112,12 +104,12 @@
                 background-color: red; /* Puedes cambiar el color de fondo según tus necesidades */
             }
 
-        .modal-title {
+        .modal1-title {
             font-family: "Times New Roman", Times, serif; /* Fuente Times New Roman */
             font-size: 30px; /* Tamaño de fuente de 30 */
         }
 
-        .modal-body {
+        .modal1-body {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -169,13 +161,13 @@
         }
 
 
-        .modal-body {
+        .modal1-body {
             /* Add your body styles here */
             padding: 20px;
             position: relative; /* Required for pseudo-element positioning */
         }
 
-            .modal-body::before {
+            .modal1-body::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -185,7 +177,7 @@
                 background-color: #f44336; /* Pink color - You can change it to any other pink shade */
             }
 
-            .modal-body::after {
+            .modal1-body::after {
                 content: '';
                 position: absolute;
                 top: 20%;
@@ -198,13 +190,11 @@
                 z-index: 1;
             }
 
-
-
         #comment-form {
             margin-bottom: 10px;
         }
 
-        .modal-body-container {
+        .modal1-body-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -272,10 +262,6 @@
             document.getElementById('<%= hdnSelectedLevel.ClientID %>').value = level;
         }
     </script>
-
-
-
-
 
     <style>
         #rating-stars {
