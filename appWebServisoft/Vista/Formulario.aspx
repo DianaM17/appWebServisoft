@@ -130,6 +130,8 @@
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
                         <asp:FileUpload ID="FluImagen" runat="server" />
                         <br />
+                        <label for="servicio" class="ubuntu">Servicio:</label>
+                        <asp:DropDownList ID="ddlCiudad" runat="server"></asp:DropDownList>
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
@@ -144,7 +146,7 @@
                     <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                         <ContentTemplate>
                             <figure class="w-100 img-form">
-                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px"/>
+                                <asp:Image ID="ImgCateg" runat="server" Height="500px" Width="490px" />
                             </figure>
                         </ContentTemplate>
                     </asp:UpdatePanel>
