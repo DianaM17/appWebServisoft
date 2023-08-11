@@ -140,23 +140,6 @@
 
 
 
-    <%--Carrusel Trabajos realizados--%>
-    <br />
-    <div class="hero">
-        <h1>Trabajos Realizados</h1>
-    </div>
-    <br />
-    <br />
-
-    <div class="container2">
-        <div class="horizontal-carousel" id="carousel-trabajos">
-            <asp:Repeater ID="Repeater2" runat="server">
-                <ItemTemplate>
-                    <div class="horizontal-card">
-                        <div class="horizontal-card-img-container">
-                            <asp:Image CssClass="horizontal-card-img-top align-items-center" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
-                        </div>
-
 <%--Carrusel Trabajos realizados--%>
 <br />
 <div class="hero">
@@ -172,22 +155,12 @@
                 <div class="horizontal-card">
                     <div class="horizontal-card-img-container">
                         <asp:Image CssClass="horizontal-card-img-top align-items-center" style="height:500px" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
-
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
-
-        </div>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+       
     </div>
-
-    <br />
-    <br />
-    <style>
-        .container2 {
-            overflow-x: hidden; /* Ocultar desbordamiento horizontal */
-            margin-bottom: 40px;
-        }
-
 </div>
      <br />
         <br />
@@ -242,118 +215,89 @@
         margin-right: 20px; /* Espacio entre las imágenes */
     }
 
-
-        .horizontal-carousel {
-            display: flex; /* Hace que los elementos del carrusel se muestren en línea horizontal */
-            overflow-x: auto; /* Agregar desplazamiento horizontal si los elementos superan el ancho del contenedor */
-        }
-
-        .horizontal-card {
-            flex: 0 0 50%; /* Definir el ancho de cada elemento del carrusel */
-            margin-right: 20px; /* Espacio entre los elementos */
-            /* Ajusta el ancho y otros estilos según tus necesidades */
-        }
-
-        /* Estilos para las imágenes dentro del carrusel */
-        .horizontal-card-img-top {
-            max-width: 100%; /* Limitar el ancho máximo de la imagen al 100% del contenedor */
-            max-height: 100%; /* Limitar la altura máxima de la imagen al 100% del contenedor */
-            display: block; /* Asegurarse de que la imagen ocupe todo el ancho disponible */
-            margin: 0 auto; /* Centrar la imagen horizontalmente */
-        }
-        /* Estilos para ocultar la barra de desplazamiento */
-        .horizontal-carousel {
-            overflow-x: hidden;
-        }
-
-            .horizontal-carousel .slick-slide {
-                margin-right: 20px; /* Espacio entre las imágenes */
-            }
-
         /* Estilos para las flechas de navegación */
-        .slick-prev,
-        .slick-next {
-            position: absolute;
-            top: 50%;
-            z-index: 1;
-            width: 40px;
-            height: 40px;
-            background-color: #1ab999; /* Color de fondo azul */
-            border-radius: 40%;
-            text-align: center;
-            line-height: 40px;
-            cursor: pointer;
-            transform: translateY(-50%);
-            color: #fff; /* Color del texto (flecha) en blanco */
-            font-size: 18px; /* Tamaño de la fuente de las flechas */
+    .slick-prev,
+    .slick-next {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        width: 40px;
+        height: 40px;
+        background-color: #1ab999; /* Color de fondo azul */
+        border-radius: 40%;
+        text-align: center;
+        line-height: 40px;
+        cursor: pointer;
+        transform: translateY(-50%);
+        color: #fff; /* Color del texto (flecha) en blanco */
+        font-size: 18px; /* Tamaño de la fuente de las flechas */
+    }
+
+    .slick-prev {
+        left: 10px;
+    }
+
+    .slick-next {
+        right: 10px;
+    }
+
+     /* Estilos para las flechas de navegación en hover */
+        .slick-prev:hover,
+        .slick-next:hover {
+            background-color: #007bff; /* Color de fondo verde en hover */
+            border-color: #007bff;
+        }
+</style>
+
+
+<script>
+    $(document).ready(function () {
+        var originalBackgroundColor; // Variable para almacenar el color original del botón
+
+        // Función para guardar el color original del botón
+        function storeOriginalBackgroundColor() {
+            originalBackgroundColor = $(".slick-prev").css("background-color");
         }
 
-        .slick-prev {
-            left: 10px;
-        }
-
-        .slick-next {
-            right: 10px;
-        }
-
-            /* Estilos para las flechas de navegación en hover */
-            .slick-prev:hover,
-            .slick-next:hover {
-                background-color: #007bff; /* Color de fondo verde en hover */
-                border-color: #007bff;
-            }
-    </style>
-
-
-    <script>
-        $(document).ready(function () {
-            var originalBackgroundColor; // Variable para almacenar el color original del botón
-
-            // Función para guardar el color original del botón
-            function storeOriginalBackgroundColor() {
-                originalBackgroundColor = $(".slick-prev").css("background-color");
-            }
-
-            // Inicializa el carrusel usando Slick Slider
-            $("#carousel-trabajos").slick({
-                slidesToShow: 2, // Mostrar dos imágenes a la vez
-                slidesToScroll: 1, // Número de elementos a desplazar en cada transición
-                autoplay: true, // Reproducir el carrusel automáticamente
-                autoplaySpeed: 10000, // Tiempo de espera entre transiciones en milisegundos (10 segundos)
-                prevArrow: '<button type="button" class="slick-prev"></button>',
-                nextArrow: '<button type="button" class="slick-next"></button>',
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 2 // Número de elementos visibles en pantallas más grandes
-                        }
-                    },
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2 // Número de elementos visibles en pantallas más pequeñas
-                        }
-                    },
-                    {
-                        breakpoint: 576,
-                        settings: {
-                            slidesToShow: 1 // Número de elementos visibles en pantallas aún más pequeñas
-                        }
+        // Inicializa el carrusel usando Slick Slider
+        $("#carousel-trabajos").slick({
+            slidesToShow: 2, // Mostrar dos imágenes a la vez
+            slidesToScroll: 1, // Número de elementos a desplazar en cada transición
+            autoplay: true, // Reproducir el carrusel automáticamente
+            autoplaySpeed: 10000, // Tiempo de espera entre transiciones en milisegundos (10 segundos)
+            prevArrow: '<button type="button" class="slick-prev"></button>',
+            nextArrow: '<button type="button" class="slick-next"></button>',
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 2 // Número de elementos visibles en pantallas más grandes
                     }
-                ]
-            });
-
-            // Llama a la función para almacenar el color original del botón al cargar la página
-            storeOriginalBackgroundColor();
-
-            // Restaura el color original del botón al soltar el clic
-            $(".slick-prev, .slick-next").mouseup(function () {
-                $(this).css("background-color", originalBackgroundColor);
-            });
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2 // Número de elementos visibles en pantallas más pequeñas
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1 // Número de elementos visibles en pantallas aún más pequeñas
+                    }
+                }
+            ]
         });
-    </script>
 
+        // Llama a la función para almacenar el color original del botón al cargar la página
+        storeOriginalBackgroundColor();
+
+        // Restaura el color original del botón al soltar el clic
+        $(".slick-prev, .slick-next").mouseup(function () {
+            $(this).css("background-color", originalBackgroundColor);
+        });
+    });
+</script>
 
     <%--  Carrucel comentarios--%>
 
