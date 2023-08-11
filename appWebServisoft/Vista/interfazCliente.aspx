@@ -150,7 +150,7 @@
             <ItemTemplate>
                 <div class="horizontal-card">
                     <div class="horizontal-card-img-container">
-                        <asp:Image CssClass="horizontal-card-img-top align-items-center" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
+                        <asp:Image CssClass="horizontal-card-img-top align-items-center" style="height:500px" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
                     </div>
                 </div>
             </ItemTemplate>
@@ -161,29 +161,47 @@
      <br />
         <br />
 <style>
-    .container2 {
-        overflow-x: hidden; /* Ocultar desbordamiento horizontal */
-        margin-bottom: 40px;
-    }
+    /* Estilos base */
+.container2 {
+    overflow-x: hidden;
+    margin-bottom: 40px;
+}
 
-    .horizontal-carousel {
-        display: flex; /* Hace que los elementos del carrusel se muestren en línea horizontal */
-        overflow-x: auto; /* Agregar desplazamiento horizontal si los elementos superan el ancho del contenedor */
-    }
+.horizontal-carousel {
+    display: flex;
+    overflow-x: auto;
+}
 
-    .horizontal-card {
-        flex: 0 0 50%; /* Definir el ancho de cada elemento del carrusel */
-        margin-right: 20px; /* Espacio entre los elementos */
-        /* Ajusta el ancho y otros estilos según tus necesidades */
-    }
+.horizontal-card {
+    flex: 0 0 50%;
+    margin-right: 20px;
+}
 
-    /* Estilos para las imágenes dentro del carrusel */
+/* Estilos para las imágenes dentro del carrusel */
+.horizontal-card-img-top {
+    max-width: 100%; /* El ancho de la imagen no excederá el ancho del contenedor */
+    width: 350px; /* Ancho fijo para pantallas pequeñas */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 768px) {
     .horizontal-card-img-top {
-        max-width: 100%; /* Limitar el ancho máximo de la imagen al 100% del contenedor */
-        max-height: 100%; /* Limitar la altura máxima de la imagen al 100% del contenedor */
-        display: block; /* Asegurarse de que la imagen ocupe todo el ancho disponible */
-        margin: 0 auto; /* Centrar la imagen horizontalmente */
+        width: 700px; /* Ancho máximo para pantallas grandes */
     }
+}
+
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .horizontal-card {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
       /* Estilos para ocultar la barra de desplazamiento */
     .horizontal-carousel {
         overflow-x: hidden;
