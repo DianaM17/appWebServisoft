@@ -58,10 +58,10 @@
                         <div class="modal-header">
                             <asp:Button ID="btnCerrar" runat="server" CssClass="close" Text="&times;" OnClick="btnCerrar_Click" />
 
-                            <h4 class="modal-title">Calificar y Comentar</h4>
+                            <h4 class="modal1-title">Calificar y Comentar</h4>
                             <asp:Label ID="Label2" runat="server" Text="" Visible="false"></asp:Label>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal1-body">
                             <form id="comment-form">
                                 <asp:TextBox ID="txtComentario" CssClass="txtComentario" runat="server" placeholder="Escribe tu comentario aquí"></asp:TextBox>
                             </form>
@@ -104,12 +104,12 @@
                 background-color: red; /* Puedes cambiar el color de fondo según tus necesidades */
             }
 
-        .modal-title {
+        .modal1-title {
             font-family: "Times New Roman", Times, serif; /* Fuente Times New Roman */
             font-size: 30px; /* Tamaño de fuente de 30 */
         }
 
-        .modal-body {
+        .modal1-body {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -161,13 +161,13 @@
         }
 
 
-        .modal-body {
+        .modal1-body {
             /* Add your body styles here */
             padding: 20px;
             position: relative; /* Required for pseudo-element positioning */
         }
 
-            .modal-body::before {
+            .modal1-body::before {
                 content: '';
                 position: absolute;
                 top: 0;
@@ -177,7 +177,7 @@
                 background-color: #f44336; /* Pink color - You can change it to any other pink shade */
             }
 
-            .modal-body::after {
+            .modal1-body::after {
                 content: '';
                 position: absolute;
                 top: 20%;
@@ -194,7 +194,7 @@
             margin-bottom: 10px;
         }
 
-        .modal-body-container {
+        .modal1-body-container {
             display: flex;
             flex-direction: column;
             align-items: center;

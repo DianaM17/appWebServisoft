@@ -139,6 +139,7 @@
 </style>
 
 
+
     <%--Carrusel Trabajos realizados--%>
     <br />
     <div class="hero">
@@ -155,12 +156,30 @@
                         <div class="horizontal-card-img-container">
                             <asp:Image CssClass="horizontal-card-img-top align-items-center" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
                         </div>
+
+<%--Carrusel Trabajos realizados--%>
+<br />
+<div class="hero">
+    <h1>Trabajos Realizados</h1>
+</div>
+<br />
+<br />
+
+<div class="container2">
+    <div class="horizontal-carousel" id="carousel-trabajos">
+        <asp:Repeater ID="Repeater2" runat="server">
+            <ItemTemplate>
+                <div class="horizontal-card">
+                    <div class="horizontal-card-img-container">
+                        <asp:Image CssClass="horizontal-card-img-top align-items-center" style="height:500px" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
+
                     </div>
                 </ItemTemplate>
             </asp:Repeater>
 
         </div>
     </div>
+
     <br />
     <br />
     <style>
@@ -168,6 +187,61 @@
             overflow-x: hidden; /* Ocultar desbordamiento horizontal */
             margin-bottom: 40px;
         }
+
+</div>
+     <br />
+        <br />
+<style>
+    /* Estilos base */
+.container2 {
+    overflow-x: hidden;
+    margin-bottom: 40px;
+}
+
+.horizontal-carousel {
+    display: flex;
+    overflow-x: auto;
+}
+
+.horizontal-card {
+    flex: 0 0 50%;
+    margin-right: 20px;
+}
+
+/* Estilos para las imágenes dentro del carrusel */
+.horizontal-card-img-top {
+    max-width: 100%; /* El ancho de la imagen no excederá el ancho del contenedor */
+    width: 350px; /* Ancho fijo para pantallas pequeñas */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Media query para pantallas grandes */
+@media (min-width: 768px) {
+    .horizontal-card-img-top {
+        width: 700px; /* Ancho máximo para pantallas grandes */
+    }
+}
+
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .horizontal-card {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+      /* Estilos para ocultar la barra de desplazamiento */
+    .horizontal-carousel {
+        overflow-x: hidden;
+    }
+
+     .horizontal-carousel .slick-slide {
+        margin-right: 20px; /* Espacio entre las imágenes */
+    }
+
 
         .horizontal-carousel {
             display: flex; /* Hace que los elementos del carrusel se muestren en línea horizontal */
