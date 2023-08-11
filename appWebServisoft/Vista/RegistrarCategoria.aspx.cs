@@ -16,12 +16,12 @@ namespace appWebServisoft.Vista
 
         }
 
-        protected void btnRegistrar_Click(object sender, EventArgs e)
+        protected void Button1_Click(object sender, EventArgs e)
         {
             ClCategoriaL objCateg = new ClCategoriaL();
             if (FuImagen.HasFile)
             {
-                string categoria = txtCategoria.Value;
+                string categoria = txtCategoria.Text;
                 int verificar = objCateg.mtdVerificar(categoria);
                 if (verificar > 0)
                 {
@@ -32,13 +32,13 @@ namespace appWebServisoft.Vista
                 }
                 else
                 {
-                    string nombreImg = txtCategoria.Value + ".png";
+                    string nombreImg = txtCategoria.Text + ".png";
                     string rutaImg = Server.MapPath("~/Vista/Imagenes/Categoria/" + nombreImg);
                     string ruta = ("~/Vista/Imagenes/Categoria/" + nombreImg);
                     FuImagen.SaveAs(rutaImg);
 
                     ClCategoriaE objCat = new ClCategoriaE();
-                    objCat.categoria = txtCategoria.Value;
+                    objCat.categoria = txtCategoria.Text;
                     objCat.imagen = ruta;
 
                     int resul = objCateg.mtdRegistrar(objCat);
@@ -51,6 +51,7 @@ namespace appWebServisoft.Vista
                     }
 
                 }
+
             }
         }
     }

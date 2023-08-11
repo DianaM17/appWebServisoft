@@ -85,7 +85,5 @@ namespace appWebServisoft.Logica
             List<ClEstadoServicioE> ListaEstadoServ = objEstadoS.mtdListarEstadoS();
             return ListaEstadoServ;
         }
-
-
     }
 }

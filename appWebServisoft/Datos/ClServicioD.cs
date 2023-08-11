@@ -33,7 +33,7 @@ namespace appWebServisoft.Datos
 
             string consulta = "Insert into solicitudServicio(fecha, hora, descripcion, ubicacion, idCiudad, idServicio, idProfesional, " +
                 "idCliente, idEstadoServicio) values ('" + objDatos.fecha + "','" + objDatos.hora + "', '" + objDatos.descripcion + "','" +
-                objDatos.ubicacion + "', "+objDatos.idCiudad+" , " + objDatos.idServicio + ", " + objDatos.idProfesional + ", " + objDatos.idCliente + ", "+objDatos.idEstadoServicio+")";
+                objDatos.ubicacion + "', " + objDatos.idCiudad + " , " + objDatos.idServicio + ", " + objDatos.idProfesional + ", " + objDatos.idCliente + ", " + objDatos.idEstadoServicio + ")";
 
 
             ClProcesarSQL SQL = new ClProcesarSQL();
@@ -118,7 +118,7 @@ namespace appWebServisoft.Datos
                 " JOIN Ciudad AS Ciu ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio JOIN Profesional" +
                 " AS Prof ON SolSer.idProfesional = Prof.idProfesional LEFT JOIN EstadoServicio ON " +
                 "SolSer.idsolicitudServicio = EstadoServicio.idEstadoServicio WHERE idCliente = " + idCliente + "";
-            
+
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
@@ -170,7 +170,7 @@ namespace appWebServisoft.Datos
                 "EstadoServicio.estado AS estadoServicio FROM solicitudServicio LEFT JOIN ciudad ON solicitudServicio.idCiudad = ciudad.idCiudad " +
                 "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
-                "WHERE solicitudServicio.idProfesional = "+idProf+ "";
+                "WHERE solicitudServicio.idProfesional = " + idProf + "";
 
 
 
@@ -190,7 +190,7 @@ namespace appWebServisoft.Datos
                 objServ.hora = tblDatos.Rows[i]["hora"].ToString();
                 objServ.descripcion = tblDatos.Rows[i]["descripcion"].ToString();
                 objServ.ubicacion = tblDatos.Rows[i]["ubicacion"].ToString();
-                objServ.nombre = tblDatos.Rows[i]["nombreCiudad"].ToString(); 
+                objServ.nombre = tblDatos.Rows[i]["nombreCiudad"].ToString();
                 objServ.servicio = tblDatos.Rows[i]["nombreServicio"].ToString();
                 objServ.nombres = tblDatos.Rows[i]["nombreCliente"].ToString();
                 objServ.apellidos = tblDatos.Rows[i]["apellidoCliente"].ToString();
