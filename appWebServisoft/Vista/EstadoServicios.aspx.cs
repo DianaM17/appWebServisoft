@@ -63,24 +63,6 @@ namespace appWebServisoft.Vista
             gvServicio.DataBind();
         }
 
-        //protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        System.Web.UI.WebControls.Label label1 = e.Row.FindControl("Label1") as System.Web.UI.WebControls.Label;
-        //        if (label1 != null)
-        //        {
-        //            string idsolicitudServicio = gvServicio.DataKeys[e.Row.RowIndex]["idsolicitudServicio"].ToString();
-        //            label1.Text = idsolicitudServicio;
-        //            System.Web.UI.WebControls.Button btnOpenModal = e.Row.FindControl("btnOpenModal") as System.Web.UI.WebControls.Button;
-        //            if (btnOpenModal != null)
-        //            {
-        //                btnOpenModal.Attributes["data-idsolicitudservicio"] = idsolicitudServicio;
-        //            }
-        //        }
-        //    }
-        //}
-
         protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
