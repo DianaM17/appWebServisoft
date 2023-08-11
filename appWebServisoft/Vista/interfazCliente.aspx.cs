@@ -41,6 +41,17 @@ namespace appWebServisoft.Vista
                 ddlCategoria.DataBind();
                 ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
 
+                //Cargar Combo ddlCiudad 
+                ClCiudadL objCiudad = new ClCiudadL();
+                List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
+                listaCiudad = objCiudad.mtdListarCiudad();
+
+                ddlCiudad.DataSource = listaCiudad;
+                ddlCiudad.DataTextField = "nombre";
+                ddlCiudad.DataValueField = "idCiudad";
+                ddlCiudad.DataBind();
+                ddlCiudad.Items.Insert(0, new ListItem("Seleccione: ", "0"));
+
                 ClComentarioL objComentario = new ClComentarioL();
                 List<ClComentarioE> comentario = objComentario.mtdListarComentario();
                 RepeaterContenido.DataSource = comentario;
@@ -100,10 +111,6 @@ namespace appWebServisoft.Vista
                 string idClienteString = Session["idCliente"].ToString();
                 int Idcliente = Int32.Parse(idClienteString);
 
-
-                string ciudad = lblIdCiudad.Text = Session["Cliente"].ToString();
-                int idCiudad = Int32.Parse(idClienteString);
-
                 string nombre = txtTitulo.Value;
                 string ruta = Server.MapPath("~/Vista/Imagenes/Cotizaciones/" + nombre);
                 string rutaSql = ("~/Vista/Imagenes/Cotizaciones/" + nombre);
@@ -114,7 +121,7 @@ namespace appWebServisoft.Vista
                 objCot.descripcion = txtDescripcion.Value;
                 objCot.imagen = rutaSql;
                 objCot.direccion = txtDireccion.Value;
-                objCot.idCiudad = idCiudad;
+                objCot.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
                 objCot.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
                 objCot.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
                 objCot.idCliente = Idcliente;
@@ -122,8 +129,10 @@ namespace appWebServisoft.Vista
                 int regis = objCoti.mtdRegistroCotizacion(objCot);
 
                 //Enviar la cotizacion
-                string categ = ddlCategoria.SelectedValue.ToString();
-                string serv = ddlServicio.SelectedValue.ToString();
+                int categ = int.Parse(ddlCategoria.SelectedValue.ToString());
+                int serv = int.Parse(ddlServicio.SelectedValue.ToString());
+                int ciudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+
                 ClProfesionalL objProf = new ClProfesionalL();
                 List<ClProfesionalE> listaProf = objProf.mtdSelecCorreoCateg(categ, serv, ciudad);
                 List<string> destinatarios = listaProf.Select(prof => prof.email).ToList();

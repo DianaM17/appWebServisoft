@@ -225,7 +225,6 @@ namespace appWebServisoft.Vista
                 ClProfesionalL clProf = new ClProfesionalL();
                 int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
             }
-
         }
     }
 }

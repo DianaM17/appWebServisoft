@@ -35,7 +35,6 @@ namespace appWebServisoft.Datos
                 "idCliente, idEstadoServicio) values ('" + objDatos.fecha + "','" + objDatos.hora + "', '" + objDatos.descripcion + "','" +
                 objDatos.ubicacion + "', "+objDatos.idCiudad+" , " + objDatos.idServicio + ", " + objDatos.idProfesional + ", " + objDatos.idCliente + ", "+objDatos.idEstadoServicio+")";
 
-
             ClProcesarSQL SQL = new ClProcesarSQL();
             int registro = SQL.mtdIUDConec(consulta);
             return registro;
@@ -109,12 +108,25 @@ namespace appWebServisoft.Datos
         //Muestra todos los servicios que ha hecho un cliente
         public List<ClSolicitudServicioE> mtdServicioCliente(int idCliente)
         {
+
+            string consulta = "SELECT SolSer.idsolicitudServicio,fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, Prof.nombres,apellidos, ES.estado " +
+                "FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio " +
+                "JOIN EstadoServicio[ES] ON SolSer.idEstadoServicio = ES.idEstadoServicio JOIN Profesional[Prof] ON SolSer.idProfesional = Prof.idProfesional " +
+                "where SolSer.idEstadoServicio = 1 and idCliente = " + idCliente + "";
+            //string consulta = "SELECT SolSer.idsolicitudServicio, fecha, hora, descripcion, ubicacion, Ciu.nombre AS nombre_ciudad, Servicio.servicio," +
+            //    " Prof.nombres AS nombres_profesional, apellidos AS apellidos_profesional, EstadoServicio.* FROM solicitudServicio AS SolSer" +
+            //    " JOIN Ciudad AS Ciu ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio JOIN Profesional" +
+            //    " AS Prof ON SolSer.idProfesional = Prof.idProfesional LEFT JOIN EstadoServicio ON " +
+            //    "SolSer.idsolicitudServicio = EstadoServicio.idEstadoServicio WHERE idCliente = " + idCliente + "";
+
+
          
             string consulta = "SELECT SolSer.idsolicitudServicio, fecha, hora, descripcion, ubicacion, Ciu.nombre AS nombre_ciudad, Servicio.servicio, Prof.nombres " +
                 "AS nombres_profesional, apellidos AS apellidos_profesional, SolSer.idEstadoServicio, EstadoServicio.* FROM solicitudServicio AS SolSer JOIN Ciudad " +
                 "AS Ciu ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio ON SolSer.idServicio = Servicio.idServicio JOIN Profesional AS Prof " +
                 "ON SolSer.idProfesional = Prof.idProfesional LEFT JOIN EstadoServicio ON SolSer.idEstadoServicio = EstadoServicio.idEstadoServicio WHERE idCliente = " + idCliente + "";
             
+
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);
 
@@ -131,10 +143,11 @@ namespace appWebServisoft.Datos
                 objServ.hora = tblDatos.Rows[i]["hora"].ToString();
                 objServ.descripcion = tblDatos.Rows[i]["descripcion"].ToString();
                 objServ.ubicacion = tblDatos.Rows[i]["ubicacion"].ToString();
-                objServ.nombre = tblDatos.Rows[i]["nombre_ciudad"].ToString(); //Nombre de la ciudad
+                objServ.nombre = tblDatos.Rows[i]["nombre"].ToString(); //Nombre de la ciudad
                 objServ.servicio = tblDatos.Rows[i]["servicio"].ToString();
-                objServ.nombres = tblDatos.Rows[i]["nombres_profesional"].ToString();
-                objServ.apellidos = tblDatos.Rows[i]["apellidos_profesional"].ToString();
+                objServ.estadoServ = tblDatos.Rows[i]["estado"].ToString();
+                objServ.nombres = tblDatos.Rows[i]["nombres"].ToString();
+                objServ.apellidos = tblDatos.Rows[i]["apellidos"].ToString();
                 objServ.NombreCompleto = objServ.nombres + " " + objServ.apellidos;
                 objServ.estadoServ = tblDatos.Rows[i]["estado"].ToString();
                 listaServ.Add(objServ);
@@ -144,7 +157,7 @@ namespace appWebServisoft.Datos
 
         public int mtdCancelarServicio(int idSolicitud)
         {
-            string consulta = "Update solicitudServicio Set estado = 'cancelado' where idSolicitudServicio = " + idSolicitud + "";
+            string consulta = "Update solicitudServicio Set idEstadoServicio = 2 where idSolicitudServicio = " + idSolicitud + "";
             ClProcesarSQL SQL = new ClProcesarSQL();
             int consul = SQL.mtdIUDConec(consulta);
             return consul;
@@ -167,8 +180,6 @@ namespace appWebServisoft.Datos
                 "LEFT JOIN servicio ON solicitudServicio.idServicio = servicio.idServicio LEFT JOIN profesional ON solicitudServicio.idProfesional = profesional.idProfesional " +
                 "LEFT JOIN cliente ON solicitudServicio.idCliente = cliente.idCliente LEFT JOIN EstadoServicio ON solicitudServicio.idEstadoServicio = EstadoServicio.idEstadoServicio " +
                 "WHERE solicitudServicio.idProfesional = "+idProf+ "";
-
-
 
             ClProcesarSQL objSQL = new ClProcesarSQL();
             DataTable tblDatos = objSQL.mtdSelectDesc(consulta);

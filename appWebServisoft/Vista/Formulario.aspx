@@ -130,8 +130,9 @@
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
                         <asp:FileUpload ID="FluImagen" runat="server" />
                         <br />
-                        <label for="servicio" class="ubuntu">Servicio:</label>
+                        <label for="servicio" class="ubuntu">Ciudad:</label>
                         <asp:DropDownList ID="ddlCiudad" runat="server"></asp:DropDownList>
+                        <br />
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
