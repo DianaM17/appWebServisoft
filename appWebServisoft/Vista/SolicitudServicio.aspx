@@ -141,7 +141,7 @@
                 <div>
                     <i class="bi bi-card-list" style="color: darkblue;"></i>
                     <asp:Label ID="lblDescripcion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Descripción: "></asp:Label>
-                    <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="5" Columns="40"></asp:TextBox>
                     <br />
                 </div>
                 <br />

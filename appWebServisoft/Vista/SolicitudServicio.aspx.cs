@@ -2,6 +2,7 @@
 using appWebServisoft.Logica;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -89,8 +90,6 @@ namespace appWebServisoft.Vista
             int idCliente = Int32.Parse(lblIdCliente.Text = Session["idCliente"].ToString());
             ClSolicitudServicioE objDatos = new ClSolicitudServicioE();
 
-
-
             objDatos.fecha = txtFecha.Text;
             objDatos.hora = txtHora.Value;
             objDatos.descripcion = txtDescripcion.Text;
@@ -104,12 +103,32 @@ namespace appWebServisoft.Vista
             objDatos.idCliente = (int)Session["idCliente"];
 
 
+            DateTime fechaSeleccionada = DateTime.ParseExact(txtFecha.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+            DateTime fechaActual = DateTime.Now;
+
+            if (fechaSeleccionada < fechaActual)
+            {
+                string script = @"<script> swal({ title: '¡Error!', text: 'No se puede solicitar un servicio en fechas anteriores a la actual.', type: 'error', confirmButtonText: 'Aceptar' }); </script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                return;
+            }
 
             ClServicioL objServicioL = new ClServicioL();
             int registro = objServicioL.mtdSolicitudServicio(objDatos);
 
             if (registro == 1)
             {
+                txtFecha.Text = string.Empty;
+                txtHora.Value = string.Empty;
+                txtDescripcion.Text = string.Empty;
+                txtDireccion.Text = string.Empty;
+                ddlCategoria.SelectedIndex = 0;
+                ddlServicio.SelectedIndex = 0;
+                ddlCiudad.SelectedIndex = 0;
+                ddlProfesional.SelectedIndex = 0;
+                ddlEstadoSev.SelectedIndex = 0;
+
                 string script = @"<script> swal({ title: '¡Registro Exitoso!', text: 'El servicio ha sido solicitado con exito.',type: 'success',
                             confirmButtonText: 'Aceptar'});
                         </script>";
