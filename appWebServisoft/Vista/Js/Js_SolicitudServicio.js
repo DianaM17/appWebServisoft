@@ -2,7 +2,7 @@
     const yearSelect = document.getElementById("year");
     const currentYear = new Date().getFullYear();
 
-    for (let i = currentYear - 1; i <= currentYear + 5; i++) {
+    for (let i = currentYear; i <= currentYear + 5; i++) {
         const option = document.createElement("option");
         option.value = i;
         option.text = i;

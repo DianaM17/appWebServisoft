@@ -47,7 +47,7 @@
                     <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
 
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Descripción del servicio:</label>
-                    <input type="text" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
+                    <input type="text" name="descripcion_form" TextMode="MultiLine" Rows="5" Columns="40" id="txtDescripcion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
 
                     <label for="imagenes" class="ubuntu" style="font-size: 14px;">Imágenes:</label>
                     <asp:FileUpload ID="FluImagen" runat="server" Style="font-size: 14px;" />
