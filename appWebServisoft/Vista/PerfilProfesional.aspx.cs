@@ -15,88 +15,99 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
-            string Telefono = lblTeleProf.Text = Session["TeleProfesional"].ToString();
-            if (!IsPostBack)
+            try
             {
-                ClProfesionalL obj = new ClProfesionalL();
-                ClProfesionalE Buscar = obj.mtdBuscarProf(idProf);
-                if (Buscar != null)
+                int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+                string Telefono = lblTeleProf.Text = Session["TeleProfesional"].ToString();
+                if (!IsPostBack)
                 {
-                    lblNombre.Text = Session["usuario"].ToString();
-                    ImgPerfil.ImageUrl = Buscar.fotos;
-                    lblPerfil.Text = Buscar.perfil;
-                    lblEmail.Text = Buscar.email;
-                    lblDireccion.Text = Buscar.direccion;
-                    lblTelefono.Text = Buscar.telefono;
-                    lblServicio.Text = Buscar.servicio;
-                    lblCategoria.Text = Buscar.categoria;
-                    lblCiudad.Text = Buscar.nombre;
-                    lblEstado.Text = Buscar.estado;
+                    ClProfesionalL obj = new ClProfesionalL();
+                    ClProfesionalE Buscar = obj.mtdBuscarProf(idProf);
+                    if (Buscar != null)
+                    {
+                        lblNombre.Text = Session["usuario"].ToString();
+                        ImgPerfil.ImageUrl = Buscar.fotos;
+                        lblPerfil.Text = Buscar.perfil;
+                        lblEmail.Text = Buscar.email;
+                        lblDireccion.Text = Buscar.direccion;
+                        lblTelefono.Text = Buscar.telefono;
+                        lblServicio.Text = Buscar.servicio;
+                        lblCategoria.Text = Buscar.categoria;
+                        lblCiudad.Text = Buscar.nombre;
+                        lblEstado.Text = Buscar.estado;
 
-                    ImgPerfil1.ImageUrl = Buscar.fotos;
-                    txtNombres.Value = Buscar.nombres;
-                    txtApellidos.Value = Buscar.apellidos;
-                    txtTelefono.Value = Buscar.telefono;
-                    txtEmail.Value = Buscar.email;
-                    txtPassword.Value = Buscar.clave;
-                    txtDireccion.Value = Buscar.direccion;
-                    txtPerfil.Value = Buscar.perfil;
+                        ImgPerfil1.ImageUrl = Buscar.fotos;
+                        txtNombres.Value = Buscar.nombres;
+                        txtApellidos.Value = Buscar.apellidos;
+                        txtTelefono.Value = Buscar.telefono;
+                        txtEmail.Value = Buscar.email;
+                        txtPassword.Value = Buscar.clave;
+                        txtDireccion.Value = Buscar.direccion;
+                        txtPerfil.Value = Buscar.perfil;
 
-                    //Combo ddlCategoria
-                    ClCategoriaL objCategoria = new ClCategoriaL();
-                    List<ClCategoriaE> listaCategoria = new List<ClCategoriaE>();
-                    listaCategoria = objCategoria.mtdListar();
+                        //Combo ddlCategoria
+                        ClCategoriaL objCategoria = new ClCategoriaL();
+                        List<ClCategoriaE> listaCategoria = new List<ClCategoriaE>();
+                        listaCategoria = objCategoria.mtdListar();
 
-                    ddlCategoria.DataSource = listaCategoria;
-                    ddlCategoria.DataTextField = "categoria";
-                    ddlCategoria.DataValueField = "idCategoria";
-                    ddlCategoria.DataBind();
-                    ddlCategoria.SelectedValue = Buscar.idCategoria.ToString();
+                        ddlCategoria.DataSource = listaCategoria;
+                        ddlCategoria.DataTextField = "categoria";
+                        ddlCategoria.DataValueField = "idCategoria";
+                        ddlCategoria.DataBind();
+                        ddlCategoria.SelectedValue = Buscar.idCategoria.ToString();
 
-                    //Combo ddlCiudad
-                    ClCiudadD objCiudad = new ClCiudadD();
-                    List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
-                    listaCiudad = objCiudad.mtdListarCiudad();
-                    ddlCiudad.DataSource = listaCiudad;
-                    ddlCiudad.DataTextField = "nombre";
-                    ddlCiudad.DataValueField = "idCiudad";
-                    ddlCiudad.DataBind();
-                    ddlCiudad.SelectedValue = Buscar.idCiudad.ToString();
+                        //Combo ddlCiudad
+                        ClCiudadD objCiudad = new ClCiudadD();
+                        List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
+                        listaCiudad = objCiudad.mtdListarCiudad();
+                        ddlCiudad.DataSource = listaCiudad;
+                        ddlCiudad.DataTextField = "nombre";
+                        ddlCiudad.DataValueField = "idCiudad";
+                        ddlCiudad.DataBind();
+                        ddlCiudad.SelectedValue = Buscar.idCiudad.ToString();
 
-                    //Combo ddlServicio
-                    string idCateg = ddlCategoria.SelectedValue;
-                    ClServicioL objServicio = new ClServicioL();
-                    List<ClServicioE> listaServicio = objServicio.mtdListarServicio(idCateg);
+                        //Combo ddlServicio
+                        string idCateg = ddlCategoria.SelectedValue;
+                        ClServicioL objServicio = new ClServicioL();
+                        List<ClServicioE> listaServicio = objServicio.mtdListarServicio(idCateg);
 
-                    // Limpiar los elementos existentes en el ComboBox
-                    ddlServicio.Items.Clear();
+                        // Limpiar los elementos existentes en el ComboBox
+                        ddlServicio.Items.Clear();
 
-                    ddlServicio.DataSource = listaServicio;
-                    ddlServicio.DataTextField = "servicio";
-                    ddlServicio.DataValueField = "idServicio";
-                    ddlServicio.DataBind();
-                    ddlServicio.SelectedValue = Buscar.idServicio.ToString();
+                        ddlServicio.DataSource = listaServicio;
+                        ddlServicio.DataTextField = "servicio";
+                        ddlServicio.DataValueField = "idServicio";
+                        ddlServicio.DataBind();
+                        ddlServicio.SelectedValue = Buscar.idServicio.ToString();
+                    }
+                    // Buscar el control chkEstado dentro del UpdatePanel
+                    CheckBox chkEstado = (CheckBox)UpdatePanel3.ContentTemplateContainer.FindControl("chkEstado");
+
+                    // Agregar el control chkEstado como un AsyncPostBackTrigger
+                    if (chkEstado != null)
+                    {
+                        AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
+                        trigger.ControlID = chkEstado.UniqueID;
+                        trigger.EventName = "CheckedChanged";
+                        UpdatePanel3.Triggers.Add(trigger);
+                    }
                 }
-                // Buscar el control chkEstado dentro del UpdatePanel
-                CheckBox chkEstado = (CheckBox)UpdatePanel3.ContentTemplateContainer.FindControl("chkEstado");
 
-                // Agregar el control chkEstado como un AsyncPostBackTrigger
-                if (chkEstado != null)
-                {
-                    AsyncPostBackTrigger trigger = new AsyncPostBackTrigger();
-                    trigger.ControlID = chkEstado.UniqueID;
-                    trigger.EventName = "CheckedChanged";
-                    UpdatePanel3.Triggers.Add(trigger);
-                }
+                //Galeria de imagenes trabajos realizados
+                ClProfesionalL objProfesionalD = new ClProfesionalL();
+                List<ClImagenesServicioE> list = objProfesionalD.mtdListarTrabajos(idProf);
+
+                RptImagenes.DataSource = list;
+                RptImagenes.DataBind();
+
+            }
+            catch (Exception)
+            {
+                Response.Redirect("~/Vista/Login.aspx");
+                throw;
             }
 
-            //Galeria de imagenes trabajos realizados
-            ClProfesionalL objProfesionalD = new ClProfesionalL();
-            List<ClImagenesServicioE> list = objProfesionalD.mtdListarTrabajos(idProf);
 
-            RptImagenes.DataSource = list;
-            RptImagenes.DataBind();
         }
 
         protected void btnGuardar_Click(object sender, EventArgs e)
@@ -126,6 +137,9 @@ namespace appWebServisoft.Vista
 
             if (regisProf == 1)
             {
+                Session.Clear();
+                Session.Abandon();
+                Response.Redirect("Login.aspx");
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
             else

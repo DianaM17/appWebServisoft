@@ -316,10 +316,10 @@
                                         </div>
                                     </div>
                                     <div class="form-holder">
-                                        <input id="txtEmail" name="txtEmail" type="text" placeholder="Email" class="form-control" runat="server" />
+                                        <input id="txtEmail" name="txtEmail" type="text" placeholder="Email" class="form-control" runat="server" disabled />
                                     </div>
                                     <div class="form-holder">
-                                        <input id="txtPassword" name="txtPassword" type="text" placeholder="Contraseña" class="form-control" runat="server" />
+                                        <input id="txtPassword" name="txtPassword" type="password" placeholder="Contraseña" class="form-control" runat="server" />
                                     </div>
                                 </section>
                                 <!-- SECTION 3 -->

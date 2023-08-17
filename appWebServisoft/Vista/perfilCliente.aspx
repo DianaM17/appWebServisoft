@@ -138,10 +138,10 @@
                                             <input id="txtTelefonoC" name="txtTelefonoC" type="text" placeholder="Telefono" class="form-control" runat="server" />
                                         </div>
                                         <div class="form-holder">
-                                            <input id="txtEmailC" name="txtEmailC" type="text" placeholder="Email" class="form-control" runat="server" />
+                                            <input id="txtEmailC" name="txtEmailC" type="text" placeholder="Email" class="form-control" runat="server" disabled/>
                                         </div>
                                         <div class="form-holder">
-                                            <input id="txtPasswordC" name="txtPasswordC" type="text" placeholder="Contraseña" class="form-control" runat="server" />
+                                            <input id="txtPasswordC" name="txtPasswordC" type="password" placeholder="Contraseña" class="form-control" runat="server" />
                                         </div>
                                     </section>
 

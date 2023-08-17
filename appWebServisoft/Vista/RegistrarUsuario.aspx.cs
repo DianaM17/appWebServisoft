@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -58,6 +59,40 @@ namespace appWebServisoft.Vista
 
         protected void btnRegistrarCliente_ServerClick(object sender, EventArgs e)
         {
+            string nombres = txtNombres.Value.Trim();
+            string apellidos = txtApellidos.Value.Trim();
+            string direccion = txtDireccion.Value.Trim();
+            string telefono1 = txtTelefono.Value.Trim();
+            string email = txtEmail.Value.Trim();
+            string contraseña = txtContraseña.Value;
+
+            if (!Regex.IsMatch(nombres, "^[A-Za-z\\s]+$") || !Regex.IsMatch(apellidos, "^[A-Za-z\\s]+$") || !Regex.IsMatch(direccion, "^[A-Za-z0-9\\s#-]+$"))
+            {
+                // Mostrar un mensaje de error si el formato no es válido
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'Los nombres y apellidos solo deben contener letras y espacios.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+            if (!Regex.IsMatch(telefono1, "^[0-9]{10}$"))
+            {
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'El número de teléfono debe contener exactamente 10 dígitos numéricos.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+            if (!email.Contains("@"))
+            {
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'El correo electrónico debe contener el símbolo @.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+            if (contraseña.Length < 8 || !Regex.IsMatch(contraseña, "[A-Z]") || !Regex.IsMatch(contraseña, "[a-z]") || !Regex.IsMatch(contraseña, "[0-9]") || !Regex.IsMatch(contraseña, "[!@#$%^&*]"))
+            {
+                // Mostrar un mensaje de error si la contraseña no cumple con los requisitos
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'La contraseña debe tener al menos 8 caracteres y contener al menos una mayúscula, una minúscula, un carácter especial y un número.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+
             ClClienteL objClient = new ClClienteL();
             string telefono = txtTelefono.Value;
             int veriTelefono = objClient.mtdVerificarTelefono(telefono);
@@ -69,56 +104,129 @@ namespace appWebServisoft.Vista
             }
             else
             {
-                ClClienteE objCliente = new ClClienteE();
-                objCliente.nombres = txtNombres.Value;
-                objCliente.apellidos = txtApellidos.Value;
-                objCliente.direccion = txtDireccion.Value;
-                objCliente.telefono = txtTelefono.Value;
-                objCliente.email = txtEmail.Value;
-                objCliente.clave = txtContraseña.Value;
-                objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
-
-                txtNombres.Value = string.Empty;
-                txtApellidos.Value = string.Empty;
-                txtDireccion.Value = string.Empty;
-                txtTelefono.Value = string.Empty;
-                txtEmail.Value = string.Empty;
-                txtContraseña.Value = string.Empty;
-                ddlCiudad.SelectedIndex = 0;
-
-                ClClienteL objClientee = new ClClienteL();
-                int registro = objClientee.mtdRegistroCliente(objCliente);
-
-                if (registro == 1)
+                if (FuImagen1.HasFile)
                 {
-                    // Guardar la imagen solo si se adjunta un archivo
-                    if (FlImagen.HasFile)
+                    string nombreImg = txtTelefono.Value + ".png";
+                    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                    string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                    FlImagen.SaveAs(rutaImg);
+
+                    ClClienteE objCliente = new ClClienteE();
+                    objCliente.nombres = txtNombres.Value;
+                    objCliente.apellidos = txtApellidos.Value;
+                    objCliente.direccion = txtDireccion.Value;
+                    objCliente.telefono = txtTelefono.Value;
+                    objCliente.foto = rutaSQL;
+                    objCliente.email = txtEmail.Value;
+                    objCliente.clave = txtContraseña.Value;
+                    objCliente.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+
+                    txtNombres.Value = string.Empty;
+                    txtApellidos.Value = string.Empty;
+                    txtDireccion.Value = string.Empty;
+                    txtTelefono.Value = string.Empty;
+                    txtEmail.Value = string.Empty;
+                    txtContraseña.Value = string.Empty;
+                    ddlCiudad.SelectedIndex = 0;
+
+                    ClClienteL objClientee = new ClClienteL();
+                    int registro = objClientee.mtdRegistroCliente(objCliente);
+
+
+                    if (registro == 1)
                     {
-                        string nombreImg = txtTelefono.Value + ".png";
-                        string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-                        string rutaSQL = ("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-                        FlImagen.SaveAs(rutaImg);
+                        string sweetAlertScript = @"
 
-                        // Quitar el atributo oculto del archivo guardado
-                        File.SetAttributes(rutaImg, File.GetAttributes(rutaImg) & ~FileAttributes.Hidden);
+                           <script>
+
+                             swal({
+
+                             title: '¡Registro Exitoso!',
+
+                             text: 'Cliente Registrado Exitosamente.',
+
+                             type: 'success',
+
+                             showConfirmButton: false,
+
+                             showCancelButton: false,
+
+                             timer: 2000,
+
+                             allowOutsideClick: false,
+
+                             allowEscapeKey: false,
+
+                             allowEnterKey: false
+
+                           });
+
+ 
+
+                       setTimeout(function() {
+
+                           window.location.href = 'Login.aspx';
+
+                           }, 2000);
+
+                         </script>";
+
+
+
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertAndRedirect", sweetAlertScript);
                     }
-
-                    string script = @"<script> swal({ title: '¡Registro Exitoso!', text: 'Cliente Registrado Exitosamente', type: 'success', confirmButtonText: 'Aceptar' });</script>";
-                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
                 }
             }
         }
 
         protected void BtnRegistrarProfesional_ServerClick(object sender, EventArgs e)
         {
+            string nombres = txtNombresP.Value.Trim();
+            string apellidos = txtApellidosP.Value.Trim();
+            string direccion = txtDireccionP.Value.Trim();
+            string telefono1 = txtTelefonoP.Value.Trim();
+            string email = txtEmailP.Value.Trim();
+            string contraseña = txtClaveP.Value;
+            string Perfil = txtPerfilP.Value.Trim();
+
+            if (!Regex.IsMatch(nombres, "^[A-Za-z\\s]+$") ||
+                !Regex.IsMatch(apellidos, "^[A-Za-z\\s]+$") ||
+                !Regex.IsMatch(direccion, "^[A-Za-z0-9\\s#-]+$") ||
+                !Regex.IsMatch(Perfil, "^[A-Za-z0-9\\s#-]+$"))
+            {
+                // Mostrar un mensaje de error si el formato no es válido
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'Los nombres y apellidos solo deben contener letras y espacios.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+            if (!Regex.IsMatch(telefono1, "^[0-9]{10}$"))
+            {
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'El número de teléfono debe contener exactamente 10 dígitos numéricos.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+            if (!email.Contains("@"))
+            {
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'El correo electrónico debe contener el símbolo @.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+            if (contraseña.Length < 8 || !Regex.IsMatch(contraseña, "[A-Z]") || !Regex.IsMatch(contraseña, "[a-z]") || !Regex.IsMatch(contraseña, "[0-9]") || !Regex.IsMatch(contraseña, "[!@#$%^&*]"))
+            {
+                // Mostrar un mensaje de error si la contraseña no cumple con los requisitos
+                string scripts = @"<script> swal({ title: '¡Error!', text: 'La contraseña debe tener al menos 8 caracteres y contener al menos una mayúscula, una minúscula, un carácter especial y un número.', type: 'error', confirmButtonText: 'Aceptar'});</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", scripts);
+                return;
+            }
+
             ClProfesionalL objProfesional = new ClProfesionalL();
             string telefono = txtTelefonoP.Value;
             int VeriTelefono = objProfesional.mtdVerificarTelefono(telefono);
             if (VeriTelefono > 0)
             {
                 string script = @"<script> swal({ title: '¡Error!', text: 'El número de telefono que ingresaste ya esta registrado!!.',type: 'error',
-                            confirmButtonText: 'Aceptar'});
-                    </script>";
+                confirmButtonText: 'Aceptar'});
+        </script>";
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
             else
@@ -161,15 +269,49 @@ namespace appWebServisoft.Vista
                     //int idRegistrado = objProfesional.mtdRegistroProfesionales(objProf);
                     int idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
 
-                    string script = @"<script> swal({ title: '¡Registro Exitoso!',
-                              text: 'Profesional Registrado Exitosamente', type: 'success',
-                            confirmButtonText: 'Aceptar'
-                });
-                    </script>";
+
 
                     if (regisProf == 1)
                     {
-                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                        string sweetAlertScript = @"
+
+                           <script>
+
+                             swal({
+
+                             title: '¡Registro Exitoso!',
+
+                             text: 'Profesional Registrado Exitosamente.',
+
+                             type: 'success',
+
+                             showConfirmButton: false,
+
+                             showCancelButton: false,
+
+                             timer: 2000,
+
+                             allowOutsideClick: false,
+
+                             allowEscapeKey: false,
+
+                             allowEnterKey: false
+
+                           });
+
+ 
+
+                       setTimeout(function() {
+
+                           window.location.href = 'Login.aspx';
+
+                           }, 2000);
+
+                         </script>";
+
+
+
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertAndRedirect", sweetAlertScript);
                     }
                 }
             }
