@@ -38,19 +38,22 @@ namespace appWebServisoft.Vista
                 ddlCategoria.DataValueField = "idCategoria";
                 ddlCategoria.DataBind();
                 ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
-
+                ddlServicio.Items.Insert(0, new ListItem("Seleccionar Categoria: ", "0"));
+                ddlServicio.DataBind();
+                ddlProfesional.Items.Insert(0, new ListItem("Seleccionar Servicio: ", "0"));
+                ddlProfesional.DataBind();
                 //Cargar Combo ddlEstadoServ
 
                 ClServicioL objEstadoServ = new ClServicioL();
                 List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
                 //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
 
-                ddlEstadoSev.DataSource = ListaEstadoServ;
-                ddlEstadoSev.DataTextField = "estado";
-                ddlEstadoSev.DataValueField = "idEstadoServicio";
-                ddlEstadoSev.DataBind();
-                ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
-                ddlEstadoSev.Enabled = false;
+                //ddlEstadoSev.DataSource = ListaEstadoServ;
+                //ddlEstadoSev.DataTextField = "estado";
+                //ddlEstadoSev.DataValueField = "idEstadoServicio";
+                //ddlEstadoSev.DataBind();
+                //ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
+                //ddlEstadoSev.Enabled = false;
 
                 //ClServicioL objEstadoServ = new ClServicioL();
                 //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
@@ -80,7 +83,7 @@ namespace appWebServisoft.Vista
             ddlServicio.DataTextField = "servicio";
             ddlServicio.DataValueField = "idServicio";
             ddlServicio.DataBind();
-            ddlServicio.Items.Insert(0, new ListItem("Seleccione: ", "0"));
+            ddlServicio.Items.Insert(0, new ListItem("Seleccione Servicio: ", "0"));
 
 
         }
@@ -99,7 +102,7 @@ namespace appWebServisoft.Vista
             objDatos.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
             objDatos.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
             objDatos.idProfesional = int.Parse(ddlProfesional.SelectedValue.ToString());
-            objDatos.idEstadoServicio = int.Parse(ddlEstadoSev.SelectedValue.ToString());
+            //objDatos.idEstadoServicio = int.Parse(ddlEstadoSev.SelectedValue.ToString());
             objDatos.idCliente = (int)Session["idCliente"];
 
 
@@ -127,7 +130,7 @@ namespace appWebServisoft.Vista
                 ddlServicio.SelectedIndex = 0;
                 ddlCiudad.SelectedIndex = 0;
                 ddlProfesional.SelectedIndex = 0;
-                ddlEstadoSev.SelectedIndex = 0;
+                //ddlEstadoSev.SelectedIndex = 0;
 
                 string script = @"<script> swal({ title: '¡Registro Exitoso!', text: 'El servicio ha sido solicitado con exito.',type: 'success',
                             confirmButtonText: 'Aceptar'});

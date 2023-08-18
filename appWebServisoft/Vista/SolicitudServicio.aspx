@@ -118,34 +118,32 @@
     </div>
     <form runat="server">
         <div id="modal" class="modal">
-            <div class="modal-content" style="height: 650px;">
+            <div class="modal-content" style="height: 540px; margin-top: 200px">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <h2 style="color: darkblue;">Solicitar Servicio</h2>
-                <div>
+                <h2 style="color: darkblue; text-align:center;">Solicitar Servicio</h2>
+                <div style="margin-top: 20px;">
                     <i class="bi bi-calendar-date-fill" style="color: darkblue;"></i>
                     <asp:Label ID="Label1" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Fecha Servicio:"></asp:Label>
                     <input type="text" id="eventdate" name="txtFecha" runat="server" disabled>
                 </div>
-                <br />
-                <div>
+                <div style="margin-top: 20px;">
                     <i class="bi bi-alarm-fill" style="color: darkblue;"></i>
                     <asp:Label ID="lblHora" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Hora:"></asp:Label>
                     <input type="time" id="txtHora" runat="server" name="txtHora">
                 </div>
-                <br />
-                <div>
+                <div style="margin-top: 20px;">
                     <i class="bi bi-card-list" style="color: darkblue;"></i>
                     <asp:Label ID="lblDescripcion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Descripción: "></asp:Label>
-                    <asp:TextBox ID="txtDescripcion" runat="server" TextMode="MultiLine" Rows="5" Columns="40"></asp:TextBox>
+                    <asp:TextBox ID="txtDescripcion" runat="server" Style="margin-top: 6px;" TextMode="MultiLine" Rows="5" Columns="40"></asp:TextBox>
 
                 </div>
-                <br />
+                <%--                <br />
                 <div>
                     <asp:Label ID="lblEstado" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Estado:"></asp:Label>
                     <asp:DropDownList ID="ddlEstadoSev" runat="server"></asp:DropDownList>
-                    <%--<asp:TextBox ID="txtEstado" runat="server" Enabled="false">En Proceso</asp:TextBox>--%>
+                    <%--<asp:TextBox ID="txtEstado" runat="server" Enabled="false">En Proceso</asp:TextBox
                 </div>
-                <br />
+                >--%>
                 <div>
                     <i class="bi bi-houses-fill" style="color: darkblue;"></i>
                     <asp:Label ID="lblDireccion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Direccion:"></asp:Label>
@@ -155,26 +153,26 @@
                 <div>
                     <i class="bi bi-buildings-fill" style="color: darkblue;"></i>
                     <asp:Label ID="lblCiudad" class="ubuntu" Style="color: darkblue;" Font-Bold="true" runat="server" Text="Ciudad:"></asp:Label>
-                    <asp:DropDownList ID="ddlCiudad" runat="server"></asp:DropDownList>
+                    <asp:DropDownList ID="ddlCiudad" Style="border-radius: 50px; font-size: 15px; margin-left: 40px; padding: 4px;" runat="server"></asp:DropDownList>
                 </div>
 
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                     <ContentTemplate>
-                        <div style="margin-top: 4px;">
+                        <div style="margin-top: 15px;">
                             <i class="bi bi-tools" style="color: darkblue;"></i>
                             <label for="categoria" class="ubuntu" style="color: darkblue;">Categoria:</label>
-                            <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <div style="margin-top: 8px;">
+                        <div style="margin-top: 15px;">
                             <i class="bi bi-wrench-adjustable-circle-fill" style="color: darkblue;"></i>
                             <label for="servicio" style="color: darkblue;" class="ubuntu">Servicio:</label>
-                            <asp:DropDownList ID="ddlServicio" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlServicio" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged"></asp:DropDownList>
                         </div>
-                        <div style="margin-top: 8px;">
+                        <div style="margin-top: 15px;">
                             <i class="bi bi-person-badge-fill" style="color: darkblue;"></i>
                             <label for="profesional" style="color: darkblue;" class="ubuntu">Profesional:</label>
-                            <asp:DropDownList ID="ddlProfesional" runat="server"></asp:DropDownList>
+                            <asp:DropDownList ID="ddlProfesional" Style="border-radius: 50px; font-size: 15px; padding: 4px;" runat="server"></asp:DropDownList>
                         </div>
                     </ContentTemplate>
                 </asp:UpdatePanel>
