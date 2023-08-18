@@ -57,7 +57,7 @@ function loadCalendar() {
 
 function openModal(day, month, year) {
     const modal = document.getElementById("modal");
-    const modalDate = document.getElementById("event-date");
+    const modalDate = document.getElementById("eventdate");
 
     modal.style.display = "block";
     modalDate.value = `${day}-${month + 1}-${year}`;
@@ -69,7 +69,7 @@ function closeModal() {
 }
 
 function saveEvent() {
-    const eventDate = document.getElementById("event-date").value;
+    const eventDate = document.getElementById("eventdate").value;
     const eventTime = document.getElementById("event-time").value;
     const clientName = document.getElementById("client-name").value;
     const professionalName = document.getElementById("professional-name").value;

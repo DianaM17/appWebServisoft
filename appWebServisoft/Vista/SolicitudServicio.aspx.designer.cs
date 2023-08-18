@@ -24,22 +24,22 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblIdCliente;
 
         /// <summary>
-        /// Control lblFecha.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFecha;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Control txtFecha.
+        /// Control eventdate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText eventdate;
 
         /// <summary>
         /// Control lblHora.
