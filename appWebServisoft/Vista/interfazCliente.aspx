@@ -17,7 +17,41 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!-- Form container -->
+    <section>
+        <!-- Hero Start -->
+        <style>
+            .container {
+                display: flex; 
+                flex-direction: row; 
+                justify-content: space-between; 
+            }
+
+            .column {
+                flex: 1; 
+                padding: 20px; 
+                box-sizing: border-box; 
+            }
+        </style>
+        <section class="hero">
+            <div class="row container">
+                <div class="column">
+                    <h2>Registra Los Servicios & 
+                        <br />
+                        Categorias Que No Se Encuentren</h2>
+                    <p>En este apartado, podrás observar los servicios y categorias que se encuentran disponibles. Sin embargo, si eres profesiones y tu profesion no se encuentra disponible, puedes registrarla con tan solo un clic.</p>
+                    <br />
+                </div>
+                <div class="column">
+                    <img src="Imagenes/hero.png" alt="heroImg" class="hero_img" />
+                </div>
+            </div>
+
+            <img src="Imagenes/bg-bottom-hero.png" alt="" class="curveImg" />
+        </section>
+        <!-- Hero End-->
+    </section>
+
+    <%--<!-- Form container -->
     <section id="form-width" class="section1 d-flex justify-content-center" style="margin-top: 20px;">
         <div class="row ">
             <!-- form input -->
@@ -68,7 +102,7 @@
                 </figure>
             </div>
         </div>
-    </section>
+    </section>--%>
 
 
 

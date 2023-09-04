@@ -12,7 +12,8 @@ namespace appWebServisoft.Datos
         public SqlConnection mtdConexion()
         {
 
-            conexion = new SqlConnection("Data Source=SOGAPRRBCFSD544\\SQLEXPRESS;Initial Catalog=bdProyecto;Persist Security Info=True;User ID=Servisoft;Password=12345");
+            //conexion = new SqlConnection("Data Source=SOGAPRRBCFSD544\\SQLEXPRESS;Initial Catalog=bdProyecto;Persist Security Info=True;User ID=Servisoft;Password=12345");
+            conexion = new SqlConnection("Data Source=DESKTOP-24921JO\\SQLEXPRESS;Initial Catalog=bdProyecto;Integrated Security=True");
 
             conexion.Open();
             return conexion;

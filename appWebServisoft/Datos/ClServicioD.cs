@@ -74,12 +74,12 @@ namespace appWebServisoft.Datos
         }
 
         //Lista todos los servicios que tiene un profesional
-        public List<ClSolicitudServicioE> mtdServicioAceptado(int idProf, string fecha)
+        public List<ClSolicitudServicioE> mtdServicioAceptado()
         {
             string consulta = "SELECT SolSer.fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, cli.nombres,apellidos " +
                 "FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
                 "ON SolSer.idServicio = Servicio.idServicio JOIN Cliente[cli] " +
-                "ON SolSer.idCliente = cli.idCliente where idEstadoServicio = 1  and idProfesional = " + idProf + " and fecha = '" + fecha + "'";
+                "ON SolSer.idCliente = cli.idCliente";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblServ = SQL.mtdSelectDesc(consulta);
 

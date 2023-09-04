@@ -9,5 +9,6 @@ namespace appWebServisoft.Entidades
     {
         public int idServicio { get; set; }
         public string servicio { get; set; }
+        public string imagenServ { get; set; }
     }
 }
