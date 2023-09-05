@@ -104,8 +104,8 @@
                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
                     <h4 class="text-center text-uppercase anton">Bienvenidos</h4>
                     <hr>
-                    <p class="text-center text-uppercase anton">¿Que servcio necesitas?</p>
-                    <p class="text-center text-uppercase anton">Ingresa cada uno de los datos solicitados para poder solicitar la cotización a cada uno de los profesionales que se encuentren disponibles</p>
+                    <p style="font-family:'Roboto Slab'">¿Que servcio necesitas?</p>
+                    <p style="font-family:'Roboto'">Ingresa cada uno de los datos solicitados para poder solicitar la cotización a cada uno de los profesionales que se encuentren disponibles</p>
                     <hr>
 
                     <!-- inputs -->
