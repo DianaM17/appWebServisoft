@@ -62,6 +62,8 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+        </div>
+
         <div class="container">
             <div class="row">
                 <asp:Repeater ID="rpServicios" runat="server">

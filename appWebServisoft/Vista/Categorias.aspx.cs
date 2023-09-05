@@ -18,6 +18,12 @@ namespace appWebServisoft.Vista
 
             reptCateg.DataSource = list;
             reptCateg.DataBind();
+
+            ClServicioL objServ = new ClServicioL();
+            List<ClServicioE> lista = objServ.mtdListaServicio();
+
+            rpServicios.DataSource = lista;
+            rpServicios.DataBind();
         }
     }
 }

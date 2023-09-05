@@ -9,6 +9,25 @@ namespace appWebServisoft.Datos
 {
     public class ClServicioD
     {
+
+        public List<ClServicioE> mtdListarServ()
+        {
+            string consulta = "Select * from Servicio";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblServicio = SQL.mtdSelectDesc(consulta);
+
+            List<ClServicioE> listaServicio = new List<ClServicioE>();
+            for (int i = 0; i < tblServicio.Rows.Count; i++)
+            {
+                ClServicioE objServ = new ClServicioE();
+                objServ.idServicio = int.Parse(tblServicio.Rows[i]["idServicio"].ToString());
+                objServ.servicio = tblServicio.Rows[i]["servicio"].ToString();
+                objServ.imagen = tblServicio.Rows[i]["imagen"].ToString();
+                listaServicio.Add(objServ);
+            }
+            return listaServicio;
+        }
+
         public List<ClServicioE> mtdListarServicio(string idCateg)
         {
             string consulta = "Select * from Servicio where idCategoria = " + idCateg + "";
@@ -74,12 +93,23 @@ namespace appWebServisoft.Datos
         }
 
         //Lista todos los servicios que tiene un profesional
-        public List<ClSolicitudServicioE> mtdServicioAceptado()
+        public List<ClSolicitudServicioE> mtdServicioAceptado(int idProf, string fecha = "")
         {
-            string consulta = "SELECT SolSer.fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, cli.nombres,apellidos " +
+            string consulta = "";
+            if (fecha == "")
+            {
+                consulta = "SELECT SolSer.fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, cli.nombres,apellidos " +
                 "FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
                 "ON SolSer.idServicio = Servicio.idServicio JOIN Cliente[cli] " +
-                "ON SolSer.idCliente = cli.idCliente";
+                "ON SolSer.idCliente = cli.idCliente where idEstadoServicio = 1  and idProfesional = " + idProf + "";
+            }
+            else if (fecha != "")
+            {
+                consulta = "SELECT SolSer.fecha,hora,descripcion,ubicacion, Ciu.nombre, Servicio.servicio, cli.nombres,apellidos " +
+                "FROM solicitudServicio[SolSer] JOIN Ciudad[Ciu] ON SolSer.idCiudad = Ciu.idCiudad JOIN Servicio " +
+                "ON SolSer.idServicio = Servicio.idServicio JOIN Cliente[cli] " +
+                "ON SolSer.idCliente = cli.idCliente where idEstadoServicio = 1  and idProfesional = " + idProf + " and fecha = '" + fecha + "'";
+            }
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblServ = SQL.mtdSelectDesc(consulta);
 
@@ -104,7 +134,6 @@ namespace appWebServisoft.Datos
             }
             return listaServ;
         }
-
         //Muestra todos los servicios que ha hecho un cliente
         public List<ClSolicitudServicioE> mtdServicioCliente(int idCliente)
         {
