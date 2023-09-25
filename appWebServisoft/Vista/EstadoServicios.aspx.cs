@@ -38,18 +38,19 @@ namespace appWebServisoft.Vista
                 ddlCiudad.DataBind();
                 ddlCiudad.Items.Insert(0, new ListItem("Seleccione Ciudad: ", "0"));
                 // Llamar al método para enlazar datos al GridView
-                BindGridView();
+                //BindGridView();
+
             }
         }
 
-        protected void BindGridView()
-        {
-            int idCliente = int.Parse(Session["idCliente"].ToString());
-            ClServicioL objServicioL = new ClServicioL();
-            List<ClSolicitudServicioE> listaServ = objServicioL.mtdServicioCliente(idCliente);
-            gvServicio.DataSource = listaServ;
-            gvServicio.DataBind();
-        }
+        //protected void BindGridView()
+        //{
+        //    int idCliente = int.Parse(Session["idCliente"].ToString());
+        //    ClServicioL objServicioL = new ClServicioL();
+        //    List<ClSolicitudServicioE> listaServ = objServicioL.mtdServicioCliente(idCliente);
+        //    gvServicio.DataSource = listaServ;
+        //    gvServicio.DataBind();
+        //}
 
         protected void gvServicio_RowDataBound(object sender, GridViewRowEventArgs e)
         {
@@ -60,15 +61,18 @@ namespace appWebServisoft.Vista
 
                 // Buscar el control de botón dentro del UpdatePanel
                 Button btnOpenModal = e.Row.FindControl("btnOpenModal") as Button;
+                Button btnCancelar = e.Row.FindControl("btnCancelar") as Button;
 
                 // Verificar si el estado del servicio es "terminado" para mostrar el botón de comentarios
                 if (estadoServicio == "Terminado")
                 {
                     btnOpenModal.Visible = true;
+                    btnCancelar.Visible = false;
                 }
                 else
                 {
                     btnOpenModal.Visible = false;
+                    btnCancelar.Visible = true;
                 }
 
                 // Ajustar el atributo data-idsolicitudservicio del botón para usarlo en JavaScript

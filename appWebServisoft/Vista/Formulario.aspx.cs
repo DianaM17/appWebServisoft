@@ -56,9 +56,8 @@ namespace Formulario
             ddlServicio.DataBind();
             ddlServicio.Items.Insert(0, new ListItem("Seleccione: ", "0"));
 
-            int idCate = ddlCategoria.SelectedIndex;
             ClCotizacionL objCot = new ClCotizacionL();
-            ClCotizacionE Buscar = objCot.mtdCotizacion(idCate);
+            ClCotizacionE Buscar = objCot.mtdCotizacion(idCateg);
             if (Buscar != null)
             {
                 ImgCateg.ImageUrl = Buscar.imagen;

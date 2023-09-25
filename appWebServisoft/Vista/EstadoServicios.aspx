@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Vista/MasterCliente.Master" AutoEventWireup="true" CodeBehind="EstadoServicios.aspx.cs" Inherits="appWebServisoft.Vista.EstadoServicios" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/e5246dcec8.js" crossorigin="anonymous"></script>
     <link href="Css/Estilos_EstadoServicio.css" rel="stylesheet" />
@@ -14,7 +14,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="container mt-3">
         <asp:GridView ID="gvServicio" runat="server" DataKeyNames="idsolicitudServicio" AutoGenerateColumns="false" CssClass="table table-striped" OnRowDataBound="gvServicio_RowDataBound">
             <Columns>
@@ -31,7 +31,7 @@
                     <ItemTemplate>
                         <div id="gvServicioRow">
                             <asp:Button ID="btnCancelar" CssClass="btn third" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" CommandArgument='<%# Eval("idsolicitudServicio") %>' />
-                            <a href="#" class="btn third" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">Reprogramar</a>
+                            <a href="#" id="btnReprogramar" class="btn third" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onclick="setSelectedId('<%# Eval("idsolicitudServicio") %>')">Reprogramar</a>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server" ChildrenAsTriggers="true">
                                 <ContentTemplate>
                                     <asp:Button ID="btnOpenModal" CssClass="btn third" runat="server" Text="Comentar" CommandName="AbrirVentanaModal" CommandArgument='<%# Eval("idsolicitudServicio") %>' OnClick="btnOpenModal_Click" />
@@ -52,7 +52,7 @@
             <asp:HiddenField ID="hdnSelectedRating" runat="server" Value="0" />
             <asp:HiddenField ID="hdnSelectedLevel" runat="server" Value="" />
             <asp:HiddenField ID="HiddenField2" runat="server" />
-            <div class="modal" id="miModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal staticBackdrop" id="miModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -287,10 +287,16 @@
             #rating-stars input[type="radio"]:checked ~ label {
                 color: #ffcc00;
             }
+
+        .modal2 {
+            justify-content: center;
+            align-content: center;
+            display: flex;
+        }
     </style>
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="staticBackdrop" style="margin: 0 500px" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -308,12 +314,6 @@
                         <i class="bi bi-alarm-fill" style="color: darkblue;"></i>
                         <asp:Label ID="lblHora" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Hora:"></asp:Label>
                         <input type="time" id="txtHora" runat="server" name="txtHora">
-                        <br />
-                    </div>
-                    <br />
-                    <div>
-                        <asp:Label ID="lblEstado" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Estado:"></asp:Label>
-                        <asp:TextBox ID="txtEstado" runat="server" placeholder="Estado" Enabled="false">Aceptado</asp:TextBox>
                         <br />
                     </div>
                     <br />
@@ -346,7 +346,7 @@
     <link rel="stylesheet" href="path/to/your/custom.css">
 
 
-   <%-- <script>
+    <%-- <script>
         function mostrarModal() {
             $('#miModal').modal('show'); // miModal es el ID del elemento modal
         }
