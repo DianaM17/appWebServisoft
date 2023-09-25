@@ -13,7 +13,7 @@ namespace appWebServisoft.Logica
             return regis;
         }
 
-        public ClCotizacionE mtdCotizacion(int idCot)
+        public ClCotizacionE mtdCotizacion(string idCot)
         {
             ClCotizacioD objCotiz = new ClCotizacioD();
             ClCotizacionE lista = objCotiz.mtdMostrarImg(idCot);

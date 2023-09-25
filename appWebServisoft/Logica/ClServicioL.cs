@@ -44,7 +44,7 @@ namespace appWebServisoft.Logica
             return registro;
         }
 
-        public List<ClSolicitudServicioE> mtdServicioAceptado(int idProfesional, string fecha)
+        public List<ClSolicitudServicioE> mtdServicioAceptado(int idProfesional, string fecha = "")
         {
             ClServicioD objServicio = new ClServicioD();
             List<ClSolicitudServicioE> listaServ = objServicio.mtdServicioAceptado(idProfesional, fecha);
@@ -84,6 +84,20 @@ namespace appWebServisoft.Logica
             ClServicioD objEstadoS = new ClServicioD();
             List<ClEstadoServicioE> ListaEstadoServ = objEstadoS.mtdListarEstadoS();
             return ListaEstadoServ;
+        }
+
+        public ClSolicitudServicioE mtdDatosServicio(int idServicio)
+        {
+            ClServicioD objServicio = new ClServicioD();
+            ClSolicitudServicioE listarDatos = objServicio.mtdBuscarDatoServicio(idServicio);
+            return listarDatos;
+        }
+
+        public ClSolicitudServicioE mtdSeleccionarServ(int idServicio)
+        {
+            ClServicioD objServ = new ClServicioD();
+            ClSolicitudServicioE objServicio = objServ.mtdSeleccionarServ(idServicio);
+            return objServicio;
         }
     }
 }

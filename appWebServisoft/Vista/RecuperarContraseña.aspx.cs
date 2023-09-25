@@ -29,8 +29,6 @@ namespace appWebServisoft.Vista
             if (verificarCorreoProf > 0 || verificarCorreoClie > 0)
             {
                 objProf.mtdActualizarContrasela(email, nuevaContraseña);
-                lblMensaje.Text = "Se ha enviado correctamente la contraseña";
-                lblMensaje.Visible = true;
 
                 // Configuración de la conexión SMTP
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
@@ -43,9 +41,29 @@ namespace appWebServisoft.Vista
                 mailMessage.To.Add(email);
                 mailMessage.Subject = "Recuperación de contraseña";
                 mailMessage.Body = "Tu nueva contraseña es: " + nuevaContraseña;
+                try
+                {
+                    smtpClient.Send(mailMessage);
 
+                    string script = @"<script>
+    console.log('SweetAlert script is being executed.'); // Agrega esta línea
+    Swal.fire({
+        icon: 'success', title: 'Éxito', text: 'Se recupero la contraseña exitosamente.', confirmButtonColor: '#3085d6', confirmButtonText: 'Aceptar'
+    });
+</script>";
+
+                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertSuccess", script);
+                }
+                catch (Exception)
+                {
+                    string script = @"<script> swal({ title: '¡Error!', text: 'Correo con encontrado',type: 'error',
+                            confirmButtonText: 'Aceptar'});
+                    </script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
+                    throw;
+                }
                 // Enviar el correo electrónico
-                smtpClient.Send(mailMessage);
+
             }
             else
             {
