@@ -73,6 +73,7 @@ namespace appWebServisoft.Datos
             {
                 objCliente = new ClClienteE();
                 objCliente.idCliente = int.Parse(tblCliente.Rows[0]["idCliente"].ToString());
+                objCliente.foto = tblCliente.Rows[0]["foto"].ToString();
                 objCliente.nombres = tblCliente.Rows[0]["nombres"].ToString();
                 objCliente.apellidos = tblCliente.Rows[0]["apellidos"].ToString();
                 objCliente.direccion = tblCliente.Rows[0]["direccion"].ToString();

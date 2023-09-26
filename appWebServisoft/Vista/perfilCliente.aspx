@@ -25,17 +25,65 @@
                         <div class="perfil-usuario-avatar">
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
-                                    <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfill" Height="150px" Width="1560px"/>
+                                    <asp:Image CssClass="imagenes" runat="server" ID="ImgPerfill" Height="150px" Width="1560px" />
                                 </ContentTemplate>
                             </asp:UpdatePanel>
                             <%--<asp:FileUpload ID="cambiarImg" runat="server" onchange="imagen(this)" />--%>
                             <input type="file" id="imagenImput" runat="server" accept="image/**" style="display: none;">
-                            <button type="button" class="boton-avatar" onclick="seleccionarImagenn()">
+                            <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                                 <i class="far fa-image"></i>
                             </button>
-                            <asp:Button ID="btnGuardarImg" runat="server" Text="Button" OnClick="btnGuardarImg_Click" Style="display: none;" />
+                            <button type="button" id="btnGuardarImg" runat="server" style="visibility: hidden;"></button>
                             <script>
-                                function seleccionarImagenn() {
+                                function seleccionarImagen() {
+                                    var input = document.getElementById('<%= imagenImput.ClientID %>');
+                                    console.log("Imagen seleccionada");
+                                    input.click();
+                                }
+
+                                // Manejar el cambio de imagen seleccionada
+                                var input = document.getElementById('<%= imagenImput.ClientID %>');
+                                input.addEventListener('change', function () {
+                                    var imagen = input.files[0];
+                                    console.log("imagen para guardar");
+                                    if (imagen) {
+                                        var reader = new FileReader();
+
+                                        reader.onload = function (e) {
+                                            var imagenSeleccionada = e.target.result;
+
+                                            // Asignar la URL de la imagen seleccionada al control ImgPerfil
+                                            var imgPerfil = document.getElementById('<%= ImgPerfill.ClientID %>');
+                                            imgPerfil.src = imagenSeleccionada;
+                                            console.log("imagen guardada");
+
+                                            // Ahora, realizar la llamada AJAX para guardar la imagen en el servidor
+                                            var formData = new FormData();
+                                            formData.append('imagen', imagen);
+
+                                            $.ajax({
+                                                type: 'POST',
+                                                url: 'perfilCliente.aspx', // Reemplaza 'GuardarImagen.aspx' con la URL correcta para tu página que guarda la imagen.
+                                                data: formData,
+                                                processData: false,
+                                                contentType: false,
+                                                success: function (response) {
+                                                    // La respuesta del servidor debería contener la ruta de la imagen guardada
+                                                    var imagenGuardada = response;
+                                                    console.log("imagen guardada en el servidor: " + imagenGuardada);
+
+                                                    // Puedes mostrar una notificación o realizar otras acciones si es necesario.
+                                                },
+                                                error: function (error) {
+                                                    console.error("Error al guardar la imagen en el servidor: " + error);
+                                                }
+                                            });
+                                        };
+
+                                        reader.readAsDataURL(imagen);
+                                    }
+                                });
+                                <%--function seleccionarImagenn() {
                                     var input = document.getElementById('<%= imagenImput.ClientID%>');
                                     console.log("Imagen selecionada");
                                     input.click();
@@ -62,7 +110,7 @@
                                         reader.readAsDataURL(imagen);
                                     }
                                     btnGuardarImg.click();
-                                });
+                                });--%>
                             </script>
                         </div>
                         <button type="button" class="btn btn-primary boton-portada" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -138,7 +186,7 @@
                                             <input id="txtTelefonoC" name="txtTelefonoC" type="text" placeholder="Telefono" class="form-control" runat="server" />
                                         </div>
                                         <div class="form-holder">
-                                            <input id="txtEmailC" name="txtEmailC" type="text" placeholder="Email" class="form-control" runat="server" disabled/>
+                                            <input id="txtEmailC" name="txtEmailC" type="text" placeholder="Email" class="form-control" runat="server" disabled />
                                         </div>
                                         <div class="form-holder">
                                             <input id="txtPasswordC" name="txtPasswordC" type="password" placeholder="Contraseña" class="form-control" runat="server" />
@@ -173,6 +221,6 @@
         <script src="Js/jquery.steps.js"></script>
         <script src="Js/main.js"></script>
         <script src="Js/theme-map.js"></script>
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     </div>
 </asp:Content>

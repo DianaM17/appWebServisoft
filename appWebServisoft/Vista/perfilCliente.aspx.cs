@@ -47,6 +47,32 @@ namespace appWebServisoft.Vista
                         ddlCiudad.DataValueField = "idCiudad";
                         ddlCiudad.DataBind();
                         ddlCiudad.SelectedValue = Buscar.idCiudad.ToString();
+
+
+                        // Cargar la imagen desde la base de datos y asignarla a ImgPerfill
+                        ImgPerfill.ImageUrl = Buscar.foto;
+                    }
+
+                    if (Request.Files.Count > 0)
+                    {
+                        HttpPostedFile file = Request.Files[0];
+                        if (file != null && file.ContentLength > 0)
+                        {
+                           ClClienteE objClien = new ClClienteE();
+                            string telefono = Session["TeleCliente"].ToString();
+                            string nombreImg = telefono + ".png";
+                            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
+                            string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
+
+                            // Guarda la imagen en el servidor
+                            file.SaveAs(rutaImg);
+
+                            objClien.foto = rutaSql;
+                            int actualizar = objCliente.mtdActualizarImagen(objClien, idCliente);
+
+                            // Devuelve la ruta de la imagen guardada como respuesta
+                            Response.Write(rutaSql);
+                        }
                     }
                 }
             }
@@ -56,6 +82,7 @@ namespace appWebServisoft.Vista
                 Response.Redirect("~/Vista/Login.aspx");
                 throw;
             }
+
 
 
         }
@@ -93,22 +120,22 @@ namespace appWebServisoft.Vista
             Response.Redirect("Formulario.aspx");
         }
 
-        protected void btnGuardarImg_Click(object sender, EventArgs e)
-        {
-            int idCliente = Int32.Parse(lblidCliente.Text = Session["idCliente"].ToString());
-            ClClienteE objClient = new ClClienteE();
-            var files = imagenImput.PostedFile;
-            string nombreImg = files.FileName;
-            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
-            string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
-            var file = Request.Files[0];
-            if (imagenImput.PostedFile != null && imagenImput.PostedFile.ContentLength > 0)
-            {
-                file.SaveAs(rutaImg);
-                objClient.foto = rutaSql;
-                ClClienteL clClien = new ClClienteL();
-                int actualizar = clClien.mtdActualizarImagen(objClient, idCliente);
-            }
-        }
+        //protected void btnGuardarImg_Click(object sender, EventArgs e)
+        //{
+        //    int idCliente = Int32.Parse(lblidCliente.Text = Session["idCliente"].ToString());
+        //    ClClienteE objClient = new ClClienteE();
+        //    var files = imagenImput.PostedFile;
+        //    string nombreImg = files.FileName;
+        //    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
+        //    string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
+        //    var file = Request.Files[0];
+        //    if (imagenImput.PostedFile != null && imagenImput.PostedFile.ContentLength > 0)
+        //    {
+        //        file.SaveAs(rutaImg);
+        //        objClient.foto = rutaSql;
+        //        ClClienteL clClien = new ClClienteL();
+        //        int actualizar = clClien.mtdActualizarImagen(objClient, idCliente);
+        //    }
+        //}
     }
 }

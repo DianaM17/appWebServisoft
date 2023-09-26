@@ -66,7 +66,7 @@ namespace Formulario
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
-            
+
             //Registrar la cotización
             if (FluImagen.HasFile)
             {
@@ -98,72 +98,91 @@ namespace Formulario
                 List<ClProfesionalE> listaProf = objProf.mtdSelecCorreoCateg(categ, serv, ciudad);
                 List<string> destinatarios = listaProf.Select(prof => prof.email).ToList();
                 string email = listaProf.FirstOrDefault()?.email;
-                MailMessage mensaje = new MailMessage();
-                // Establecer el remitente, destinatario y asunto del correo
-                mensaje.From = new MailAddress(email);
-                mensaje.To.Add(new MailAddress("servisoft1710@gmail.com"));
-                mensaje.Subject = "Cotización";
-                for (int i = 0; i < destinatarios.Count; i++)
+
+                if (string.IsNullOrEmpty(email) || destinatarios.Count == 0)
                 {
-                    mensaje.To.Add(new MailAddress(destinatarios[i]));
+                    // No se encontraron destinatarios, muestra un mensaje de alerta
+                    string script = @"<script>
+    Swal.fire({
+        title: 'Alerta',
+        text: 'No se encontraron Profesionales para esta cotización',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+    });
+</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "NoDestinatarios", script, false);
+                    txtTitulo.Value = string.Empty;
+                    txtDescripcion.Value = string.Empty;
+                    txtDireccion.Value = string.Empty;
                 }
-
-                // Crear el cuerpo del correo con los campos adicionales
-                string tituloServ = txtTitulo.Value;
-                string descripcion = txtDescripcion.Value;
-                string direccion = txtDireccion.Value;
-
-                //Optiene el archivo adjunto cargardo atraves del fileupload
-                //PostedFile es una propiedad del control FileUpload
-                HttpPostedFile archivoAdjunto = FluImagen.PostedFile;
-                Stream flujoAdjunto = archivoAdjunto.InputStream;
-                Attachment adjunto = new Attachment(flujoAdjunto, archivoAdjunto.FileName);
-                mensaje.Attachments.Add(adjunto);
-
-                txtTitulo.Value = string.Empty;
-                txtDescripcion.Value = string.Empty;
-                txtDireccion.Value = string.Empty;
-
-                mensaje.Body = $"Titulo Servicio: {tituloServ}\nDescripcion: {descripcion}\nDirección: {direccion}";
-
-                // Crear el objeto SmtpClient y configurarlo
-                SmtpClient clienteSmtp = new SmtpClient();
-
-                // Configurar las credenciales del servidor SMTP, servidor y puerto
-                clienteSmtp.UseDefaultCredentials = false;
-                clienteSmtp.Credentials = new System.Net.NetworkCredential("servisoft1710@gmail.com", "ldxkmsxjlekwtcem");
-                clienteSmtp.Host = "smtp.gmail.com";
-                clienteSmtp.Port = 587;
-                clienteSmtp.EnableSsl = true;
-
-                try
+                else
                 {
-                    // Enviar el correo electrónico
-                    clienteSmtp.Send(mensaje);
+                    MailMessage mensaje = new MailMessage();
+                    // Establecer el remitente, destinatario y asunto del correo
+                    mensaje.From = new MailAddress(email);
+                    mensaje.To.Add(new MailAddress("servisoft1710@gmail.com"));
+                    mensaje.Subject = "Cotización";
+                    for (int i = 0; i < destinatarios.Count; i++)
+                    {
+                        mensaje.To.Add(new MailAddress(destinatarios[i]));
+                    }
 
-                    // Limpiar los campos de texto después del envío exitoso
+                    // Crear el cuerpo del correo con los campos adicionales
+                    string tituloServ = txtTitulo.Value;
+                    string descripcion = txtDescripcion.Value;
+                    string direccion = txtDireccion.Value;
+
+                    //Optiene el archivo adjunto cargardo atraves del fileupload
+                    //PostedFile es una propiedad del control FileUpload
+                    HttpPostedFile archivoAdjunto = FluImagen.PostedFile;
+                    Stream flujoAdjunto = archivoAdjunto.InputStream;
+                    Attachment adjunto = new Attachment(flujoAdjunto, archivoAdjunto.FileName);
+                    mensaje.Attachments.Add(adjunto);
+
                     txtTitulo.Value = string.Empty;
                     txtDescripcion.Value = string.Empty;
                     txtDireccion.Value = string.Empty;
 
-                    // Agregar una notificación SweetAlert si el envío es exitoso
-                    string script = @"<script> swal({ title: '¡Envio Exitoso!',
+                    mensaje.Body = $"Titulo Servicio: {tituloServ}\nDescripcion: {descripcion}\nDirección: {direccion}";
+
+                    // Crear el objeto SmtpClient y configurarlo
+                    SmtpClient clienteSmtp = new SmtpClient();
+
+                    // Configurar las credenciales del servidor SMTP, servidor y puerto
+                    clienteSmtp.UseDefaultCredentials = false;
+                    clienteSmtp.Credentials = new System.Net.NetworkCredential("servisoft1710@gmail.com", "ldxkmsxjlekwtcem");
+                    clienteSmtp.Host = "smtp.gmail.com";
+                    clienteSmtp.Port = 587;
+                    clienteSmtp.EnableSsl = true;
+
+                    try
+                    {
+                        // Enviar el correo electrónico
+                        clienteSmtp.Send(mensaje);
+
+                        // Limpiar los campos de texto después del envío exitoso
+                        txtTitulo.Value = string.Empty;
+                        txtDescripcion.Value = string.Empty;
+                        txtDireccion.Value = string.Empty;
+
+                        // Agregar una notificación SweetAlert si el envío es exitoso
+                        string script = @"<script> swal({ title: '¡Envio Exitoso!',
                               text: 'El correo electronico se ha enviado correctamente', type: 'success',
                             confirmButtonText: 'Aceptar'
                 });
                     </script>";
-                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, false);
-                }
-                catch (Exception ex)
-                {
-                    // Agregar una notificación SweetAlert si ocurre un error
-                    string script = $@"<script>
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, false);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Agregar una notificación SweetAlert si ocurre un error
+                        string script = $@"<script>
                         swal('Error al enviar el correo', '{ex.Message}', 'error');
                       </script>";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "ErrorEnvioCorreo", script);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "ErrorEnvioCorreo", script);
+                    }
                 }
             }
         }
     }
-
 }

@@ -99,5 +99,11 @@ namespace appWebServisoft.Logica
             ClSolicitudServicioE objServicio = objServ.mtdSeleccionarServ(idServicio);
             return objServicio;
         }
+        public List<ClServiciooE> mtdBuscarServicio(int idCateg)
+        {
+            ClServicioD objServicio = new ClServicioD();
+            List<ClServiciooE> listaServicio = objServicio.mtdBuscar(idCateg);
+            return listaServicio;
+        }
     }
 }

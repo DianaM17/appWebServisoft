@@ -35,9 +35,57 @@
                         <button type="button" class="boton-avatar" onclick="seleccionarImagen()">
                             <i class="far fa-image"></i>
                         </button>
-                        <asp:Button ID="btnGuardarImg" runat="server" Text="Button" OnClick="btnGuardarImg_Click" Style="display: none;" />
+                        <button type="button" id="btnGuardarImg" runat="server" style="visibility: hidden;"></button>
                         <script>
                             function seleccionarImagen() {
+                                var input = document.getElementById('<%= ImagenInputT.ClientID %>');
+                                console.log("Imagen seleccionada");
+                                input.click();
+                            }
+
+                            // Manejar el cambio de imagen seleccionada
+                            var input = document.getElementById('<%= ImagenInputT.ClientID %>');
+                            input.addEventListener('change', function () {
+                                var imagen = input.files[0];
+                                console.log("imagen para guardar");
+                                if (imagen) {
+                                    var reader = new FileReader();
+
+                                    reader.onload = function (e) {
+                                        var imagenSeleccionada = e.target.result;
+
+                                        // Asignar la URL de la imagen seleccionada al control ImgPerfil
+                                        var imgPerfil = document.getElementById('<%= ImgPerfil.ClientID %>');
+                                        imgPerfil.src = imagenSeleccionada;
+                                        console.log("imagen guardada");
+
+                                        // Ahora, realizar la llamada AJAX para guardar la imagen en el servidor
+                                        var formData = new FormData();
+                                        formData.append('imagen', imagen);
+
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: 'PerfilProfesional.aspx', // Reemplaza 'GuardarImagen.aspx' con la URL correcta para tu página que guarda la imagen.
+                                            data: formData,
+                                            processData: false,
+                                            contentType: false,
+                                            success: function (response) {
+                                                // La respuesta del servidor debería contener la ruta de la imagen guardada
+                                                var imagenGuardada = response;
+                                                console.log("imagen guardada en el servidor: " + imagenGuardada);
+
+                                                // Puedes mostrar una notificación o realizar otras acciones si es necesario.
+                                            },
+                                            error: function (error) {
+                                                console.error("Error al guardar la imagen en el servidor: " + error);
+                                            }
+                                        });
+                                    };
+
+                                    reader.readAsDataURL(imagen);
+                                }
+                            });
+                           <%-- function seleccionarImagen() {
                                 var input = document.getElementById('<%= ImagenInputT.ClientID%>');
                                 console.log("Imagen seleccionada");
                                 input.click();
@@ -64,7 +112,7 @@
                                     reader.readAsDataURL(imagen);
                                 }
                                 btnGuardarImg.click();
-                            });
+                            });--%>
 
                         </script>
                     </div>
@@ -352,10 +400,9 @@
                                         </div>
                                     </div>
                                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Style="float: right;" />
-                                    
+
                                 </section>
                                 <style>
-
                                 </style>
                             </div>
                         </div>

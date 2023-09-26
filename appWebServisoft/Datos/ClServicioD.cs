@@ -174,9 +174,9 @@ namespace appWebServisoft.Datos
         {
             string consulta = " Select * from solicitudServicio soli inner join EstadoServicio Es On soli.idEstadoServicio = Es.idEstadoServicio " +
                 "inner join Ciudad ciu on soli.idCiudad = ciu.idCiudad where idsolicitudServicio = " + idServicio + "";
-            ClProcesarSQL SQL  = new ClProcesarSQL();
+            ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblDatos = SQL.mtdSelectDesc(consulta);
-           
+
             ClSolicitudServicioE objServ = null;
             if (tblDatos.Rows.Count > 0)
             {
@@ -266,6 +266,24 @@ namespace appWebServisoft.Datos
 
             }
             return objServicio;
+        }
+
+        public List<ClServiciooE> mtdBuscar(int idCateg)
+        {
+            string consulta = "Select Servicio.servicio, Imagenes.imagen from Servicio inner join Imagenes on Servicio.idServicio = Imagenes.idServicio where Servicio.idCategoria = " + idCateg + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblServicios = SQL.mtdSelectDesc(consulta);
+
+            List<ClServiciooE> listaServicio = new List<ClServiciooE>();
+            ClServiciooE objServ = null;
+            for (int i = 0; i < tblServicios.Rows.Count; i++)
+            {
+                objServ = new ClServiciooE();
+                objServ.servicio = tblServicios.Rows[i]["servicio"].ToString();
+                objServ.imagen = tblServicios.Rows[i]["imagen"].ToString();
+                listaServicio.Add(objServ);
+            }
+            return listaServicio;
         }
     }
 }
