@@ -33,13 +33,13 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblFecha;
 
         /// <summary>
-        /// Control txtFecha.
+        /// Control hiddenEventDate.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecha;
+        protected global::System.Web.UI.WebControls.HiddenField hiddenEventDate;
 
         /// <summary>
         /// Control lblHora.
@@ -60,13 +60,13 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtHora;
 
         /// <summary>
-        /// Control lblDescripcion.
+        /// Control lblDescripcion1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion;
+        protected global::System.Web.UI.WebControls.Label lblDescripcion1;
 
         /// <summary>
         /// Control txtDescripcion.
@@ -105,13 +105,13 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblDireccion;
 
         /// <summary>
-        /// Control txtDireccion.
+        /// Control lblDireccion1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
+        protected global::System.Web.UI.WebControls.Label lblDireccion1;
 
         /// <summary>
         /// Control lblCiudad.
@@ -123,13 +123,22 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblCiudad;
 
         /// <summary>
-        /// Control ddlCiudad.
+        /// Control lblCiudad1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCiudad;
+        protected global::System.Web.UI.WebControls.Label lblCiudad1;
+
+        /// <summary>
+        /// Control lblIdCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdCiudad;
 
         /// <summary>
         /// Control ScriptManager1.
@@ -150,31 +159,49 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// Control ddlCategoria.
+        /// Control lblCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCategoria;
+        protected global::System.Web.UI.WebControls.Label lblCategoria;
 
         /// <summary>
-        /// Control ddlServicio.
+        /// Control lblIdCategoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlServicio;
+        protected global::System.Web.UI.WebControls.Label lblIdCategoria;
 
         /// <summary>
-        /// Control ddlProfesional.
+        /// Control lblServicio1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProfesional;
+        protected global::System.Web.UI.WebControls.Label lblServicio1;
+
+        /// <summary>
+        /// Control lblIdServicio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdServicio;
+
+        /// <summary>
+        /// Control lblNombreProfesional.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNombreProfesional;
 
         /// <summary>
         /// Control Button1.

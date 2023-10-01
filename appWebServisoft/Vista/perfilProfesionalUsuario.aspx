@@ -23,6 +23,7 @@
             <div style="display: block">
        
                 <section class="seccion-perfil-usuario container">
+                    <asp:Label ID="lblIdCotizacion" runat="server" Visible="false"></asp:Label>
                     <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
                     <div class="perfil-usuario-header">
                         <div class="perfil-usuario-portada">
@@ -143,7 +144,11 @@
                                 </asp:UpdatePanel>
                             </ul>
                         </div>
-
+                         <asp:Label ID="lblDescripcion" runat="server" Visible="false"></asp:Label>
+                         <asp:Label ID="lblDireccion1" runat="server" Visible="false"></asp:Label>
+                         <asp:Label ID="lblCiudad1" runat="server" Visible="false"></asp:Label>
+                         <asp:Label ID="lblCategoria" runat="server" Visible="false"></asp:Label>
+                      <asp:Label ID="lblServicio1" runat="server" Visible="false"></asp:Label>
                     </div>
             </section>
         </div>

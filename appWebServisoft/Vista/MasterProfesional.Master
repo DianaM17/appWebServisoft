@@ -74,6 +74,9 @@
                         </li>
                     </ul>
                     <style>
+                        .navbar-nav{
+                              background-color: #f8f9fa;
+                        }
                         .combo {
                             margin-left: 40px;
                             line-height: 50px;
@@ -217,6 +220,7 @@
             }
 
             #cardElements {
+                
                 display: flex;
                 align-items: center;
             }
@@ -226,6 +230,7 @@
                 }
 
             .menu-links a:hover:before {
+                
                 content: "";
                 position: absolute;
                 width: 100%;
