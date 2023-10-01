@@ -84,10 +84,11 @@ namespace appWebServisoft.Vista
                 string nombreProfesionalDecoded = Server.UrlDecode(nombreProfesionalEncoded);
 
 
-                int idCategoria2, idServicio, idCiudad2;
+                int idCategoria2, idServicio, idCiudad2, idProfesional;
                 int.TryParse(Request.QueryString["idCategoria"], out idCategoria2);
                 int.TryParse(Request.QueryString["idServicio"], out idServicio);
                 int.TryParse(Request.QueryString["idCiudad"], out idCiudad2);
+                int.TryParse(Request.QueryString["idProfesional"], out idProfesional);
 
                 // Llena las etiquetas en SolicitudServicio.aspx con los datos
                 txtDescripcion.Text = descripcionDecoded;
@@ -102,6 +103,7 @@ namespace appWebServisoft.Vista
                 lblIdCiudad.Text = idCiudad2.ToString();
                 lblIdServicio.Text = idServicio.ToString();
                 lblIdCategoria.Text = idCategoria2.ToString();
+                lblIdProfesional.Text = idProfesional.ToString();
 
                 // Verificar si el valor del input está presente en la solicitud
              
@@ -139,20 +141,22 @@ namespace appWebServisoft.Vista
             int idServicio = Convert.ToInt32(lblIdServicio.Text);
             int idCategoria = Convert.ToInt32(lblIdCategoria.Text);
             int idCiudad = Convert.ToInt32(lblIdCiudad.Text);
+            int idProfesional = Convert.ToInt32(lblIdProfesional.Text);
 
             //objDatos.fecha = fechaSeleccionada;
-
-
 
             objDatos.hora = txtHora.Value;
             objDatos.descripcion = txtDescripcion.Text;
             objDatos.ubicacion = lblDireccion1.Text;
-            objDatos.ciudad = lblCiudad1.Text;
-            objDatos.idServicio = idServicio;
-            objDatos.idCategoria = idCategoria;
             objDatos.idCiudad = idCiudad;
-            objDatos.NombreCompleto = lblNombreProfesional.Text;
+            objDatos.idServicio = idServicio;
+            objDatos.idProfesional = idProfesional;
             objDatos.idCliente = (int)Session["idCliente"];
+            objDatos.idEstadoServicio = 4;
+            
+           
+            
+           
 
 
 

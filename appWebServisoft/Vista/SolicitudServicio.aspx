@@ -166,6 +166,7 @@
                     <asp:Label ID="lblDireccion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Direccion:"></asp:Label>
                    <%-- <asp:TextBox ID="txtDireccion" runat="server" placeholder="Direccion"></asp:TextBox>--%>
                          <asp:Label ID="lblDireccion1" runat="server" Text=""></asp:Label>
+                      <asp:Label ID="lblIdProfesional" runat="server" Text=""></asp:Label>
                     
                     <br />
                 </div>

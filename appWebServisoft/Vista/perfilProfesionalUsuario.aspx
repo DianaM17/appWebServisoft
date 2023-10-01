@@ -111,6 +111,7 @@
             
                     <div class="perfil-usuario-body">
                         <div class="perfil-usuario-bio">
+                              <asp:Label ID="lblIdProfesional" runat="server" Visible="false"></asp:Label>
                             <asp:Label ID="lblNombre" runat="server" CssClass="titulo"></asp:Label>
                             <div class="informacion2">
                                    <i class="icono"></i>Profesion:

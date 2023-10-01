@@ -17,11 +17,10 @@ namespace appWebServisoft.Vista
         private int idCiudad2;
         private int idServicio;
         private int idCategoria2;
+        private int idProfesional2;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
-            {
                 string Telefono = lblTeleProf.Text = Session["TeleProfesional"].ToString();
                 // Verificar si la variable de sesión contiene el ID del profesional seleccionado
                 if (Session["IdProfesionalSeleccionado"] != null)
@@ -37,6 +36,7 @@ namespace appWebServisoft.Vista
                     ClProfesionalE Buscar = obj.mtdBuscarProf(idProfesional);
                     if (Buscar != null)
                     {
+                       
                         lblNombre.Text = nombresCompletos;
                         ImgPerfil.ImageUrl = Buscar.fotos;
                         lblProfesion.Text = Buscar.categoria;
@@ -48,7 +48,9 @@ namespace appWebServisoft.Vista
                         lblEstado.Text = Buscar.estado;
                         Label1.Text = nombresCompletos;
                         Image1.ImageUrl = Buscar.fotos;
+                        idProfesional2 = Buscar.idProfesional; // Declara la variable idProfesional2 de tipo entero
 
+                   
 
                     }
                 }
@@ -56,12 +58,14 @@ namespace appWebServisoft.Vista
                 {
 
                 }   // Obtener y asignar los valores a las variables idCiudad2, idServicio e idCategoria2
-             
-                }
+
+
+            lblIdProfesional.Text = idProfesional2.ToString();
 
             if (int.TryParse(Request.QueryString["idCiudad"], out idCiudad2) &&
                  int.TryParse(Request.QueryString["idServicio"], out idServicio) &&
-                 int.TryParse(Request.QueryString["idCategoria"], out idCategoria2))
+                 int.TryParse(Request.QueryString["idCategoria"], out idCategoria2)&&
+                 int.TryParse(Request.QueryString["idProfesional"], out idProfesional2))
             { }
 
 
@@ -81,6 +85,7 @@ namespace appWebServisoft.Vista
                         // Tomar la primera cotización de la lista (puedes adaptar esto según tus necesidades)
                         ClListaCotizacionE cotizacion = listaCotizaciones[0];
 
+                        lblIdProfesional.Text = idProfesional2.ToString();
                         // Asigna los datos obtenidos a las etiquetas
                         lblDescripcion.Text = cotizacion.descripcion;
                         lblDireccion1.Text = cotizacion.direccion;
@@ -150,8 +155,9 @@ namespace appWebServisoft.Vista
             int idciu =idCiudad2; // Suponiendo que idCiudad2 es de tipo int
             int idSer = idServicio; // Suponiendo que idServicio es de tipo int
             int idCat = idCategoria2; // Suponiendo que idCategoria2 es de tipo int
+            int idProf = idProfesional2;
 
-            Response.Redirect($"SolicitudServicio.aspx?descripcion={Server.UrlEncode(descripcion)}&direccion={Server.UrlEncode(direccion)}&ciudad={Server.UrlEncode(ciudad)}&categoria={Server.UrlEncode(categoria)}&servicio={Server.UrlEncode(servicio)}&nombreProfesional={Server.UrlEncode(nombreProfesional)}&idCiudad={idciu}&idServicio={idSer}&idCategoria={idCat}");
+            Response.Redirect($"SolicitudServicio.aspx?descripcion={Server.UrlEncode(descripcion)}&direccion={Server.UrlEncode(direccion)}&ciudad={Server.UrlEncode(ciudad)}&categoria={Server.UrlEncode(categoria)}&servicio={Server.UrlEncode(servicio)}&nombreProfesional={Server.UrlEncode(nombreProfesional)}&idCiudad={idciu}&idServicio={idSer}&idCategoria={idCat}&idProfesional={idProf}");
         }
 
 

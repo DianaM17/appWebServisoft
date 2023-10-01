@@ -114,6 +114,15 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblDireccion1;
 
         /// <summary>
+        /// Control lblIdProfesional.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIdProfesional;
+
+        /// <summary>
         /// Control lblCiudad.
         /// </summary>
         /// <remarks>
