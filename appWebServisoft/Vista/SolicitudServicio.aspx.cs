@@ -96,6 +96,7 @@ namespace appWebServisoft.Vista
                 lblCategoria.Text = categoriaDecoded;
                 lblServicio1.Text = servicioDecoded;
                 lblNombreProfesional.Text = nombreProfesionalDecoded;
+           
 
                 // Asigna los valores a las etiquetas de ID (asegúrate de que las etiquetas tengan runat="server")
                 lblIdCiudad.Text = idCiudad2.ToString();
