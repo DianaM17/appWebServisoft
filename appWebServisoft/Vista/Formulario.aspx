@@ -10,8 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/style_formularioServ.css">
     <link rel="stylesheet" href="Css/normalize.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+
     <script src="../Scripts/sweetalert.min.js"></script>
     <link href="Css/sweetalert.css" rel="stylesheet" />
+
 </head>
 <body>
     <a href="#" onclick="window.history.back(); return false;" class="cta">
@@ -48,6 +53,7 @@
                 width: 56px;
                 height: 56px;
                 transition: all 0.3s ease;
+
             }
 
             .cta span {
@@ -72,6 +78,33 @@
                 transform: translateX(-5px);
                 transition: all 0.3s ease;
             }
+
+
+            }
+
+            .cta span {
+                position: relative;
+                font-size: 16px;
+                line-height: 18px;
+                font-weight: 900;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                vertical-align: middle;
+            }
+
+            .cta svg {
+                position: relative;
+                top: 0;
+                margin-left: 10px;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke: #111;
+                stroke-width: 2;
+                transform: translateX(-5px);
+                transition: all 0.3s ease;
+            }
+
 
             .cta:hover:before {
                 width: 100%;

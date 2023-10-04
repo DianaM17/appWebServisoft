@@ -66,6 +66,59 @@ namespace Formulario
 
         protected void btnEnviar_ServerClick(object sender, EventArgs e)
         {
+
+
+            //Registrar la cotización
+            if (FluImagen.HasFile)
+            {
+                string idClienteString = Session["idCliente"].ToString();
+                int Idcliente = Int32.Parse(idClienteString);
+
+                string nombre = txtTitulo.Value;
+                string ruta = Server.MapPath("~/Vista/Imagenes/Cotizaciones/" + nombre);
+                string rutaSql = ("~/Vista/Imagenes/Cotizaciones/" + nombre);
+                FluImagen.SaveAs(ruta);
+
+                ClCotizacionE objCot = new ClCotizacionE();
+                objCot.tituloServicio = txtTitulo.Value;
+                objCot.descripcion = txtDescripcion.Value;
+                objCot.imagen = rutaSql;
+                objCot.direccion = txtDireccion.Value;
+                objCot.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+                objCot.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
+                objCot.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
+                objCot.idCliente = Idcliente;
+                ClCotizacionL objCoti = new ClCotizacionL();
+                int regis = objCoti.mtdRegistroCotizacion(objCot);
+
+                //Enviar la cotizacion
+                int categ = int.Parse(ddlCategoria.SelectedValue.ToString());
+                int serv = int.Parse(ddlServicio.SelectedValue.ToString());
+                int ciudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+                ClProfesionalL objProf = new ClProfesionalL();
+                List<ClProfesionalE> listaProf = objProf.mtdSelecCorreoCateg(categ, serv, ciudad);
+                List<string> destinatarios = listaProf.Select(prof => prof.email).ToList();
+                string email = listaProf.FirstOrDefault()?.email;
+
+                if (string.IsNullOrEmpty(email) || destinatarios.Count == 0)
+                {
+                    // No se encontraron destinatarios, muestra un mensaje de alerta
+                    string script = @"<script>
+    Swal.fire({
+        title: 'Alerta',
+        text: 'No se encontraron Profesionales para esta cotización',
+        icon: 'warning',
+        confirmButtonText: 'Aceptar'
+    });
+</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "NoDestinatarios", script, false);
+                    txtTitulo.Value = string.Empty;
+                    txtDescripcion.Value = string.Empty;
+                    txtDireccion.Value = string.Empty;
+                }
+                else
+                {
+
             try
             {
                 //Registrar la cotización
@@ -99,6 +152,7 @@ namespace Formulario
                     List<ClProfesionalE> listaProf = objProf.mtdSelecCorreoCateg(categ, serv, ciudad);
                     List<string> destinatarios = listaProf.Select(prof => prof.email).ToList();
                     string email = listaProf.FirstOrDefault()?.email;
+
                     MailMessage mensaje = new MailMessage();
                     // Establecer el remitente, destinatario y asunto del correo
                     mensaje.From = new MailAddress(email);
@@ -125,6 +179,25 @@ namespace Formulario
                     txtDescripcion.Value = string.Empty;
                     txtDireccion.Value = string.Empty;
 
+
+                    mensaje.Body = $"Titulo Servicio: {tituloServ}\nDescripcion: {descripcion}\nDirección: {direccion}";
+
+                    // Crear el objeto SmtpClient y configurarlo
+                    SmtpClient clienteSmtp = new SmtpClient();
+
+                    // Configurar las credenciales del servidor SMTP, servidor y puerto
+                    clienteSmtp.UseDefaultCredentials = false;
+                    clienteSmtp.Credentials = new System.Net.NetworkCredential("servisoft1710@gmail.com", "ldxkmsxjlekwtcem");
+                    clienteSmtp.Host = "smtp.gmail.com";
+                    clienteSmtp.Port = 587;
+                    clienteSmtp.EnableSsl = true;
+
+                    try
+                    {
+                        // Enviar el correo electrónico
+                        clienteSmtp.Send(mensaje);
+
+
                     mensaje.Body = $"Titulo Servicio: {tituloServ}\nDescripcion: {descripcion}\nDirección: {direccion}";
 
                     // Crear el objeto SmtpClient y configurarlo
@@ -141,10 +214,30 @@ namespace Formulario
                     // Enviar el correo electrónico
                     clienteSmtp.Send(mensaje);
 
-                    // Limpiar los campos de texto después del envío exitoso
-                    txtTitulo.Value = string.Empty;
-                    txtDescripcion.Value = string.Empty;
-                    txtDireccion.Value = string.Empty;
+
+                        // Limpiar los campos de texto después del envío exitoso
+                        txtTitulo.Value = string.Empty;
+                        txtDescripcion.Value = string.Empty;
+                        txtDireccion.Value = string.Empty;
+
+
+                        // Agregar una notificación SweetAlert si el envío es exitoso
+                        string script = @"<script> swal({ title: '¡Envio Exitoso!',
+                              text: 'El correo electronico se ha enviado correctamente', type: 'success',
+                            confirmButtonText: 'Aceptar'
+                });
+                    </script>";
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script, false);
+                    }
+                    catch (Exception ex)
+                    {
+                        // Agregar una notificación SweetAlert si ocurre un error
+                        string script = $@"<script>
+                        swal('Error al enviar el correo', '{ex.Message}', 'error');
+                      </script>";
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "ErrorEnvioCorreo", script);
+                    }
+                }
 
                     string script = @"<script> swal({ title: '¡Envío Exitoso!', text: 'La cotización se ha enviado con exito!.',type: 'success',
                             confirmButtonText: 'Aceptar'});
@@ -167,9 +260,14 @@ namespace Formulario
                         swal('Error al enviar el correo', '{ex.Message}', 'error');
                       </script>";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "ErrorEnvioCorreo", script);
+
             }
 
         }
     }
+
 }
+
+}
+
 

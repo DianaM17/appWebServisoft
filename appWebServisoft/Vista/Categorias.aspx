@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="Css/Estilos_Categoria.css" rel="stylesheet" />
     <link href="Css/Estilos_Categ.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -49,7 +51,7 @@
         <div class="row">
             <asp:Repeater ID="reptCateg" runat="server">
                 <ItemTemplate>
-                    <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2" onclick="redirectToPage('')">
+                    <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s col-xl-2" onclick="seleccionarCategoria('<%# Eval("idCategoria") %>')">
                         <div class="custom-card">
                             <div class="card-img-box">
                                 <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
@@ -62,37 +64,64 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
-        <div class="container">
-            <div class="row">
-                <asp:Repeater ID="rpServicios" runat="server">
-                    <ItemTemplate>
-                        <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2" onclick="redirectToPage('')">
-                            <div class="custom-card">
-                                <div class="card-img-box">
-                                    <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("servicio") %>'></asp:Label>
-                            </div>
-                        </div>
-                    </ItemTemplate>
-                </asp:Repeater>
+    </div>
+    <br />
+    <h4 style="text-align:center; padding:10px 0; margin:0; font-size:30px" >Servicios</h4>
+    <div id="tarjetasServicios" class="row">
+        <!-- Aquí se agregarán las tarjetas -->
+    </div>
 
+    <script>
+        function seleccionarCategoria(idCategoria) {
+            //Realiza una llamada por ajax al servidor
+            $.ajax({
+                type: "POST",
+                url: "Categorias.aspx/ObtenerServicioPorCategoria",
+                data: JSON.stringify({ idCategoria: idCategoria }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response) {
+                    console.log("Respuesta del servidor:", response);
 
+                    // Manejar la respuesta del servidor y enlazarla al Repeater de Servicios
+                    var servicios = response.d; // Suponiendo que los datos se devuelvan en un formato JSON
+                    enlazarRepeaterServicios(servicios);
+                    scrollToTarjetasServicios();
+                },
+                error: function (error) {
+                    console.log("Error al obtener servicios: " + error);
+                }
+            });
+        }
 
+        function enlazarRepeaterServicios(servicios) {
+            console.log("Servicios enlazados:", servicios);
+            var tarjetasServicios = $("#tarjetasServicios"); // Obtener el elemento donde se agregarán las tarjetas
 
-                <%--    <div class="card-container col-6 col-sm-4 col-md-3 col-lg-s	col-xl-2">
-                <div class="custom-card">
-                    <div class="card-img-box">
-                        <img src="Imagenes/NuevaCategoria.jpg" />
-                    </div>
-                </div>--%>
-                <%--  <div class="card-content">
-                    <a href="RegistrarCategoria.aspx" style="text-decoration: none; color: #000000">Registrar
-                        <br />
-                        Categoria</a>
-                </div>--%>
-            </div>
-        </div>
+            // Limpiar cualquier contenido anterior
+            tarjetasServicios.empty();
+
+            for (var i = 0; i < servicios.length; i++) {
+                var servicio = servicios[i];
+
+                // Crear la estructura de la tarjeta
+                var tarjetaHTML = '<div class="card-container col-6 col-sm-4 col-md-3 col-lg-s col-xl-2">';
+                tarjetaHTML += '<div class="custom-cards">';
+                tarjetaHTML += '<img src="' + servicio.imagen + '" class="card-img-box" alt="Imagen del servicio">'; // Agregar la imagen
+                tarjetaHTML += '</div>';
+                tarjetaHTML += '<div class="card-content">';
+                tarjetaHTML += '<h6 class="card-title">' + servicio.servicio + '</h6>';
+                /*tarjetaHTML += '<p class="card-text">Descripción u otros datos del servicio.</p>';*/
+                tarjetaHTML += '</div>';
+                tarjetaHTML += '</div>';
+
+                // Agregar la tarjeta al elemento tarjetasServicios
+                tarjetasServicios.append(tarjetaHTML);
+            }
+        }
+        function scrollToTarjetasServicios() {
+            var tarjetasServicios = document.getElementById("tarjetasServicios");
+            tarjetasServicios.scrollIntoView({ behavior: "smooth" }); // Desplazamiento suave
+        }
+    </script>
 </asp:Content>

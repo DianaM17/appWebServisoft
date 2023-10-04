@@ -5,9 +5,9 @@ using System.Web;
 
 namespace appWebServisoft.Entidades
 {
-    public class ClServicioE : ClCategoriaE
+    public class ClServiciooE
     {
-        public int idServicio { get; set; }
         public string servicio { get; set; }
+        public string imagen { get; set; }
     }
 }

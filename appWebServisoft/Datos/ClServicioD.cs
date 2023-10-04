@@ -268,6 +268,24 @@ namespace appWebServisoft.Datos
             return objServicio;
         }
 
+
+        public List<ClServiciooE> mtdBuscar(int idCateg)
+        {
+            string consulta = "Select Servicio.servicio, Imagenes.imagen from Servicio inner join Imagenes on Servicio.idServicio = Imagenes.idServicio where Servicio.idCategoria = " + idCateg + "";
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            DataTable tblServicios = SQL.mtdSelectDesc(consulta);
+
+            List<ClServiciooE> listaServicio = new List<ClServiciooE>();
+            ClServiciooE objServ = null;
+            for (int i = 0; i < tblServicios.Rows.Count; i++)
+            {
+                objServ = new ClServiciooE();
+                objServ.servicio = tblServicios.Rows[i]["servicio"].ToString();
+                objServ.imagen = tblServicios.Rows[i]["imagen"].ToString();
+                listaServicio.Add(objServ);
+            }
+            return listaServicio;
+
         // Método para verificar si la fecha y hora ya están en la base de datos
         public int HoraDisponible(string fecha, string hora)
         {
@@ -276,6 +294,7 @@ namespace appWebServisoft.Datos
             ClProcesarSQL SQL = new ClProcesarSQL();
             int Reprogramar = SQL.mtdIUDConec(consulta);
             return Reprogramar;
+
         }
     }
 }

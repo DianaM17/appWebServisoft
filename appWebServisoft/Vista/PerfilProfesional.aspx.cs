@@ -91,6 +91,27 @@ namespace appWebServisoft.Vista
                         trigger.EventName = "CheckedChanged";
                         UpdatePanel3.Triggers.Add(trigger);
                     }
+
+                    if (Request.Files.Count > 0)
+                    {
+                        HttpPostedFile file = Request.Files[0];
+                        if (file != null && file.ContentLength > 0)
+                        {
+                            ClProfesionalE objProf = new ClProfesionalE();
+                            string Telefonoo = Session["TeleProfesional"].ToString();
+                            string nombreImg = Telefonoo + ".png";
+                            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+                            string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
+
+                            // Guarda la imagen en el servidor
+                            file.SaveAs(rutaImg);
+                            objProf.fotos = rutaSql;
+                            int actualizar = obj.mtdActualizarImagen(objProf,idProf);
+
+                            // Devuelve la ruta de la imagen guardada como respuesta
+                            Response.Write(rutaSql);
+                        }
+                    }
                 }
 
                 //Galeria de imagenes trabajos realizados
@@ -223,22 +244,22 @@ namespace appWebServisoft.Vista
 
         }
 
-        protected void btnGuardarImg_Click(object sender, EventArgs e)
-        {
-            int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
-            ClProfesionalE objProf = new ClProfesionalE();
-            string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
-            string nombreImg = Telefonoo + ".png";
-            string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
-            string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
-            var file = Request.Files[0];
-            if (ImagenInputT.PostedFile != null && ImagenInputT.PostedFile.ContentLength > 0)
-            {
-                file.SaveAs(rutaImg);
-                objProf.fotos = rutaSql;
-                ClProfesionalL clProf = new ClProfesionalL();
-                int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
-            }
-        }
+        //protected void btnGuardarImg_Click(object sender, EventArgs e)
+        //{
+        //    int idProf = Int32.Parse(lblIdProfesional.Text = Session["idProfesional"].ToString());
+        //    ClProfesionalE objProf = new ClProfesionalE();
+        //    string Telefonoo = lblTeleProf.Text = Session["TeleProfesional"].ToString();
+        //    string nombreImg = Telefonoo + ".png";
+        //    string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilProfesional/" + nombreImg);
+        //    string rutaSql = "~/Vista/Imagenes/PerfilProfesional/" + nombreImg;
+        //    var file = Request.Files[0];
+        //    if (ImagenInputT.PostedFile != null && ImagenInputT.PostedFile.ContentLength > 0)
+        //    {
+        //        file.SaveAs(rutaImg);
+        //        objProf.fotos = rutaSql;
+        //        ClProfesionalL clProf = new ClProfesionalL();
+        //        int actualizar = clProf.mtdActualizarImagen(objProf, idProf);
+        //    }
+        //}
     }
 }

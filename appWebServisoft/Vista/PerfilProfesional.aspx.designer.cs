@@ -66,7 +66,7 @@ namespace appWebServisoft.Vista
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardarImg;
+        protected global::System.Web.UI.HtmlControls.HtmlButton btnGuardarImg;
 
         /// <summary>
         /// Control lblNombre.

@@ -355,6 +355,7 @@
     <Compile Include="Entidades\ClImagenesServicioE.cs" />
     <Compile Include="Entidades\ClProfesionalE.cs" />
     <Compile Include="Entidades\ClServicioE.cs" />
+    <Compile Include="Entidades\ClServiciooE.cs" />
     <Compile Include="Entidades\ClSolicitudServicioE.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
