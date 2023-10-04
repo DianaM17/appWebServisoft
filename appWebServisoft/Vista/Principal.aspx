@@ -37,7 +37,7 @@
     <section>
         <div class="container">
             <div class="row justify-content-evenly">
-                <div class="card col-3">
+                <div class="card1 col-3">
                     <div class="face front">
                         <img src="Imagenes/3918929.jpg" alt="">
                         <h3>BUSCAS SERVICIOS</h3>
@@ -51,7 +51,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="card col-3">
+                <div class="card1 col-3">
                     <div class="face front">
                         <img src="Imagenes/2978479.jpg" alt="">
                         <h3>TRABAJOS REALIZADOS</h3>
@@ -64,7 +64,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="card col-3">
+                <div class="card1 col-3">
                     <div class="face front">
                         <img src="Imagenes/6325230.jpg" alt="">
                         <h3>REALIZAR REGISTROS</h3>
@@ -80,8 +80,9 @@
             </div>
         </div>
     </section>
+    <br />
+    <br />
     <section class="principal">
-
         <%-- Inicio Perfiles Profesionales --%>
         <div class="principal" <%--style="display: flex"--%>>
             <div class="wrapper ">
@@ -93,8 +94,8 @@
                                 <li class="card">
                                     <div class="img">
                                          <asp:Image class="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;"  />
-                           
                                     </div>
+                                    <br />
                                     <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
                                     <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>
                                     <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
@@ -108,6 +109,51 @@
         </div>
         <script src="Js/JavaScript_Perfiles.js"></script>
     </section>
+
+    <style>/* Estilo base para las tarjetas (cards) */
+.card {
+  margin-right: -30px; /* Margen negativo entre las tarjetas */
+  margin-bottom: 30px; /* Margen inferior para separar las filas */
+  width: 230px; /* Ancho fijo para las tarjetas (ajusta según tus necesidades) */
+  /* Puedes ajustar el ancho y el margen inferior según tus preferencias */
+}
+
+/* Estilo para el contenedor de las tarjetas */
+ul.carousel {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea */
+  justify-content: center;
+  padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+
+/* Estilo para las flechas izquierda y derecha (ajusta según sea necesario) */
+#left,
+#right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  /* Ajusta la posición horizontal si es necesario */
+}
+
+#left {
+  left: -75px;
+}
+
+#right {
+  right: -55px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .card {
+    width: 250px; /* Ancho del 100% para ocupar el ancho completo del contenedor */
+    margin-right: -30px; /* Margen negativo entre las tarjetas */
+  margin-bottom: 30px; /* Margen inferior para separar las filas */
+  }
+}
+
+</style>
     <%-- Inicio Testimonios --%>
 
     <section class="testimonios">

@@ -337,22 +337,26 @@
                                         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                             <ContentTemplate>
                                                 <div class="form-holder">
-                                                    <asp:DropDownList ID="ddlCategoria" runat="server" class="form-control" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlCategoria" runat="server" class="form-control" style="width: 200px" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
                                                     <%--<input type="text" placeholder="City" class="form-control">--%>
                                                 </div>
                                                 <div class="form-holder">
-                                                    <asp:DropDownList ID="ddlServicio" runat="server" class="form-control"></asp:DropDownList>
+                                                    <asp:DropDownList ID="ddlServicio" runat="server" class="form-control" style="width: 200px"></asp:DropDownList>
                                                     <%--<input type="text" placeholder="Country" class="form-control">--%>
                                                 </div>
                                             </ContentTemplate>
                                         </asp:UpdatePanel>
                                         <div class="form-holder">
-                                            <asp:DropDownList ID="ddlCiudad" runat="server" class="form-control"></asp:DropDownList>
+                                            <asp:DropDownList ID="ddlCiudad" runat="server" class="form-control" style="width: 200px"></asp:DropDownList>
                                             <%--<input type="text" placeholder="Country" class="form-control">--%>
                                         </div>
                                     </div>
+
+                                    <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
+
                                     <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Style="float: right;" />
                                     
+
                                 </section>
                                 <style>
 
@@ -364,6 +368,30 @@
             </div>
         </div>
     </div>
+    <style>
+            .form-header{
+                margin-bottom: -20PX;
+            }
+
+          .btnGuardar {
+    border: none;
+    background-color: #aac1f0;
+    color: white;
+    font-family: 'Sans Serif Collection';
+    font-size: 16px;
+    height: 45px;
+    width: 140px;
+    border-radius: 20px; /* La mitad del valor del ancho para hacerlo redondo */
+    position: absolute; /* Establece la posición absoluta */
+    top: 290px; /* Ajusta la posición vertical hacia abajo */
+    right: 90px; /* Ajusta la posición a la derecha */
+    z-index: 999; /* Asegura que se superponga sobre otros elementos */
+}
+
+.btnGuardar:hover {
+    background-color: #98add6;
+}
+        </style>
 
     <script src="js/jquery-3.3.1.min.js"></script>
 
@@ -373,3 +401,4 @@
     <script src="Js/main.js"></script>
     <script src="Js/theme-map.js"></script>
 </asp:Content>
+        

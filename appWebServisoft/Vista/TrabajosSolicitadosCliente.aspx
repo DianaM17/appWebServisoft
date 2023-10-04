@@ -21,11 +21,13 @@
     </div>
 </nav>
 
+    <br />
 
     <style>
 .navbar {
     background-color: #E3E3E3; /* Estilos para la barra de navegación, como colores de fondo, altura, etc. */
     height: 100px; /* Ajusta la altura según tus necesidades */
+   
 }
 
 .navbar-content {
@@ -34,6 +36,7 @@
     justify-content: center; /* Centrar horizontalmente */
     height: 100%; /* Asegúrate de que el contenedor tenga el 100% de altura del padre */
     width: 100%; /* Asegúrate de que el contenedor tenga el 100% de ancho del padre */
+
 }
 
 h3 {
@@ -51,98 +54,94 @@ h3 {
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Conditional">
         <ContentTemplate>
-            <asp:Repeater ID="repeaterListar" runat="server">
-                <ItemTemplate>
-                <div class="card-container">
-                    <div class="card-content">
-                            <asp:Label runat="server" ID="Label3" Text='<%# Eval("idCotizacion") %>' Visible="false"></asp:Label>
-                            
-                        <asp:Label runat="server" ID="lblCategoria" class="lblCategoria" Text='<%# Eval("tituloServicio") %>'></asp:Label>
-                        <br />
-                        <br />
-                        <asp:Label runat="server" ID="Label1" class="Label1" Text='<%# Eval("descripcion") %>'></asp:Label>
-                        <br />
-                        <br />
-                        <asp:Label runat="server" ID="Label2" class="Label2">
-   
-                            <img src="Imagenes/Iconos/Ubicacion.png" alt="Ubicación" class="icon-location-img" /> Dirección: <%# Eval("direccion") %>
-                        </asp:Label>
-                        <br />
-                        <br />
-                           <div class="reprogramar-link-container">
-                                <asp:LinkButton runat="server" CssClass="reprogramar-link" CommandArgument='<%# Eval("idCotizacion") %>' OnClick="ReprogramarLinkButton_Click">Ver Profesionales</asp:LinkButton>
-                            
-                           </div>
+<div class="container">
+    <div class="row">
+        <asp:Repeater ID="repeaterListar" runat="server">
+            <ItemTemplate>
+                <div class="col-md-6 mb-4">
+                    <div class="card card-container">
+                        <!-- Tu contenido de tarjeta existente aquí -->
+                        <div class="card-body">
+                            <h5 class="card-title lblCategoria"><asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("tituloServicio") %>'></asp:Label></h5>
+                            <p class="card-text Label1"><asp:Label runat="server" ID="Label1" Text='<%# Eval("descripcion") %>'></asp:Label></p>
+                            <p class="card-text Label2"><img src="Imagenes/Iconos/Ubicacion.png" alt="Ubicación" class="icon-location-img" /> Dirección: <asp:Label runat="server" ID="Label2" Text='<%# Eval("direccion") %>'></asp:Label></p>
+                            <div class="text-end reprogramar-link-container">
+                                <asp:LinkButton runat="server" CssClass="btn btn-primary reprogramar-link" CommandArgument='<%# Eval("idCotizacion") %>' OnClick="ReprogramarLinkButton_Click">Ver Profesionales</asp:LinkButton>
+                            </div>
                         </div>
                     </div>
-                </ItemTemplate>
-            </asp:Repeater>
+                </div>
+            </ItemTemplate>
+        </asp:Repeater>
+    </div>
+</div>
+
+
         </ContentTemplate>
     </asp:UpdatePanel>
 
 <style>
-   .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
+
+/* Estilo para cada tarjeta */
 .card-container {
-    max-width: 40%; /* Cambiar el valor de max-width para hacer los elementos más anchos */
-    margin: 30px;
+    margin: 10px; /* Espacio entre las tarjetas */
     padding: 30px;
     background-color: #f0f0f0;
-    box-sizing: border-box; /* Incluir el margen dentro del ancho */
-     
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Sombra de la tarjeta */
+    max-width: 100%; /* Asegura que la tarjeta no sea más ancha que su contenedor */
 }
 
 .card-container:hover {
-    border-left: 5px solid pink; /* Puedes cambiar "pink" por el color que prefieras y ajustar el grosor del borde según tus necesidades */
-
+    border-left: 5px solid pink;
 }
 
-.card-content {
-    width: 100%;
-    margin: 1px;
-}
 
-.lblCategoria{
-     font-size: 30px;
+
+/* Estilo para la etiqueta de categoría */
+.lblCategoria {
+    font-size: 30px;
     font-family: 'Segoe UI';
     color: #2C43B4;
-    font-weight: bold; /* Aplicar negrita */
+    font-weight: bold;
 }
 
-.Label1{
+/* Estilo para el texto principal */
+.Label1 {
     font-size: 18px;
     font-family: 'Segoe UI';
     color: #000000;
 }
 
-.Label2{
+/* Estilo para la etiqueta de ubicación */
+.Label2 {
     font-size: 20px;
     font-family: 'Segoe UI';
     color: #000000;
 }
 
+/* Estilo para el ícono de ubicación */
+.icon-location-img {
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Estilo para el enlace de reprogramar */
 .reprogramar-link-container {
     display: flex;
-    justify-content: flex-end; /* Align the link to the bottom-right of the container */
+    justify-content: flex-end;
 }
 
 .reprogramar-link {
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Segoe UI';
     color: #2C43B4;
-    font-weight: bold; /* Aplicar negrita */
+    font-weight: bold;
 }
-
-    .icon-location-img {
-        width: 30px;
-        height: 30px;
-        margin-right: 5px;
-        vertical-align: middle;
-    }
 
 
 </style>
@@ -211,7 +210,7 @@ h3 {
 
         /* Add the blue line (bottom border) to the h6 element */
 .navbar-content h6 {
-    border-bottom: 2px solid blue;
+    border-bottom: 2px solid #00304E;
     padding-bottom: 5px; /* Optional: Add some space between the text and the line */
 }
 
@@ -258,7 +257,7 @@ h3 {
 
 /* Customize the modal header */
 .modal-header {
-    background-color: #007bff; /* Change the header background color */
+    background-color: 	#00304E; /* Change the header background color */
     color: #fff; /* Change the header text color */
 }
 
@@ -274,31 +273,14 @@ h3 {
 
 /* Customize the close button */
 .btn-default {
-    background-color: #ccc; /* Change the button background color */
+    background-color: #f44336; /* Change the button background color */
     color: #fff; /* Change the button text color */
     border: none; /* Remove the button border */
     border-radius: 5px; /* Round the button corners */
 }
 
-/* Agrega una punta triangular en el lado izquierdo */
-.modal-dialog {
-    position: relative;
-    max-width: 600px; /* Set the maximum width to your desired value */
-    margin-left: auto; /* Ajusta este valor para posicionar la ventana modal más a la izquierda */
-    margin-right: 200px; /* Asegúrate de que el margen derecho sea automático para mantener la alineación central */
-}
-
-
-/* Crea el triángulo apuntando hacia afuera */
-.modal-dialog::before {
-    content: "";
-    position: absolute;
-    bottom: 26%;
-    left: -20px; /* Ajusta este valor según el tamaño y la posición horizontal del triángulo */
-    border-width: 10px 0 10px 20px; /* Ajusta el tamaño del triángulo */
-    border-style: solid;
-    border-color: transparent transparent transparent #f1f1f1; /* Ajusta el color del triángulo */
-    transform: rotate(180deg); /* Rota el triángulo para que apunte hacia afuera */
+.btn-default:hover{
+    background-color: #b01b1b;
 }
 
 .gridview-con-espacio-filas td {

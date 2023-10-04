@@ -174,7 +174,7 @@
                 right: 0;
                 bottom: 0;
                 width: 50px; /* Adjust the width of the vertical bar as needed */
-                background-color: #f44336; /* Pink color - You can change it to any other pink shade */
+                background-color: #3498db; /* Pink color - You can change it to any other pink shade */
             }
 
             .modal1-body::after {
@@ -185,7 +185,7 @@
                 transform: translateY(-50%);
                 width: 150px;
                 height: 70px; /* La mitad de la altura para obtener un medio círculo */
-                background-color: #f44336; /* Color rosa - Puedes cambiarlo a cualquier otro color */
+                background-color: #3498db; /* Color rosa - Puedes cambiarlo a cualquier otro color */
                 border-radius: 0 0 100px 100px; /* Utilizamos un radio de borde para hacer el medio círculo */
                 z-index: 1;
             }
@@ -205,15 +205,16 @@
         .btnEnviar {
             border: none;
             font-family: "Times New Roman", Times, serif; /* Fuente Times New Roman */
-            font-size: 20px;
-            background-color: #f44336;
+            font-size: 17px;
+            background-color: #334ab6;
+            color: white;
             width: 120px;
             height: 40px;
             border-radius: 15px;
         }
 
             .btnEnviar:hover {
-                background-color: #b01b1b;
+                background-color: #0A52FA;
             }
     </style>
 

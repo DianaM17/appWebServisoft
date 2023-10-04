@@ -1796,15 +1796,6 @@ var defaults = $.fn.steps.defaults = {
      **/
     enableCancelButton: false,
 
-    /**
-     * Shows the finish button if enabled.
-     *
-     * @property enableFinishButton
-     * @type Boolean
-     * @default true
-     * @for defaults
-     **/
-    enableFinishButton: true,
 
     /**
      * Not yet implemented.
@@ -1998,15 +1989,7 @@ var defaults = $.fn.steps.defaults = {
          **/
         pagination: "Pagination",
 
-        /**
-         * Label for the finish button.
-         *
-         * @property finish
-         * @type String
-         * @default "Finish"
-         * @for defaults
-         **/
-        finish: "Finish",
+
 
         /**
          * Label for the next button.

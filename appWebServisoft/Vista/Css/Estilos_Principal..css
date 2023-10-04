@@ -111,14 +111,14 @@ body {
     }*/
 }
 /* Style Cards*/
-.card {
+.card1 {
     position: relative;
     width: 280px;
     height: 350px;
     margin: 20px;
 }
 
-    .card .face {
+    .card1 .face {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -128,19 +128,19 @@ body {
         transition: .5s;
     }
 
-    .card .front {
+    .card1 .front {
         transform: perspective(600px) rotateY(0deg);
         box-shadow: 0 5px 10px #000;
     }
 
-        .card .front img {
+        .card1 .front img {
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .card .front h3 {
+        .card1 .front h3 {
             position: absolute;
             bottom: 0;
             width: 100%;
@@ -151,7 +151,7 @@ body {
             text-align: center;
         }
 
-    .card .back {
+    .card1 .back {
         transform: perspective(600px) rotateY(180deg);
         background: rgb(3, 35, 54);
         padding: 15px;
@@ -163,31 +163,31 @@ body {
         box-shadow: 0 5px 10px #000;
     }
 
-        .card .back .link {
+        .card1 .back .link {
             border-top: solid 1px #f3f3f3;
             height: 50px;
             line-height: 50px;
         }
 
-            .card .back .link a {
+            .card1 .back .link a {
                 color: #f3f3f3;
             }
 
-        .card .back h3 {
+        .card1 .back h3 {
             font-size: 30px;
             margin-top: 20px;
             letter-spacing: 2px;
         }
 
-        .card .back p {
+        .card1 .back p {
             letter-spacing: 1px;
         }
 
-    .card:hover .front {
+    .card1:hover .front {
         transform: perspective(600px) rotateY(180deg);
     }
 
-    .card:hover .back {
+    .card1:hover .back {
         transform: perspective(600px) rotateY(360deg);
     }
 

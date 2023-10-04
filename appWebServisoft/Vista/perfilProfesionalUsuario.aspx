@@ -23,6 +23,7 @@
             <div style="display: block; background: white;">
        
                 <section class="seccion-perfil-usuario container">
+                    <asp:Label ID="lblIdCotizacion" runat="server" Visible="false"></asp:Label>
                     <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
                     <div class="perfil-usuario-header" style="background: linear-gradient(#e75f6c, transparent);">
                         <div class="perfil-usuario-portada">
@@ -110,6 +111,7 @@
             
                     <div class="perfil-usuario-body">
                         <div class="perfil-usuario-bio">
+                              <asp:Label ID="lblIdProfesional" runat="server" Visible="false"></asp:Label>
                             <asp:Label ID="lblNombre" runat="server" CssClass="titulo"></asp:Label>
                             <div class="informacion2">
                                    <i class="icono"></i>Profesion:
@@ -143,7 +145,11 @@
                                 </asp:UpdatePanel>
                             </ul>
                         </div>
-
+                         <asp:Label ID="lblDescripcion" runat="server" Visible="false"></asp:Label>
+                         <asp:Label ID="lblDireccion1" runat="server" Visible="false"></asp:Label>
+                         <asp:Label ID="lblCiudad1" runat="server" Visible="false"></asp:Label>
+                         <asp:Label ID="lblCategoria" runat="server" Visible="false"></asp:Label>
+                      <asp:Label ID="lblServicio1" runat="server" Visible="false"></asp:Label>
                     </div>
             </section>
         </div>
