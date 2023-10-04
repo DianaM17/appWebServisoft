@@ -5,8 +5,8 @@
 /*navBar Usuario*/
 .navbar1 {
     height: 50px;
-    background-color: black;
-    color: aliceblue;
+    background-color: #f7f7f7;
+    color: black;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
