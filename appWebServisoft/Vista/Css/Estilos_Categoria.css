@@ -8,10 +8,9 @@
 }
 
 .card-container {
-    /*width: 1000px;*/
+    width: 1000px;
     margin: 30px auto 0;
     height: auto;
-    /*display: grid;*/
     grid-template-columns: 150px;
     grid-template-rows: 200px;
     grid-gap: 40px;

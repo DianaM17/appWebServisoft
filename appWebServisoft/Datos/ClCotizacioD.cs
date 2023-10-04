@@ -19,9 +19,9 @@ namespace appWebServisoft.Datos
             return regis;
         }
 
-        public ClCotizacionE mtdMostrarImg(int idCategoria)
+        public ClCotizacionE mtdMostrarImg(string idCategoria)
          {
-            string consult = "Select * from Imagenes where idCategoria = "+idCategoria+"";
+            string consult = "Select * from Imagenes where idCategoria = '" + idCategoria + "'";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblCot = SQL.mtdSelectDesc(consult);
 

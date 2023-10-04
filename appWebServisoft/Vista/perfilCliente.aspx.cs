@@ -16,37 +16,47 @@ namespace appWebServisoft.Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int idCliente = Int32.Parse(lblidCliente.Text = Session["idCliente"].ToString());
-            if (!IsPostBack)
+            try
             {
-                ClClienteL objCliente = new ClClienteL();
-                ClClienteE Buscar = objCliente.mtdSeleccionarCliente(idCliente);
-                if (Buscar != null)
+                int idCliente = Int32.Parse(lblidCliente.Text = Session["idCliente"].ToString());
+                if (!IsPostBack)
                 {
-                    lblNombre.Text = Session["Usuario"].ToString();
-                    txtNombre.Value = Buscar.nombres;
-                    txtApellido.Value = Buscar.apellidos;
-                    txtDireccionC.Value = Buscar.direccion;
-                    txtTelefonoC.Value = Buscar.telefono;
-                    txtEmailC.Value = Buscar.email;
-                    txtPasswordC.Value = Buscar.clave;
+                    ClClienteL objCliente = new ClClienteL();
+                    ClClienteE Buscar = objCliente.mtdSeleccionarCliente(idCliente);
+                    if (Buscar != null)
+                    {
+                        lblNombre.Text = Session["Usuario"].ToString();
+                        txtNombre.Value = Buscar.nombres;
+                        txtApellido.Value = Buscar.apellidos;
+                        txtDireccionC.Value = Buscar.direccion;
+                        txtTelefonoC.Value = Buscar.telefono;
+                        txtEmailC.Value = Buscar.email;
+                        txtPasswordC.Value = Buscar.clave;
 
-                    lblDireccion.Text = Buscar.direccion;
-                    lblTelefono.Text = Buscar.telefono;
-                    lblEmail.Text = Buscar.email;
-                    lblCiudad.Text = Buscar.nombre;
+                        lblDireccion.Text = Buscar.direccion;
+                        lblTelefono.Text = Buscar.telefono;
+                        lblEmail.Text = Buscar.email;
+                        lblCiudad.Text = Buscar.nombre;
 
-                    //Combo ddlCiudad
-                    ClCiudadD objCiudad = new ClCiudadD();
-                    List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
-                    listaCiudad = objCiudad.mtdListarCiudad();
-                    ddlCiudad.DataSource = listaCiudad;
-                    ddlCiudad.DataTextField = "nombre";
-                    ddlCiudad.DataValueField = "idCiudad";
-                    ddlCiudad.DataBind();
-                    ddlCiudad.SelectedValue = Buscar.idCiudad.ToString();
+                        //Combo ddlCiudad
+                        ClCiudadD objCiudad = new ClCiudadD();
+                        List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
+                        listaCiudad = objCiudad.mtdListarCiudad();
+                        ddlCiudad.DataSource = listaCiudad;
+                        ddlCiudad.DataTextField = "nombre";
+                        ddlCiudad.DataValueField = "idCiudad";
+                        ddlCiudad.DataBind();
+                        ddlCiudad.SelectedValue = Buscar.idCiudad.ToString();
+                    }
                 }
             }
+            catch (Exception)
+            {
+
+                Response.Redirect("~/Vista/Login.aspx");
+                throw;
+            }
+
 
         }
 
@@ -71,22 +81,11 @@ namespace appWebServisoft.Vista
                     </script>";
             if (registro == 1)
             {
+                Session.Clear();
+                Session.Abandon();
+                Response.Redirect("Login.aspx");
                 ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
             }
-        }
-
-        protected void btnCambiarColor_Click(object sender, EventArgs e)
-        {
-            // Genera un número aleatorio entre 0 y 16777215 (0xFFFFFF en hexadecimal)
-            Random random = new Random();
-            int colorCode = random.Next(0x1000000);
-
-            // Convierte el número en un código de color hexadecimal
-            string hexColor = "#" + colorCode.ToString("X6");
-
-            // Llama a una función JavaScript para cambiar el color de fondo de la página
-            ClientScript.RegisterStartupScript(this.GetType(), "ChangeColor", "changeBackgroundColor('" + hexColor + "');", true);
-
         }
 
         protected void btn_Click(object sender, EventArgs e)
@@ -96,10 +95,10 @@ namespace appWebServisoft.Vista
 
         protected void btnGuardarImg_Click(object sender, EventArgs e)
         {
-            int idCliente = Int32.Parse(txtNombre.Value = Session["idCliente"].ToString());
+            int idCliente = Int32.Parse(lblidCliente.Text = Session["idCliente"].ToString());
             ClClienteE objClient = new ClClienteE();
-            string telefono = lblTelCliente.Text = Session["Cliente"].ToString();
-            string nombreImg = telefono + ".png";
+            var files = imagenImput.PostedFile;
+            string nombreImg = files.FileName;
             string rutaImg = Server.MapPath("~/Vista/Imagenes/PerfilCliente/" + nombreImg);
             string rutaSql = "~/Vista/Imagenes/PerfilCliente/" + nombreImg;
             var file = Request.Files[0];
@@ -107,8 +106,8 @@ namespace appWebServisoft.Vista
             {
                 file.SaveAs(rutaImg);
                 objClient.foto = rutaSql;
-                ClClienteL clProf = new ClClienteL();
-                int actualizar = clProf.mtdActualizarDatos(objClient, idCliente);
+                ClClienteL clClien = new ClClienteL();
+                int actualizar = clClien.mtdActualizarImagen(objClient, idCliente);
             }
         }
     }

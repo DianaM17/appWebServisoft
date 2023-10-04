@@ -15,6 +15,15 @@ namespace appWebServisoft.Vista
     {
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// Control lblidCliente.
         /// </summary>
         /// <remarks>
@@ -33,13 +42,22 @@ namespace appWebServisoft.Vista
         protected global::System.Web.UI.WebControls.Label lblTelCliente;
 
         /// <summary>
-        /// Control ImgPerfil.
+        /// Control UpdatePanel1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ImgPerfil;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+
+        /// <summary>
+        /// Control ImgPerfill.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ImgPerfill;
 
         /// <summary>
         /// Control imagenImput.
@@ -174,7 +192,7 @@ namespace appWebServisoft.Vista
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txtPasswordC;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword txtPasswordC;
 
         /// <summary>
         /// Control ddlCiudad.

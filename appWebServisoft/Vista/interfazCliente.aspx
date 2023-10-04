@@ -10,14 +10,48 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
     <!-- Agrega los archivos CSS y JS de Slick Slider desde la CDN de Slick -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <!-- Form container -->
+    <section>
+        <!-- Hero Start -->
+        <style>
+            .container {
+                display: flex; 
+                flex-direction: row; 
+                justify-content: space-between; 
+            }
+
+            .column {
+                flex: 1; 
+                padding: 20px; 
+                box-sizing: border-box; 
+            }
+        </style>
+        <section class="hero">
+            <div class="row container">
+                <div class="column">
+                    <h2>Registra Los Servicios & 
+                        <br />
+                        Categorias Que No Se Encuentren</h2>
+                    <p>En este apartado, podrás observar los servicios y categorias que se encuentran disponibles. Sin embargo, si eres profesiones y tu profesion no se encuentra disponible, puedes registrarla con tan solo un clic.</p>
+                    <br />
+                </div>
+                <div class="column">
+                    <img src="Imagenes/hero.png" alt="heroImg" class="hero_img" />
+                </div>
+            </div>
+
+            <img src="Imagenes/bg-bottom-hero.png" alt="" class="curveImg" />
+        </section>
+        <!-- Hero End-->
+    </section>
+
+    <%--<!-- Form container -->
     <section id="form-width" class="section1 d-flex justify-content-center" style="margin-top: 20px;">
         <div class="row ">
             <!-- form input -->
@@ -47,10 +81,13 @@
                     <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
 
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Descripción del servicio:</label>
-                    <input type="text" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
+                    <input type="text" name="descripcion_form" TextMode="MultiLine" Rows="5" Columns="40" id="txtDescripcion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
 
                     <label for="imagenes" class="ubuntu" style="font-size: 14px;">Imágenes:</label>
                     <asp:FileUpload ID="FluImagen" runat="server" Style="font-size: 14px;" />
+                    <br />
+                    <label for="servicio" class="ubuntu" style="font-size: 14px;">Ciudad:</label>
+                    <asp:DropDownList ID="ddlCiudad" runat="server" Style="font-size: 14px;"></asp:DropDownList>
                     <br />
                     <label for="descripcion" class="ubuntu" style="font-size: 14px;">Dirección:</label>
                     <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-2" style="font-size: 14px;" required>
@@ -65,7 +102,7 @@
                 </figure>
             </div>
         </div>
-    </section>
+    </section>--%>
 
 
 
@@ -115,12 +152,12 @@
 
     <div class="container">
         <div class="owl-carousel owl-theme text-center">
-            <asp:Repeater ID="Repeater1" runat="server" >
+            <asp:Repeater ID="Repeater1" runat="server">
                 <ItemTemplate>
                     <div class="card mx-2 mb-2 custom-card" style="width: 220px; height: 275px; background-color: #1ab999; border-radius: 10%;">
                         <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
                             <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px" onclick="redirectToPage('Login.aspx')">
-                                 <asp:Image class="card-img-top" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' style="max-width: 100%; max-height: 100%; object-fit: cover;"  />
+                                <asp:Image class="card-img-top" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' Style="max-width: 100%; max-height: 100%; object-fit: cover;" />
                             </div>
                             <p class="card-text" style="font-size: 17px"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
                             <p class="card-text" style="font-size: 18px"><%# Eval("categorias") %> </p>
@@ -134,6 +171,7 @@
     <style>
    
 </style>
+
 
 
 <%--Carrusel Trabajos realizados--%>
@@ -295,7 +333,6 @@
     });
 </script>
 
-
     <%--  Carrucel comentarios--%>
 
     <div class="hero">
@@ -324,46 +361,46 @@
         </div>
     </div>
 
-<script>
-    var slide = document.getElementById("slide");
-    var ArribaFlecha = document.getElementById("ArribaFlecha");
-    var AbajoFlecha = document.getElementById("AbajoFlecha");
+    <script>
+        var slide = document.getElementById("slide");
+        var ArribaFlecha = document.getElementById("ArribaFlecha");
+        var AbajoFlecha = document.getElementById("AbajoFlecha");
 
-    // Clonar los comentarios para crear un efecto continuo
-    var comentarios = document.getElementsByClassName("cardComentario");
-    var totalComentarios = comentarios.length;
-    for (var i = 0; i < totalComentarios; i++) {
-        var clone = comentarios[i].cloneNode(true);
-        slide.appendChild(clone);
-    }
-
-    var x = 0;
-    var comentarioHeight = 300; // Altura de cada comentario en píxeles
-    var desplazamientoMaximo = -(totalComentarios * comentarioHeight);
-
-    function moverArriba() {
-        x = x - comentarioHeight;
-        if (x < desplazamientoMaximo) {
-            // Volver al principio para mostrar los comentarios originales
-            x = 0;
+        // Clonar los comentarios para crear un efecto continuo
+        var comentarios = document.getElementsByClassName("cardComentario");
+        var totalComentarios = comentarios.length;
+        for (var i = 0; i < totalComentarios; i++) {
+            var clone = comentarios[i].cloneNode(true);
+            slide.appendChild(clone);
         }
-        slide.style.top = x + "px";
-    }
 
-    function moverAbajo() {
-        x = x + comentarioHeight;
-        if (x > 0) {
-            // Volver al final para mostrar los comentarios clonados
-            x = desplazamientoMaximo;
+        var x = 0;
+        var comentarioHeight = 300; // Altura de cada comentario en píxeles
+        var desplazamientoMaximo = -(totalComentarios * comentarioHeight);
+
+        function moverArriba() {
+            x = x - comentarioHeight;
+            if (x < desplazamientoMaximo) {
+                // Volver al principio para mostrar los comentarios originales
+                x = 0;
+            }
+            slide.style.top = x + "px";
         }
-        slide.style.top = x + "px";
-    }
 
-    var intervalo = setInterval(moverArriba, 20000);
+        function moverAbajo() {
+            x = x + comentarioHeight;
+            if (x > 0) {
+                // Volver al final para mostrar los comentarios clonados
+                x = desplazamientoMaximo;
+            }
+            slide.style.top = x + "px";
+        }
 
-    ArribaFlecha.onclick = moverArriba;
-    AbajoFlecha.onclick = moverAbajo;
-</script>
+        var intervalo = setInterval(moverArriba, 20000);
+
+        ArribaFlecha.onclick = moverArriba;
+        AbajoFlecha.onclick = moverAbajo;
+    </script>
 
 
 
@@ -449,14 +486,15 @@
             }
 
         #slide {
-        width: 100%;
-        padding-right: 60px;
-        box-sizing: border-box;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: transform 0.5s; /* Añadimos una transición para suavizar el desplazamiento */
-    }
+            width: 100%;
+            padding-right: 60px;
+            box-sizing: border-box;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 0.5s; /* Añadimos una transición para suavizar el desplazamiento */
+        }
+
         .sidebar {
             width: 60px;
             height: 100%;

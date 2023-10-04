@@ -30,7 +30,6 @@
                                 <br />
                                 <a href="RecuperarContraseña.aspx"  style="text-decoration: none; color: #000000">¿Olvidaste la contraseña?</a>
                             </div>
-                            
                             <div class="social-login">
                                 <h3>log in via</h3>
                                 <div class="social-icons">
@@ -55,4 +54,3 @@
         </div>
     </section>
 </asp:Content>
-

@@ -219,9 +219,9 @@ namespace appWebServisoft.Datos
         }
 
         //Selecciona el correo de los profesionales que pertenecen a un categoria y un servicio
-        public List<ClProfesionalE> mtdSelecCorreoCateg(string categ, string serv, string ciudad)
+        public List<ClProfesionalE> mtdSelecCorreoCateg(int categ, int serv, int ciudad)
         {
-            string Consulta = "Select idProfesional, nombres, apellidos, email from Profesional where idCategoria= '" + categ + "' and idServicio = '" + serv + "' and idCiudad = '"+ciudad+"'";
+            string Consulta = "Select idProfesional, nombres, apellidos, email from Profesional where idCategoria= " + categ + " and idServicio = " + serv + " and idCiudad = "+ciudad+"";
             ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblProf = SQL.mtdSelectDesc(Consulta);
 

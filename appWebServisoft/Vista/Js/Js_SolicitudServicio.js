@@ -2,7 +2,7 @@
     const yearSelect = document.getElementById("year");
     const currentYear = new Date().getFullYear();
 
-    for (let i = currentYear - 1; i <= currentYear + 5; i++) {
+    for (let i = currentYear; i <= currentYear + 5; i++) {
         const option = document.createElement("option");
         option.value = i;
         option.text = i;
@@ -57,7 +57,7 @@ function loadCalendar() {
 
 function openModal(day, month, year) {
     const modal = document.getElementById("modal");
-    const modalDate = document.getElementById("event-date");
+    const modalDate = document.getElementById("eventdate");
 
     modal.style.display = "block";
     modalDate.value = `${day}-${month + 1}-${year}`;
@@ -69,7 +69,7 @@ function closeModal() {
 }
 
 function saveEvent() {
-    const eventDate = document.getElementById("event-date").value;
+    const eventDate = document.getElementById("eventdate").value;
     const eventTime = document.getElementById("event-time").value;
     const clientName = document.getElementById("client-name").value;
     const professionalName = document.getElementById("professional-name").value;

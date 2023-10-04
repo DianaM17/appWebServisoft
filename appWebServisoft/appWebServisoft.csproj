@@ -42,8 +42,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\lib\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=3.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\lib\net462\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.IdentityModel.Logging, Version=1.1.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -83,6 +83,9 @@
   <ItemGroup>
     <Content Include="Global.asax" />
     <Content Include="Vista\Css\Estilos_Categ.css" />
+    <Content Include="Vista\Css\Estilos_registrarServ.css" />
+    <Content Include="Vista\Imagenes\20944146.jpg" />
+    <Content Include="Vista\Imagenes\6945535.jpg" />
     <Content Include="Vista\Imagenes\images\bars.svg" />
     <Content Include="Vista\Imagenes\bg-bottom-hero.png" />
     <Content Include="Vista\Imagenes\images\bg-dot.png" />
@@ -143,7 +146,6 @@
     <Content Include="Vista\Css\Estilos_Principal..css" />
     <Content Include="Vista\Css\Estilos_Registro.css" />
     <Content Include="Vista\EstadoServicios.aspx" />
-    <Content Include="Vista\EstadoServicioss.aspx" />
     <Content Include="Vista\Formulario.aspx" />
     <Content Include="Vista\Imagenes\2968304.jpg" />
     <Content Include="Vista\Imagenes\2978479.jpg" />
@@ -252,6 +254,35 @@
     <Content Include="Vista\Imagenes\PerfilProfesional\3144277312.png" />
     <Content Include="Vista\Imagenes\PerfilProfesional\imagen1.jpg" />
     <Content Include="Vista\Imagenes\profesional.png" />
+    <Content Include="Vista\Imagenes\Servicio\Abogado.png" />
+    <Content Include="Vista\Imagenes\Servicio\Administrador.png" />
+    <Content Include="Vista\Imagenes\Servicio\Agronomo.png" />
+    <Content Include="Vista\Imagenes\Servicio\Arquitecto.png" />
+    <Content Include="Vista\Imagenes\Servicio\Autos.png" />
+    <Content Include="Vista\Imagenes\Servicio\Belleza.png" />
+    <Content Include="Vista\Imagenes\Servicio\Bienestar.png" />
+    <Content Include="Vista\Imagenes\Servicio\Carpintero.png" />
+    <Content Include="Vista\Imagenes\Servicio\Cerrajero.png" />
+    <Content Include="Vista\Imagenes\Servicio\ControlPlagas.png" />
+    <Content Include="Vista\Imagenes\Servicio\Cuidado.png" />
+    <Content Include="Vista\Imagenes\Servicio\Decorador.png" />
+    <Content Include="Vista\Imagenes\Servicio\Electricista.png" />
+    <Content Include="Vista\Imagenes\Servicio\Eventos.png" />
+    <Content Include="Vista\Imagenes\Servicio\Gas.png" />
+    <Content Include="Vista\Imagenes\Servicio\Herrero.png" />
+    <Content Include="Vista\Imagenes\Servicio\Instalador.png" />
+    <Content Include="Vista\Imagenes\Servicio\Jardinero.png" />
+    <Content Include="Vista\Imagenes\Servicio\Limpieza.png" />
+    <Content Include="Vista\Imagenes\Servicio\Mascotas.png" />
+    <Content Include="Vista\Imagenes\Servicio\Mineria.png" />
+    <Content Include="Vista\Imagenes\Servicio\Mudanzas.png" />
+    <Content Include="Vista\Imagenes\Servicio\Pintor.png" />
+    <Content Include="Vista\Imagenes\Servicio\Piscina.png" />
+    <Content Include="Vista\Imagenes\Servicio\Plomero.png" />
+    <Content Include="Vista\Imagenes\Servicio\Salud.png" />
+    <Content Include="Vista\Imagenes\Servicio\Seguridad.png" />
+    <Content Include="Vista\Imagenes\Servicio\Tapizar.png" />
+    <Content Include="Vista\Imagenes\Servicio\Tecnico.png" />
     <Content Include="Vista\Imagenes\Whatsapp.png" />
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\interfazProfesional.aspx" />
@@ -284,6 +315,7 @@
     <Content Include="Vista\TrabajosSolicitadosCliente.aspx" />
     <Content Include="Vista\trabajosSolicitadosProfesional.aspx" />
     <Content Include="Vista\Trabajos_pendientes.aspx" />
+    <Content Include="Vista\Registrar_Servicios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -352,13 +384,6 @@
     </Compile>
     <Compile Include="Vista\EstadoServicios.aspx.designer.cs">
       <DependentUpon>EstadoServicios.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vista\EstadoServicioss.aspx.cs">
-      <DependentUpon>EstadoServicioss.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\EstadoServicioss.aspx.designer.cs">
-      <DependentUpon>EstadoServicioss.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Formulario.aspx.cs">
       <DependentUpon>Formulario.aspx</DependentUpon>
@@ -507,6 +532,13 @@
     <Compile Include="Vista\Trabajos_pendientes.aspx.designer.cs">
       <DependentUpon>Trabajos_pendientes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\Registrar_Servicios.aspx.cs">
+      <DependentUpon>Registrar_Servicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Registrar_Servicios.aspx.designer.cs">
+      <DependentUpon>Registrar_Servicios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Vista\Site2.Master" />
@@ -566,7 +598,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50355</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:50380/</IISUrl>
+          <IISUrl>http://localhost:5041/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -576,12 +608,12 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.4.1.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.3.11.0\build\net472\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.targets'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
