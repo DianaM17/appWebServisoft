@@ -63,5 +63,12 @@ namespace appWebServisoft.Logica
             int regis = objSelectCoti.mtdEliminarseleleccionCotizacion(idSeleccionCotizacion);
             return regis;
         }
+
+        public List<ClListaCotizacionE> mtdListaCotizacionUsuario(int idCotizacion)
+        {
+            ClCotizacioD ObjCotizacion = new ClCotizacioD();
+            List<ClListaCotizacionE> ListaCotizacion = ObjCotizacion.mtdListaCotizacionUsuario(idCotizacion);
+            return ListaCotizacion;
+        }
     }
 }

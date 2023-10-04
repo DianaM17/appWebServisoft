@@ -57,14 +57,11 @@
                 </button>
                 <div class="collapse navbar-collapse menu-links" id="navbarNav">
                     <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active link1" href="SolicitudServicio.aspx">Solicitud Servicio</a>
+                           <li class="nav-item">
+                            <a class="nav-link link1" href="TrabajosSolicitadosCliente.aspx">Cotizaciones</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link2" href="EstadoServicios.aspx">Servicios Solicitados</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link link1" href="TrabajosSolicitadosCliente.aspx">Cotizaciones</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link link2" href="perfilCliente.aspx">Perfil</a>
@@ -74,6 +71,9 @@
                         </li>
                     </ul>
                     <style>
+                        .navbar-nav{
+                              background-color: #f8f9fa;
+                        }
                         .combo {
                             margin-left: 40px;
                             line-height: 50px;

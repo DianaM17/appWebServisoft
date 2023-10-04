@@ -196,15 +196,16 @@ text-align: center;
             transform: translateY(-50%);
             border: none;
             font-family: "Times New Roman", Times, serif; /* Fuente Times New Roman */
-            font-size: 20px;
-            background-color: #f44336;
+            color: white;
+            font-size: 16px;
+            background-color: #334ab6;
             width: 150px;
             height: 40px;
             border-radius: 15px;
         }
 
             .boton-derecha:hover {
-                background-color: #b01b1b;
+                background-color: #0A52FA;
             }
 
              .boton-derecha1 {
@@ -214,10 +215,11 @@ text-align: center;
             transform: translateY(-50%);
             border: none;
             font-family: "Times New Roman", Times, serif; /* Fuente Times New Roman */
-            font-size: 15px;
+            color: white;
+            font-size: 16px;
             background-color: #f44336;
             width: 150px;
-            height: 30px;
+            height: 40px;
             border-radius: 15px;
         }
 
