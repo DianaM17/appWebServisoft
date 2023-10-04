@@ -138,7 +138,7 @@
                    --%>
  <%--                   <asp:TextBox ID="txtFecha" runat="server" Type="date"></asp:TextBox>--%>
 
-    <form runat="server">
+<%--    <form runat="server">--%>
         <div id="modal" class="modal">
             <div class="modal-content" style="height: 540px; margin-top: 200px">
                 <span class="close" onclick="closeModal()">&times;</span>
@@ -163,8 +163,8 @@
                   
                     <br />
 
-                    <asp:Label ID="lblDescripcion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Descripción: "></asp:Label>
-                    <asp:TextBox ID="txtDescripcion" runat="server" Style="margin-top: 6px;" TextMode="MultiLine" Rows="5" Columns="40"></asp:TextBox>
+<%--                    <asp:Label ID="lblDescripcion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Descripción: "></asp:Label>
+                    <asp:TextBox ID="txtDescripcion" runat="server" Style="margin-top: 6px;" TextMode="MultiLine" Rows="5" Columns="40"></asp:TextBox>--%>
 
 
                 </div>
@@ -212,7 +212,7 @@
                                  <asp:Label ID="lblCategoria" runat="server" Text=""></asp:Label>
                              <asp:Label ID="lblIdCategoria" runat="server" Text="" Visible="false"></asp:Label>
 
-                            <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
+                        <%--    <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>--%>
 
                         </div>
                         <div style="margin-top: 15px;">
@@ -229,7 +229,7 @@
                              <asp:Label ID="lblNombreProfesional" runat="server" Text=""></asp:Label>
                        <%-- <asp:DropDownList ID="ddlProfesional" runat="server"></asp:DropDownList>--%>
 
-                            <asp:DropDownList ID="ddlServicio" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged"></asp:DropDownList>
+                           <%-- <asp:DropDownList ID="ddlServicio" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged"></asp:DropDownList>--%>
                         </div>
                         <div style="margin-top: 15px;">
                             <i class="bi bi-person-badge-fill" style="color: darkblue;"></i>

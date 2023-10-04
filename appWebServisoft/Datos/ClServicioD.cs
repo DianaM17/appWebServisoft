@@ -285,6 +285,7 @@ namespace appWebServisoft.Datos
                 listaServicio.Add(objServ);
             }
             return listaServicio;
+            }
 
         // Método para verificar si la fecha y hora ya están en la base de datos
         public int HoraDisponible(string fecha, string hora)

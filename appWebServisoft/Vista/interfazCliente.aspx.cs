@@ -52,10 +52,10 @@ namespace appWebServisoft.Vista
             //    ddlCiudad.DataBind();
             //    ddlCiudad.Items.Insert(0, new ListItem("Seleccione: ", "0"));
 
-            //    ClComentarioL objComentario = new ClComentarioL();
-            //    List<ClComentarioE> comentario = objComentario.mtdListarComentario();
-            //    RepeaterContenido.DataSource = comentario;
-            //    RepeaterContenido.DataBind();
+            ClComentarioL objComentario = new ClComentarioL();
+            List<ClComentarioE> comentario = objComentario.mtdListarComentario();
+            RepeaterContenido.DataSource = comentario;
+            RepeaterContenido.DataBind();
 
             //    // Ejecutar la función de cambio de índice cada 5 segundos
             //    ScriptManager.RegisterStartupScript(this, GetType(), "ChangeIndex", "setInterval(ChangeCarouselIndex, 5000);", true);

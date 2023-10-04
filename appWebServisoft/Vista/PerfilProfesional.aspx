@@ -402,7 +402,7 @@
 
                                     <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" />
 
-                                    <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Style="float: right;" />
+                                    <%--<asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click" Style="float: right;" />--%>
 
 
                                 </section>

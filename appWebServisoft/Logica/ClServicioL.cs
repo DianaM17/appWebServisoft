@@ -105,7 +105,7 @@ namespace appWebServisoft.Logica
             ClServicioD objServicio = new ClServicioD();
             List<ClServiciooE> listaServicio = objServicio.mtdBuscar(idCateg);
             return listaServicio;
-
+        }
 
         public int mtdHoraDisponible(string fecha, string hora)
         {
