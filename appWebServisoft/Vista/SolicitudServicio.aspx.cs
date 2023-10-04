@@ -15,15 +15,16 @@ namespace appWebServisoft.Vista
         private int idCiudad2;
         private int idServicio;
         private int idCategoria2;
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             int idCliente = Int32.Parse(lblIdCliente.Text = Session["idCliente"].ToString());
-         
+            if (!IsPostBack)
+            {
                 //Cargar Combo ddlCiudad Cliente
-                //ClCiudadL objCiudad = new ClCiudadL();
-                //List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
-                //listaCiudad = objCiudad.mtdListarCiudad();
+                ClCiudadL objCiudad = new ClCiudadL();
+                List<ClCiudadE> listaCiudad = new List<ClCiudadE>();
+                listaCiudad = objCiudad.mtdListarCiudad();
 
                 //ddlCiudad.DataSource = listaCiudad;
                 //ddlCiudad.DataTextField = "nombre";
@@ -36,7 +37,6 @@ namespace appWebServisoft.Vista
                 //List<ClCategoriaE> listaCategoria = new List<ClCategoriaE>();
                 //listaCategoria = objCategoria.mtdListar();
 
-
                 //ddlCategoria.DataSource = listaCategoria;
                 //ddlCategoria.DataTextField = "categoria";
                 //ddlCategoria.DataValueField = "idCategoria";
@@ -44,30 +44,6 @@ namespace appWebServisoft.Vista
                 //ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
 
                 //Cargar Combo ddlEstadoServ
-
-
-                //ddlCategoria.DataSource = listaCategoria;
-                //ddlCategoria.DataTextField = "categoria";
-                //ddlCategoria.DataValueField = "idCategoria";
-                //ddlCategoria.DataBind();
-                //ddlCategoria.Items.Insert(0, new ListItem("Seleccione: ", "0"));
-                //ddlServicio.Items.Insert(0, new ListItem("Seleccionar Categoria: ", "0"));
-                //ddlServicio.DataBind();
-                //ddlProfesional.Items.Insert(0, new ListItem("Seleccionar Servicio: ", "0"));
-                //ddlProfesional.DataBind();
-                //Cargar Combo ddlEstadoServ
-
-                //ClServicioL objEstadoServ = new ClServicioL();
-                //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
-                //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
-
-                //ddlEstadoSev.DataSource = ListaEstadoServ;
-                //ddlEstadoSev.DataTextField = "estado";
-                //ddlEstadoSev.DataValueField = "idEstadoServicio";
-                //ddlEstadoSev.DataBind();
-                //ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
-                //ddlEstadoSev.Enabled = false;
-
 
                 //ClServicioL objEstadoServ = new ClServicioL();
                 //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
@@ -80,10 +56,9 @@ namespace appWebServisoft.Vista
                 //ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
                 //ddlEstadoSev.Enabled = false;
 
-
-                //ClServicioL objEstadoServ = new ClServicioL();
-                //List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
-                //ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
+                ClServicioL objEstadoServ = new ClServicioL();
+                List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
+                ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
 
                 //ddlEstadoSev.DataSource = ListaEstadoServ;
                 //ddlEstadoSev.DataTextField = "estado";
@@ -93,7 +68,7 @@ namespace appWebServisoft.Vista
                 //ddlEstadoSev.Enabled = false;
 
 
-                //Accede a los datos pasados en la URL
+                // Accede a los datos pasados en la URL
                 // Accede a los datos pasados en la URL y decodifica las cadenas
                 string descripcionEncoded = Request.QueryString["descripcion"];
                 string direccionEncoded = Request.QueryString["direccion"];
@@ -116,14 +91,14 @@ namespace appWebServisoft.Vista
                 int.TryParse(Request.QueryString["idCiudad"], out idCiudad2);
                 int.TryParse(Request.QueryString["idProfesional"], out idProfesional);
 
-                //Llena las etiquetas en SolicitudServicio.aspx con los datos
+                // Llena las etiquetas en SolicitudServicio.aspx con los datos
                 txtDescripcion.Text = descripcionDecoded;
                 lblDireccion1.Text = direccionDecoded;
                 lblCiudad1.Text = ciudadDecoded;
                 lblCategoria.Text = categoriaDecoded;
                 lblServicio1.Text = servicioDecoded;
                 lblNombreProfesional.Text = nombreProfesionalDecoded;
-           
+
 
                 // Asigna los valores a las etiquetas de ID (asegúrate de que las etiquetas tengan runat="server")
                 lblIdCiudad.Text = idCiudad2.ToString();
@@ -132,12 +107,12 @@ namespace appWebServisoft.Vista
                 lblIdProfesional.Text = idProfesional.ToString();
 
                 // Verificar si el valor del input está presente en la solicitud
-             
-            
+
+            }
 
         }
 
-   
+
 
         //protected void ddlCategoria_SelectedIndexChanged(object sender, EventArgs e)
         //{
@@ -148,11 +123,11 @@ namespace appWebServisoft.Vista
         //    // Limpiar los elementos existentes en el ComboBox
         //    ddlServicio.Items.Clear();
 
-            //ddlServicio.DataSource = listaServicio;
-            //ddlServicio.DataTextField = "servicio";
-            //ddlServicio.DataValueField = "idServicio";
-            //ddlServicio.DataBind();
-            //ddlServicio.Items.Insert(0, new ListItem("Seleccione Servicio: ", "0"));
+        //ddlServicio.DataSource = listaServicio;
+        //ddlServicio.DataTextField = "servicio";
+        //ddlServicio.DataValueField = "idServicio";
+        //ddlServicio.DataBind();
+        //ddlServicio.Items.Insert(0, new ListItem("Seleccione Servicio: ", "0"));
 
 
         //    ddlServicio.DataSource = listaServicio;
