@@ -268,6 +268,7 @@ namespace appWebServisoft.Datos
             return objServicio;
         }
 
+
         public List<ClServiciooE> mtdBuscar(int idCateg)
         {
             string consulta = "Select Servicio.servicio, Imagenes.imagen from Servicio inner join Imagenes on Servicio.idServicio = Imagenes.idServicio where Servicio.idCategoria = " + idCateg + "";
@@ -284,6 +285,16 @@ namespace appWebServisoft.Datos
                 listaServicio.Add(objServ);
             }
             return listaServicio;
+
+        // Método para verificar si la fecha y hora ya están en la base de datos
+        public int HoraDisponible(string fecha, string hora)
+        {
+            string consulta = "SELECT COUNT(*) FROM solicitudServicio WHERE fecha = '" + fecha + "' and hora = '" + hora + "'";
+
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Reprogramar = SQL.mtdIUDConec(consulta);
+            return Reprogramar;
+
         }
     }
 }

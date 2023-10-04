@@ -16,42 +16,26 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <section>
-        <!-- Hero Start -->
+    <section style="background: #f6fbff">
         <style>
+            /* Estilos CSS para centrar la imagen y hacerla responsive */
             .container {
-                display: flex; 
-                flex-direction: row; 
-                justify-content: space-between; 
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh; /* Esto centra verticalmente en la pantalla */
             }
 
-            .column {
-                flex: 1; 
-                padding: 20px; 
-                box-sizing: border-box; 
+            img {
+                max-width: 100%; /* La imagen no superará el ancho del contenedor */
+                height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
             }
         </style>
-        <section class="hero">
-            <div class="row container">
-                <div class="column">
-                    <h2>Registra Los Servicios & 
-                        <br />
-                        Categorias Que No Se Encuentren</h2>
-                    <p>En este apartado, podrás observar los servicios y categorias que se encuentran disponibles. Sin embargo, si eres profesiones y tu profesion no se encuentra disponible, puedes registrarla con tan solo un clic.</p>
-                    <br />
-                </div>
-                <div class="column">
-                    <img src="Imagenes/hero.png" alt="heroImg" class="hero_img" />
-                </div>
-            </div>
+        <div class="container">
+            <img src="Imagenes/imagen.png" alt="Imagen centrada y responsive">
+        </div>
 
-            <img src="Imagenes/bg-bottom-hero.png" alt="" class="curveImg" />
-        </section>
-        <!-- Hero End-->
-    </section>
-
-    <%--<!-- Form container -->
+        <%--<!-- Form container -->
     <section id="form-width" class="section1 d-flex justify-content-center" style="margin-top: 20px;">
         <div class="row ">
             <!-- form input -->
@@ -106,452 +90,453 @@
 
 
 
-    <%--Categorias--%>
+        <%--Categorias--%>
 
-    <section>
-        <br />
-        <div class="hero">
-            <h1>Categorias</h1>
-        </div>
-        <br />
-        <div class="container">
-            <div class="row">
-                <div class="d-flex flex-wrap justify-content-center align-items-center" style="max-height: 500px; overflow-y: auto;">
-                    <asp:Repeater ID="reptCateg" runat="server">
-                        <ItemTemplate>
-                            <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2" onclick="redirectToPage('Formulario.aspx')">
-                                <div class="custom-card">
-                                    <div class="card-img-box">
-                                        <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
+        <section>
+            <br />
+            <div class="hero">
+                <h1>Categorias</h1>
+            </div>
+            <br />
+            <div class="container">
+                <div class="row">
+                    <div class="d-flex flex-wrap justify-content-center align-items-center" style="max-height: 500px; overflow-y: auto;">
+                        <asp:Repeater ID="reptCateg" runat="server">
+                            <ItemTemplate>
+                                <div class="card-container col-6 col-sm-4 col-md-3 col-lg-2" onclick="redirectToPage('Formulario.aspx')">
+                                    <div class="custom-card">
+                                        <div class="card-img-box">
+                                            <asp:Image CssClass="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' />
+                                        </div>
+                                    </div>
+                                    <div class="card-content">
+                                        <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
                                     </div>
                                 </div>
-                                <div class="card-content">
-                                    <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
-                                </div>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
+                            </ItemTemplate>
+                        </asp:Repeater>
+                    </div>
                 </div>
             </div>
+        </section>
+        <script>
+            function redirectToPage(url) {
+                window.location.href = 'Formulario.aspx';
+            }
+        </script>
+
+
+        <%--  Cards Profesionales--%>
+        <br />
+        <br />
+        <div class="hero">
+            <h1>Profesionales</h1>
         </div>
-    </section>
-    <script>
-        function redirectToPage(url) {
-            window.location.href = 'Formulario.aspx';
-        }
-    </script>
+        <br />
 
-
-    <%--  Cards Profesionales--%>
-    <br />
-    <br />
-    <div class="hero">
-        <h1>Profesionales</h1>
-    </div>
-    <br />
-
-    <div class="container">
-        <div class="owl-carousel owl-theme text-center">
-            <asp:Repeater ID="Repeater1" runat="server">
-                <ItemTemplate>
-                    <div class="card mx-2 mb-2 custom-card" style="width: 220px; height: 275px; background-color: #1ab999; border-radius: 10%;">
-                        <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
-                            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px" onclick="redirectToPage('Login.aspx')">
-                                <asp:Image class="card-img-top" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' Style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+        <div class="container">
+            <div class="owl-carousel owl-theme text-center">
+                <asp:Repeater ID="Repeater1" runat="server">
+                    <ItemTemplate>
+                        <div class="card mx-2 mb-2 custom-card" style="width: 220px; height: 275px; background-color: #1ab999; border-radius: 10%;">
+                            <div class="card-body" style="background-color: #FFFFFF; width: 215px; height: 270px; border-radius: 10%; background-image: linear-gradient(to bottom, #51dcbc 50%, #ffffff 50%);">
+                                <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; display: flex; border: 4px solid white; justify-content: center; margin-left: auto; margin-right: auto; margin-top: 30px" onclick="redirectToPage('Login.aspx')">
+                                    <asp:Image class="card-img-top" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' Style="max-width: 100%; max-height: 100%; object-fit: cover;" />
+                                </div>
+                                <p class="card-text" style="font-size: 17px"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
+                                <p class="card-text" style="font-size: 18px"><%# Eval("categorias") %> </p>
                             </div>
-                            <p class="card-text" style="font-size: 17px"><%# Eval("nombres")%>   <%# Eval("apellidos") %>  </p>
-                            <p class="card-text" style="font-size: 18px"><%# Eval("categorias") %> </p>
                         </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </div>
         </div>
-    </div>
 
-    <style>
+        <style>
    
 </style>
 
 
 
-<%--Carrusel Trabajos realizados--%>
-<br />
-<div class="hero">
-    <h1>Trabajos Realizados</h1>
-</div>
-<br />
-<br />
-
-<div class="container2">
-    <div class="horizontal-carousel" id="carousel-trabajos">
-        <asp:Repeater ID="Repeater2" runat="server">
-            <ItemTemplate>
-                <div class="horizontal-card">
-                    <div class="horizontal-card-img-container">
-                        <asp:Image CssClass="horizontal-card-img-top align-items-center" style="height:500px" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-       
-    </div>
-</div>
-     <br />
+        <%--Carrusel Trabajos realizados--%>
         <br />
-<style>
-    /* Estilos base */
-.container2 {
-    overflow-x: hidden;
-    margin-bottom: 40px;
-}
+        <div class="hero">
+            <h1>Trabajos Realizados</h1>
+        </div>
+        <br />
+        <br />
 
-.horizontal-carousel {
-    display: flex;
-    overflow-x: auto;
-}
-
-.horizontal-card {
-    flex: 0 0 50%;
-    margin-right: 20px;
-}
-
-/* Estilos para las imágenes dentro del carrusel */
-.horizontal-card-img-top {
-    max-width: 100%; /* El ancho de la imagen no excederá el ancho del contenedor */
-    width: 350px; /* Ancho fijo para pantallas pequeñas */
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* Media query para pantallas grandes */
-@media (min-width: 768px) {
-    .horizontal-card-img-top {
-        width: 700px; /* Ancho máximo para pantallas grandes */
-    }
-}
-
-
-/* Media query para pantallas más pequeñas */
-@media (max-width: 768px) {
-    .horizontal-card {
-        flex: 0 0 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-}
-      /* Estilos para ocultar la barra de desplazamiento */
-    .horizontal-carousel {
-        overflow-x: hidden;
-    }
-
-     .horizontal-carousel .slick-slide {
-        margin-right: 20px; /* Espacio entre las imágenes */
-    }
-
-        /* Estilos para las flechas de navegación */
-    .slick-prev,
-    .slick-next {
-        position: absolute;
-        top: 50%;
-        z-index: 1;
-        width: 40px;
-        height: 40px;
-        background-color: #1ab999; /* Color de fondo azul */
-        border-radius: 40%;
-        text-align: center;
-        line-height: 40px;
-        cursor: pointer;
-        transform: translateY(-50%);
-        color: #fff; /* Color del texto (flecha) en blanco */
-        font-size: 18px; /* Tamaño de la fuente de las flechas */
-    }
-
-    .slick-prev {
-        left: 10px;
-    }
-
-    .slick-next {
-        right: 10px;
-    }
-
-     /* Estilos para las flechas de navegación en hover */
-        .slick-prev:hover,
-        .slick-next:hover {
-            background-color: #007bff; /* Color de fondo verde en hover */
-            border-color: #007bff;
-        }
-</style>
-
-
-<script>
-    $(document).ready(function () {
-        var originalBackgroundColor; // Variable para almacenar el color original del botón
-
-        // Función para guardar el color original del botón
-        function storeOriginalBackgroundColor() {
-            originalBackgroundColor = $(".slick-prev").css("background-color");
-        }
-
-        // Inicializa el carrusel usando Slick Slider
-        $("#carousel-trabajos").slick({
-            slidesToShow: 2, // Mostrar dos imágenes a la vez
-            slidesToScroll: 1, // Número de elementos a desplazar en cada transición
-            autoplay: true, // Reproducir el carrusel automáticamente
-            autoplaySpeed: 10000, // Tiempo de espera entre transiciones en milisegundos (10 segundos)
-            prevArrow: '<button type="button" class="slick-prev"></button>',
-            nextArrow: '<button type="button" class="slick-next"></button>',
-            responsive: [
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2 // Número de elementos visibles en pantallas más grandes
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 2 // Número de elementos visibles en pantallas más pequeñas
-                    }
-                },
-                {
-                    breakpoint: 576,
-                    settings: {
-                        slidesToShow: 1 // Número de elementos visibles en pantallas aún más pequeñas
-                    }
-                }
-            ]
-        });
-
-        // Llama a la función para almacenar el color original del botón al cargar la página
-        storeOriginalBackgroundColor();
-
-        // Restaura el color original del botón al soltar el clic
-        $(".slick-prev, .slick-next").mouseup(function () {
-            $(this).css("background-color", originalBackgroundColor);
-        });
-    });
-</script>
-
-    <%--  Carrucel comentarios--%>
-
-    <div class="hero">
-        <h1>Comentarios</h1>
-        <div class="review-box">
-            <div id="slide">
-                <asp:Repeater ID="RepeaterContenido" runat="server">
+        <div class="container2">
+            <div class="horizontal-carousel" id="carousel-trabajos">
+                <asp:Repeater ID="Repeater2" runat="server">
                     <ItemTemplate>
-                        <div class="cardComentario">
-                            <div class="profile">
-                                <img src="Imagenes/PerfilCliente/<%# Eval("foto") %>" />
-                                <div>
-                                    <h3 class="card-text"><%# Eval("nombres") %> <%# Eval("apellidos") %></h3>
-                                    <p class="card-text"><%# Eval("nivel") %></p>
-                                </div>
+                        <div class="horizontal-card">
+                            <div class="horizontal-card-img-container">
+                                <asp:Image CssClass="horizontal-card-img-top align-items-center" Style="height: 500px" runat="server" ID="ImgCate" ImageUrl='<%# Eval("imagen") %>' alt="Card image cap" />
                             </div>
-                            <p class="card-text"><%# Eval("comentarios") %></p>
                         </div>
                     </ItemTemplate>
                 </asp:Repeater>
-            </div>
-            <div class="sidebar">
-                <img src="Imagenes/Iconos/arriba.png" id="ArribaFlecha" />
-                <img src="Imagenes/Iconos/abajo.png" id="AbajoFlecha" />
+
             </div>
         </div>
-    </div>
-
-    <script>
-        var slide = document.getElementById("slide");
-        var ArribaFlecha = document.getElementById("ArribaFlecha");
-        var AbajoFlecha = document.getElementById("AbajoFlecha");
-
-        // Clonar los comentarios para crear un efecto continuo
-        var comentarios = document.getElementsByClassName("cardComentario");
-        var totalComentarios = comentarios.length;
-        for (var i = 0; i < totalComentarios; i++) {
-            var clone = comentarios[i].cloneNode(true);
-            slide.appendChild(clone);
-        }
-
-        var x = 0;
-        var comentarioHeight = 300; // Altura de cada comentario en píxeles
-        var desplazamientoMaximo = -(totalComentarios * comentarioHeight);
-
-        function moverArriba() {
-            x = x - comentarioHeight;
-            if (x < desplazamientoMaximo) {
-                // Volver al principio para mostrar los comentarios originales
-                x = 0;
-            }
-            slide.style.top = x + "px";
-        }
-
-        function moverAbajo() {
-            x = x + comentarioHeight;
-            if (x > 0) {
-                // Volver al final para mostrar los comentarios clonados
-                x = desplazamientoMaximo;
-            }
-            slide.style.top = x + "px";
-        }
-
-        var intervalo = setInterval(moverArriba, 20000);
-
-        ArribaFlecha.onclick = moverArriba;
-        AbajoFlecha.onclick = moverAbajo;
-    </script>
-
-
-
-
-
-    <style>
-        .hero {
-            width: 100%;
-            height: 100hv;
-            background: #f6fbff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        h1 {
-            font-size: 30px;
-            position: relative;
-            margin-bottom: 50px;
-        }
-
-            h1::after {
-                content: '';
-                width: 150px;
-                height: 3px;
-                background: linear-gradient(to right, #f44336, #9f4db5);
-                position: absolute;
-                bottom: -20px;
-                left: 50%;
-                transform: translateX(-50%);
+        <br />
+        <br />
+        <style>
+            /* Estilos base */
+            .container2 {
+                overflow-x: hidden;
+                margin-bottom: 40px;
             }
 
-        .review-box {
-            width: 90%;
-            max-width: 700px;
-            height: 300px;
-            border-radius: 10px;
-            box-shadow: -10px 10px 40px rgb(0,0, 0,0.25);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cardComentario {
-            height: 300px;
-            padding: 40px;
-            color: #777;
-            line-height: 22px;
-            box-sizing: border-box;
-            background: #fff;
-            position: relative;
-            z-index: 1;
-        }
-
-            .cardComentario::before {
-                content: '';
-                width: 110px;
-                height: 110px;
-                border-bottom-right-radius: 100%;
-                background: #f44336;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: -1;
+            .horizontal-carousel {
+                display: flex;
+                overflow-x: auto;
             }
 
-        .profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 40px;
-        }
-
-            .profile img {
-                width: 80px;
-                border-radius: 50%;
+            .horizontal-card {
+                flex: 0 0 50%;
                 margin-right: 20px;
             }
 
-            .profile h3 {
-                font-size: 26px;
-                color: #f44336;
-                margin-bottom: 8px;
+            /* Estilos para las imágenes dentro del carrusel */
+            .horizontal-card-img-top {
+                max-width: 100%; /* El ancho de la imagen no excederá el ancho del contenedor */
+                width: 350px; /* Ancho fijo para pantallas pequeñas */
+                height: auto;
+                display: block;
+                margin: 0 auto;
             }
 
-        #slide {
-            width: 100%;
-            padding-right: 60px;
-            box-sizing: border-box;
-            position: absolute;
-            top: 0;
-            left: 0;
-            transition: transform 0.5s; /* Añadimos una transición para suavizar el desplazamiento */
-        }
+            /* Media query para pantallas grandes */
+            @media (min-width: 768px) {
+                .horizontal-card-img-top {
+                    width: 700px; /* Ancho máximo para pantallas grandes */
+                }
+            }
 
-        .sidebar {
-            width: 60px;
-            height: 100%;
-            padding: 15px 0;
-            box-sizing: border-box;
-            background: #f44336;
-            position: absolute;
-            right: 0;
-            top: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-        }
 
-            .sidebar img {
-                width: 25px;
-                padding: 5px;
-                background: #fff;
-                border-radius: 50%;
+            /* Media query para pantallas más pequeñas */
+            @media (max-width: 768px) {
+                .horizontal-card {
+                    flex: 0 0 100%;
+                    margin-right: 0;
+                    margin-bottom: 20px;
+                }
+            }
+            /* Estilos para ocultar la barra de desplazamiento */
+            .horizontal-carousel {
+                overflow-x: hidden;
+            }
+
+                .horizontal-carousel .slick-slide {
+                    margin-right: 20px; /* Espacio entre las imágenes */
+                }
+
+            /* Estilos para las flechas de navegación */
+            .slick-prev,
+            .slick-next {
+                position: absolute;
+                top: 50%;
+                z-index: 1;
+                width: 40px;
+                height: 40px;
+                background-color: #1ab999; /* Color de fondo azul */
+                border-radius: 40%;
+                text-align: center;
+                line-height: 40px;
                 cursor: pointer;
+                transform: translateY(-50%);
+                color: #fff; /* Color del texto (flecha) en blanco */
+                font-size: 18px; /* Tamaño de la fuente de las flechas */
             }
-    </style>
+
+            .slick-prev {
+                left: 10px;
+            }
+
+            .slick-next {
+                right: 10px;
+            }
+
+                /* Estilos para las flechas de navegación en hover */
+                .slick-prev:hover,
+                .slick-next:hover {
+                    background-color: #007bff; /* Color de fondo verde en hover */
+                    border-color: #007bff;
+                }
+        </style>
 
 
+        <script>
+            $(document).ready(function () {
+                var originalBackgroundColor; // Variable para almacenar el color original del botón
 
+                // Función para guardar el color original del botón
+                function storeOriginalBackgroundColor() {
+                    originalBackgroundColor = $(".slick-prev").css("background-color");
+                }
 
+                // Inicializa el carrusel usando Slick Slider
+                $("#carousel-trabajos").slick({
+                    slidesToShow: 2, // Mostrar dos imágenes a la vez
+                    slidesToScroll: 1, // Número de elementos a desplazar en cada transición
+                    autoplay: true, // Reproducir el carrusel automáticamente
+                    autoplaySpeed: 10000, // Tiempo de espera entre transiciones en milisegundos (10 segundos)
+                    prevArrow: '<button type="button" class="slick-prev"></button>',
+                    nextArrow: '<button type="button" class="slick-next"></button>',
+                    responsive: [
+                        {
+                            breakpoint: 1024,
+                            settings: {
+                                slidesToShow: 2 // Número de elementos visibles en pantallas más grandes
+                            }
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2 // Número de elementos visibles en pantallas más pequeñas
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1 // Número de elementos visibles en pantallas aún más pequeñas
+                            }
+                        }
+                    ]
+                });
 
-    <footer style="margin-top: 100px">
-        <div class="container__footer">
-            <div class="box__footer">
-                <div class="logo">
-                    <img src="Imagenes/logo_preview_rev_3.png" alt="">
+                // Llama a la función para almacenar el color original del botón al cargar la página
+                storeOriginalBackgroundColor();
+
+                // Restaura el color original del botón al soltar el clic
+                $(".slick-prev, .slick-next").mouseup(function () {
+                    $(this).css("background-color", originalBackgroundColor);
+                });
+            });
+        </script>
+
+        <%--  Carrucel comentarios--%>
+
+        <div class="hero">
+            <h1>Comentarios</h1>
+            <div class="review-box">
+                <div id="slide">
+                    <asp:Repeater ID="RepeaterContenido" runat="server">
+                        <ItemTemplate>
+                            <div class="cardComentario">
+                                <div class="profile">
+                                    <img src="Imagenes/PerfilCliente/<%# Eval("foto") %>" />
+                                    <div>
+                                        <h3 class="card-text"><%# Eval("nombres") %> <%# Eval("apellidos") %></h3>
+                                        <p class="card-text"><%# Eval("nivel") %></p>
+                                    </div>
+                                </div>
+                                <p class="card-text"><%# Eval("comentarios") %></p>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
-                <div class="terms">
-                    <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+                <div class="sidebar">
+                    <img src="Imagenes/Iconos/arriba.png" id="ArribaFlecha" />
+                    <img src="Imagenes/Iconos/abajo.png" id="AbajoFlecha" />
                 </div>
-            </div>
-            <div class="box__footer">
-                <h2>Compañía</h2>
-                <a href="Categorias.aspx">Categoría</a>
-                <a href="Login.aspx">Cliente</a>
-                <a href="Login.aspx">Profesional</a>
-            </div>
-            <div class="box__footer">
-                <h2>Redes Sociales</h2>
-                <a href="https://www.facebook.com/profile.php?id=100094488848221&mibextid=LQQJ4d"><i class="fab fa-facebook-square"></i>Facebook</a>
-                <a href="https://www.instagram.com/servisoft1710/?igshid=MzRlODBiNWFlZA%3D%3D"><i class="fab fa-instagram-square"></i>Instagram</a>
             </div>
         </div>
-        <div class="box__copyright">
-            <hr>
-            <p style="font-size: 15px">
-                SERVISOFT ® 2022
-            </p>
-        </div>
-    </footer>
+
+        <script>
+            var slide = document.getElementById("slide");
+            var ArribaFlecha = document.getElementById("ArribaFlecha");
+            var AbajoFlecha = document.getElementById("AbajoFlecha");
+
+            // Clonar los comentarios para crear un efecto continuo
+            var comentarios = document.getElementsByClassName("cardComentario");
+            var totalComentarios = comentarios.length;
+            for (var i = 0; i < totalComentarios; i++) {
+                var clone = comentarios[i].cloneNode(true);
+                slide.appendChild(clone);
+            }
+
+            var x = 0;
+            var comentarioHeight = 300; // Altura de cada comentario en píxeles
+            var desplazamientoMaximo = -(totalComentarios * comentarioHeight);
+
+            function moverArriba() {
+                x = x - comentarioHeight;
+                if (x < desplazamientoMaximo) {
+                    // Volver al principio para mostrar los comentarios originales
+                    x = 0;
+                }
+                slide.style.top = x + "px";
+            }
+
+            function moverAbajo() {
+                x = x + comentarioHeight;
+                if (x > 0) {
+                    // Volver al final para mostrar los comentarios clonados
+                    x = desplazamientoMaximo;
+                }
+                slide.style.top = x + "px";
+            }
+
+            var intervalo = setInterval(moverArriba, 20000);
+
+            ArribaFlecha.onclick = moverArriba;
+            AbajoFlecha.onclick = moverAbajo;
+        </script>
+
+
+
+
+
+        <style>
+            .hero {
+                width: 100%;
+                height: 100hv;
+                background: #f6fbff;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            h1 {
+                font-size: 30px;
+                position: relative;
+                margin-bottom: 50px;
+            }
+
+                h1::after {
+                    content: '';
+                    width: 150px;
+                    height: 3px;
+                    background: linear-gradient(to right, #f44336, #9f4db5);
+                    position: absolute;
+                    bottom: -20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+            .review-box {
+                width: 90%;
+                max-width: 700px;
+                height: 300px;
+                border-radius: 10px;
+                box-shadow: -10px 10px 40px rgb(0,0, 0,0.25);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .cardComentario {
+                height: 300px;
+                padding: 40px;
+                color: #777;
+                line-height: 22px;
+                box-sizing: border-box;
+                background: #fff;
+                position: relative;
+                z-index: 1;
+            }
+
+                .cardComentario::before {
+                    content: '';
+                    width: 110px;
+                    height: 110px;
+                    border-bottom-right-radius: 100%;
+                    background: #f44336;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+
+            .profile {
+                display: flex;
+                align-items: center;
+                margin-bottom: 40px;
+            }
+
+                .profile img {
+                    width: 80px;
+                    border-radius: 50%;
+                    margin-right: 20px;
+                }
+
+                .profile h3 {
+                    font-size: 26px;
+                    color: #f44336;
+                    margin-bottom: 8px;
+                }
+
+            #slide {
+                width: 100%;
+                padding-right: 60px;
+                box-sizing: border-box;
+                position: absolute;
+                top: 0;
+                left: 0;
+                transition: transform 0.5s; /* Añadimos una transición para suavizar el desplazamiento */
+            }
+
+            .sidebar {
+                width: 60px;
+                height: 100%;
+                padding: 15px 0;
+                box-sizing: border-box;
+                background: #f44336;
+                position: absolute;
+                right: 0;
+                top: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .sidebar img {
+                    width: 25px;
+                    padding: 5px;
+                    background: #fff;
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+        </style>
+
+
+
+
+
+        <footer style="margin-top: 100px">
+            <div class="container__footer">
+                <div class="box__footer">
+                    <div class="logo">
+                        <img src="Imagenes/logo_preview_rev_3.png" alt="">
+                    </div>
+                    <div class="terms">
+                        <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+                    </div>
+                </div>
+                <div class="box__footer">
+                    <h2>Compañía</h2>
+                    <a href="Categorias.aspx">Categoría</a>
+                    <a href="Login.aspx">Cliente</a>
+                    <a href="Login.aspx">Profesional</a>
+                </div>
+                <div class="box__footer">
+                    <h2>Redes Sociales</h2>
+                    <a href="https://www.facebook.com/profile.php?id=100094488848221&mibextid=LQQJ4d"><i class="fab fa-facebook-square"></i>Facebook</a>
+                    <a href="https://www.instagram.com/servisoft1710/?igshid=MzRlODBiNWFlZA%3D%3D"><i class="fab fa-instagram-square"></i>Instagram</a>
+                </div>
+            </div>
+            <div class="box__copyright">
+                <hr>
+                <p style="font-size: 15px">
+                    SERVISOFT ® 2022
+                </p>
+            </div>
+        </footer>
+    </section>
 
     <script src="Js/JavaScript_Principal.js"></script>
 

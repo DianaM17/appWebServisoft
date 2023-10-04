@@ -43,4 +43,20 @@ namespace appWebServisoft.Entidades
         public string apellidos { get; set; }
 
     }
+
+    public class ClListaCotizacionE
+    {
+        public int idCotizacion { get; set; }
+
+        public string tituloServicio { get; set; }
+        public string descripcion { get; set; }
+        public string ciudad { get; set; }
+        public string direccion { get; set; }
+        public string servicio { get; set; }
+        public string categoria { get; set; }
+        public int idServicio { get; set; }
+        public int idCategoria { get; set; }
+        public int idCiudad { get; set; }
+        public int idProfesional { get; set; }
+    }
 }

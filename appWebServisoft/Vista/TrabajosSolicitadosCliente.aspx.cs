@@ -10,8 +10,10 @@ namespace appWebServisoft.Vista
 {
     public partial class TrabajosSolicitadosCliente : System.Web.UI.Page
     {
+        private string idCotizacionStr;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
 
             if (!IsPostBack)
             {
@@ -32,7 +34,7 @@ namespace appWebServisoft.Vista
         {
             // Obtener el valor del idCotizacion del LinkButton clicado
             LinkButton linkButton = (LinkButton)sender;
-            string idCotizacionStr = linkButton.CommandArgument;
+            idCotizacionStr = linkButton.CommandArgument;
 
             // Mostrar el valor del idCotizacion en el Label4
             Label4.Text = idCotizacionStr;
@@ -79,13 +81,16 @@ namespace appWebServisoft.Vista
                 string apellidos = DataBinder.Eval(e.Row.DataItem, "apellidos").ToString();
                 int idProfesional = Convert.ToInt32(DataBinder.Eval(e.Row.DataItem, "IdProfesional"));
 
-                string urlDestino = "perfilProfesionalUsuario.aspx?id=" + idProfesional + "&nombres=" + Server.UrlEncode(nombres) + "&apellidos=" + Server.UrlEncode(apellidos);
+                string urlDestino = "perfilProfesionalUsuario.aspx?idCotizacion=" + idProfesional + "&nombres=" + Server.UrlEncode(nombres) + "&apellidos=" + Server.UrlEncode(apellidos) + "&idCotizacionId=" + Server.UrlEncode(idCotizacionStr);
                 Session["IdProfesionalSeleccionado"] = idProfesional;
+
 
                 TableCell cell = new TableCell();
                 HyperLink hyperlink = new HyperLink();
                 hyperlink.NavigateUrl = urlDestino;
                 hyperlink.Text = "Ver perfil Profesional";
+                cell.Controls.Add(hyperlink);
+                e.Row.Cells.Add(cell);
 
                 cell.Controls.Add(hyperlink);
                 e.Row.Cells.Add(cell);

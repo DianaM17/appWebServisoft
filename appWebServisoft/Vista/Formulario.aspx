@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario.aspx.cs" Inherits="Formulario.Formulario" %>
 
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -12,8 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/style_formularioServ.css">
     <link rel="stylesheet" href="Css/normalize.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+
+    <script src="../Scripts/sweetalert.min.js"></script>
+    <link href="Css/sweetalert.css" rel="stylesheet" />
+
 </head>
 <body>
     <a href="#" onclick="window.history.back(); return false;" class="cta">
@@ -50,6 +53,7 @@
                 width: 56px;
                 height: 56px;
                 transition: all 0.3s ease;
+
             }
 
             .cta span {
@@ -75,6 +79,33 @@
                 transition: all 0.3s ease;
             }
 
+
+            }
+
+            .cta span {
+                position: relative;
+                font-size: 16px;
+                line-height: 18px;
+                font-weight: 900;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                vertical-align: middle;
+            }
+
+            .cta svg {
+                position: relative;
+                top: 0;
+                margin-left: 10px;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke: #111;
+                stroke-width: 2;
+                transform: translateX(-5px);
+                transition: all 0.3s ease;
+            }
+
+
             .cta:hover:before {
                 width: 100%;
                 background: #ffab9d;
@@ -99,15 +130,15 @@
                     <div class="logotipe d-flex justify-content-center">
                         <a href="#" class="d-flex align-items-center">
                             <img src="Imagenes/logo_preview_rev_3.png" class="img-fluid">
-                            <h3 class="ubuntu">Servisoft</h3>
+                            <h3>Servisoft</h3>
                         </a>
                     </div>
                     <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
-                    <h4 class="text-center text-uppercase anton">Bienvenidos</h4>
+                    <h4 class="text-center text-uppercase">Bienvenidos</h4>
                     <hr>
-                    <p class="text-center text-uppercase anton">¿Que servcio necesitas?</p>
-                    <p class="text-center text-uppercase anton">Ingresa cada uno de los datos solicitados para poder solicitar la cotización a cada uno de los profesionales que se encuentren disponibles</p>
+                    <p class="text-center text-uppercase">¿Que servcio necesitas?</p>
+                    <p class="text-center text-uppercase">Ingresa cada uno de los datos solicitados para poder solicitar la cotización a cada uno de los profesionales que se encuentren disponibles</p>
                     <hr>
 
                     <!-- inputs -->
@@ -138,7 +169,7 @@
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
-                        <button id="btnEnviar" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                        <button id="btnEnviar" style="background-color:#dc3545; color:white" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick">Enviar</button>
 
                     </div>
 

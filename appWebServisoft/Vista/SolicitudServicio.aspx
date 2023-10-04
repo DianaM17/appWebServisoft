@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="../Scripts/sweetalert.min.js"></script>
     <link href="Css/sweetalert.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
     <div>
@@ -43,7 +45,7 @@
                     left: 0;
                     display: block;
                     border-radius: 28px;
-                    background: rgba(255, 171, 157, 0.5);
+                    background: rgba(255, 171, 157, 0.5); 
                     width: 56px;
                     height: 56px;
                     transition: all 0.3s ease;
@@ -116,6 +118,26 @@
         </div>
         <div id="calendar"></div>
     </div>
+
+
+    <div id="modal" class="modal">
+        <div class="modal-content" style="height: 600px;">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 style="color: darkblue;">Solicitar Servicio</h2>
+       
+
+    <asp:Label ID="lblFecha" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Fecha Servicio:"></asp:Label>
+    <input type="text" id="event-date" name="event-date" disabled ClientIDMode="Static" />
+
+
+            <form runat="server">
+                    <asp:HiddenField ID="hiddenEventDate" runat="server" ClientIDMode="Static" />
+
+                <div>
+                  <%--  <i class="bi bi-calendar-date-fill" style="color: darkblue;"></i>
+                   --%>
+ <%--                   <asp:TextBox ID="txtFecha" runat="server" Type="date"></asp:TextBox>--%>
+
     <form runat="server">
         <div id="modal" class="modal">
             <div class="modal-content" style="height: 540px; margin-top: 200px">
@@ -125,6 +147,7 @@
                     <i class="bi bi-calendar-date-fill" style="color: darkblue;"></i>
                     <asp:Label ID="Label1" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Fecha Servicio:"></asp:Label>
                     <input type="text" id="eventdate" name="txtFecha" runat="server" disabled>
+
                 </div>
                 <div style="margin-top: 20px;">
                     <i class="bi bi-alarm-fill" style="color: darkblue;"></i>
@@ -133,8 +156,16 @@
                 </div>
                 <div style="margin-top: 20px;">
                     <i class="bi bi-card-list" style="color: darkblue;"></i>
+
+                    <asp:Label ID="lblDescripcion1" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Descripción: "></asp:Label>
+                <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
+                  
+                  
+                    <br />
+
                     <asp:Label ID="lblDescripcion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Descripción: "></asp:Label>
                     <asp:TextBox ID="txtDescripcion" runat="server" Style="margin-top: 6px;" TextMode="MultiLine" Rows="5" Columns="40"></asp:TextBox>
+
 
                 </div>
                 <%--                <br />
@@ -147,13 +178,27 @@
                 <div>
                     <i class="bi bi-houses-fill" style="color: darkblue;"></i>
                     <asp:Label ID="lblDireccion" runat="server" Font-Bold="true" Style="color: darkblue;" Text="Direccion:"></asp:Label>
+
+                   <%-- <asp:TextBox ID="txtDireccion" runat="server" placeholder="Direccion"></asp:TextBox>--%>
+                         <asp:Label ID="lblDireccion1" runat="server" Text=""></asp:Label>
+                      <asp:Label ID="lblIdProfesional" runat="server" Text="" Visible="false"></asp:Label>
+                    
+                    <br />
+
                     <asp:TextBox ID="txtDireccion" runat="server" placeholder="Direccion"></asp:TextBox>
+
 
                 </div>
                 <div>
                     <i class="bi bi-buildings-fill" style="color: darkblue;"></i>
                     <asp:Label ID="lblCiudad" class="ubuntu" Style="color: darkblue;" Font-Bold="true" runat="server" Text="Ciudad:"></asp:Label>
+
+                    <%--<asp:DropDownList ID="ddlCiudad" runat="server"></asp:DropDownList>--%>
+                         <asp:Label ID="lblCiudad1" runat="server" Text=""></asp:Label>
+                        <asp:Label ID="lblIdCiudad" runat="server" Text="" Visible="false"></asp:Label>
+
                     <asp:DropDownList ID="ddlCiudad" Style="border-radius: 50px; font-size: 15px; margin-left: 40px; padding: 4px;" runat="server"></asp:DropDownList>
+
                 </div>
 
                 <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
@@ -162,11 +207,28 @@
                         <div style="margin-top: 15px;">
                             <i class="bi bi-tools" style="color: darkblue;"></i>
                             <label for="categoria" class="ubuntu" style="color: darkblue;">Categoria:</label>
+
+                           <%-- <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>--%>
+                                 <asp:Label ID="lblCategoria" runat="server" Text=""></asp:Label>
+                             <asp:Label ID="lblIdCategoria" runat="server" Text="" Visible="false"></asp:Label>
+
                             <asp:DropDownList ID="ddlCategoria" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlCategoria_SelectedIndexChanged"></asp:DropDownList>
+
                         </div>
                         <div style="margin-top: 15px;">
                             <i class="bi bi-wrench-adjustable-circle-fill" style="color: darkblue;"></i>
                             <label for="servicio" style="color: darkblue;" class="ubuntu">Servicio:</label>
+
+                           <%-- <asp:DropDownList ID="ddlServicio" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged"></asp:DropDownList>--%>
+                                 <asp:Label ID="lblServicio1" runat="server" Text=""></asp:Label>
+                             <asp:Label ID="lblIdServicio" runat="server" Text="" Visible="false"></asp:Label>
+                        </div>
+                        <br />
+                        <i class="bi bi-person-badge-fill" style="color: darkblue;"></i>
+                        <label for="profesional" style="color: darkblue;" class="ubuntu">Profesional:</label>
+                             <asp:Label ID="lblNombreProfesional" runat="server" Text=""></asp:Label>
+                       <%-- <asp:DropDownList ID="ddlProfesional" runat="server"></asp:DropDownList>--%>
+
                             <asp:DropDownList ID="ddlServicio" runat="server" AutoPostBack="true" Style="border-radius: 50px; font-size: 15px; padding: 4px;" OnSelectedIndexChanged="ddlServicio_SelectedIndexChanged"></asp:DropDownList>
                         </div>
                         <div style="margin-top: 15px;">
@@ -174,6 +236,7 @@
                             <label for="profesional" style="color: darkblue;" class="ubuntu">Profesional:</label>
                             <asp:DropDownList ID="ddlProfesional" Style="border-radius: 50px; font-size: 15px; padding: 4px;" runat="server"></asp:DropDownList>
                         </div>
+
                     </ContentTemplate>
                 </asp:UpdatePanel>
                 <br />
@@ -183,8 +246,23 @@
             </div>
         </div>
     </form>
+    <script>
+        var monthSelect = document.getElementById("month");
+        var yearSelect = document.getElementById("year");
+        var currentDate = new Date();
 
+        yearSelect.value = currentDate.getFullYear();
+        monthSelect.value = currentDate.getMonth(); 
 
+        loadCalendar();
+    </script>
+
+    <style>
+        .txtDescripcion{
+            height:30px;
+            width: 150px;
+        }
+    </style>
     <script src="Js/Js_SolicitudServicio.js"></script>
 </body>
 </html>

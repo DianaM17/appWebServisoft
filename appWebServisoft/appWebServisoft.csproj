@@ -81,11 +81,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\sweetalert\bootstrap-sweetalert.png" />
+    <Content Include="Content\sweetalert\docs.css" />
+    <Content Include="Content\sweetalert\sweet-alert.css" />
+    <Content Include="Content\sweetalert\thumbs-up.jpg" />
     <Content Include="Global.asax" />
+    <Content Include="SweetAlert\Scripts\sweetalert-dev.js" />
+    <Content Include="SweetAlert\Scripts\sweetalert.min.js" />
+    <Content Include="SweetAlert\Styles\sweetalert.css" />
+    <Content Include="Vista\Css\bootstrap.min.css" />
     <Content Include="Vista\Css\Estilos_Categ.css" />
+    <Content Include="Vista\Css\Estilos_DataTables.css" />
     <Content Include="Vista\Css\Estilos_registrarServ.css" />
+    <Content Include="Vista\Css\Input.css" />
     <Content Include="Vista\Imagenes\20944146.jpg" />
     <Content Include="Vista\Imagenes\6945535.jpg" />
+    <Content Include="Vista\Imagenes\fondof.jpg" />
+    <Content Include="Vista\Imagenes\fondofo.png" />
+    <Content Include="Vista\Imagenes\imagen.png" />
     <Content Include="Vista\Imagenes\images\bars.svg" />
     <Content Include="Vista\Imagenes\bg-bottom-hero.png" />
     <Content Include="Vista\Imagenes\images\bg-dot.png" />
@@ -287,7 +300,10 @@
     <Content Include="Vista\interfazCliente.aspx" />
     <Content Include="Vista\interfazProfesional.aspx" />
     <Content Include="Vista\Js\app.js" />
+    <Content Include="Vista\Js\bootstrap.bundle.js" />
+    <Content Include="Vista\Js\bootstrap.min.js" />
     <Content Include="Vista\Js\jquery-3.3.1.min.js" />
+    <Content Include="Vista\Js\jquery-3.6.0.js" />
     <Content Include="Vista\Js\jquery.steps.js" />
     <Content Include="Vista\Js\JavaScript_Contacto.js" />
     <Content Include="Vista\Js\JavaScript_Master.js" />
@@ -298,6 +314,7 @@
     <Content Include="Vista\Js\Js_SolicitudServicio.js" />
     <Content Include="Vista\Js\SiteMaster2.js" />
     <Content Include="Vista\Js\SweetCerrarSecion.js" />
+    <Content Include="Vista\Js\tablaAprendices.js" />
     <Content Include="Vista\Login.aspx" />
     <Content Include="Vista\Js\main.js" />
     <Content Include="Vista\perfilCliente.aspx" />
@@ -311,6 +328,7 @@
     <Content Include="Vista\Js\theme-map.js" />
     <Content Include="Vista\CategoriasCliente.aspx" />
     <Content Include="Vista\SolicitudServicio.aspx" />
+    <Content Include="Vista\TabTrabajosPen.aspx" />
     <Content Include="Vista\TrabajosPendientes.aspx" />
     <Content Include="Vista\TrabajosSolicitadosCliente.aspx" />
     <Content Include="Vista\trabajosSolicitadosProfesional.aspx" />
@@ -505,6 +523,13 @@
     <Compile Include="Vista\SolicitudServicio.aspx.designer.cs">
       <DependentUpon>SolicitudServicio.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vista\TabTrabajosPen.aspx.cs">
+      <DependentUpon>TabTrabajosPen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\TabTrabajosPen.aspx.designer.cs">
+      <DependentUpon>TabTrabajosPen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\TrabajosPendientes.aspx.cs">
       <DependentUpon>TrabajosPendientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -574,7 +599,13 @@
     <Content Include="Vista\Boostrap\js\bootstrap.js.map" />
     <Content Include="Vista\Boostrap\js\bootstrap.min.js.map" />
     <Content Include="Vista\MasterProfesional.Master" />
+    <Content Include="Content\sweetalert\sweet-alert.less" />
+    <Content Include="Content\sweetalert\sweet-alert-combine.less" />
+    <Content Include="Content\sweetalert\sweet-alert-animations.less" />
+    <Content Include="Content\bootstrap\variables.less" />
+    <Content Include="Content\bootstrap\mixins.less" />
     <None Include="packages.config" />
+    <Content Include="Views\Sweet\Alert.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

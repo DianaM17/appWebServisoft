@@ -37,7 +37,7 @@
     <section>
         <div class="container">
             <div class="row justify-content-evenly">
-                <div class="card col-3">
+                <div class="card1 col-3">
                     <div class="face front">
                         <img src="Imagenes/3918929.jpg" alt="">
                         <h3>BUSCAS SERVICIOS</h3>
@@ -51,7 +51,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="card col-3">
+                <div class="card1 col-3">
                     <div class="face front">
                         <img src="Imagenes/2978479.jpg" alt="">
                         <h3>TRABAJOS REALIZADOS</h3>
@@ -64,7 +64,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="card col-3">
+                <div class="card1 col-3">
                     <div class="face front">
                         <img src="Imagenes/6325230.jpg" alt="">
                         <h3>REALIZAR REGISTROS</h3>
@@ -80,8 +80,9 @@
             </div>
         </div>
     </section>
+    <br />
+    <br />
     <section class="principal">
-
         <%-- Inicio Perfiles Profesionales --%>
         <div class="principal" <%--style="display: flex"--%>>
             <div class="wrapper ">
@@ -93,8 +94,8 @@
                                 <li class="card">
                                     <div class="img">
                                          <asp:Image class="imagenes" runat="server" ID="ImgCate" ImageUrl='<%# Eval("fotos") %>' alt="Card image cap" style="max-width: 100%; max-height: 100%; object-fit: cover;"  />
-                           
                                     </div>
+                                    <br />
                                     <asp:Label runat="server" ID="lblNombre" Text='<%# Eval("nombres") %>'></asp:Label>
                                     <asp:Label runat="server" ID="lblApellido" Text='<%# Eval("apellidos") %>'></asp:Label>
                                     <asp:Label runat="server" ID="lblCategoria" Text='<%# Eval("categoria") %>'></asp:Label>
@@ -108,6 +109,51 @@
         </div>
         <script src="Js/JavaScript_Perfiles.js"></script>
     </section>
+
+    <style>/* Estilo base para las tarjetas (cards) */
+.card {
+  margin-right: -30px; /* Margen negativo entre las tarjetas */
+  margin-bottom: 30px; /* Margen inferior para separar las filas */
+  width: 230px; /* Ancho fijo para las tarjetas (ajusta según tus necesidades) */
+  /* Puedes ajustar el ancho y el margen inferior según tus preferencias */
+}
+
+/* Estilo para el contenedor de las tarjetas */
+ul.carousel {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se envuelvan a la siguiente línea */
+  justify-content: center;
+  padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+
+/* Estilo para las flechas izquierda y derecha (ajusta según sea necesario) */
+#left,
+#right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  /* Ajusta la posición horizontal si es necesario */
+}
+
+#left {
+  left: -75px;
+}
+
+#right {
+  right: -55px;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .card {
+    width: 250px; /* Ancho del 100% para ocupar el ancho completo del contenedor */
+    margin-right: -30px; /* Margen negativo entre las tarjetas */
+  margin-bottom: 30px; /* Margen inferior para separar las filas */
+  }
+}
+
+</style>
     <%-- Inicio Testimonios --%>
 
     <section class="testimonios">
@@ -244,7 +290,7 @@
             <img src="Imagenes/images/shape.png" class="square" alt="" />
             <div class="form">
                 <div class="contact-info">
-                    <h3 class="title">Puedes Contáctarte con nosotros!!</h3>
+                    <h3 style="color: #2c6f62" class="title">Puedes Contáctarte con nosotros!!</h3>
                     <p class="text">
                         Si necesitás contactarnos para hacer alguna consulta o sumplemente para dejar tu comentario,
                         puedes tener la libertad de hacerlo. Repondemos en horario laboral.
@@ -318,33 +364,35 @@
         </div>
         <script src="Js/JavaScript_Contacto.js"></script>
     </section>
+    
     <footer>
-        <div class="container__footer">
+    <hr>
+        <div class="container__footer" style="height:214px; font-size:smaller; margin-top:-45px;">
             <div class="box__footer">
                 <div class="logo">
                     <img src="Imagenes/logo_preview_rev_3.png" alt="">
                 </div>
                 <div class="terms">
-                    <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+                    <p style="font-size:smaller;">Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
                 </div>
             </div>
-            <div class="box__footer">
-                <h2>Compañia</h2>
+            <div class="box__footer" style="margin-top:20px;">
+                <h2 style="font-size: large;">Compañia</h2>
                 <a href="Categorias.aspx">Categorias</a>
                 <a href="RegistrarUsuario.aspx">Cliente</a>
                 <a href="RegistrarUsuario.aspx">Profesional</a>
 
 
             </div>
-            <div class="box__footer">
-                <h2>Redes Sociales</h2>
+            <div class="box__footer" style="margin-top:20px;">
+                <h2 style="font-size:large;">Redes Sociales</h2>
                 <a href="https://www.facebook.com/profile.php?id=100094488848221&mibextid=LQQJ4d"><i class="fab fa-facebook-square"></i>Facebook</a>
                 <a href="https://www.instagram.com/servisoft1710/?igshid=MzRlODBiNWFlZA%3D%3D"><i class="fab fa-instagram-square"></i>Instagram</a>
             </div>
         </div>
-        <div class="box__copyright">
+        <div class="box__copyright" style="height:2px; font-size:smaller;">
             <hr>
-            <p style="font-size: 15px">
+            <p style="font-size: small">
                 SERVISOFT ® 2022
                  <%--<a href="#" style="text-decoration: none;">
                      <strong class="text-info">Consulta nuestras politicas de privacidad</strong>

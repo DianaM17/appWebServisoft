@@ -154,5 +154,34 @@ namespace appWebServisoft.Datos
             int regis = SQL.mtdIUDConec(Registro);
             return regis;
         }
+
+
+        public List<ClListaCotizacionE> mtdListaCotizacionUsuario(int idCotizacion)
+        {
+            string consulta = "SELECT Cotizacion.idCotizacion, Ciudad.nombre AS Ciudad, Servicio.servicio AS Servicio, Categoria.categoria AS Categoria, Cotizacion.tituloServicio AS Titulo, Cotizacion.descripcion AS DescripcionCotizacion, Cotizacion.idCiudad, Cotizacion.idCategoria, Cotizacion.idServicio, Cotizacion.direccion FROM Cotizacion INNER JOIN Ciudad ON Cotizacion.idCiudad = Ciudad.idCiudad INNER JOIN Servicio ON Cotizacion.idServicio = Servicio.idServicio INNER JOIN Categoria ON Servicio.idCategoria = Categoria.idCategoria WHERE Cotizacion.idCotizacion='" + idCotizacion + "'";
+            ClProcesarSQL objSQL = new ClProcesarSQL();
+            DataTable tblCotizacion = objSQL.mtdSelectDesc(consulta);
+
+            List<ClListaCotizacionE> listaCotizacion = new List<ClListaCotizacionE>();
+
+            for (int i = 0; i < tblCotizacion.Rows.Count; i++)
+            {
+                ClListaCotizacionE ObjCotizacion = new ClListaCotizacionE();
+                ObjCotizacion.idCotizacion = int.Parse(tblCotizacion.Rows[i]["idCotizacion"].ToString());
+                ObjCotizacion.tituloServicio = tblCotizacion.Rows[i]["Titulo"].ToString();
+                ObjCotizacion.descripcion = tblCotizacion.Rows[i]["DescripcionCotizacion"].ToString();
+                ObjCotizacion.direccion = tblCotizacion.Rows[i]["direccion"].ToString();
+                ObjCotizacion.ciudad = tblCotizacion.Rows[i]["Ciudad"].ToString();
+                ObjCotizacion.servicio = tblCotizacion.Rows[i]["Servicio"].ToString();
+                ObjCotizacion.categoria = tblCotizacion.Rows[i]["Categoria"].ToString();
+                ObjCotizacion.idCiudad = int.Parse(tblCotizacion.Rows[i]["idCiudad"].ToString());
+                ObjCotizacion.idServicio = int.Parse(tblCotizacion.Rows[i]["idServicio"].ToString());
+                ObjCotizacion.idCategoria = int.Parse(tblCotizacion.Rows[i]["idCategoria"].ToString());
+                listaCotizacion.Add(ObjCotizacion);
+
+            }
+
+            return listaCotizacion;
+        }
     }
 }

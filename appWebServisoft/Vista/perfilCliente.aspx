@@ -16,11 +16,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div runat="server">
-        <div style="display: block">
+        <div style="display: block; background: white;"">
             <section class="seccion-perfil-usuario container">
                 <asp:Label ID="lblidCliente" runat="server" Visible="false"></asp:Label>
                 <asp:Label ID="lblTelCliente" runat="server" Visible="false"></asp:Label>
-                <div class="perfil-usuario-header">
+                <div class="perfil-usuario-header" style="background: linear-gradient(#e75f6c, transparent)">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -202,7 +202,7 @@
                                                 <%--<input type="text" placeholder="Country" class="form-control">--%>
                                             </div>
                                         </div>
-                                        <asp:Button ID="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click1" />
+                                        <asp:Button ID="btnGuardar" CssClass="btnGuardar" runat="server" Text="Guardar" OnClick="btnGuardar_Click1" />
                                     </section>
                                 </div>
                             </div>
@@ -211,6 +211,33 @@
                 </div>
             </div>
         </div>
+
+        <style>
+            .form-header{
+                margin-bottom: -20PX;
+            }
+
+          .btnGuardar {
+    border: none;
+    background-color: #aac1f0;
+    color: white;
+    font-family: 'Sans Serif Collection';
+    font-size: 16px;
+    height: 45px;
+    width: 140px;
+    border-radius: 20px; /* La mitad del valor del ancho para hacerlo redondo */
+    position: absolute; /* Establece la posición absoluta */
+    top: 153px; /* Ajusta la posición vertical hacia abajo */
+    right: 90px; /* Ajusta la posición a la derecha */
+    z-index: 999; /* Asegura que se superponga sobre otros elementos */
+}
+
+.btnGuardar:hover {
+    background-color: #98add6;
+}
+
+        </style>
+   
 
         <asp:Button ID="btn" runat="server" OnClick="btn_Click" />
 
