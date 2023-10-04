@@ -246,7 +246,16 @@
             </div>
         </div>
     </form>
+    <script>
+        var monthSelect = document.getElementById("month");
+        var yearSelect = document.getElementById("year");
+        var currentDate = new Date();
 
+        yearSelect.value = currentDate.getFullYear();
+        monthSelect.value = currentDate.getMonth(); 
+
+        loadCalendar();
+    </script>
 
     <style>
         .txtDescripcion{

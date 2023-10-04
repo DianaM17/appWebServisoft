@@ -290,7 +290,7 @@ ul.carousel {
             <img src="Imagenes/images/shape.png" class="square" alt="" />
             <div class="form">
                 <div class="contact-info">
-                    <h3 class="title">Puedes Contáctarte con nosotros!!</h3>
+                    <h3 style="color: #2c6f62" class="title">Puedes Contáctarte con nosotros!!</h3>
                     <p class="text">
                         Si necesitás contactarnos para hacer alguna consulta o sumplemente para dejar tu comentario,
                         puedes tener la libertad de hacerlo. Repondemos en horario laboral.
@@ -364,33 +364,35 @@ ul.carousel {
         </div>
         <script src="Js/JavaScript_Contacto.js"></script>
     </section>
+    
     <footer>
-        <div class="container__footer">
+    <hr>
+        <div class="container__footer" style="height:214px; font-size:smaller; margin-top:-45px;">
             <div class="box__footer">
                 <div class="logo">
                     <img src="Imagenes/logo_preview_rev_3.png" alt="">
                 </div>
                 <div class="terms">
-                    <p>Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
+                    <p style="font-size:smaller;">Contamos con un grupo de profesionales quienes son los encargados de resolver cualquier problema que se le pueda presentar</p>
                 </div>
             </div>
-            <div class="box__footer">
-                <h2>Compañia</h2>
+            <div class="box__footer" style="margin-top:20px;">
+                <h2 style="font-size: large;">Compañia</h2>
                 <a href="Categorias.aspx">Categorias</a>
                 <a href="RegistrarUsuario.aspx">Cliente</a>
                 <a href="RegistrarUsuario.aspx">Profesional</a>
 
 
             </div>
-            <div class="box__footer">
-                <h2>Redes Sociales</h2>
+            <div class="box__footer" style="margin-top:20px;">
+                <h2 style="font-size:large;">Redes Sociales</h2>
                 <a href="https://www.facebook.com/profile.php?id=100094488848221&mibextid=LQQJ4d"><i class="fab fa-facebook-square"></i>Facebook</a>
                 <a href="https://www.instagram.com/servisoft1710/?igshid=MzRlODBiNWFlZA%3D%3D"><i class="fab fa-instagram-square"></i>Instagram</a>
             </div>
         </div>
-        <div class="box__copyright">
+        <div class="box__copyright" style="height:2px; font-size:smaller;">
             <hr>
-            <p style="font-size: 15px">
+            <p style="font-size: small">
                 SERVISOFT ® 2022
                  <%--<a href="#" style="text-decoration: none;">
                      <strong class="text-info">Consulta nuestras politicas de privacidad</strong>

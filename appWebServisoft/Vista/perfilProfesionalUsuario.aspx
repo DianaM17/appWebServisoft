@@ -20,12 +20,12 @@
 <body >
     <form id="form1" runat="server">
             <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <div style="display: block">
+            <div style="display: block; background: white;">
        
                 <section class="seccion-perfil-usuario container">
                     <asp:Label ID="lblIdCotizacion" runat="server" Visible="false"></asp:Label>
                     <asp:Label ID="lblTeleProf" runat="server" Visible="false"></asp:Label>
-                    <div class="perfil-usuario-header">
+                    <div class="perfil-usuario-header" style="background: linear-gradient(#e75f6c, transparent);">
                         <div class="perfil-usuario-portada">
                                      <a href="TrabajosSolicitadosCliente.aspx" class="cta">
             <span>Volver</span>

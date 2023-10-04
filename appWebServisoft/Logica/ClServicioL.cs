@@ -99,5 +99,12 @@ namespace appWebServisoft.Logica
             ClSolicitudServicioE objServicio = objServ.mtdSeleccionarServ(idServicio);
             return objServicio;
         }
+
+        public int mtdHoraDisponible(string fecha, string hora)
+        {
+            ClServicioD objServ = new ClServicioD();
+            int Reprogramar = objServ.HoraDisponible(fecha, hora);
+            return Reprogramar;
+        }
     }
 }

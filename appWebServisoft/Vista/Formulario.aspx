@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Formulario.aspx.cs" Inherits="Formulario.Formulario" %>
 
 <!DOCTYPE html>
-
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -12,80 +10,82 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="Css/style_formularioServ.css">
     <link rel="stylesheet" href="Css/normalize.css">
+    <script src="../Scripts/sweetalert.min.js"></script>
+    <link href="Css/sweetalert.css" rel="stylesheet" />
 </head>
 <body>
     <a href="#" onclick="window.history.back(); return false;" class="cta">
-            <span>Volver</span>
-            <svg width="13px" height="10px" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1,5 L5,1 L5,3 L11,3 L11,7 L5,7 L5,9 L1,5" stroke="black" stroke-width="1.5" fill="black"></path>
-            </svg>
+        <span>Volver</span>
+        <svg width="13px" height="10px" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M1,5 L5,1 L5,3 L11,3 L11,7 L5,7 L5,9 L1,5" stroke="black" stroke-width="1.5" fill="black"></path>
+        </svg>
 
 
-        </a>
-        <style>
-            a {
-                text-decoration: none;
-                color: inherit;
-                top: 30px;
-                right: -30px;
+    </a>
+    <style>
+        a {
+            text-decoration: none;
+            color: inherit;
+            top: 30px;
+            right: -30px;
+        }
+
+        .cta {
+            position: relative;
+            margin: auto;
+            padding: 19px 22px;
+            transition: all 0.2s ease;
+        }
+
+            .cta:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                border-radius: 28px;
+                background: rgba(255, 171, 157, 0.5);
+                width: 56px;
+                height: 56px;
+                transition: all 0.3s ease;
             }
 
-            .cta {
+            .cta span {
                 position: relative;
-                margin: auto;
-                padding: 19px 22px;
-                transition: all 0.2s ease;
+                font-size: 16px;
+                line-height: 18px;
+                font-weight: 900;
+                letter-spacing: 0.25em;
+                text-transform: uppercase;
+                vertical-align: middle;
             }
 
-                .cta:before {
-                    content: "";
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    display: block;
-                    border-radius: 28px;
-                    background: rgba(255, 171, 157, 0.5);
-                    width: 56px;
-                    height: 56px;
-                    transition: all 0.3s ease;
-                }
+            .cta svg {
+                position: relative;
+                top: 0;
+                margin-left: 10px;
+                fill: none;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke: #111;
+                stroke-width: 2;
+                transform: translateX(-5px);
+                transition: all 0.3s ease;
+            }
 
-                .cta span {
-                    position: relative;
-                    font-size: 16px;
-                    line-height: 18px;
-                    font-weight: 900;
-                    letter-spacing: 0.25em;
-                    text-transform: uppercase;
-                    vertical-align: middle;
-                }
+            .cta:hover:before {
+                width: 100%;
+                background: #ffab9d;
+            }
 
-                .cta svg {
-                    position: relative;
-                    top: 0;
-                    margin-left: 10px;
-                    fill: none;
-                    stroke-linecap: round;
-                    stroke-linejoin: round;
-                    stroke: #111;
-                    stroke-width: 2;
-                    transform: translateX(-5px);
-                    transition: all 0.3s ease;
-                }
+            .cta:hover svg {
+                transform: translateX(0);
+            }
 
-                .cta:hover:before {
-                    width: 100%;
-                    background: #ffab9d;
-                }
-
-                .cta:hover svg {
-                    transform: translateX(0);
-                }
-
-                .cta:active {
-                    transform: scale(0.96);
-                }
-        </style>
+            .cta:active {
+                transform: scale(0.96);
+            }
+    </style>
     <!-- Form container -->
     <section id="form-width">
 
@@ -97,15 +97,15 @@
                     <div class="logotipe d-flex justify-content-center">
                         <a href="#" class="d-flex align-items-center">
                             <img src="Imagenes/logo_preview_rev_3.png" class="img-fluid">
-                            <h3 class="ubuntu">Servisoft</h3>
+                            <h3>Servisoft</h3>
                         </a>
                     </div>
                     <asp:Label ID="lblIdCliente" runat="server" Visible="false"></asp:Label>
                     <asp:Label ID="lblIdCiudad" runat="server" Visible="false"></asp:Label>
-                    <h4 class="text-center text-uppercase anton">Bienvenidos</h4>
+                    <h4 class="text-center text-uppercase">Bienvenidos</h4>
                     <hr>
-                    <p class="text-center text-uppercase anton">¿Que servcio necesitas?</p>
-                    <p class="text-center text-uppercase anton">Ingresa cada uno de los datos solicitados para poder solicitar la cotización a cada uno de los profesionales que se encuentren disponibles</p>
+                    <p class="text-center text-uppercase">¿Que servcio necesitas?</p>
+                    <p class="text-center text-uppercase">Ingresa cada uno de los datos solicitados para poder solicitar la cotización a cada uno de los profesionales que se encuentren disponibles</p>
                     <hr>
 
                     <!-- inputs -->
@@ -125,7 +125,7 @@
                         <input type="text" name="username" id="txtTitulo" runat="server" class="form-control mb-4" required />
 
                         <label for="descripcion" class="ubuntu">Descripción del servicio:</label>
-                        <input type="text" TextMode="MultiLine" Rows="5" Columns="40" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-4" required />
+                        <input type="text" textmode="MultiLine" rows="5" columns="40" name="descripcion_form" id="txtDescripcion" runat="server" class="form-control mb-4" required />
 
                         <label for="imagenes" class="ubuntu">Imagenes:</label>
                         <asp:FileUpload ID="FluImagen" runat="server" />
@@ -136,7 +136,7 @@
                         <label for="descripcion" class="ubuntu">Dirección:</label>
                         <input type="text" name="direccion_form" id="txtDireccion" runat="server" class="form-control mb-4" required>
 
-                        <button id="btnEnviar" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick">Enviar</button>
+                        <button id="btnEnviar" style="background-color:#dc3545; color:white" runat="server" type="submit" class="btn mt-1 ubuntu send-form" onserverclick="btnEnviar_ServerClick">Enviar</button>
 
                     </div>
 

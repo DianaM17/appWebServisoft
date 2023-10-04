@@ -81,6 +81,7 @@ namespace appWebServisoft.Vista
                 //ddlEstadoSev.Items.Insert(0, new ListItem("En Proceso", "4"));
                 //ddlEstadoSev.Enabled = false;
 
+
                 ClServicioL objEstadoServ = new ClServicioL();
                 List<ClEstadoServicioE> ListaEstadoServ = new List<ClEstadoServicioE>();
                 ListaEstadoServ = objEstadoServ.mtdListarEstadoS();
@@ -166,6 +167,7 @@ namespace appWebServisoft.Vista
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+
             int idCliente = Int32.Parse(lblIdCliente.Text = Session["idCliente"].ToString());
             ClSolicitudServicioE objDatos = new ClSolicitudServicioE();
 
@@ -208,36 +210,68 @@ namespace appWebServisoft.Vista
 
             //DateTime fechaSeleccionada = DateTime.ParseExact(txtFecha.Text, "yyyy-MM-dd", CultureInfo.InvariantCulture);
 
-            DateTime fechaActual = DateTime.Now;
 
-            //if (fechaSeleccionada < fechaActual)
-            //{
-            //    string script = @"<script> swal({ title: '¡Error!', text: 'No se puede solicitar un servicio en fechas anteriores a la actual.', type: 'error', confirmButtonText: 'Aceptar' }); </script>";
-            //    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
-            //    return;
-            //}
+            DateTime fechaActual = DateTime.Now;
+            string horaIngresada = txtHora.Value;
+            string fecha = eventdate.Value;
 
             ClServicioL objServicioL = new ClServicioL();
-            int registro = objServicioL.mtdSolicitudServicio(objDatos);
+            int regis = objServicioL.mtdHoraDisponible(fecha, horaIngresada);
 
-            if (registro == 1)
+            if (regis >= 1)
             {
-                //txtFecha.Text = string.Empty;
-                txtHora.Value = string.Empty;
-                txtDescripcion.Text = string.Empty;
-                txtDireccion.Text = string.Empty;
-                ddlCategoria.SelectedIndex = 0;
-                ddlServicio.SelectedIndex = 0;
-                ddlCiudad.SelectedIndex = 0;
-                ddlProfesional.SelectedIndex = 0;
-                //ddlEstadoSev.SelectedIndex = 0;
-
-                string script = @"<script> swal({ title: '¡Registro Exitoso!', text: 'El servicio ha sido solicitado con exito.',type: 'success',
-                            confirmButtonText: 'Aceptar'});
-                        </script>";
-                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlert", script);
-
+                string scriptError = @"<script> swal({ title: 'Error', text: 'La hora seleccionada no se encuentra disponible.', type: 'error', confirmButtonText: 'Aceptar' });</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertError", scriptError);
             }
+
+
+            if (DateTime.TryParse(eventdate.Value, out DateTime fechaIngresada))
+            {
+                if (fechaIngresada < fechaActual)
+                {
+                    string scriptError = @"<script> swal({ title: 'Error', text: 'No se puede registrar una fecha anterior a la actual.', type: 'error', confirmButtonText: 'Aceptar' });</script>";
+                    ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertError", scriptError);
+                }
+                else
+                {
+                    int idCliente = Int32.Parse(Session["idCliente"].ToString());
+                    ClSolicitudServicioE objDatos = new ClSolicitudServicioE();
+
+                    objDatos.fecha = eventdate.Value;
+                    objDatos.hora = txtHora.Value;
+                    objDatos.descripcion = txtDescripcion.Text;
+                    objDatos.ubicacion = txtDireccion.Text;
+                    objDatos.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
+                    objDatos.idServicio = int.Parse(ddlServicio.SelectedValue.ToString());
+                    objDatos.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
+                    objDatos.idProfesional = int.Parse(ddlProfesional.SelectedValue.ToString());
+                    objDatos.idCliente = (int)Session["idCliente"];
+                    objDatos.idEstadoServicio = 4;
+                    
+                    int registro = objServicioL.mtdSolicitudServicio(objDatos);
+
+                    if (registro == 1)
+                    {
+                        // Restablecer los campos después del registro exitoso
+                        txtHora.Value = string.Empty;
+                        txtDescripcion.Text = string.Empty;
+                        txtDireccion.Text = string.Empty;
+                        ddlCategoria.SelectedIndex = 0;
+                        ddlServicio.SelectedIndex = 0;
+                        ddlCiudad.SelectedIndex = 0;
+                        ddlProfesional.SelectedIndex = 0;
+
+                        string scriptSuccess = @"<script> swal({ title: '¡Registro Exitoso!', text: 'El servicio ha sido solicitado con éxito.', type: 'success', confirmButtonText: 'Aceptar' });</script>";
+                        ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertSuccess", scriptSuccess);
+                    }
+                }
+            }
+            else
+            {
+                string scriptError = @"<script> swal({ title: 'Error', text: 'Formato de fecha no válido.', type: 'error', confirmButtonText: 'Aceptar' });</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "SweetAlertError", scriptError);
+            }
+        }
 
             //}
 
@@ -250,6 +284,8 @@ namespace appWebServisoft.Vista
             //    ClProfesionalL objProfesional = new ClProfesionalL();
             //    List<ClProfesionalE> listaProf = new List<ClProfesionalE>();
             //    listaProf = objProfesional.mtdSelecCorreoCateg(categ, serv, ciudad);
+
+
 
         protected void ddlServicio_SelectedIndexChanged(object sender, EventArgs e)
         {

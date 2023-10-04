@@ -16,11 +16,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div runat="server">
-        <div style="display: block">
+        <div style="display: block; background: white;"">
             <section class="seccion-perfil-usuario container">
                 <asp:Label ID="lblidCliente" runat="server" Visible="false"></asp:Label>
                 <asp:Label ID="lblTelCliente" runat="server" Visible="false"></asp:Label>
-                <div class="perfil-usuario-header">
+                <div class="perfil-usuario-header" style="background: linear-gradient(#e75f6c, transparent)">
                     <div class="perfil-usuario-portada">
                         <div class="perfil-usuario-avatar">
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">

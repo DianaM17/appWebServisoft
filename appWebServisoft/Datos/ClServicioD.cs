@@ -174,9 +174,9 @@ namespace appWebServisoft.Datos
         {
             string consulta = " Select * from solicitudServicio soli inner join EstadoServicio Es On soli.idEstadoServicio = Es.idEstadoServicio " +
                 "inner join Ciudad ciu on soli.idCiudad = ciu.idCiudad where idsolicitudServicio = " + idServicio + "";
-            ClProcesarSQL SQL  = new ClProcesarSQL();
+            ClProcesarSQL SQL = new ClProcesarSQL();
             DataTable tblDatos = SQL.mtdSelectDesc(consulta);
-           
+
             ClSolicitudServicioE objServ = null;
             if (tblDatos.Rows.Count > 0)
             {
@@ -266,6 +266,16 @@ namespace appWebServisoft.Datos
 
             }
             return objServicio;
+        }
+
+        // Método para verificar si la fecha y hora ya están en la base de datos
+        public int HoraDisponible(string fecha, string hora)
+        {
+            string consulta = "SELECT COUNT(*) FROM solicitudServicio WHERE fecha = '" + fecha + "' and hora = '" + hora + "'";
+
+            ClProcesarSQL SQL = new ClProcesarSQL();
+            int Reprogramar = SQL.mtdIUDConec(consulta);
+            return Reprogramar;
         }
     }
 }
