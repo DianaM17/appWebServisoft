@@ -327,7 +327,10 @@
                         <ItemTemplate>
                             <div class="cardComentario">
                                 <div class="profile">
-                                    <img src="Imagenes/PerfilCliente/<%# Eval("foto") %>" />
+                     
+                                   <asp:Image runat="server" ID="ImgCate" ImageUrl='<%# Eval("foto") %>' />
+
+
                                     <div>
                                         <h3 class="card-text"><%# Eval("nombres") %> <%# Eval("apellidos") %></h3>
                                         <p class="card-text"><%# Eval("nivel") %></p>

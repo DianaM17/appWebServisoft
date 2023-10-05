@@ -189,7 +189,9 @@
                                             <input id="txtEmailC" name="txtEmailC" type="text" placeholder="Email" class="form-control" runat="server" disabled />
                                         </div>
                                         <div class="form-holder">
-                                            <input id="txtPasswordC" name="txtPasswordC" type="password" placeholder="Contraseña" class="form-control" runat="server" />
+                                       <label for="txtContraseña" style="display: block; text-align: center;">Contraseña:</label>
+                                   <input id="txtContraseña" name="txtContraseña" type="text" class="form-control" runat="server" />
+                                        
                                         </div>
                                     </section>
 
@@ -211,6 +213,7 @@
                 </div>
             </div>
         </div>
+
 
         <style>
             .form-header{

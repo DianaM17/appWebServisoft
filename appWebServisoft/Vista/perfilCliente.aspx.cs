@@ -31,12 +31,14 @@ namespace appWebServisoft.Vista
                         txtDireccionC.Value = Buscar.direccion;
                         txtTelefonoC.Value = Buscar.telefono;
                         txtEmailC.Value = Buscar.email;
-                        txtPasswordC.Value = Buscar.clave;
+                        ////txtPasswordC.Value = Buscar.clave;
+                        txtContraseña.Value = Buscar.clave;
 
                         lblDireccion.Text = Buscar.direccion;
                         lblTelefono.Text = Buscar.telefono;
                         lblEmail.Text = Buscar.email;
                         lblCiudad.Text = Buscar.nombre;
+
 
                         //Combo ddlCiudad
                         ClCiudadD objCiudad = new ClCiudadD();
@@ -96,7 +98,7 @@ namespace appWebServisoft.Vista
             objClient.direccion = txtDireccionC.Value;
             objClient.telefono = txtTelefonoC.Value;
             objClient.email = txtEmailC.Value;
-            objClient.clave = txtPasswordC.Value;
+            objClient.clave = txtContraseña.Value;
             objClient.idCiudad = int.Parse(ddlCiudad.SelectedValue.ToString());
 
             ClClienteL objCliente = new ClClienteL();

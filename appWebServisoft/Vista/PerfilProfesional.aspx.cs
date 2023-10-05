@@ -41,7 +41,7 @@ namespace appWebServisoft.Vista
                         txtApellidos.Value = Buscar.apellidos;
                         txtTelefono.Value = Buscar.telefono;
                         txtEmail.Value = Buscar.email;
-                        txtPassword.Value = Buscar.clave;
+                        txtContraseña.Value = Buscar.clave;
                         txtDireccion.Value = Buscar.direccion;
                         txtPerfil.Value = Buscar.perfil;
 
@@ -140,7 +140,7 @@ namespace appWebServisoft.Vista
             objProf.apellidos = txtApellidos.Value;
             objProf.telefono = txtTelefono.Value;
             objProf.email = txtEmail.Value;
-            objProf.clave = txtPassword.Value;
+            objProf.clave = txtContraseña.Value;
             objProf.direccion = txtDireccion.Value;
             objProf.perfil = txtPerfil.Value;
             objProf.idCategoria = int.Parse(ddlCategoria.SelectedValue.ToString());
